@@ -49,7 +49,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26def09051997944d9e514ae7a7da17b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeMenu: {fileID: 0}
   pauseMenu: {fileID: 0}
   winMenu: {fileID: 0}
   loseMenu: {fileID: 0}
+  checkPointMenu: {fileID: 0}
+  playerHitFlash: {fileID: 0}
+  playerHealthBar: {fileID: 0}

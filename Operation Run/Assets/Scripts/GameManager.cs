@@ -16,10 +16,31 @@ public class GameManager : MonoBehaviour
     public GameObject playerHitFlash;
     public Image playerHealthBar;
 
+
+    public bool isPaused;
+
     private void Awake()
     {
         instance = this;
 
+    }
+    void Update()
+    {
+        if (Input.GetButtonDown("Cancel") && activeMenu == null)
+        {
+            isPaused = !isPaused;
+            activeMenu = pauseMenu;
+            activeMenu.SetActive(isPaused);
+
+            if(isPaused)
+            {
+                GamePaused();
+            }
+            else
+            {
+                GameUnpaused();
+            }
+        }
     }
 
     public void GamePaused()
