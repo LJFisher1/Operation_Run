@@ -1,11 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
+    [Header("Player")]
+    public GameObject player;
+    public PlayerController playerController;
+    public GameObject playerSpawnPosition;
 
     GameObject activeMenu;
     [Header("*   Game UI")]
@@ -15,14 +22,18 @@ public class GameManager : MonoBehaviour
     public GameObject checkPointMenu;
     public GameObject playerHitFlash;
     public Image playerHealthBar;
+    public TextMeshProUGUI enemiesRemainingText;
 
+    [Header("Game Goals")]
+    public int enemiesRemaining;
 
     public bool isPaused;
 
     private void Awake()
     {
         instance = this;
-
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerSpawnPosition = GameObject.FindGameObjectWithTag("Player Spawn Position");
     }
     void Update()
     {
@@ -41,6 +52,12 @@ public class GameManager : MonoBehaviour
                 GameUnpaused();
             }
         }
+    }
+
+    public void GameUpdateGoal(int amount)
+    {
+        enemiesRemaining += amount;
+        enemiesRemainingText.text = enemiesRemaining.ToString("F0");
     }
 
     public void GamePaused()
