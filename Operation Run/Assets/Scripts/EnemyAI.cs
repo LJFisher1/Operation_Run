@@ -17,7 +17,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] int playerFaceSpeed;
     [SerializeField] int waitTime;
 
-    [Header("-----Gun Stats-----")]
+    [Header("--Attack Stats--")]
     [SerializeField] float attackRate;
     [SerializeField] int attackDistance;
     [SerializeField] GameObject projectile;
