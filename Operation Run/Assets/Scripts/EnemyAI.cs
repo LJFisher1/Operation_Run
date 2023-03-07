@@ -38,7 +38,7 @@ public class EnemyAI : MonoBehaviour
     {
         stoppingDistanceOrigin = agent.stoppingDistance;
         startingPosition = transform.position;
-        
+
     }
 
     // Update is called once per frame
@@ -63,5 +63,22 @@ public class EnemyAI : MonoBehaviour
 
             agent.SetDestination(hit.position);
         }
+    }
+    bool CanSeePlayer()
+    {
+        playerDirection = (GameManager.instance.player.transform.position - headPosition.position);
+        angleToPlayer = Vector3.Angle(new Vector3(playerDirection.x, 0, playerDirection.z), transform.forward);
+
+        RaycastHit hit;
+        if (Physics.Raycast(headPosition.position, playerDirection, out hit))
+        {
+            if (hit.collider.CompareTag("Player") && angleToPlayer <= sightAngle)
+            {
+                agent.stoppingDistance = stoppingDistanceOrigin;
+                agent.SetDestination(GameManager.instance.player.transform.position);
+                return true;
+            }
+        }
+        return false;
     }
 }
