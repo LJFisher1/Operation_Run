@@ -91,6 +91,10 @@ public class EnemyAI : MonoBehaviour
                 {
                     FacePlayer();
                 }
+                if (!isAttacking)
+                {
+                    StartCoroutine(Attack());
+                }
                 return true;
             }
         }
