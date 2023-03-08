@@ -2228,8 +2228,8 @@ MonoBehaviour:
   sightAngle: 100
   playerFaceSpeed: 5
   waitTime: 3
-  attackRate: 1
-  attackDistance: 0
+  attackRate: 3
+  attackDistance: 10
   projectile: {fileID: 0}
   projectileSpeed: 0
   projectilePosition: {fileID: 0}

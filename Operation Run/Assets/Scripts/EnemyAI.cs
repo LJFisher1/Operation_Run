@@ -44,7 +44,17 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(Roam());
+        if (playerInRange)
+        {
+            if (!CanSeePlayer())
+            {
+                StartCoroutine(Roam());
+            }
+        }
+        else if (agent.destination != GameManager.instance.player.transform.position)
+        {
+            StartCoroutine(Roam());
+        }
     }
 
     IEnumerator Roam()
@@ -64,6 +74,7 @@ public class EnemyAI : MonoBehaviour
             agent.SetDestination(hit.position);
         }
     }
+
     bool CanSeePlayer()
     {
         playerDirection = (GameManager.instance.player.transform.position - headPosition.position);
@@ -76,9 +87,36 @@ public class EnemyAI : MonoBehaviour
             {
                 agent.stoppingDistance = stoppingDistanceOrigin;
                 agent.SetDestination(GameManager.instance.player.transform.position);
+                if (agent.remainingDistance < agent.stoppingDistance)
+                {
+                    FacePlayer();
+                }
                 return true;
             }
         }
         return false;
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = true;
+        }
+    }
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
+            agent.stoppingDistance = 0;
+        }
+    }
+
+    void FacePlayer()
+    {
+        playerDirection.y = 0;
+        Quaternion rot = Quaternion.LookRotation(playerDirection);
+        transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * playerFaceSpeed);
     }
 }
