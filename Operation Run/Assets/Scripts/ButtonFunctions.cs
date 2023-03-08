@@ -24,7 +24,7 @@ public class ButtonFunctions : MonoBehaviour
     public void RespawnPlayer()
     {
         GameManager.instance.GameUnpaused();
-        // Respawn Player Code Goes Here
+        GameManager.instance.playerController.SpawnPlayer();
     }
 }
 
