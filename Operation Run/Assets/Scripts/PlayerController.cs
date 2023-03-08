@@ -31,7 +31,11 @@ public class PlayerController : MonoBehaviour, IDamage
     void Start()
     {
         hpMax = hp;
-        SpawnPlayer();
+        if(GameManager.instance.playerSpawnPosition != null) // stops game from breaking if no spawn point set. Helps with testing.
+        {
+            SpawnPlayer();
+        }
+        
     }
 
     // Update is called once per frame
@@ -68,6 +72,7 @@ public class PlayerController : MonoBehaviour, IDamage
         if (Input.GetButtonDown("Jump") && jumpsCur < jumpsMax)
         {
             playerVelocity.y = jumpSpeed;
+            ++jumpsCur;
         }
 
         //player movement input
