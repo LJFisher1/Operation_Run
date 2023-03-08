@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Player")]
     public GameObject player;
-    public PlayerController playerController;
+    public PlayerController PlayerController;
     public GameObject playerSpawnPosition;
 
     GameObject activeMenu;
