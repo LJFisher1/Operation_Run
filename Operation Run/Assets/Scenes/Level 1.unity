@@ -1929,6 +1929,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2595636008386795721, guid: aebe5f8c871229947aed4917787598ab, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2595636008386795721, guid: aebe5f8c871229947aed4917787598ab, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2595636008386795721, guid: aebe5f8c871229947aed4917787598ab, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -120.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 8009780994362378651, guid: aebe5f8c871229947aed4917787598ab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8084488433707724345, guid: aebe5f8c871229947aed4917787598ab, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8084488433707724345, guid: aebe5f8c871229947aed4917787598ab, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8084488433707724345, guid: aebe5f8c871229947aed4917787598ab, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9030457522724797369, guid: aebe5f8c871229947aed4917787598ab, type: 3}
       propertyPath: m_Name
       value: UI & GameManager
