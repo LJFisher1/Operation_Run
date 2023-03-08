@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using UnityEngine;
 
-public class checkPoint : MonoBehaviour
+public class CheckPoint : MonoBehaviour
 {
     [SerializeField] Renderer model;
     private void OnTriggerEnter(Collider other)
@@ -11,11 +11,11 @@ public class checkPoint : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             GameManager.instance.playerSpawnPosition.transform.position = transform.position;
-            StartCoroutine(flash());
+            StartCoroutine(Flash());
         }
     }
 
-    IEnumerator flash()
+    IEnumerator Flash()
     {
         model.material.color = Color.red;
         GameManager.instance.checkPointMenu.SetActive(true);
