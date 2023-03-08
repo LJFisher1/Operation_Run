@@ -142,7 +142,7 @@ public class EnemyAI : MonoBehaviour
         yield return new WaitForSeconds(attackRate);
         isAttacking = false;
     }
-    public void takeDamage(int dmg)
+    public void TakeDamage(int dmg)
     {
         HP -= dmg;
         StartCoroutine(FlashMat());

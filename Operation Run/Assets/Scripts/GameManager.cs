@@ -83,13 +83,6 @@ public class GameManager : MonoBehaviour
         activeMenu = null;
     }
 
-    public void PlayerLose()
-    {
-        GamePaused();
-        activeMenu = loseMenu;
-        activeMenu.SetActive(true);
-    }
-
     public void PlayerWin()
     {
         GamePaused();
