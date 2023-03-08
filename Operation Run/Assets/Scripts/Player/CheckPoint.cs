@@ -19,7 +19,7 @@ public class CheckPoint : MonoBehaviour
     {
         model.material.color = Color.red;
         GameManager.instance.checkPointMenu.SetActive(true);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.5f);
         model.material.color = Color.white;
         GameManager.instance.checkPointMenu.SetActive(false);
     }
