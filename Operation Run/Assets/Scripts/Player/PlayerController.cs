@@ -106,6 +106,8 @@ public class PlayerController : MonoBehaviour, IDamage
     {
         hp -= dmg;
         UpdateHealthUI();
+        StartCoroutine(GameManager.instance.PlayerHitFlash());
+
         if (hp <= 0)
         {
             GameManager.instance.PlayerDead();
