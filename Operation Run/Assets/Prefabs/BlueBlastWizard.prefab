@@ -65,7 +65,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4870533933468081970}
   m_LocalRotation: {x: 0.49999997, y: -0.50000006, z: 0.49999997, w: 0.50000006}
-  m_LocalPosition: {x: -33.81814, y: -1.5509439, z: 0.18138885}
+  m_LocalPosition: {x: -74, y: -2, z: 0}
   m_LocalScale: {x: 25, y: 25, z: 25}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2129,7 +2129,7 @@ GameObject:
   - component: {fileID: 7857184997134915002}
   - component: {fileID: 276040541}
   m_Layer: 3
-  m_Name: Enemy
+  m_Name: BlueBlastWizard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2167,7 +2167,7 @@ MonoBehaviour:
   model: {fileID: 7504783233721442931}
   agent: {fileID: 7857184997134915002}
   headPosition: {fileID: 4371882770123961534}
-  HP: 5
+  HP: 2
   roamDistance: 10
   sightAngle: 100
   playerFaceSpeed: 5
@@ -2175,7 +2175,7 @@ MonoBehaviour:
   attackRate: 3
   attackDistance: 10
   projectile: {fileID: 2906220482725623105, guid: 42c927cb4b608204796fdcf9599608f8, type: 3}
-  projectileSpeed: 5
+  projectileSpeed: 3
   projectilePosition: {fileID: 764866726}
 --- !u!95 &7535897114369823827
 Animator:
@@ -2244,7 +2244,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 25
+  m_Radius: 8
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7621866358125552811
 GameObject:

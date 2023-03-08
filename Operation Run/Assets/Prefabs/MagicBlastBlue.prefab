@@ -49,8 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f589f592aa706b4aab79d775bc8eaf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  timer: 5
+  damage: 3
+  timer: 3
 --- !u!33 &8702982965060206465
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -151,7 +151,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 140c6abbfa72605499a9de6a0a808c16, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -203,7 +203,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 0.04538981, g: 0.07495628, b: 0.6415094, a: 1}
-      key1: {r: 0.028835872, g: 0.07918731, b: 0.6792453, a: 0.7058824}
+      key1: {r: 0.028835872, g: 0.07918731, b: 0.6792453, a: 0.627451}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -219,7 +219,7 @@ TrailRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
+      atime1: 32768
       atime2: 0
       atime3: 0
       atime4: 0
