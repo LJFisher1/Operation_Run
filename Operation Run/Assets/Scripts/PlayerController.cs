@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour, IDamage
     void Start()
     {
         hpMax = hp;
+        UpdateHealthUI();
         if(GameManager.instance.playerSpawnPosition != null) // stops game from breaking if no spawn point set. Helps with testing.
         {
             SpawnPlayer();
@@ -104,6 +105,7 @@ public class PlayerController : MonoBehaviour, IDamage
     public void TakeDamage(int dmg)
     {
         hp -= dmg;
+        UpdateHealthUI();
         if (hp <= 0)
         {
             GameManager.instance.PlayerDead();
@@ -113,8 +115,14 @@ public class PlayerController : MonoBehaviour, IDamage
     public void SpawnPlayer()
     {
         hp = hpMax;
+        UpdateHealthUI();
         controller.enabled = false;
         transform.position = GameManager.instance.playerSpawnPosition.transform.position;
         controller.enabled = true;
+    }
+
+    public void UpdateHealthUI()
+    {
+        GameManager.instance.playerHealthBar.fillAmount = (float)hp / (float)hpMax;
     }
 }
