@@ -16,7 +16,7 @@ public class Projectiles : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameManager.instance.PlayerController.TakeDamage(damage);
+            other.GetComponent<IDamage>().TakeDamage(damage);
         }
         Destroy(gameObject);
     }
