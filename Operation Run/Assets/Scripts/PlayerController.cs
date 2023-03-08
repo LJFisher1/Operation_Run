@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,8 +20,12 @@ public class PlayerController : MonoBehaviour
     int hpMax;
     [Range(0,100)] [SerializeField] int hp;
 
-    
+    [Header("----- Weapon Stats -----")]
+    [SerializeField] float useTime;
+    [SerializeField] float range;
+    [SerializeField] int weaponDamage;
 
+    bool isUsingWeapon;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +37,15 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Movement();
+        Weapons();
+    }
 
+    private void Weapons()
+    {
+        if (Input.GetButton("Fire1") & !isUsingWeapon)
+        {
+            StartCoroutine(UseWeapon());
+        }
     }
 
     void Movement()
@@ -59,5 +72,22 @@ public class PlayerController : MonoBehaviour
         //move controller
         controller.Move(move * Time.deltaTime * walkSpeed);
         controller.Move(playerVelocity * Time.deltaTime);
+    }
+
+    IEnumerator UseWeapon()
+    {
+        isUsingWeapon = true;
+        RaycastHit hit;
+        if(Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f,0.5f)), out hit, range))
+        {
+            Debug.Log(hit.transform.name);
+            var target = hit.collider.GetComponent<IDamage>();
+            if (target != null)
+            {
+                target.TakeDamage(weaponDamage);
+            }
+        }
+        yield return new WaitForSeconds(useTime);
+        isUsingWeapon = false;
     }
 }
