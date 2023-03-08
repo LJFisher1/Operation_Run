@@ -91,8 +91,8 @@ public class PlayerController : MonoBehaviour, IDamage
         RaycastHit hit;
         if(Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f,0.5f)), out hit, range))
         {
-            Debug.Log(hit.transform.name);
             var target = hit.collider.GetComponent<IDamage>();
+            Debug.Log(hit.transform.name);
             if (target != null)
             {
                 target.TakeDamage(weaponDamage);

@@ -56,13 +56,12 @@ public class GameManager : MonoBehaviour
 
     public void GameUpdateGoal(int amount)
     {
-        while (enemiesRemaining > 0)
-        {
-            enemiesRemaining += amount;
-            enemiesRemainingText.text = enemiesRemaining.ToString("F0");
-        }
+        enemiesRemaining += amount;
+        enemiesRemainingText.text = enemiesRemaining.ToString("F0");
+
         if(enemiesRemaining <= 0)
         {
+
             //remove enemies remaining text and add the "ESCAPE!!" Goal
         }
     }
