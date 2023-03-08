@@ -127,4 +127,13 @@ public class EnemyAI : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         model.material.color = Color.white;
     }
+
+    IEnumerator Attack()
+    {
+        isAttacking = true;
+        GameObject bulletClone = Instantiate(projectile, projectilePosition.position, projectile.transform.rotation);
+        bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * projectileSpeed;
+        yield return new WaitForSeconds(attackRate);
+        isAttacking = false;
+    }
 }
