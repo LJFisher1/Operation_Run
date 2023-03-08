@@ -36,6 +36,7 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.instance.GameUpdateGoal(1);
         stoppingDistanceOrigin = agent.stoppingDistance;
         startingPosition = transform.position;
 
