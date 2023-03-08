@@ -37,8 +37,12 @@ public class PlayerController : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        Movement();
-        Weapons();
+        if (!GameManager.instance.isPaused)
+        {
+            Movement();
+            Weapons();
+        }
+      
     }
 
     private void Weapons()
