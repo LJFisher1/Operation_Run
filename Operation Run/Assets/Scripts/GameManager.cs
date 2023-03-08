@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         player = GameObject.FindGameObjectWithTag("Player");
+        PlayerController = PlayerController.FindObjectOfType<PlayerController>();
         playerSpawnPosition = GameObject.FindGameObjectWithTag("Player Spawn Position");
     }
     void Update()
