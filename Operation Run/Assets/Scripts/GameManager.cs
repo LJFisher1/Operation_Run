@@ -96,4 +96,11 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         playerHitFlash.SetActive(false);
     }
+
+    public void PlayerDead()
+    {
+        GamePaused();
+        activeMenu = loseMenu;
+        activeMenu.SetActive(true);
+    }
 }

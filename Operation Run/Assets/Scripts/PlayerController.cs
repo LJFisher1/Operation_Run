@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamage
 {
     [Header("----- Componets -----")]
     [SerializeField] CharacterController controller;
@@ -89,5 +89,14 @@ public class PlayerController : MonoBehaviour
         }
         yield return new WaitForSeconds(useTime);
         isUsingWeapon = false;
+    }
+
+    public void TakeDamage(int dmg)
+    {
+        hp -= dmg;
+        if (hp <= 0)
+        {
+            GameManager.instance.PlayerDead();
+        }
     }
 }
