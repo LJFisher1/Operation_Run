@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour, IDamage
     void Start()
     {
         hpMax = hp;
+        SpawnPlayer();
     }
 
     // Update is called once per frame
@@ -65,13 +66,13 @@ public class PlayerController : MonoBehaviour, IDamage
             playerVelocity.y = jumpSpeed;
         }
 
-        //player movement
+        //player movement input
         move = transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical");
         move = move.normalized;
 
         //move controller
         controller.Move(move * Time.deltaTime * walkSpeed);
-        controller.Move(playerVelocity * Time.deltaTime);
+        controller.Move(playerVelocity * Time.deltaTime); // this needs to come after movement or it causes issues.
     }
 
     IEnumerator UseWeapon()
@@ -98,5 +99,13 @@ public class PlayerController : MonoBehaviour, IDamage
         {
             GameManager.instance.PlayerDead();
         }
+    }
+
+    public void SpawnPlayer()
+    {
+        hp = hpMax;
+        controller.enabled = false;
+        transform.position = GameManager.instance.playerSpawnPosition.transform.position;
+        controller.enabled = true;
     }
 }
