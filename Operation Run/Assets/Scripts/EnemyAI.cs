@@ -20,6 +20,7 @@ public class EnemyAI : MonoBehaviour
     [Header("--Attack Stats--")]
     [SerializeField] float attackRate;
     [SerializeField] int attackDistance;
+    [SerializeField] int attackDamage;
     [SerializeField] GameObject projectile;
     [SerializeField] int projectileSpeed;
     [SerializeField] Transform projectilePosition;
@@ -136,9 +137,20 @@ public class EnemyAI : MonoBehaviour
     IEnumerator Attack()
     {
         isAttacking = true;
-        GameObject bulletClone = Instantiate(projectile, projectilePosition.position, projectile.transform.rotation);
-        bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * projectileSpeed;
+        GameObject attackClone = Instantiate(projectile, projectilePosition.position, projectile.transform.rotation);
+        attackClone.GetComponent<Rigidbody>().velocity = transform.forward * projectileSpeed;
         yield return new WaitForSeconds(attackRate);
         isAttacking = false;
+    }
+    public void takeDamage(int dmg)
+    {
+        HP -= dmg;
+        StartCoroutine(FlashMat());
+        agent.SetDestination(GameManager.instance.player.transform.position);
+        if (HP <= 0)
+        {
+            GameManager.instance.GameUpdateGoal(-1);
+            Destroy(gameObject);
+        }
     }
 }
