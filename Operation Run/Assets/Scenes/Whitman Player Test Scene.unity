@@ -130,6 +130,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2591362620764883637, guid: 705daa344b1cd2645a199f66b4ebe6e3, type: 3}
+      propertyPath: m_Radius
+      value: 15.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205599988812597202, guid: 705daa344b1cd2645a199f66b4ebe6e3, type: 3}
+      propertyPath: sightAngle
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205599988812597202, guid: 705daa344b1cd2645a199f66b4ebe6e3, type: 3}
+      propertyPath: attackDamage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205599988812597202, guid: 705daa344b1cd2645a199f66b4ebe6e3, type: 3}
+      propertyPath: roamDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205599988812597202, guid: 705daa344b1cd2645a199f66b4ebe6e3, type: 3}
+      propertyPath: attackDistance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205599988812597202, guid: 705daa344b1cd2645a199f66b4ebe6e3, type: 3}
+      propertyPath: playerFaceSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205599988812597202, guid: 705daa344b1cd2645a199f66b4ebe6e3, type: 3}
+      propertyPath: projectileSpeed
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 5345792722104256437, guid: 705daa344b1cd2645a199f66b4ebe6e3, type: 3}
       propertyPath: m_Name
       value: RedBlastWizard
@@ -137,6 +165,18 @@ PrefabInstance:
     - target: {fileID: 5348180217150618489, guid: 705daa344b1cd2645a199f66b4ebe6e3, type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5348180217150618489, guid: 705daa344b1cd2645a199f66b4ebe6e3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5348180217150618489, guid: 705daa344b1cd2645a199f66b4ebe6e3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5348180217150618489, guid: 705daa344b1cd2645a199f66b4ebe6e3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 5348180217150618489, guid: 705daa344b1cd2645a199f66b4ebe6e3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -187,6 +227,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 276040541, guid: eb0cfeeb73412ab4ca3511ab05678e36, type: 3}
+      propertyPath: m_Radius
+      value: 8.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849594588970436154, guid: eb0cfeeb73412ab4ca3511ab05678e36, type: 3}
+      propertyPath: attackRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849594588970436154, guid: eb0cfeeb73412ab4ca3511ab05678e36, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 2906220482725623105, guid: 42c927cb4b608204796fdcf9599608f8, type: 3}
     - target: {fileID: 7621863784029226589, guid: eb0cfeeb73412ab4ca3511ab05678e36, type: 3}
       propertyPath: m_Name
       value: BlueBlastWizard
@@ -194,6 +246,18 @@ PrefabInstance:
     - target: {fileID: 7624263218966706833, guid: eb0cfeeb73412ab4ca3511ab05678e36, type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624263218966706833, guid: eb0cfeeb73412ab4ca3511ab05678e36, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624263218966706833, guid: eb0cfeeb73412ab4ca3511ab05678e36, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624263218966706833, guid: eb0cfeeb73412ab4ca3511ab05678e36, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7624263218966706833, guid: eb0cfeeb73412ab4ca3511ab05678e36, type: 3}
       propertyPath: m_LocalPosition.x
@@ -479,6 +543,18 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4401181683684707978, guid: afde946f3f6bd514f880100c6fa61555, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401181683684707978, guid: afde946f3f6bd514f880100c6fa61555, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401181683684707978, guid: afde946f3f6bd514f880100c6fa61555, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401181683684707978, guid: afde946f3f6bd514f880100c6fa61555, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.827005
       objectReference: {fileID: 0}
@@ -521,6 +597,26 @@ PrefabInstance:
     - target: {fileID: 4403602163945157190, guid: afde946f3f6bd514f880100c6fa61555, type: 3}
       propertyPath: m_Name
       value: WhiteBlastWizard
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580492197259440673, guid: afde946f3f6bd514f880100c6fa61555, type: 3}
+      propertyPath: attackRate
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580492197259440673, guid: afde946f3f6bd514f880100c6fa61555, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 3493253177550448761, guid: 0f15005e96d9912468f2515885df53fa, type: 3}
+    - target: {fileID: 5580492197259440673, guid: afde946f3f6bd514f880100c6fa61555, type: 3}
+      propertyPath: attackDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580492197259440673, guid: afde946f3f6bd514f880100c6fa61555, type: 3}
+      propertyPath: playerFaceSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580492197259440673, guid: afde946f3f6bd514f880100c6fa61555, type: 3}
+      propertyPath: projectileSpeed
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afde946f3f6bd514f880100c6fa61555, type: 3}
@@ -581,6 +677,93 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2bc155e8b37dad4885ab803e5891643, type: 3}
+--- !u!1 &1778778728 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6859206436408360684, guid: 583ea11a9a1c66f4990fed8a985e9d4d, type: 3}
+  m_PrefabInstance: {fileID: 6859206436293902276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1778778729 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6859206436408360685, guid: 583ea11a9a1c66f4990fed8a985e9d4d, type: 3}
+  m_PrefabInstance: {fileID: 6859206436293902276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1778778733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778778728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: e6a5d1dde9e0aca42bac84e1aa4b58c3, type: 2}
+  isGlobal: 0
+  blendDistance: 0
+  weight: 1
+  priority: 0
+--- !u!114 &1778778734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778778728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 1778778729}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1 &1796267325
 GameObject:
   m_ObjectHideFlags: 0

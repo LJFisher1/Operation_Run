@@ -163,8 +163,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6859206437942702857}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6859206436408360685}
@@ -190,8 +190,8 @@ MonoBehaviour:
   gravity: 35
   jumpSpeed: 10
   jumpsMax: 2
-  hp: 20
-  useTime: 1
+  hp: 25
+  useTime: 0.5
   range: 100
   weaponDamage: 1
 --- !u!143 &6859206437942702859
@@ -269,7 +269,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6859206437942702857}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -304,8 +304,8 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  - {x: -34.314125, y: 2.4316545, z: 54.190125}
+  - {x: -54.881866, y: 20, z: 66.62676}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
