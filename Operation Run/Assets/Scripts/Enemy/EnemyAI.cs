@@ -11,7 +11,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     [Header("--Wizard Stats--")]
     [SerializeField] Transform headPosition;
-    [SerializeField] int HP;
+    public int HP; //making this public for now to test teleport ability.
     [SerializeField] int roamDistance;
     [SerializeField] int sightAngle;
     [SerializeField] int playerFaceSpeed;
