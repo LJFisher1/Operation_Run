@@ -12,5 +12,4 @@ public class WinPoint : MonoBehaviour
             GameManager.instance.PlayerWin();
         }
     }
-
 }

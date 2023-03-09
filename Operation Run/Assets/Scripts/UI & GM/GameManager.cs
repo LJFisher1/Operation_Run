@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public GameObject checkPointMenu;
     public GameObject playerHitFlash;
     public Image playerHealthBar;
+    public TextMeshProUGUI objectiveText;
     public TextMeshProUGUI enemiesRemainingText;
 
     [Header("Game Goals")]
@@ -31,11 +32,13 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        objectiveText.text = ("Enemies Remaining:");
         instance = this;
         player = GameObject.FindGameObjectWithTag("Player");
         PlayerController = PlayerController.FindObjectOfType<PlayerController>();
         playerSpawnPosition = GameObject.FindGameObjectWithTag("Player Spawn Position");
     }
+
     void Update()
     {
         if (Input.GetButtonDown("Cancel") && activeMenu == null)
@@ -60,9 +63,10 @@ public class GameManager : MonoBehaviour
         enemiesRemaining += amount;
         enemiesRemainingText.text = enemiesRemaining.ToString("F0");
 
-        if(enemiesRemaining <= 0)
+        if (enemiesRemaining < 1)
         {
-
+            enemiesRemainingText.text = ("");
+            objectiveText.text = ("Find The Escape");
             //remove enemies remaining text and add the "ESCAPE!!" Goal
         }
     }
