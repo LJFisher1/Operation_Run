@@ -7,6 +7,11 @@ public class PlayerController : MonoBehaviour, IDamage
 {
     [Header("----- Componets -----")]
     [SerializeField] CharacterController controller;
+    [SerializeField] LineRenderer lineRend;
+    [SerializeField] Transform shootPoint;
+
+    
+
 
     [Header("----- Player Stats -----")]
     [Range(0, 100)] [SerializeField] float walkSpeed;
@@ -88,9 +93,13 @@ public class PlayerController : MonoBehaviour, IDamage
     IEnumerator UseWeapon()
     {
         isUsingWeapon = true;
+
         RaycastHit hit;
         if(Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f,0.5f)), out hit, range))
         {
+            lineRend.enabled = true;
+            lineRend.SetPosition(0, shootPoint.position);
+            lineRend.SetPosition(1, hit.point);
             var target = hit.collider.GetComponent<IDamage>();
             Debug.Log(hit.transform.name);
             if (target != null)
@@ -99,6 +108,7 @@ public class PlayerController : MonoBehaviour, IDamage
             }
         }
         yield return new WaitForSeconds(useTime);
+        lineRend.enabled = false;
         isUsingWeapon = false;
     }
 
