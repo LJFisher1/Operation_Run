@@ -2176,7 +2176,7 @@ MonoBehaviour:
   attackDistance: 10
   attackDamage: 3
   projectile: {fileID: 2906220482725623105, guid: 42c927cb4b608204796fdcf9599608f8, type: 3}
-  projectileSpeed: 3
+  projectileSpeed: 6
   projectilePosition: {fileID: 764866726}
 --- !u!95 &7535897114369823827
 Animator:
