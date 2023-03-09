@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 3493253177550448761}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.705, y: 4.528, z: 21.058}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
-  timer: 3
+  timer: 10
 --- !u!33 &6983195732472062649
 MeshFilter:
   m_ObjectHideFlags: 0

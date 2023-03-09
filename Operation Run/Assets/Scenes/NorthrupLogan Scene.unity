@@ -409,6 +409,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4205599988812597202, guid: 705daa344b1cd2645a199f66b4ebe6e3, type: 3}
+      propertyPath: HP
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5345792722104256437, guid: 705daa344b1cd2645a199f66b4ebe6e3, type: 3}
       propertyPath: m_Name
       value: RedBlastWizard
@@ -527,6 +531,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1849594588970436154, guid: eb0cfeeb73412ab4ca3511ab05678e36, type: 3}
+      propertyPath: HP
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1849594588970436154, guid: eb0cfeeb73412ab4ca3511ab05678e36, type: 3}
       propertyPath: attackDamage
       value: 2
@@ -650,7 +658,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5580492197259440673, guid: afde946f3f6bd514f880100c6fa61555, type: 3}
       propertyPath: HP
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5580492197259440673, guid: afde946f3f6bd514f880100c6fa61555, type: 3}
       propertyPath: attackRate
