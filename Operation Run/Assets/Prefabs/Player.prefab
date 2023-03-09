@@ -155,7 +155,7 @@ MonoBehaviour:
   gravity: 35
   jumpSpeed: 10
   jumpsMax: 1
-  hp: 10
+  hp: 20
   useTime: 1
   range: 100
   weaponDamage: 1
