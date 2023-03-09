@@ -184,7 +184,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4401373303694678994
 Transform:
   m_ObjectHideFlags: 0
@@ -944,16 +944,16 @@ MonoBehaviour:
   model: {fileID: 4394573129665189480}
   agent: {fileID: 4166010304455303585}
   headPosition: {fileID: 7527481298450776229}
-  HP: 2
+  HP: 5
   roamDistance: 10
   sightAngle: 100
   playerFaceSpeed: 5
   waitTime: 3
-  attackRate: 3
+  attackRate: 6
   attackDistance: 10
-  attackDamage: 0
-  projectile: {fileID: 2906220482725623105, guid: 42c927cb4b608204796fdcf9599608f8, type: 3}
-  projectileSpeed: 4
+  attackDamage: 4
+  projectile: {fileID: 3493253177550448761, guid: 0f15005e96d9912468f2515885df53fa, type: 3}
+  projectileSpeed: 1
   projectilePosition: {fileID: 6114463793893033149}
 --- !u!95 &4345430564120698952
 Animator:
@@ -1022,7 +1022,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 8
+  m_Radius: 15
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4403605086081601712
 GameObject:
@@ -1170,7 +1170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4401333393555441030
 Transform:
   m_ObjectHideFlags: 0

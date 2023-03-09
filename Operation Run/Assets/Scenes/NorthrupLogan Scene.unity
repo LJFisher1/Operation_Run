@@ -640,45 +640,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4402751585248832412, guid: afde946f3f6bd514f880100c6fa61555, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4403602163945157190, guid: afde946f3f6bd514f880100c6fa61555, type: 3}
       propertyPath: m_Name
       value: WhiteBlastWizard
-      objectReference: {fileID: 0}
-    - target: {fileID: 4403620704181392442, guid: afde946f3f6bd514f880100c6fa61555, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4403671404480854362, guid: afde946f3f6bd514f880100c6fa61555, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5580492197259440673, guid: afde946f3f6bd514f880100c6fa61555, type: 3}
-      propertyPath: HP
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5580492197259440673, guid: afde946f3f6bd514f880100c6fa61555, type: 3}
-      propertyPath: attackRate
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5580492197259440673, guid: afde946f3f6bd514f880100c6fa61555, type: 3}
-      propertyPath: projectile
-      value: 
-      objectReference: {fileID: 3493253177550448761, guid: 0f15005e96d9912468f2515885df53fa, type: 3}
-    - target: {fileID: 5580492197259440673, guid: afde946f3f6bd514f880100c6fa61555, type: 3}
-      propertyPath: attackDamage
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5580492197259440673, guid: afde946f3f6bd514f880100c6fa61555, type: 3}
-      propertyPath: projectileSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6114463793022615366, guid: afde946f3f6bd514f880100c6fa61555, type: 3}
-      propertyPath: m_Radius
-      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afde946f3f6bd514f880100c6fa61555, type: 3}
