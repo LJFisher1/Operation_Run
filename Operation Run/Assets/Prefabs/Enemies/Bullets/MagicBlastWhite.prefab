@@ -49,8 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f589f592aa706b4aab79d775bc8eaf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
-  timer: 10
+  damage: 5
+  timer: 15
 --- !u!33 &6983195732472062649
 MeshFilter:
   m_ObjectHideFlags: 0
