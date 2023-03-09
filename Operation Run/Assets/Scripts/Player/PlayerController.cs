@@ -105,6 +105,12 @@ public class PlayerController : MonoBehaviour, IDamage
             if (target != null)
             {
                 target.TakeDamage(weaponDamage);
+
+                EnemyAI enemyAI = hit.collider.GetComponent<EnemyAI>();
+                if (enemyAI != null && enemyAI.HP <= 0)
+                {
+                    Teleport(enemyAI.transform.position);
+                }
             }
         }
         yield return new WaitForSeconds(useTime);
@@ -136,5 +142,12 @@ public class PlayerController : MonoBehaviour, IDamage
     public void UpdateHealthUI()
     {
         GameManager.instance.playerHealthBar.fillAmount = (float)hp / (float)hpMax;
+    }
+    
+    void Teleport(Vector3 pos)
+    {
+        controller.enabled = false;
+        transform.position = pos;
+        controller.enabled = true;
     }
 }
