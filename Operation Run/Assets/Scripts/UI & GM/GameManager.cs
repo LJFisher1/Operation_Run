@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Player")]
     public GameObject player;
-    public PlayerController PlayerController;
+    public PlayerController playerController;
     public GameObject playerSpawnPosition;
 
     GameObject activeMenu;
@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject loseMenu;
     public GameObject checkPointMenu;
     public GameObject playerHitFlash;
+    [SerializeField] GameObject sensitivitySlider;
     public Image playerHealthBar;
     public TextMeshProUGUI objectiveText;
     public TextMeshProUGUI enemiesRemainingText;
@@ -35,7 +36,7 @@ public class GameManager : MonoBehaviour
         objectiveText.text = ("Enemies Remaining:");
         instance = this;
         player = GameObject.FindGameObjectWithTag("Player");
-        PlayerController = PlayerController.FindObjectOfType<PlayerController>();
+        playerController = PlayerController.FindObjectOfType<PlayerController>();
         playerSpawnPosition = GameObject.FindGameObjectWithTag("Player Spawn Position");
     }
 
@@ -81,6 +82,7 @@ public class GameManager : MonoBehaviour
     public void GameUnpaused()
     {
         Time.timeScale = 1;
+        UpdateSensitivity();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         activeMenu.SetActive(false);
@@ -106,5 +108,10 @@ public class GameManager : MonoBehaviour
         GamePaused();
         activeMenu = loseMenu;
         activeMenu.SetActive(true);
+    }
+
+    public void UpdateSensitivity()
+    {
+        Camera.main.GetComponent<CameraController>().UpdateSensitivity(sensitivitySlider.GetComponent<Slider>().value);
     }
 }

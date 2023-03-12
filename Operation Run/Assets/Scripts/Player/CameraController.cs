@@ -12,6 +12,8 @@ public class CameraController : MonoBehaviour
 
     public void Start()
     {
+        sensX = 200;
+        sensY = 200;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -28,5 +30,11 @@ public class CameraController : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, 0, 0); // rotate camera
         transform.parent.Rotate(Vector3.up * mouseX); // rotate player
+    }
+
+    public void UpdateSensitivity(float value)
+    {
+        sensX = value * 1000 + 200;
+        sensY = value * 1000 + 200;
     }
 }
