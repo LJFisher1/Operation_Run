@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlayerDetection : MonoBehaviour
 {
     public EnemyAI enemy;
+    private void Update()
+    {
+        transform.position = enemy.transform.position;
+    }
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

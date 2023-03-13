@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   hitTag: Enemy
-  duration: 3
+  duration: 0.2
   range: 10000
   lineRend: {fileID: -713327645408654490}
 --- !u!120 &-713327645408654490

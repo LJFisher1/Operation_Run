@@ -2127,7 +2127,6 @@ GameObject:
   - component: {fileID: 7535897114369823827}
   - component: {fileID: 7504293197655135757}
   - component: {fileID: 7857184997134915002}
-  - component: {fileID: 276040541}
   m_Layer: 3
   m_Name: BlueBlastWizard
   m_TagString: Untagged
@@ -2178,6 +2177,7 @@ MonoBehaviour:
   projectile: {fileID: 2906220482725623105, guid: 42c927cb4b608204796fdcf9599608f8, type: 3}
   projectileSpeed: 15
   projectilePosition: {fileID: 764866726}
+  playerInRange: 0
 --- !u!95 &7535897114369823827
 Animator:
   serializedVersion: 5
@@ -2234,19 +2234,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!135 &276040541
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7621863784029226589}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 8
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7621866358125552811
 GameObject:
   m_ObjectHideFlags: 0

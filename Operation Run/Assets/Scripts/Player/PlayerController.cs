@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour, IDamage
     /// to shoot from the center of reticle/camera
     /// </summary>
     public Transform shootPointCenter;
-
+    public Weapon startingWeapon;
     
 
 
@@ -33,8 +33,18 @@ public class PlayerController : MonoBehaviour, IDamage
     Vector3 move;
     Vector3 playerVelocity;
 
-    int hpMax;
-    [Range(0,100)] [SerializeField] int hp;
+    int hp;
+    public int HP
+    {
+        set
+        {
+            hp = value;
+            GameManager.instance.playerHealthBar.fillAmount = (float)hp / (float)hpMax;
+        }
+        get { return hp; }
+        
+    }
+    [Range(0,100)] [SerializeField] int hpMax;
 
     [Header("----- Weapon Stats -----")]
     [SerializeField] float wUseTime;
@@ -49,13 +59,15 @@ public class PlayerController : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
-        hpMax = hp;
-        UpdateHealthUI();
+        HP = hpMax;
         if(GameManager.instance.playerSpawnPosition != null) // stops game from breaking if no spawn point set. Helps with testing.
         {
             SpawnPlayer();
         }
-        
+        if(startingWeapon != null)
+        {
+            ChangeWeapon(startingWeapon);
+        }
     }
 
     // Update is called once per frame
@@ -109,7 +121,7 @@ public class PlayerController : MonoBehaviour, IDamage
         isUsingWeapon = true;
         if (weapon != null)
         {
-            GameObject bulletClone = Instantiate(weapon.bullet, shootPointCenter.position, weapon.bullet.transform.rotation);
+            GameObject bulletClone = Instantiate(weapon.bullet, shootPointVisual.position, weapon.bullet.transform.rotation);
             if (bulletClone.GetComponent<Rigidbody>() != null)
             {
                 //GameObject visualClone = Instantiate(weapon.bullet, shootPointVisual.position, weapon.bullet.transform.rotation);
@@ -128,11 +140,10 @@ public class PlayerController : MonoBehaviour, IDamage
 
     public void TakeDamage(int dmg)
     {
-        hp -= dmg;
-        UpdateHealthUI();
+        HP -= dmg;
         StartCoroutine(GameManager.instance.PlayerHitFlash());
 
-        if (hp <= 0)
+        if (HP <= 0)
         {
             GameManager.instance.PlayerDead();
         }
@@ -140,17 +151,12 @@ public class PlayerController : MonoBehaviour, IDamage
 
     public void SpawnPlayer()
     {
-        hp = hpMax;
-        UpdateHealthUI();
+        HP = hpMax;
         controller.enabled = false;
         transform.position = GameManager.instance.playerSpawnPosition.transform.position;
         controller.enabled = true;
     }
 
-    public void UpdateHealthUI()
-    {
-        GameManager.instance.playerHealthBar.fillAmount = (float)hp / (float)hpMax;
-    }
 
     void Teleport(Vector3 pos)
     {
