@@ -305,7 +305,7 @@ MonoBehaviour:
   gravity: 35
   jumpSpeed: 10
   jumpsMax: 2
-  keyList: []
+  keysInPossession: 0
   hpMax: 25
   wUseTime: 0
   wRange: 0

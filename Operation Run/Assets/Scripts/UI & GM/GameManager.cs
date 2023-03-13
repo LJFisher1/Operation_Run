@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     public Image playerHealthBar;
     public TextMeshProUGUI objectiveText;
     public TextMeshProUGUI enemiesRemainingText;
+    public GameObject playerKeyPopup;// Key
+    public TextMeshProUGUI KeyCountText;// Key
 
     [Header("Game Goals")]
     public int enemiesRemaining;
@@ -33,11 +35,12 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        objectiveText.text = ("Enemies Remaining:");
         instance = this;
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = PlayerController.FindObjectOfType<PlayerController>();
         playerSpawnPosition = GameObject.FindGameObjectWithTag("Player Spawn Position");
+        objectiveText.text = ("Enemies Remaining:");
+        KeyCountText.text = playerController.keysInPossession.ToString("F0");
     }
 
     void Update()
@@ -70,6 +73,13 @@ public class GameManager : MonoBehaviour
             objectiveText.text = ("Find The Escape");
             //remove enemies remaining text and add the "ESCAPE!!" Goal
         }
+    }
+
+    public IEnumerator FlashKeyPopup()// Key
+    {
+        playerKeyPopup.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        playerKeyPopup.SetActive(false);
     }
 
     public void GamePaused()

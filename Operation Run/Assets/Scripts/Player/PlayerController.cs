@@ -178,12 +178,16 @@ public class PlayerController : MonoBehaviour, IDamage
     }
     public void KeyPickup()
     {
+        Debug.Log("flashKEY");
+        StartCoroutine(GameManager.instance.FlashKeyPopup());
         keysInPossession++;
+        GameManager.instance.KeyCountText.text = keysInPossession.ToString("F0");
     }
 
     public void KeyUsed()
     {
         keysInPossession--;
+        GameManager.instance.KeyCountText.text = keysInPossession.ToString("F0");
     }
 
     
