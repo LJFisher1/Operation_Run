@@ -178,22 +178,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: White Wizard
       objectReference: {fileID: 0}
-    - target: {fileID: 3612382874468722859, guid: a77dbda22584da94fb5bb6fb0605a066, type: 3}
-      propertyPath: m_Radius
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 9173875338765604731, guid: a77dbda22584da94fb5bb6fb0605a066, type: 3}
-      propertyPath: attackRate
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9173875338765604731, guid: a77dbda22584da94fb5bb6fb0605a066, type: 3}
-      propertyPath: attackDistance
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 9173875338765604731, guid: a77dbda22584da94fb5bb6fb0605a066, type: 3}
-      propertyPath: projectileSpeed
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a77dbda22584da94fb5bb6fb0605a066, type: 3}
 --- !u!1 &367166322
@@ -394,18 +378,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6706510513114657435, guid: cbed401f83faae64b9dc81a9c56e34c9, type: 3}
-      propertyPath: attackDistance
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6706510513114657435, guid: cbed401f83faae64b9dc81a9c56e34c9, type: 3}
-      propertyPath: projectileSpeed
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444174410177080064, guid: cbed401f83faae64b9dc81a9c56e34c9, type: 3}
-      propertyPath: m_Radius
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 7444174410631351864, guid: cbed401f83faae64b9dc81a9c56e34c9, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -655,18 +627,6 @@ PrefabInstance:
     - target: {fileID: 499888837321863615, guid: 3e66990b85f32b245a7e50d04d9e1024, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 499888837422872320, guid: 3e66990b85f32b245a7e50d04d9e1024, type: 3}
-      propertyPath: m_Radius
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 2253174499833399869, guid: 3e66990b85f32b245a7e50d04d9e1024, type: 3}
-      propertyPath: attackDistance
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2253174499833399869, guid: 3e66990b85f32b245a7e50d04d9e1024, type: 3}
-      propertyPath: projectileSpeed
-      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e66990b85f32b245a7e50d04d9e1024, type: 3}
