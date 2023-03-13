@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1849594588970436154, guid: eb0cfeeb73412ab4ca3511ab05678e36, type: 3}
       propertyPath: attackRate
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1849594588970436154, guid: eb0cfeeb73412ab4ca3511ab05678e36, type: 3}
       propertyPath: projectile
@@ -25,7 +25,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1849594588970436154, guid: eb0cfeeb73412ab4ca3511ab05678e36, type: 3}
       propertyPath: projectileSpeed
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4371882770123961534, guid: eb0cfeeb73412ab4ca3511ab05678e36, type: 3}
       propertyPath: m_LocalPosition.x

@@ -2172,11 +2172,11 @@ MonoBehaviour:
   sightAngle: 100
   playerFaceSpeed: 5
   waitTime: 3
-  attackRate: 3
+  attackRate: 1.5
   attackDistance: 10
   attackDamage: 3
   projectile: {fileID: 2906220482725623105, guid: 42c927cb4b608204796fdcf9599608f8, type: 3}
-  projectileSpeed: 6
+  projectileSpeed: 15
   projectilePosition: {fileID: 764866726}
 --- !u!95 &7535897114369823827
 Animator:

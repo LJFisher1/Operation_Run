@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7907864612014913702}
   - component: {fileID: -6311143497050920308}
   m_Layer: 6
-  m_Name: MagicBlastBlue
+  m_Name: BlueMagicBlast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
