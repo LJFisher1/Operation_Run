@@ -10,6 +10,7 @@ public class DoorOpen : MonoBehaviour
         if (other.CompareTag("Player") && GameManager.instance.playerController.keysInPossession >= 1)
         {
             GameManager.instance.playerController.KeyUsed();
+            StartCoroutine(GameManager.instance.usedKeyFlash());
             Destroy(gameObject);
         }
         else if (other.CompareTag("Player") && GameManager.instance.playerController.keysInPossession <= 0)

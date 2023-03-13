@@ -27,7 +27,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI enemiesRemainingText;
     public GameObject playerKeyPopup;// Key
     public TextMeshProUGUI KeyCountText;// Key
-    public GameObject noKeysPopup;
+    public GameObject noKeysPopup;//door
+    public GameObject usedKeyPopup;//door
     public GameObject hpPickup;
 
     [Header("Game Goals")]
@@ -138,5 +139,11 @@ public class GameManager : MonoBehaviour
         GameManager.instance.noKeysPopup.SetActive(true);
         yield return new WaitForSeconds(2f);
         GameManager.instance.noKeysPopup.SetActive(false);
+    }
+    public IEnumerator usedKeyFlash()
+    {
+        GameManager.instance.usedKeyPopup.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        GameManager.instance.usedKeyPopup.SetActive(false);
     }
 }
