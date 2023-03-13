@@ -28,10 +28,10 @@ public class PlayerController : MonoBehaviour, IDamage
     [Range(10, 35)] [SerializeField] float gravity;
     [Range(5, 15)] [SerializeField] float jumpSpeed;
     [Range(1, 3)] [SerializeField] int jumpsMax;
-    public List<Keys> keyList = new List<Keys>();
     int jumpsCur;
     Vector3 move;
     Vector3 playerVelocity;
+    public int keysInPossession;
 
     int hp;
     public int HP
@@ -164,9 +164,14 @@ public class PlayerController : MonoBehaviour, IDamage
         transform.position = pos;
         controller.enabled = true;
     }
-    public void keyPickup(Keys key)
+    public void KeyPickup()
     {
-        keyList.Add(key);
+        keysInPossession++;
+    }
+
+    public void KeyUsed()
+    {
+        keysInPossession--;
     }
 
     
