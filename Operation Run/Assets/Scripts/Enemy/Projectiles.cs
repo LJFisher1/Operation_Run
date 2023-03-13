@@ -5,7 +5,9 @@ using UnityEngine;
 public class Projectiles : MonoBehaviour
 {
     public int damage;
-    [SerializeField] int timer;
+    public string hitTag = "Player";
+    public int timer;
+    
 
     private void Start()
     {
@@ -14,7 +16,9 @@ public class Projectiles : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        Debug.Log(other.transform.name);
+        
+        if (other.CompareTag(hitTag))
         {
             other.GetComponent<IDamage>().TakeDamage(damage);
         }

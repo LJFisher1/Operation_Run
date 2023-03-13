@@ -7,7 +7,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 {
     [Header("--Components--")]
     [SerializeField] Renderer model;
-    [SerializeField] NavMeshAgent agent;
+    public NavMeshAgent agent;
 
     [Header("--Wizard Stats--")]
     [SerializeField] Transform headPosition;
@@ -26,7 +26,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] Transform projectilePosition;
 
     bool isAttacking;
-    bool playerInRange;
+    public bool playerInRange;
     bool destinationChosen;
     float angleToPlayer;
     float stoppingDistanceOrigin;
@@ -103,21 +103,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         return false;
     }
 
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = true;
-        }
-    }
-    public void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = false;
-            agent.stoppingDistance = 0;
-        }
-    }
+
 
     void FacePlayer()
     {
@@ -151,7 +137,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         if (HP <= 0)
         {
             GameManager.instance.GameUpdateGoal(-1);
-            Destroy(gameObject);
+            Destroy(gameObject.transform.parent.gameObject);
         }
     }
 }

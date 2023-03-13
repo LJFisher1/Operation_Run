@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour, IDamage
     [Header("----- Componets -----")]
     [SerializeField] CharacterController controller;
     [SerializeField] LineRenderer lineRend;
-    [SerializeField] Transform shootPoint;
+    public Transform shootPoint;
 
     
 
@@ -27,9 +27,12 @@ public class PlayerController : MonoBehaviour, IDamage
     [Range(0,100)] [SerializeField] int hp;
 
     [Header("----- Weapon Stats -----")]
-    [SerializeField] float useTime;
-    [SerializeField] float range;
-    [SerializeField] int weaponDamage;
+    [SerializeField] float wUseTime;
+    [SerializeField] float wRange;
+    [SerializeField] int wDamage;
+    [SerializeField] MeshFilter wModel;
+    [SerializeField] MeshRenderer wMaterial;
+    [SerializeField] Weapon weapon;
 
     bool isUsingWeapon;
 
@@ -94,30 +97,18 @@ public class PlayerController : MonoBehaviour, IDamage
     IEnumerator UseWeapon()
     {
         isUsingWeapon = true;
-
-        RaycastHit hit;
-        if(Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f,0.5f)), out hit, range))
+        if (weapon != null)
         {
-            lineRend.enabled = true;
-            lineRend.SetPosition(0, shootPoint.position);
-            lineRend.SetPosition(1, hit.point);
-            var target = hit.collider.GetComponent<IDamage>();
-            Debug.Log(hit.transform.name);
-            if (target != null)
+            GameObject bulletClone = Instantiate(weapon.bullet, shootPoint.position, weapon.bullet.transform.rotation);
+            if (bulletClone.GetComponent<Rigidbody>() != null)
             {
-                target.TakeDamage(weaponDamage);
+                bulletClone.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * weapon.bulletSpeed;
+            }else if (bulletClone.GetComponent<LineRenderer>())
+            {
 
-                /*
-                EnemyAI enemyAI = hit.collider.GetComponent<EnemyAI>();
-                if (enemyAI != null && enemyAI.HP <= 0)
-                {
-                    Teleport(enemyAI.transform.position);
-                }
-                */
             }
+            yield return new WaitForSeconds(wUseTime);
         }
-        yield return new WaitForSeconds(useTime);
-        lineRend.enabled = false;
         isUsingWeapon = false;
     }
 
@@ -146,9 +137,6 @@ public class PlayerController : MonoBehaviour, IDamage
     {
         GameManager.instance.playerHealthBar.fillAmount = (float)hp / (float)hpMax;
     }
-    
-
-
 
     void Teleport(Vector3 pos)
     {
@@ -160,4 +148,18 @@ public class PlayerController : MonoBehaviour, IDamage
     {
         keyList.Add(key);
     }
+
+    
+
+    public void ChangeWeapon(Weapon weap)
+    {
+        weapon = weap;
+        wDamage = weap.damage;
+        wRange = weap.range;
+        wUseTime = weap.useTime;
+
+        wModel.sharedMesh = weap.model.GetComponent<MeshFilter>().sharedMesh;
+        wMaterial.sharedMaterial = weap.model.GetComponent<MeshRenderer>().sharedMaterial;
+    }
+
 }
