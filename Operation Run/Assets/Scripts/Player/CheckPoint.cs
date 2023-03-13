@@ -10,9 +10,9 @@ public class CheckPoint : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            
             GameManager.instance.playerSpawnPosition.transform.position = transform.position;
             StartCoroutine(Flash());
+            Destroy(GetComponent<BoxCollider>());
         }
     }
 
