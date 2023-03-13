@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI enemiesRemainingText;
     public GameObject playerKeyPopup;// Key
     public TextMeshProUGUI KeyCountText;// Key
+    public GameObject hpPickup;
 
     [Header("Game Goals")]
     public int enemiesRemaining;
@@ -123,5 +124,11 @@ public class GameManager : MonoBehaviour
     public void UpdateSensitivity()
     {
         Camera.main.GetComponent<CameraController>().UpdateSensitivity(sensitivitySlider.GetComponent<Slider>().value);
+    }
+    public IEnumerator hpFlash()
+    {
+        GameManager.instance.hpPickup.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        GameManager.instance.hpPickup.SetActive(false);
     }
 }

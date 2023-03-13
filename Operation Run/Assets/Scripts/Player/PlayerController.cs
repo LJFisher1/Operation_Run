@@ -153,6 +153,7 @@ public class PlayerController : MonoBehaviour, IDamage
     {
         if (HP < hpMax)
         {
+            StartCoroutine(GameManager.instance.hpFlash());
             HP += heal;
             if (HP > hpMax)
             {

@@ -12292,14 +12292,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1057253515541521713, guid: aebe5f8c871229947aed4917787598ab, type: 3}
-      propertyPath: m_text
-      value: Remaining Enemies
-      objectReference: {fileID: 0}
-    - target: {fileID: 6892115565793017032, guid: aebe5f8c871229947aed4917787598ab, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9030457522724797369, guid: aebe5f8c871229947aed4917787598ab, type: 3}
       propertyPath: m_Name
       value: UI & GameManager
