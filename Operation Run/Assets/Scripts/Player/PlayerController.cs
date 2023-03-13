@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour, IDamage
     [Range(10, 35)] [SerializeField] float gravity;
     [Range(5, 15)] [SerializeField] float jumpSpeed;
     [Range(1, 3)] [SerializeField] int jumpsMax;
-    [SerializeField] List<Keys> keyList = new List<Keys>();
+    public List<Keys> keyList = new List<Keys>();
     int jumpsCur;
     Vector3 move;
     Vector3 playerVelocity;

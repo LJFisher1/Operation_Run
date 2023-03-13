@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class DoorOpen : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] Door door;
+    [SerializeField] Keys key;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("Player") && GameManager.instance.playerController.keyList.Contains(key))
+        {
+            //KEYS WITH LESS USES THAN THE DOOR COST CAN OPEN THE DOOR STILL. THIS IS INTENTIONAL FOR STRATIZISATION. 
+            key.keyUses = -door.keyCost;
+            if (key.keyUses <= 0)
+            {
+                GameManager.instance.playerController.keyList.Remove(key);
+            }
+            Destroy(gameObject);
+        }
     }
 }
