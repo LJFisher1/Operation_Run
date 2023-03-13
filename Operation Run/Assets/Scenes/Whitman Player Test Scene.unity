@@ -123,6 +123,42 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 8fad3b196afbd944f8af11d31d785ed2, type: 2}
+--- !u!4 &162252171 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6859206436408360685, guid: 583ea11a9a1c66f4990fed8a985e9d4d, type: 3}
+  m_PrefabInstance: {fileID: 6859206436293902276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &378190205
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 378190206}
+  m_Layer: 7
+  m_Name: ShootPos2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &378190206
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378190205}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.19, z: 1.26}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 162252171}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519113706 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5580492197259440673, guid: afde946f3f6bd514f880100c6fa61555, type: 3}
@@ -138,6 +174,11 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4401181683684707978, guid: afde946f3f6bd514f880100c6fa61555, type: 3}
   m_PrefabInstance: {fileID: 1719080500}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &561499751 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1707980898481560364, guid: 583ea11a9a1c66f4990fed8a985e9d4d, type: 3}
+  m_PrefabInstance: {fileID: 6859206436293902276}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &589933214
 GameObject:
@@ -314,7 +355,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2591362620764883637, guid: 705daa344b1cd2645a199f66b4ebe6e3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 705daa344b1cd2645a199f66b4ebe6e3, type: 3}
 --- !u!1 &796680065
 GameObject:
@@ -655,7 +697,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1616522174
 Transform:
@@ -757,7 +799,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1660815653
 Transform:
@@ -870,7 +912,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1713985515
 Transform:
@@ -1176,8 +1218,8 @@ GameObject:
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1795226402
 Transform:
@@ -1799,7 +1841,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6859206437942702868, guid: 583ea11a9a1c66f4990fed8a985e9d4d, type: 3}
+      propertyPath: shootPoint2
+      value: 
+      objectReference: {fileID: 378190206}
+    - target: {fileID: 6859206437942702868, guid: 583ea11a9a1c66f4990fed8a985e9d4d, type: 3}
+      propertyPath: shootPointCenter
+      value: 
+      objectReference: {fileID: 378190206}
+    - target: {fileID: 6859206437942702868, guid: 583ea11a9a1c66f4990fed8a985e9d4d, type: 3}
+      propertyPath: shootPointVisual
+      value: 
+      objectReference: {fileID: 561499751}
+    m_RemovedComponents:
+    - {fileID: 6785605083977709649, guid: 583ea11a9a1c66f4990fed8a985e9d4d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 583ea11a9a1c66f4990fed8a985e9d4d, type: 3}
 --- !u!4 &8770523211530127727
 Transform:

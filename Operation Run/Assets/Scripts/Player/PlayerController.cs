@@ -5,10 +5,20 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour, IDamage
 {
+    /*TODO
+     * Clean up weapon script/interaction
+     * try to move weapon specific logic out of UseWeapon and into their own scripts
+     */
     [Header("----- Componets -----")]
     [SerializeField] CharacterController controller;
-    [SerializeField] LineRenderer lineRend;
-    public Transform shootPoint;
+    /// <summary>
+    /// to shoot from the weapon model 
+    /// </summary>
+    public Transform shootPointVisual;
+    /// <summary>
+    /// to shoot from the center of reticle/camera
+    /// </summary>
+    public Transform shootPointCenter;
 
     
 
@@ -99,9 +109,13 @@ public class PlayerController : MonoBehaviour, IDamage
         isUsingWeapon = true;
         if (weapon != null)
         {
-            GameObject bulletClone = Instantiate(weapon.bullet, shootPoint.position, weapon.bullet.transform.rotation);
+            GameObject bulletClone = Instantiate(weapon.bullet, shootPointCenter.position, weapon.bullet.transform.rotation);
             if (bulletClone.GetComponent<Rigidbody>() != null)
             {
+                //GameObject visualClone = Instantiate(weapon.bullet, shootPointVisual.position, weapon.bullet.transform.rotation);
+                //visualClone.GetComponent<Collider>().enabled = false;
+                //visualClone.GetComponent<Rigidbody>().velocity = (shootPointCenter.position - shootPointVisual.position).normalized * weapon.bulletSpeed;
+                //Destroy(visualClone,0.1f);
                 bulletClone.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * weapon.bulletSpeed;
             }else if (bulletClone.GetComponent<LineRenderer>())
             {

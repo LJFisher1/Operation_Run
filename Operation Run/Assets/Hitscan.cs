@@ -15,12 +15,12 @@ public class Hitscan : MonoBehaviour
     {
         Debug.Log("Hitscan created");
         RaycastHit hit;
-        Ray ray = new(GameManager.instance.playerController.shootPoint.position, Camera.main.transform.forward);
+        Ray ray = new(GameManager.instance.playerController.shootPointCenter.position, Camera.main.transform.forward);
         lineRend.enabled = false;
         if (Physics.Raycast(ray, out hit, range))
         {
             lineRend.enabled = true;
-            lineRend.SetPosition(0, GameManager.instance.playerController.shootPoint.position);
+            lineRend.SetPosition(0, GameManager.instance.playerController.shootPointVisual.position);
             lineRend.SetPosition(1, hit.point);
             var target = hit.collider.GetComponent<IDamage>();
             Debug.Log(hit.transform.name);
