@@ -300,12 +300,13 @@ MonoBehaviour:
   controller: {fileID: 6859206437942702859}
   shootPointVisual: {fileID: 1707980898481560364}
   shootPointCenter: {fileID: 378190206}
+  startingWeapon: {fileID: 11400000, guid: 57ae3b4858913e84e9539976ae6c3a20, type: 2}
   walkSpeed: 20
   gravity: 35
   jumpSpeed: 10
   jumpsMax: 2
   keyList: []
-  hp: 25
+  hpMax: 25
   wUseTime: 0
   wRange: 0
   wDamage: 0
