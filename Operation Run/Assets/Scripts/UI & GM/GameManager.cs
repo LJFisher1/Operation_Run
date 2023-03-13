@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI enemiesRemainingText;
     public GameObject playerKeyPopup;// Key
     public TextMeshProUGUI KeyCountText;// Key
+    public GameObject noKeysPopup;
     public GameObject hpPickup;
 
     [Header("Game Goals")]
@@ -52,7 +53,7 @@ public class GameManager : MonoBehaviour
             activeMenu = pauseMenu;
             activeMenu.SetActive(isPaused);
 
-            if(isPaused)
+            if (isPaused)
             {
                 GamePaused();
             }
@@ -130,5 +131,12 @@ public class GameManager : MonoBehaviour
         GameManager.instance.hpPickup.SetActive(true);
         yield return new WaitForSeconds(1f);
         GameManager.instance.hpPickup.SetActive(false);
+    }
+
+    public IEnumerator noKeysFlash()
+    {
+        GameManager.instance.noKeysPopup.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        GameManager.instance.noKeysPopup.SetActive(false);
     }
 }
