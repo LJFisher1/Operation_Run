@@ -32,8 +32,8 @@ public class PlayerController : MonoBehaviour, IDamage
     Vector3 move;
     Vector3 playerVelocity;
     public int keysInPossession;
-
     int hp;
+
     public int HP
     {
         set
@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour, IDamage
         get { return hp; }
         
     }
-    [Range(0,100)] [SerializeField] int hpMax;
+    [Range(0,100)] public int hpMax;
 
     [Header("----- Weapon Stats -----")]
     [SerializeField] float wUseTime;
@@ -146,6 +146,18 @@ public class PlayerController : MonoBehaviour, IDamage
         if (HP <= 0)
         {
             GameManager.instance.PlayerDead();
+        }
+    }
+
+    public void Heal(int heal)
+    {
+        if (HP < hpMax)
+        {
+            HP += heal;
+            if (HP > hpMax)
+            {
+                HP = hpMax;
+            }
         }
     }
 
