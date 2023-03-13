@@ -50,7 +50,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
-  timer: 6
+  hitTag: Player
+  timer: 15
 --- !u!33 &8702982965060206465
 MeshFilter:
   m_ObjectHideFlags: 0
