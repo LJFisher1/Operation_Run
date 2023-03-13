@@ -32,6 +32,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     float stoppingDistanceOrigin;
     Vector3 playerDirection;
     Vector3 startingPosition;
+    Vector3 faceDirection;
 
 
     // Start is called before the first frame update
@@ -79,7 +80,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     bool CanSeePlayer()
     {
-        playerDirection = (GameManager.instance.player.transform.position - headPosition.position);
+        playerDirection = (GameManager.instance.player.transform.position - headPosition.position).normalized;
         angleToPlayer = Vector3.Angle(new Vector3(playerDirection.x, 0, playerDirection.z), transform.forward);
 
         RaycastHit hit;
@@ -107,8 +108,8 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     void FacePlayer()
     {
-        playerDirection.y = 0;
-        Quaternion rot = Quaternion.LookRotation(playerDirection);
+        faceDirection = (new Vector3(playerDirection.x, 0, playerDirection.z));
+        Quaternion rot = Quaternion.LookRotation(faceDirection);
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * playerFaceSpeed);
     }
 
@@ -125,7 +126,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         isAttacking = true;
         GameObject attackClone = Instantiate(projectile, projectilePosition.position, projectile.transform.rotation);
-        attackClone.GetComponent<Rigidbody>().velocity = transform.forward * projectileSpeed;
+        attackClone.GetComponent<Rigidbody>().velocity = playerDirection * projectileSpeed;
         yield return new WaitForSeconds(attackRate);
         isAttacking = false;
     }
