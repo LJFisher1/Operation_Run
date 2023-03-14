@@ -10,18 +10,16 @@ public class Hitscan : MonoBehaviour
     public float duration;
     public int range;
     public LineRenderer lineRend;
+    [SerializeField] float decaySpeed;
 
     private void Start()
     {
-        Debug.Log("Hitscan created");
         RaycastHit hit;
         Ray ray = new(GameManager.instance.playerController.shootPointCenter.position, Camera.main.transform.forward);
-        lineRend.enabled = false;
+        lineRend.SetPosition(0, GameManager.instance.playerController.shootPointVisual.position);
+        lineRend.SetPosition(1,  Camera.main.transform.forward * range);
         if (Physics.Raycast(ray, out hit, range))
         {
-            lineRend.enabled = true;
-            lineRend.SetPosition(0, GameManager.instance.playerController.shootPointVisual.position);
-            lineRend.SetPosition(1, hit.point);
             var target = hit.collider.GetComponent<IDamage>();
             Debug.Log(hit.transform.name);
             if (target != null && hit.collider.CompareTag(hitTag)) 
@@ -30,9 +28,15 @@ public class Hitscan : MonoBehaviour
             }
         }
         Destroy(gameObject, duration);
+        
+    }
+    private void Update()
+    {
+        lineRend.endColor = Color.Lerp(lineRend.endColor, Color.clear, decaySpeed);
+        lineRend.startColor = Color.Lerp(lineRend.startColor, Color.clear, decaySpeed);
     }
 
-    
-    
+
+
 
 }
