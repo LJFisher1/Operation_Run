@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour, IDamage
                 bulletClone.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * weapon.bulletSpeed;
             }else if (bulletClone.GetComponent<LineRenderer>())
             {
-
+                bulletClone.GetComponent<IBullet>().Initialize(weapon);
             }
             yield return new WaitForSeconds(wUseTime);
         }
