@@ -306,6 +306,7 @@ MonoBehaviour:
   jumpSpeed: 10
   jumpsMax: 2
   keysInPossession: 0
+  pushbackTime: 5
   hpMax: 25
   wUseTime: 0
   wRange: 0

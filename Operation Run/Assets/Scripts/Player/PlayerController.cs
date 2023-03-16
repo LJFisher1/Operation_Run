@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour, IDamage
     Vector3 playerVelocity;
     public int keysInPossession;
     int hp;
+    [Range(2,5)][SerializeField] int pushbackTime; // Lower # means farther push
 
     public int HP
     {
@@ -92,6 +93,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
     void Movement()
     {
+        windPush = Vector3.Lerp(windPush, Vector3.zero, Time.deltaTime * pushbackTime);
         //gravity and jumping
         if(controller.isGrounded && playerVelocity.y < 0)
         {
@@ -114,7 +116,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
         //move controller
         controller.Move(move * Time.deltaTime * walkSpeed);
-        controller.Move(playerVelocity * Time.deltaTime); // this needs to come after movement or it causes issues.
+        controller.Move((playerVelocity + windPush) * Time.deltaTime); // this needs to come after movement or it causes issues.
     }
 
     IEnumerator UseWeapon()
