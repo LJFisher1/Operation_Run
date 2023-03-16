@@ -20,7 +20,8 @@ public class PlayerController : MonoBehaviour, IDamage
     /// </summary>
     public Transform shootPointCenter;
     public Weapon startingWeapon;
-    
+
+    Vector3 windPush;
 
 
     [Header("----- Player Stats -----")]
@@ -204,4 +205,8 @@ public class PlayerController : MonoBehaviour, IDamage
         wMaterial.sharedMaterial = weap.model.GetComponent<MeshRenderer>().sharedMaterial;
     }
 
+    public void windPushback(Vector3 amount)
+    {
+        windPush += amount;
+    }
 }
