@@ -125,17 +125,8 @@ public class PlayerController : MonoBehaviour, IDamage
         if (weapon != null)
         {
             GameObject bulletClone = Instantiate(weapon.bullet, shootPointVisual.position, weapon.bullet.transform.rotation);
-            if (bulletClone.GetComponent<Rigidbody>() != null)
-            {
-                //GameObject visualClone = Instantiate(weapon.bullet, shootPointVisual.position, weapon.bullet.transform.rotation);
-                //visualClone.GetComponent<Collider>().enabled = false;
-                //visualClone.GetComponent<Rigidbody>().velocity = (shootPointCenter.position - shootPointVisual.position).normalized * weapon.bulletSpeed;
-                //Destroy(visualClone,0.1f);
-                bulletClone.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * weapon.bulletSpeed;
-            }else if (bulletClone.GetComponent<LineRenderer>())
-            {
-                bulletClone.GetComponent<IBullet>().Initialize(weapon);
-            }
+            bulletClone.GetComponent<IBullet>().Initialize(weapon);
+
             yield return new WaitForSeconds(wUseTime);
         }
         isUsingWeapon = false;

@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4043896017804649657}
-  - component: {fileID: 1944222961704235021}
   - component: {fileID: 258747490205025511}
   - component: {fileID: 4270754968088807301}
   - component: {fileID: 22623558235534948}
   - component: {fileID: 1652281659602912192}
   - component: {fileID: 5997147569292235242}
+  - component: {fileID: -8138690049390385159}
   m_Layer: 9
   m_Name: Projectile Test
   m_TagString: Untagged
@@ -37,21 +37,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1944222961704235021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5982062045012594215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f589f592aa706b4aab79d775bc8eaf7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
-  hitTag: Enemy
-  timer: 6
 --- !u!33 &258747490205025511
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -113,7 +98,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1652281659602912192
 Rigidbody:
@@ -239,3 +224,19 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &-8138690049390385159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5982062045012594215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f589f592aa706b4aab79d775bc8eaf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  hitTag: Enemy
+  timer: 10
+  hitEffect: {fileID: 8629395118239175264, guid: f26d4aefc5ba11f4cbfe093351158b8e, type: 3}

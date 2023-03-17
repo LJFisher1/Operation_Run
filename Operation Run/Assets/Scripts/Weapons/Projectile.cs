@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour
     public int damage;
     public string hitTag = "Player";
     public int timer;
-    
+    [SerializeField] GameObject hitEffect;
 
     private void Start()
     {
@@ -21,6 +21,10 @@ public class Projectile : MonoBehaviour
         if (other.CompareTag(hitTag))
         {
             other.GetComponent<IDamage>().TakeDamage(damage);
+        }
+        if (hitEffect)
+        {
+            Instantiate(hitEffect, transform.position, transform.rotation);
         }
         Destroy(gameObject);
     }

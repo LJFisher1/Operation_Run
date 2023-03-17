@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f28632f9035a94c805f2be58ed6aff, type: 3}
   m_Name: ProjectileTest
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 1
   useTime: 0.3
   range: 10
   duration: 3
-  bulletSpeed: 25
+  bulletSpeed: 81.86
   model: {fileID: 1750509054736364, guid: e55280988a6fa1843a32025141146c2a, type: 3}
-  bullet: {fileID: 5982062045012594215, guid: 4ef9abe389c2f6f4e93afc5eefe61eed, type: 3}
+  bullet: {fileID: 5982062045012594215, guid: 53084270f58a4cf4a8ac25ebd2dd19d3, type: 3}

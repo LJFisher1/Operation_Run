@@ -10,6 +10,7 @@ public class Hitscan : MonoBehaviour, IBullet
     public int range;
     public LineRenderer lineRend;
     [SerializeField] float decaySpeed;
+    [SerializeField] GameObject hitEffect;
 
     public void Initialize(Weapon creator)
     {
@@ -29,6 +30,7 @@ public class Hitscan : MonoBehaviour, IBullet
             {
                 target.TakeDamage(damage);
             }
+            Instantiate(hitEffect, hit.point, transform.rotation);
         }
         Destroy(gameObject, duration);
     }
