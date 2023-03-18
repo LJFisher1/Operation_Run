@@ -77,8 +77,9 @@ public class PlayerController : MonoBehaviour, IDamage
     {
         if (!GameManager.instance.isPaused)
         {
-            Movement();
             Weapons();
+            Movement();
+
         }
       
     }
