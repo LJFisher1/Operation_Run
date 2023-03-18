@@ -5,13 +5,14 @@ using UnityEngine;
 public class WeaponPickup : MonoBehaviour
 {
     [SerializeField] Weapon weapon;
+    [SerializeField] bool destroyOnPickup;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             GameManager.instance.playerController.ChangeWeapon(weapon);
-            Destroy(gameObject);
+            if(destroyOnPickup) Destroy(gameObject);
         }
     }
 }

@@ -15,7 +15,7 @@ MonoBehaviour:
   damage: 100
   useTime: 1
   range: 1000
-  duration: 0.75
-  bulletSpeed: 0.5
+  duration: 0.5
+  bulletSpeed: 0.25
   model: {fileID: 1853494166779514, guid: 713f90f70ef14794bbdcabcb038f4ae7, type: 3}
   bullet: {fileID: 5982062045012594215, guid: a2d76d73ef79d634e9f8cd11f9c20b2d, type: 3}

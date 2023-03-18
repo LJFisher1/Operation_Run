@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 11400000, guid: dca9b589008ed8c49a29c51ab0d4b722, type: 2}
+  destroyOnPickup: 1
 --- !u!135 &8737102153728203619
 SphereCollider:
   m_ObjectHideFlags: 0
