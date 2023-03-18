@@ -45,10 +45,10 @@ public class MeleeMagic : MonoBehaviour, IBullet
             if (other.CompareTag("Enemy"))
             {
                 other.GetComponent<IDamage>().TakeDamage(damage);
-                GameManager.instance.playerController.ApplyForce((-dashDir + bouncBackDirInfluence) * dashSpeed * bounceBackDamping);
-                Instantiate(hitEffect, transform.position, hitEffect.transform.rotation);
-                EndDash();
             }
+            GameManager.instance.playerController.ApplyForce((-dashDir + bouncBackDirInfluence) * dashSpeed * bounceBackDamping);
+            Instantiate(hitEffect, transform.position, hitEffect.transform.rotation);
+            EndDash();
         }
     }
 
