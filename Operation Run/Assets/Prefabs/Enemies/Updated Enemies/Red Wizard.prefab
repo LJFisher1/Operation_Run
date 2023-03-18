@@ -1797,6 +1797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 3215292142667192018}
   agent: {fileID: 3004762547234480411}
+  animator: {fileID: 3183404756431921394}
   headPosition: {fileID: 8652918511668936735}
   HP: 3
   roamDistance: 5

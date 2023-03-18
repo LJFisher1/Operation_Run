@@ -8,6 +8,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     [Header("--Components--")]
     [SerializeField] Renderer model;
     public NavMeshAgent agent;
+    [SerializeField] Animator animator;
 
     [Header("--Wizard Stats--")]
     [SerializeField] Transform headPosition;
@@ -39,6 +40,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     void Start()
     {
         GameManager.instance.GameUpdateGoal(1);
+        animator = GetComponent<Animator>();
         stoppingDistanceOrigin = agent.stoppingDistance;
         startingPosition = transform.position;
 
@@ -47,16 +49,21 @@ public class EnemyAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        if (playerInRange)
+        if (agent.isActiveAndEnabled)
         {
-            if (!CanSeePlayer())
+            animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
+
+            if (playerInRange)
+            {
+                if (!CanSeePlayer())
+                {
+                    StartCoroutine(Roam());
+                }
+            }
+            else if (agent.destination != GameManager.instance.player.transform.position)
             {
                 StartCoroutine(Roam());
             }
-        }
-        else if (agent.destination != GameManager.instance.player.transform.position)
-        {
-            StartCoroutine(Roam());
         }
     }
 
@@ -64,6 +71,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         if (!destinationChosen && agent.remainingDistance < 0.05f)
         {
+            animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
             destinationChosen = true;
             agent.stoppingDistance = 0;
             yield return new WaitForSeconds(waitTime);
@@ -125,15 +133,23 @@ public class EnemyAI : MonoBehaviour, IDamage
     IEnumerator Attack()
     {
         isAttacking = true;
-        GameObject attackClone = Instantiate(projectile, projectilePosition.position, projectile.transform.rotation);
-        attackClone.GetComponent<Rigidbody>().velocity = playerDirection * projectileSpeed;
+        animator.SetTrigger("Shoot");
+        createBullet();
         yield return new WaitForSeconds(attackRate);
         isAttacking = false;
     }
+
+    public void createBullet()
+    {
+        GameObject attackClone = Instantiate(projectile, projectilePosition.position, projectile.transform.rotation);
+        attackClone.GetComponent<Rigidbody>().velocity = playerDirection * projectileSpeed;
+    }
+
     public void TakeDamage(int dmg)
     {
         HP -= dmg;
         StartCoroutine(FlashMat());
+        animator.SetTrigger("TakeDamage");
         agent.SetDestination(GameManager.instance.player.transform.position);
         if (HP <= 0)
         {

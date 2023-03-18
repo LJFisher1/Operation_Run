@@ -1103,6 +1103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 1071130962781303602}
   agent: {fileID: 860582637801506043}
+  animator: {fileID: 1040279866657850642}
   headPosition: {fileID: 6509741390931813887}
   HP: 5
   roamDistance: 10
