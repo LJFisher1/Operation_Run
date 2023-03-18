@@ -40,6 +40,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     void Start()
     {
         GameManager.instance.GameUpdateGoal(1);
+        animator = GetComponent<Animator>();
         stoppingDistanceOrigin = agent.stoppingDistance;
         startingPosition = transform.position;
 
