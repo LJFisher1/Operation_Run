@@ -165,7 +165,7 @@ public class PlayerController : MonoBehaviour, IDamage
     }
 
 
-    void Teleport(Vector3 pos)
+    public void Teleport(Vector3 pos)
     {
         controller.enabled = false;
         transform.position = pos;

@@ -36,6 +36,10 @@ public class GameManager : MonoBehaviour
 
     public bool isPaused;
 
+    private float timeScaleOriginal;
+    private  float timeFixedOriginal;
+
+
     private void Awake()
     {
         instance = this;
@@ -44,6 +48,9 @@ public class GameManager : MonoBehaviour
         playerSpawnPosition = GameObject.FindGameObjectWithTag("Player Spawn Position");
         objectiveText.text = ("Enemies Remaining:");
         KeyCountText.text = playerController.keysInPossession.ToString("F0");
+
+        timeScaleOriginal = Time.timeScale;
+        timeFixedOriginal = Time.fixedDeltaTime;
     }
 
     void Update()
@@ -149,5 +156,18 @@ public class GameManager : MonoBehaviour
     public void usedKey1()
     {
         StartCoroutine(usedKeyFlash());
+    }
+
+    public void StartSlowMotion(float sloMoTimeScale = 0.5f)
+    {
+        sloMoTimeScale = Mathf.Clamp(sloMoTimeScale, 0, 1);
+        Time.timeScale = sloMoTimeScale;
+        Time.fixedDeltaTime = timeFixedOriginal * sloMoTimeScale;
+    }
+
+    public void StopSlowMotion()
+    {
+        Time.timeScale = timeScaleOriginal;
+        Time.fixedDeltaTime = timeFixedOriginal;
     }
 }

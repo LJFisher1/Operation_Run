@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Hitscan : MonoBehaviour, IBullet
 {
-    public int damage;
-    public string hitTag = "Player";
-    public float duration;
-    public int range;
+    private int damage;
+    public string hitTag = "Enemy";
+    private float duration;
+    private int range;
+    [SerializeField] float SlomoDurationOnTP;
     public LineRenderer lineRend;
     [SerializeField] float decaySpeed;
     [SerializeField] GameObject hitEffect;
@@ -29,6 +30,10 @@ public class Hitscan : MonoBehaviour, IBullet
             if (target != null && hit.collider.CompareTag(hitTag))
             {
                 target.TakeDamage(damage);
+                if(hit.transform.GetComponent<EnemyAI>().HP <= 0 )
+                {
+                    TeleportAbility(hit.transform.position);
+                }
             }
             Instantiate(hitEffect, hit.point, transform.rotation);
         }
@@ -42,6 +47,17 @@ public class Hitscan : MonoBehaviour, IBullet
         lineRend.startWidth = Mathf.Lerp(lineRend.startWidth, 0, decaySpeed);
     }
 
+    void TeleportAbility(Vector3 pos)
+    {
+        GameManager.instance.playerController.Teleport(pos);
+        StartCoroutine(SlowMo());
+    }
+    IEnumerator SlowMo()
+    {
+        GameManager.instance.StartSlowMotion(.1f);
+        yield return new WaitForSecondsRealtime(SlomoDurationOnTP);
+        GameManager.instance.StopSlowMotion();
+    }
 
 
 

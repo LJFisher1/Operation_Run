@@ -52,6 +52,7 @@ MonoBehaviour:
   hitTag: Enemy
   duration: 1
   range: 10000
+  SlomoDurationOnTP: 2
   lineRend: {fileID: -713327645408654490}
   decaySpeed: 0.008
   hitEffect: {fileID: 1388399749130840092, guid: c75c534072326b142b43676c7e76e364, type: 3}
