@@ -8,8 +8,11 @@ public class MeleeMagic : MonoBehaviour, IBullet
     float duration;
     bool dashing;
     float dashSpeed;
+    [SerializeField] float bounceBackDamping;
+    [SerializeField] Vector3 bouncBackDirInfluence;
     [SerializeField] Collider chargeCollder;
     [SerializeField] Collider dashCollider;
+    [SerializeField] GameObject hitEffect;
     CharacterController cc;
     Vector3 dashDir;
     public void Initialize(Weapon creator)
@@ -23,11 +26,6 @@ public class MeleeMagic : MonoBehaviour, IBullet
     private void Update()
     {
         transform.position = GameManager.instance.playerController.shootPointVisual.position;
-        if(dashing)
-        {
-            Debug.Log("dash");
-            cc.Move(dashDir * dashSpeed * Time.deltaTime);
-        }
     }
     public void OnTriggerStay(Collider other)
     {
@@ -47,6 +45,9 @@ public class MeleeMagic : MonoBehaviour, IBullet
             if (other.CompareTag("Enemy"))
             {
                 other.GetComponent<IDamage>().TakeDamage(damage);
+                GameManager.instance.playerController.ApplyForce((-dashDir + bouncBackDirInfluence) * dashSpeed * bounceBackDamping);
+                Instantiate(hitEffect, transform.position, hitEffect.transform.rotation);
+                EndDash();
             }
         }
     }
@@ -65,11 +66,16 @@ public class MeleeMagic : MonoBehaviour, IBullet
         dashing = true;
         dashDir = Camera.main.transform.forward;
         Camera.main.GetComponent<CameraController>().enabled = false;
+        GameManager.instance.playerController.ApplyForce(dashDir * dashSpeed);
         //chargeCollder.enabled = false;
         //dashCollider.enabled = true;
         yield return new WaitForSeconds(duration/2);
+        EndDash();
+    }
+
+    void EndDash()
+    {
         Camera.main.GetComponent<CameraController>().enabled = true;
-        dashing = false;
-        Destroy(gameObject,1);
+        Destroy(gameObject);
     }
 }
