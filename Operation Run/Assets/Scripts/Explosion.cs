@@ -34,11 +34,11 @@ public class Explosion : MonoBehaviour
             GameManager.instance.playerController.TakeDamage(damage);
             if (pull) // Pulls inwards
             {
-                GameManager.instance.playerController.windPushback((transform.position - GameManager.instance.playerController.transform.position).normalized * explosionStrength);
+                GameManager.instance.playerController.ApplyForce((transform.position - GameManager.instance.playerController.transform.position).normalized * explosionStrength);
             }
             else // Pushes outward
             {
-                GameManager.instance.playerController.windPushback((transform.position + GameManager.instance.playerController.transform.position).normalized * explosionStrength);
+                GameManager.instance.playerController.ApplyForce((transform.position + GameManager.instance.playerController.transform.position).normalized * explosionStrength);
             }
         }
     }

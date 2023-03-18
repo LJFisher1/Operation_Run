@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour, IDamage
     public Transform shootPointCenter;
     public Weapon startingWeapon;
 
-    Vector3 windPush;
+    Vector3 appliedForce;
 
 
     [Header("----- Player Stats -----")]
@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
     void Movement()
     {
-        windPush = Vector3.Lerp(windPush, Vector3.zero, Time.deltaTime * pushbackTime);
+        appliedForce = Vector3.Lerp(appliedForce, Vector3.zero, Time.deltaTime * pushbackTime);
         //gravity and jumping
         if(controller.isGrounded && playerVelocity.y < 0)
         {
@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
         //move controller
         controller.Move(move * Time.deltaTime * walkSpeed);
-        controller.Move((playerVelocity + windPush) * Time.deltaTime); // this needs to come after movement or it causes issues.
+        controller.Move((playerVelocity + appliedForce) * Time.deltaTime); // this needs to come after movement or it causes issues.
     }
 
     IEnumerator UseWeapon()
@@ -198,8 +198,8 @@ public class PlayerController : MonoBehaviour, IDamage
         wMaterial.sharedMaterial = weap.model.GetComponent<MeshRenderer>().sharedMaterial;
     }
 
-    public void windPushback(Vector3 amount)
+    public void ApplyForce(Vector3 amount)
     {
-        windPush += amount;
+        appliedForce += amount;
     }
 }
