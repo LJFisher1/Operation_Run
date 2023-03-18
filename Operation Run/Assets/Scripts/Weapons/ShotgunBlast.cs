@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ShotgunBlast : MonoBehaviour,IBullet
 {
-    public int damage;
-    public string hitTag = "Enemy";
-    public float duration;
-    public int numShots;
-    public GameObject bullet;
-    public float spreadAngle;
+    int damage;
+    float duration;
+    [SerializeField] string hitTag = "Enemy";
+    [SerializeField] int numShots;
+    [SerializeField] GameObject bullet;
+    [SerializeField] float spreadAngle;
 
     private void OnTriggerEnter(Collider other)
     {

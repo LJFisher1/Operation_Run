@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f28632f9035a94c805f2be58ed6aff, type: 3}
+  m_Name: Melee Test
+  m_EditorClassIdentifier: 
+  damage: 3
+  useTime: 2
+  range: 1
+  duration: 1
+  bulletSpeed: 50
+  model: {fileID: 1412941605713842, guid: c413fed5af1bfe847af0ed883ee868db, type: 3}
+  bullet: {fileID: 7561226030291507987, guid: 73662efe2a6f0044fbcc60c68e75aa66, type: 3}
