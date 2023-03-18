@@ -10,20 +10,12 @@ public class ShotgunBlast : MonoBehaviour,IBullet
     [SerializeField] int numShots;
     [SerializeField] GameObject bullet;
     [SerializeField] float spreadAngle;
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log(other.transform.name);
-        
-        if (other.CompareTag(hitTag))
-        {
-            other.GetComponent<IDamage>().TakeDamage(damage);
-        }
-        Destroy(gameObject);
-    }
+    [SerializeField] float pushBackPower;
 
     void IBullet.Initialize(Weapon creator)
     {
+        pushBackPower = creator.bulletSpeed / 2;
+        GameManager.instance.playerController.ApplyForce(-Camera.main.transform.forward * pushBackPower);
         damage = creator.damage;
         duration = creator.duration;
         for (int i=0; i < numShots; i++)
@@ -31,7 +23,6 @@ public class ShotgunBlast : MonoBehaviour,IBullet
             GameObject cbullet = Instantiate(bullet, transform.position, transform.rotation,transform);
             cbullet.GetComponent<Rigidbody>().velocity = GetRandomDirectionCone() * creator.bulletSpeed;
         }
-
         Destroy(gameObject, duration);
 
     }
