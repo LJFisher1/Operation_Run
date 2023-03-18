@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hitscan : MonoBehaviour, IBullet
+public class SwapLaser : MonoBehaviour, IBullet
 {
     private int damage;
     [SerializeField] string hitTag = "Enemy";
@@ -17,7 +17,7 @@ public class Hitscan : MonoBehaviour, IBullet
     [Range(-60, 60)] [SerializeField] float fovWarpAmount;
     [SerializeField] float fovWarpSpeed;
     float orignalFov;
-    bool AbilityActivated;
+    bool cameraWarping;
 
     public void Initialize(Weapon creator)
     {
@@ -58,18 +58,19 @@ public class Hitscan : MonoBehaviour, IBullet
     }
     void FixedUpdate()
     {
-        if (AbilityActivated)
+        if (cameraWarping)
         {
-            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, orignalFov + fovWarpAmount , fovWarpSpeed* Time.deltaTime);
-            Debug.Log(cam.fieldOfView);
+            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, orignalFov + fovWarpAmount , fovWarpSpeed * Time.deltaTime);
         }
     }
 
     IEnumerator TeleportAbility(Vector3 pos)
     {
-        AbilityActivated = true;
+        cameraWarping = true;
         StartCoroutine(SlowMo());
         yield return new WaitForSecondsRealtime(teleportDelay);
+        cameraWarping = false;
+        cam.fieldOfView = orignalFov;
         GameManager.instance.playerController.Teleport(pos);
         
     }
@@ -77,10 +78,7 @@ public class Hitscan : MonoBehaviour, IBullet
     {
         GameManager.instance.StartSlowMotion(.1f);
         yield return new WaitForSecondsRealtime(sloMoDuration);
-
         GameManager.instance.StopSlowMotion();
-        AbilityActivated = false;
-        cam.fieldOfView = orignalFov;
         Destroy(gameObject);
     }
     private void OnDestroy()
