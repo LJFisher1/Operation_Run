@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField] Weapon weapon;
 
     bool isUsingWeapon;
+    int healItemCount;
 
     // Start is called before the first frame update
     void Start()
@@ -94,7 +95,11 @@ public class PlayerController : MonoBehaviour, IDamage
 
     void Movement()
     {
-        appliedForce = Vector3.Lerp(appliedForce, Vector3.zero, Time.deltaTime * pushbackTime);
+        if (Input.GetButtonDown("Heal") && healItemCount >= 1)
+        {
+            Heal(10);
+        }
+            appliedForce = Vector3.Lerp(appliedForce, Vector3.zero, Time.deltaTime * pushbackTime);
         //gravity and jumping
         if(controller.isGrounded && playerVelocity.y < 0)
         {
@@ -155,6 +160,14 @@ public class PlayerController : MonoBehaviour, IDamage
                 HP = hpMax;
             }
         }
+    }
+     public void PickupHealItem()
+    {
+        healItemCount++;
+    }
+    void UseHealItem()
+    {
+        Heal(10);
     }
 
     public void SpawnPlayer()
