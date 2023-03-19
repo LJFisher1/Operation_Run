@@ -42,7 +42,6 @@ public class EnemyAI : MonoBehaviour, IDamage
         animator = GetComponent<Animator>();
         stoppingDistanceOrigin = agent.stoppingDistance;
         startingPosition = transform.position;
-
     }
 
     // Update is called once per frame

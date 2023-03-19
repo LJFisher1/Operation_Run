@@ -2863,7 +2863,7 @@ MonoBehaviour:
   sensitivitySlider: {fileID: 722513205}
   playerHealthBar: {fileID: 4713268092255126245}
   objectiveText: {fileID: 8332005781053173513}
-  enemiesRemainingText: {fileID: 6443010923095281124}
+  GemsRemainingText: {fileID: 6443010923095281124}
   playerKeyPopup: {fileID: 445621003444735783}
   KeyCountText: {fileID: 8628370456049422245}
   noKeysPopup: {fileID: 1994927800310074073}
@@ -2872,7 +2872,7 @@ MonoBehaviour:
   hpPickup: {fileID: 5322878933945657064}
   HealCountText: {fileID: 7247576628973057694}
   scoreCountText: {fileID: 8509529143744407586}
-  enemiesRemaining: 0
+  GemsRemaining: 0
   scoreCount: 0
   isPaused: 0
 --- !u!114 &9030457523220422189
@@ -3089,7 +3089,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Remaining Enemies:'
+  m_text: 'Remaining Gems:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3383,7 +3383,7 @@ GameObject:
   - component: {fileID: 6591520576455922620}
   - component: {fileID: 6443010923095281124}
   m_Layer: 5
-  m_Name: Enemies Remaining Text
+  m_Name: Gems Remaining Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

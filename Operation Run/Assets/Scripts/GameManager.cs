@@ -53,7 +53,6 @@ public class GameManager : MonoBehaviour
         objectiveText.text = ("Remaining Gems:");
         KeyCountText.text = playerController.keysInPossession.ToString("F0");
         HealCountText.text = playerController.healItemCount.ToString("F0");
-        GameUpdateGoal(4);
         UpdateScore(0);
 
 
