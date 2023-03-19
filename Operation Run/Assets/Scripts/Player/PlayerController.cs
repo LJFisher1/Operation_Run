@@ -172,6 +172,7 @@ public class PlayerController : MonoBehaviour, IDamage
     void UseHealItem()
     {
         Heal(10);
+        --healItemCount;
     }
 
     public void SpawnPlayer()
