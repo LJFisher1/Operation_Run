@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour, IDamage
     public int keysInPossession;
     public int healItemCount;
     int hp;
-    [Range(2,5)][SerializeField] int pushbackTime; // Lower # means farther push
+    [Range(2,5)][SerializeField] int forceDamingRate; // Lower # means farther push
 
     public int HP
     {
@@ -78,15 +78,20 @@ public class PlayerController : MonoBehaviour, IDamage
     {
         if (!GameManager.instance.isPaused)
         {
-            Weapons();
+            ItemControls();
             Movement();
 
         }
       
     }
 
-    private void Weapons()
+    private void ItemControls()
     {
+        if (Input.GetButtonDown("Heal") && healItemCount >= 1)
+        {
+            UseHealItem();
+            GameManager.instance.UpdateScore(-10);
+        }
         if (Input.GetButton("Fire1") & !isUsingWeapon)
         {
             StartCoroutine(UseWeapon());
@@ -95,12 +100,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
     void Movement()
     {
-        if (Input.GetButtonDown("Heal") && healItemCount >= 1)
-        {
-            UseHealItem();
-            GameManager.instance.UpdateScore(-10);
-        }
-            appliedForce = Vector3.Lerp(appliedForce, Vector3.zero, Time.deltaTime * pushbackTime);
+            appliedForce = Vector3.Lerp(appliedForce, Vector3.zero, Time.deltaTime * forceDamingRate);
         //gravity and jumping
         if(controller.isGrounded && playerVelocity.y < 0)
         {
