@@ -9,7 +9,10 @@ public class WinPoint : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameManager.instance.PlayerWin();
+            if (GameManager.instance.GemsRemaining <= 0)
+            {
+                GameManager.instance.PlayerWin();
+            }
         }
     }
 }

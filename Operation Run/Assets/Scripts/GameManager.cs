@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     public GameObject hpPickup;
     public TextMeshProUGUI HealCountText;
     public TextMeshProUGUI scoreCountText;
+    public GameObject needMoreGemsPopup;
 
     [Header("Game Goals")]
     public int GemsRemaining;
@@ -165,6 +166,12 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         GameManager.instance.usedKeyPopup.SetActive(false);
     }
+    public IEnumerator NeedMoreGems()
+    {
+        needMoreGemsPopup.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        needMoreGemsPopup.SetActive(false);
+    }
     public void usedKey1()
     {
         StartCoroutine(usedKeyFlash());
@@ -186,5 +193,10 @@ public class GameManager : MonoBehaviour
     {
         scoreCount += scorechange;
         scoreCountText.text = GameManager.instance.scoreCount.ToString("F0");
+    }
+
+    public void GemPickup()
+    {
+        GameUpdateGoal(-1);
     }
 }

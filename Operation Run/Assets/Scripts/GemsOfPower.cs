@@ -12,7 +12,7 @@ public class GemsOfPower : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameManager.instance.playerController.GemPickup();
+            GameManager.instance.GemPickup();
             Destroy(gameObject);
             GameManager.instance.UpdateScore(10);
         }

@@ -178,11 +178,6 @@ public class PlayerController : MonoBehaviour, IDamage
         GameManager.instance.HealCountText.text = healItemCount.ToString("F0");
     }
 
-    public void GemPickup()
-    {
-        ++gemCount;
-        GameManager.instance.GameUpdateGoal(-1);
-    }
     void UseHealItem()
     {
         Heal(healPower);
