@@ -132,7 +132,12 @@ public class PlayerController : MonoBehaviour, IDamage
         if (weapon != null)
         {
             GameObject bulletClone = Instantiate(weapon.bullet, shootPointVisual.position, weapon.bullet.transform.rotation);
-            bulletClone.GetComponent<IBullet>().Initialize(weapon);
+            IBullet specialBullet = bulletClone.GetComponent<IBullet>();
+            if (specialBullet != null)
+            {
+                specialBullet.Initialize(weapon);
+            }
+
 
             yield return new WaitForSeconds(wUseTime);
         }

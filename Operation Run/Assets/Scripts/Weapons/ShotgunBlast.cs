@@ -11,10 +11,15 @@ public class ShotgunBlast : MonoBehaviour,IBullet
     [SerializeField] GameObject bullet;
     [SerializeField] float spreadAngle;
     [SerializeField] float pushBackPower;
+    [SerializeField] bool useBulletSpeedforPush = true;
 
     void IBullet.Initialize(Weapon creator)
     {
-        pushBackPower = creator.bulletSpeed / 2;
+        if(useBulletSpeedforPush)
+        {
+            pushBackPower = creator.bulletSpeed / 2;
+        }
+        
         GameManager.instance.playerController.ApplyForce(-Camera.main.transform.forward * pushBackPower);
         damage = creator.damage;
         duration = creator.duration;
