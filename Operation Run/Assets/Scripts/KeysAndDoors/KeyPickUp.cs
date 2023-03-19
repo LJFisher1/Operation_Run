@@ -10,6 +10,7 @@ public class KeyPickUp : MonoBehaviour
         {
             GameManager.instance.playerController.KeyPickup();
             Destroy(gameObject);
+            GameManager.instance.UpdateScore(5);
         }
     }
 }

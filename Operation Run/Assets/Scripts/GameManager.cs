@@ -32,9 +32,11 @@ public class GameManager : MonoBehaviour
     public GameObject HealItemPopup;
     public GameObject hpPickup;
     public TextMeshProUGUI HealCountText;
+    public TextMeshProUGUI scoreCountText;
 
     [Header("Game Goals")]
     public int enemiesRemaining;
+    public float scoreCount;
 
     public bool isPaused;
 
@@ -51,6 +53,8 @@ public class GameManager : MonoBehaviour
         objectiveText.text = ("Enemies Remaining:");
         KeyCountText.text = playerController.keysInPossession.ToString("F0");
         HealCountText.text = playerController.healItemCount.ToString("F0");
+        UpdateScore(0);
+
 
         timeScaleOriginal = Time.timeScale;
         timeFixedOriginal = Time.fixedDeltaTime;
@@ -178,5 +182,10 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = timeScaleOriginal;
         Time.fixedDeltaTime = timeFixedOriginal;
+    }
+    public void UpdateScore(float scorechange)
+    {
+        scoreCount += scorechange;
+        scoreCountText.text = GameManager.instance.scoreCount.ToString("F0");
     }
 }

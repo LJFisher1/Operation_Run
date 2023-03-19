@@ -12,6 +12,7 @@ public class DoorOpen : MonoBehaviour
             GameManager.instance.playerController.KeyUsed();
             GameManager.instance.usedKey1();
             Destroy(gameObject);
+            GameManager.instance.UpdateScore(5);
         }
         else if (other.CompareTag("Player") && GameManager.instance.playerController.keysInPossession <= 0)
         {

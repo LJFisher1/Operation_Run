@@ -155,6 +155,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         {
             GameManager.instance.GameUpdateGoal(-1);
             Destroy(gameObject.transform.parent.gameObject);
+            GameManager.instance.UpdateScore(10);
         }
     }
 }

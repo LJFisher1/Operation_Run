@@ -97,7 +97,8 @@ public class PlayerController : MonoBehaviour, IDamage
     {
         if (Input.GetButtonDown("Heal") && healItemCount >= 1)
         {
-            Heal(10);
+            UseHealItem();
+            GameManager.instance.UpdateScore(-10);
         }
             appliedForce = Vector3.Lerp(appliedForce, Vector3.zero, Time.deltaTime * pushbackTime);
         //gravity and jumping
@@ -145,6 +146,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
         if (HP <= 0)
         {
+            GameManager.instance.UpdateScore(-20);
             GameManager.instance.PlayerDead();
         }
     }

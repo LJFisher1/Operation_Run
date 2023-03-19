@@ -10,6 +10,7 @@ public class HealingItem : MonoBehaviour
         {
             GameManager.instance.playerController.PickupHealItem();
             Destroy(gameObject);
+            GameManager.instance.UpdateScore(5);
         }
     }
 }
