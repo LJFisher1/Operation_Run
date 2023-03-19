@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   useTime: 0.5
-  range: 100
-  duration: 10
+  range: 1000
+  duration: 20
   bulletSpeed: 100
   model: {fileID: 180968, guid: 3ac146b9578b7914db23c8e3518933b2, type: 3}
   bullet: {fileID: 5982062045012594215, guid: ae510f6af7139684ba3f90a373679087, type: 3}
