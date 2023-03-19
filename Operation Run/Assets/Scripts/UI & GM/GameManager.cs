@@ -29,7 +29,9 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI KeyCountText;// Key
     public GameObject noKeysPopup;//door
     public GameObject usedKeyPopup;//door
+    public GameObject HealItemPopup;
     public GameObject hpPickup;
+    public TextMeshProUGUI HealCountText;
 
     [Header("Game Goals")]
     public int enemiesRemaining;
@@ -48,6 +50,7 @@ public class GameManager : MonoBehaviour
         playerSpawnPosition = GameObject.FindGameObjectWithTag("Player Spawn Position");
         objectiveText.text = ("Enemies Remaining:");
         KeyCountText.text = playerController.keysInPossession.ToString("F0");
+        HealCountText.text = playerController.healItemCount.ToString("F0");
 
         timeScaleOriginal = Time.timeScale;
         timeFixedOriginal = Time.fixedDeltaTime;
@@ -90,6 +93,12 @@ public class GameManager : MonoBehaviour
         playerKeyPopup.SetActive(true);
         yield return new WaitForSeconds(1f);
         playerKeyPopup.SetActive(false);
+    }
+    public IEnumerator FlashHealItemPopup()// Key
+    {
+        HealItemPopup.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        HealItemPopup.SetActive(false);
     }
 
     public void GamePaused()

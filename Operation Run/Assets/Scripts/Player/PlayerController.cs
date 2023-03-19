@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour, IDamage
     Vector3 move;
     Vector3 playerVelocity;
     public int keysInPossession;
+    public int healItemCount;
     int hp;
     [Range(2,5)][SerializeField] int pushbackTime; // Lower # means farther push
 
@@ -57,7 +58,6 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField] Weapon weapon;
 
     bool isUsingWeapon;
-    int healItemCount;
 
     // Start is called before the first frame update
     void Start()
@@ -163,7 +163,9 @@ public class PlayerController : MonoBehaviour, IDamage
     }
      public void PickupHealItem()
     {
+        StartCoroutine(GameManager.instance.FlashHealItemPopup());
         healItemCount++;
+        GameManager.instance.HealCountText.text = healItemCount.ToString("F0");
     }
     void UseHealItem()
     {
@@ -187,7 +189,6 @@ public class PlayerController : MonoBehaviour, IDamage
     }
     public void KeyPickup()
     {
-        Debug.Log("flashKEY");
         StartCoroutine(GameManager.instance.FlashKeyPopup());
         keysInPossession++;
         GameManager.instance.KeyCountText.text = keysInPossession.ToString("F0");
