@@ -10094,6 +10094,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6859206437942702868, guid: 583ea11a9a1c66f4990fed8a985e9d4d, type: 3}
+      propertyPath: healPower
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859206437942702868, guid: 583ea11a9a1c66f4990fed8a985e9d4d, type: 3}
       propertyPath: startingWeapon
       value: 
       objectReference: {fileID: 11400000, guid: 4733aa2323c944c4c9564350cf061d71, type: 2}
@@ -10153,6 +10157,14 @@ PrefabInstance:
     - target: {fileID: 7444174410631351865, guid: cbed401f83faae64b9dc81a9c56e34c9, type: 3}
       propertyPath: m_Name
       value: Red Wizard
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011261878283419684, guid: cbed401f83faae64b9dc81a9c56e34c9, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011261878283419684, guid: cbed401f83faae64b9dc81a9c56e34c9, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbed401f83faae64b9dc81a9c56e34c9, type: 3}

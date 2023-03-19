@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour, IDamage
     [Range(10, 35)] [SerializeField] float gravity;
     [Range(5, 15)] [SerializeField] float jumpSpeed;
     [Range(1, 3)] [SerializeField] int jumpsMax;
+    [Range(1, 100)] [SerializeField] int healPower;
     int jumpsCur;
     Vector3 move;
     Vector3 playerVelocity;
@@ -81,6 +82,7 @@ public class PlayerController : MonoBehaviour, IDamage
             ItemControls();
             Movement();
 
+
         }
       
     }
@@ -100,7 +102,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
     void Movement()
     {
-            appliedForce = Vector3.Lerp(appliedForce, Vector3.zero, Time.deltaTime * forceDamingRate);
+        appliedForce = Vector3.Lerp(appliedForce, Vector3.zero, Time.deltaTime * forceDamingRate);
         //gravity and jumping
         if(controller.isGrounded && playerVelocity.y < 0)
         {
@@ -171,13 +173,14 @@ public class PlayerController : MonoBehaviour, IDamage
      public void PickupHealItem()
     {
         StartCoroutine(GameManager.instance.FlashHealItemPopup());
-        healItemCount++;
+        ++healItemCount;
         GameManager.instance.HealCountText.text = healItemCount.ToString("F0");
     }
     void UseHealItem()
     {
-        Heal(10);
+        Heal(healPower);
         --healItemCount;
+        GameManager.instance.HealCountText.text = healItemCount.ToString("F0");
     }
 
     public void SpawnPlayer()

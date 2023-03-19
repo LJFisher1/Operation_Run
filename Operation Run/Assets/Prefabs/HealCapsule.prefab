@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1819626268878810957}
   - component: {fileID: 1819626268878810959}
   - component: {fileID: 1819626268878810958}
-  - component: {fileID: 1819626268878810953}
+  - component: {fileID: 869734554643995747}
   m_Layer: 0
   m_Name: HealCapsule
   m_TagString: Untagged
@@ -47,7 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43937a4d6e373704bb0084be14d93906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heal: 10
 --- !u!33 &1819626268878810959
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -98,8 +97,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1819626268878810953
-CapsuleCollider:
+--- !u!135 &869734554643995747
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -108,7 +107,6 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Radius: 3.7
   m_Center: {x: 0, y: 0, z: 0}
