@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour, IDamage
     public int keysInPossession;
     public int healItemCount;
     int hp;
+    public int gemCount;
     [Range(2,5)][SerializeField] int forceDamingRate; // Lower # means farther push
 
     public int HP
@@ -175,6 +176,12 @@ public class PlayerController : MonoBehaviour, IDamage
         StartCoroutine(GameManager.instance.FlashHealItemPopup());
         ++healItemCount;
         GameManager.instance.HealCountText.text = healItemCount.ToString("F0");
+    }
+
+    public void GemPickup()
+    {
+        ++gemCount;
+        GameManager.instance.GameUpdateGoal(-1);
     }
     void UseHealItem()
     {

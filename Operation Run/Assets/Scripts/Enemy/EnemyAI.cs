@@ -39,7 +39,6 @@ public class EnemyAI : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.instance.GameUpdateGoal(1);
         animator = GetComponent<Animator>();
         stoppingDistanceOrigin = agent.stoppingDistance;
         startingPosition = transform.position;
@@ -153,7 +152,6 @@ public class EnemyAI : MonoBehaviour, IDamage
         agent.SetDestination(GameManager.instance.player.transform.position);
         if (HP <= 0)
         {
-            GameManager.instance.GameUpdateGoal(-1);
             Destroy(gameObject.transform.parent.gameObject);
             GameManager.instance.UpdateScore(10);
         }

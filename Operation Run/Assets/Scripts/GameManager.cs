@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject sensitivitySlider;
     public Image playerHealthBar;
     public TextMeshProUGUI objectiveText;
-    public TextMeshProUGUI enemiesRemainingText;
+    public TextMeshProUGUI GemsRemainingText;
     public GameObject playerKeyPopup;// Key
     public TextMeshProUGUI KeyCountText;// Key
     public GameObject noKeysPopup;//door
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreCountText;
 
     [Header("Game Goals")]
-    public int enemiesRemaining;
+    public int GemsRemaining;
     public float scoreCount;
 
     public bool isPaused;
@@ -50,9 +50,10 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = PlayerController.FindObjectOfType<PlayerController>();
         playerSpawnPosition = GameObject.FindGameObjectWithTag("Player Spawn Position");
-        objectiveText.text = ("Enemies Remaining:");
+        objectiveText.text = ("Remaining Gems:");
         KeyCountText.text = playerController.keysInPossession.ToString("F0");
         HealCountText.text = playerController.healItemCount.ToString("F0");
+        GameUpdateGoal(4);
         UpdateScore(0);
 
 
@@ -81,14 +82,13 @@ public class GameManager : MonoBehaviour
 
     public void GameUpdateGoal(int amount)
     {
-        enemiesRemaining += amount;
-        enemiesRemainingText.text = enemiesRemaining.ToString("F0");
+        GemsRemaining += amount;
+        GemsRemainingText.text = GemsRemaining.ToString("F0");
 
-        if (enemiesRemaining < 1)
+        if (GemsRemaining < 1)
         {
-            enemiesRemainingText.text = ("");
+            GemsRemainingText.text = ("");
             objectiveText.text = ("Find The Escape");
-            //remove enemies remaining text and add the "ESCAPE!!" Goal
         }
     }
 
