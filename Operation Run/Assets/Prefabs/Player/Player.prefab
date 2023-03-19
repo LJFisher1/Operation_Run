@@ -262,6 +262,7 @@ GameObject:
   - component: {fileID: 6859206437942702859}
   - component: {fileID: 6859206437942702871}
   - component: {fileID: 6859206437942702870}
+  - component: {fileID: 244641867}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -308,7 +309,7 @@ MonoBehaviour:
   keysInPossession: 0
   healItemCount: 0
   forceDamingRate: 3
-  hpMax: 25
+  hpMax: 50
   wUseTime: 0
   wRange: 0
   wDamage: 0
@@ -383,3 +384,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &244641867
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6859206437942702857}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.55
+  m_Height: 2.2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
