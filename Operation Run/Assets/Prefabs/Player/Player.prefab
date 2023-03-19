@@ -302,11 +302,12 @@ MonoBehaviour:
   shootPointCenter: {fileID: 378190206}
   startingWeapon: {fileID: 11400000, guid: 57ae3b4858913e84e9539976ae6c3a20, type: 2}
   walkSpeed: 20
-  gravity: 35
+  gravity: 20.03
   jumpSpeed: 10
   jumpsMax: 2
   keysInPossession: 0
-  pushbackTime: 5
+  healItemCount: 0
+  forceDamingRate: 3
   hpMax: 25
   wUseTime: 0
   wRange: 0
