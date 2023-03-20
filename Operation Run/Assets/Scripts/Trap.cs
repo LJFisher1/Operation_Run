@@ -12,12 +12,13 @@ public class Trap : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            IEnumerator Expl()
-            {
-                yield return new WaitForSeconds(timer);
-                Instantiate(explosion, transform.position, explosion.transform.rotation);
-                Destroy(gameObject);
-            }
+            StartCoroutine(Expl());
         }
+    }
+    IEnumerator Expl()
+    {
+        yield return new WaitForSeconds(timer);
+        Instantiate(explosion, transform.position, explosion.transform.rotation);
+        Destroy(gameObject);
     }
 }
