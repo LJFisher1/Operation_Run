@@ -227,10 +227,13 @@ public class PlayerController : MonoBehaviour, IDamage
 
     IEnumerator FlashWeaponText(string name)
     {
-        GameManager.instance.weaponChangeText.text = $"Got Weapon: {weapon.name}";
-        GameManager.instance.weaponChangePopup.SetActive(true);
-        yield return new WaitForSeconds(1.5f);
-        GameManager.instance.weaponChangePopup.SetActive(false);
+        if (GameManager.instance.weaponChangePopup != null) // another bizzare check needed to prevent errors when stoping the game in editor due to GiveWeaponOnDestory
+        {
+            GameManager.instance.weaponChangeText.text = $"Got Weapon: {weapon.name}";
+            GameManager.instance.weaponChangePopup.SetActive(true);
+            yield return new WaitForSeconds(1.5f);
+            GameManager.instance.weaponChangePopup.SetActive(false);
+        }
     }
 
     public void ApplyForce(Vector3 amount)

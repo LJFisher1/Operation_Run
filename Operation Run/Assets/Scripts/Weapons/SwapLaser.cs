@@ -35,7 +35,7 @@ public class SwapLaser : MonoBehaviour, IBullet
         if (Physics.Raycast(ray, out hit, range))
         {
             var target = hit.collider.GetComponent<IDamage>();
-            Debug.Log(hit.transform.name);
+            //Debug.Log(hit.transform.name);
             if (target != null && hit.collider.CompareTag(hitTag))
             {
                 target.TakeDamage(damage);

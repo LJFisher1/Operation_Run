@@ -54,9 +54,9 @@ public class MeleeMagic : MonoBehaviour, IBullet
 
     IEnumerator Charge()
     {
-        Debug.Log("Charge");
+        //Debug.Log("Charge");
         yield return new WaitForSeconds(duration);
-        Debug.Log("ChargeComplete");
+        //Debug.Log("ChargeComplete");
         StartCoroutine(Dash());
 
         
