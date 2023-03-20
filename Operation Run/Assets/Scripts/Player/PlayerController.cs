@@ -20,8 +20,10 @@ public class PlayerController : MonoBehaviour, IDamage
     /// </summary>
     public Transform shootPointCenter;
     public Weapon startingWeapon;
-
     Vector3 appliedForce;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip[] soundsPickUpLoot;
+    [Range(0, 1)][SerializeField] float volumePickUpLoot;
 
 
     [Header("----- Player Stats -----")]
@@ -210,9 +212,7 @@ public class PlayerController : MonoBehaviour, IDamage
         keysInPossession--;
         GameManager.instance.KeyCountText.text = keysInPossession.ToString("F0");
     }
-
     
-
     public void ChangeWeapon(Weapon weap)
     {
         weapon = weap;
@@ -239,5 +239,10 @@ public class PlayerController : MonoBehaviour, IDamage
     public void ApplyForce(Vector3 amount)
     {
         appliedForce += amount;
+    }
+
+    public void pickUpLootSound()
+    {
+        audioSource.PlayOneShot(soundsPickUpLoot[UnityEngine.Random.Range(0, soundsPickUpLoot.Length)], volumePickUpLoot);
     }
 }
