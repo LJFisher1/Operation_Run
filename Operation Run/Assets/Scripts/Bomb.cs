@@ -11,7 +11,6 @@ public class Bomb : MonoBehaviour
     {
         yield return new WaitForSeconds(timer);
         Instantiate(explosion, transform.position, explosion.transform.rotation);
-        
         Destroy(gameObject);
     }
 }
