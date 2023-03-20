@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64f28632f9035a94c805f2be58ed6aff, type: 3}
-  m_Name: Starter
+  m_Name: Laser Swapper
   m_EditorClassIdentifier: 
-  damage: 1
-  useTime: 0.5
+  damage: 100
+  useTime: 1
   range: 1000
-  duration: 20
-  bulletSpeed: 100
-  model: {fileID: 180968, guid: 3ac146b9578b7914db23c8e3518933b2, type: 3}
-  bullet: {fileID: 5982062045012594215, guid: ae510f6af7139684ba3f90a373679087, type: 3}
+  duration: 0.5
+  bulletSpeed: 0.25
+  model: {fileID: 1853494166779514, guid: 713f90f70ef14794bbdcabcb038f4ae7, type: 3}
+  bullet: {fileID: 5982062045012594215, guid: a2d76d73ef79d634e9f8cd11f9c20b2d, type: 3}

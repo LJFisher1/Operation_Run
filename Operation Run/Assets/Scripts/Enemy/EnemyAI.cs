@@ -148,7 +148,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         HP -= dmg;
         StartCoroutine(FlashMat());
         animator.SetTrigger("TakeDamage");
-        agent.SetDestination(GameManager.instance.player.transform.position);
+        if(agent.enabled) agent.SetDestination(GameManager.instance.player.transform.position);
         if (HP <= 0)
         {
             Destroy(gameObject.transform.parent.gameObject);

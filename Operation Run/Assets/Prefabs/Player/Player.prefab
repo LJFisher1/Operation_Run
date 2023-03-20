@@ -301,13 +301,15 @@ MonoBehaviour:
   controller: {fileID: 6859206437942702859}
   shootPointVisual: {fileID: 1707980898481560364}
   shootPointCenter: {fileID: 378190206}
-  startingWeapon: {fileID: 11400000, guid: 57ae3b4858913e84e9539976ae6c3a20, type: 2}
+  startingWeapon: {fileID: 11400000, guid: 4733aa2323c944c4c9564350cf061d71, type: 2}
   walkSpeed: 20
   gravity: 20.03
   jumpSpeed: 10
   jumpsMax: 2
+  healPower: 10
   keysInPossession: 0
   healItemCount: 0
+  gemCount: 0
   forceDamingRate: 3
   hpMax: 50
   wUseTime: 0
