@@ -34,7 +34,7 @@ public class ShotgunBlast : MonoBehaviour,IBullet
     Vector3 GetRandomDirectionCone()
     {
         float angle = Random.Range(-spreadAngle, spreadAngle);
-        Quaternion q = Quaternion.Euler(angle, 0, 0);
+        Quaternion q = Quaternion.Euler(angle, angle, 0);
         return q * Camera.main.transform.forward;
     }
 }
