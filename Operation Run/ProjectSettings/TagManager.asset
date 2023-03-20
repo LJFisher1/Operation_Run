@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Player Spawn Position
   - Enemy
+  - breakablewall
   layers:
   - Default
   - TransparentFX
