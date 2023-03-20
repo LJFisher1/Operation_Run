@@ -19,3 +19,4 @@ MonoBehaviour:
   bulletSpeed: 200
   model: {fileID: 1412941605713842, guid: c413fed5af1bfe847af0ed883ee868db, type: 3}
   bullet: {fileID: 7561226030291507987, guid: 73662efe2a6f0044fbcc60c68e75aa66, type: 3}
+  canBreakWalls: 1

@@ -12,4 +12,5 @@ public class Weapon : ScriptableObject
     public float bulletSpeed;
     public GameObject model;
     public GameObject bullet;
+    public bool canBreakWalls;
 }

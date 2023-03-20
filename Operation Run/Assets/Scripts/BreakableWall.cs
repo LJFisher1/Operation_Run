@@ -6,6 +6,12 @@ public class BreakableWall : MonoBehaviour
 {
     public void OnTriggerEnter(Collider other)
     {
-        if (GameManager.instance.playerController.)
+        if (other.CompareTag("Player"))
+        {
+            if (GameManager.instance.playerController.isUsingWeapon == true && GameManager.instance.playerController.weapon.canBreakWalls == true)
+            {
+
+            }
+        }
     }
 }
