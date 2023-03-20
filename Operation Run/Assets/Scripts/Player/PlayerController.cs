@@ -225,8 +225,8 @@ public class PlayerController : MonoBehaviour, IDamage
         wRange = weap.range;
         wUseTime = weap.useTime;
 
-        if(wModel != null) wModel.sharedMesh = weap.model.GetComponent<MeshFilter>().sharedMesh;
-        if(wMaterial != null) wMaterial.sharedMaterial = weap.model.GetComponent<MeshRenderer>().sharedMaterial;
+        wModel.sharedMesh = weap.model.GetComponent<MeshFilter>().sharedMesh;
+        wMaterial.sharedMaterial = weap.model.GetComponent<MeshRenderer>().sharedMaterial;
         StartCoroutine(FlashWeaponText(weapon.name));
     }
 
