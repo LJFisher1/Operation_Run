@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreCountText;
     public GameObject weaponChangePopup;
     public TextMeshProUGUI weaponChangeText;
+    public GameObject needMoreGemsPopup;
 
     [Header("Game Goals")]
     public int GemsRemaining;
