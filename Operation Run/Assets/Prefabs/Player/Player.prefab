@@ -302,9 +302,9 @@ MonoBehaviour:
   shootPointVisual: {fileID: 1707980898481560364}
   shootPointCenter: {fileID: 378190206}
   startingWeapon: {fileID: 11400000, guid: 4733aa2323c944c4c9564350cf061d71, type: 2}
-  walkSpeed: 20
-  gravity: 20.03
-  jumpSpeed: 10
+  walkSpeed: 10
+  gravity: 30
+  jumpSpeed: 7
   jumpsMax: 2
   healPower: 10
   keysInPossession: 0
@@ -396,7 +396,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.55
-  m_Height: 2.2
+  m_Radius: 0.6
+  m_Height: 2.4
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}

@@ -1761,7 +1761,7 @@ GameObject:
   - component: {fileID: 3004762547234480411}
   - component: {fileID: 9011261878283419684}
   m_Layer: 3
-  m_Name: RedBlastWizard
+  m_Name: GreenBlastWizard
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1805,11 +1805,11 @@ MonoBehaviour:
   sightAngle: 120
   playerFaceSpeed: 8
   waitTime: 3
-  attackRate: 0.5
+  attackRate: 1.25
   attackDistance: 20
-  attackDamage: 2
+  attackDamage: 3
   projectile: {fileID: 5982062045012594215, guid: 9bf0853b4fdb17149819a87ee67e1f56, type: 3}
-  projectileSpeed: 35
+  projectileSpeed: 30
   projectilePosition: {fileID: 4952090136790205447}
   playerInRange: 0
 --- !u!95 &3183404756431921394

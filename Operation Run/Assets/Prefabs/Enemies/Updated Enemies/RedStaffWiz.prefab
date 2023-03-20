@@ -749,7 +749,7 @@ GameObject:
   - component: {fileID: 7774798588325517757}
   - component: {fileID: 3944091319056373642}
   m_Layer: 3
-  m_Name: BlueBlastWizard
+  m_Name: RedBlastWizard
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -788,16 +788,16 @@ MonoBehaviour:
   agent: {fileID: 7774798588325517757}
   animator: {fileID: 7960979031627602004}
   headPosition: {fileID: 4198474193957501113}
-  HP: 3
+  HP: 4
   roamDistance: 10
-  sightAngle: 100
+  sightAngle: 200
   playerFaceSpeed: 5
   waitTime: 3
-  attackRate: 1
+  attackRate: 0.5
   attackDistance: 20
-  attackDamage: 3
+  attackDamage: 2
   projectile: {fileID: 2906220482725623105, guid: 42c927cb4b608204796fdcf9599608f8, type: 3}
-  projectileSpeed: 25
+  projectileSpeed: 35
   projectilePosition: {fileID: 499888836320328865}
   playerInRange: 0
 --- !u!95 &7960979031627602004

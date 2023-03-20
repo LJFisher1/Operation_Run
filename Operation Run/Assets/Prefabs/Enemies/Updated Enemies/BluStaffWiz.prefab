@@ -1067,7 +1067,7 @@ GameObject:
   - component: {fileID: 860582637801506043}
   - component: {fileID: 7343681994461288791}
   m_Layer: 3
-  m_Name: WhiteBlastWizard
+  m_Name: BlueBlastWizard
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1108,14 +1108,14 @@ MonoBehaviour:
   headPosition: {fileID: 6509741390931813887}
   HP: 5
   roamDistance: 10
-  sightAngle: 100
-  playerFaceSpeed: 1
+  sightAngle: 200
+  playerFaceSpeed: 5
   waitTime: 3
   attackRate: 2
   attackDistance: 20
-  attackDamage: 1
+  attackDamage: 6
   projectile: {fileID: 3493253177550448761, guid: 0f15005e96d9912468f2515885df53fa, type: 3}
-  projectileSpeed: 10
+  projectileSpeed: 20
   projectilePosition: {fileID: 7420581407540421095}
   playerInRange: 0
 --- !u!95 &1040279866657850642
