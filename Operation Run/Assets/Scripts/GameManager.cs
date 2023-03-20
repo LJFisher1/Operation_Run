@@ -202,6 +202,7 @@ public class GameManager : MonoBehaviour
         {
             scoreCount = 0;
         }
+        scoreCountText.text = GameManager.instance.scoreCount.ToString("F0");
     }
 
     public void GemPickup()
