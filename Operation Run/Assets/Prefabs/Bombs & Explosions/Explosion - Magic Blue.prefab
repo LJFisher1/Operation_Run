@@ -55,7 +55,7 @@ MonoBehaviour:
   col: {fileID: 5022115373542349746}
   aud: {fileID: 405632814919329592}
   damage: 0
-  explosionStrength: 45
+  explosionStrength: 15
   pull: 0
   audExplosion:
   - {fileID: 8300000, guid: 8524588a69a4f3e40bb597b6221138f1, type: 3}
