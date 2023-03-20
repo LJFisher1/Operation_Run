@@ -154,7 +154,6 @@ public class EnemyAI : MonoBehaviour, IDamage
             HP = 0;
             if (HP == 0)
             {
-                GameManager.instance.UpdateScore(10);
                 Destroy(gameObject.transform.parent.gameObject);
             }
         }
