@@ -57,9 +57,9 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField] int wDamage;
     [SerializeField] MeshFilter wModel;
     [SerializeField] MeshRenderer wMaterial;
-    [SerializeField] Weapon weapon;
+    [SerializeField] public Weapon weapon;
 
-    bool isUsingWeapon;
+    public bool isUsingWeapon;
 
     // Start is called before the first frame update
     void Start()

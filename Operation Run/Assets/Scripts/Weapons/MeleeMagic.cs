@@ -42,9 +42,13 @@ public class MeleeMagic : MonoBehaviour, IBullet
     {
         if (dashing)
         {
-            if (other.CompareTag("Enemy"))
+            if (other.CompareTag("Enemy") || other.CompareTag("breakablewall"))
             {
-                other.GetComponent<IDamage>().TakeDamage(damage);
+                IDamage dam = other.GetComponent<IDamage>();
+                if (dam!= null)
+                {
+                    dam.TakeDamage(damage);
+                }
             }
             GameManager.instance.playerController.ApplyForce((-dashDir + bouncBackDirInfluence) * dashSpeed * bounceBackDamping);
             Instantiate(hitEffect, transform.position, hitEffect.transform.rotation);
