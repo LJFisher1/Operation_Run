@@ -82,8 +82,6 @@ public class PlayerController : MonoBehaviour, IDamage
         {
             ItemControls();
             Movement();
-
-
         }
       
     }
@@ -227,8 +225,17 @@ public class PlayerController : MonoBehaviour, IDamage
         wRange = weap.range;
         wUseTime = weap.useTime;
 
-        wModel.sharedMesh = weap.model.GetComponent<MeshFilter>().sharedMesh;
-        wMaterial.sharedMaterial = weap.model.GetComponent<MeshRenderer>().sharedMaterial;
+        if(wModel != null) wModel.sharedMesh = weap.model.GetComponent<MeshFilter>().sharedMesh;
+        if(wMaterial != null) wMaterial.sharedMaterial = weap.model.GetComponent<MeshRenderer>().sharedMaterial;
+        StartCoroutine(FlashWeaponText(weapon.name));
+    }
+
+    IEnumerator FlashWeaponText(string name)
+    {
+        GameManager.instance.weaponChangeText.text = $"Got Weapon: {weapon.name}";
+        GameManager.instance.weaponChangePopup.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        GameManager.instance.weaponChangePopup.SetActive(false);
     }
 
     public void ApplyForce(Vector3 amount)

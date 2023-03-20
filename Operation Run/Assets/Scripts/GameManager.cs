@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
     public GameObject hpPickup;
     public TextMeshProUGUI HealCountText;
     public TextMeshProUGUI scoreCountText;
+    public GameObject weaponChangePopup;
+    public TextMeshProUGUI weaponChangeText;
 
     [Header("Game Goals")]
     public int GemsRemaining;
