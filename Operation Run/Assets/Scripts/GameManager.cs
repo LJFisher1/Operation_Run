@@ -39,10 +39,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Game Goals")]
     public int GemsRemaining;
-    public float scoreCount;
-
+    public int scoreCount;
     public bool isPaused;
-
     private float timeScaleOriginal;
     private  float timeFixedOriginal;
 
@@ -56,7 +54,7 @@ public class GameManager : MonoBehaviour
         objectiveText.text = ("Remaining Gems:");
         KeyCountText.text = playerController.keysInPossession.ToString("F0");
         HealCountText.text = playerController.healItemCount.ToString("F0");
-        UpdateScore(0);
+        SetScore(0);
 
 
         timeScaleOriginal = Time.timeScale;
@@ -143,6 +141,7 @@ public class GameManager : MonoBehaviour
         GamePaused();
         activeMenu = loseMenu;
         activeMenu.SetActive(true);
+        SetScore(scoreCount - 50);
     }
 
     public void UpdateSensitivity()
@@ -191,10 +190,18 @@ public class GameManager : MonoBehaviour
         Time.timeScale = timeScaleOriginal;
         Time.fixedDeltaTime = timeFixedOriginal;
     }
-    public void UpdateScore(float scorechange)
+    public void UpdateScore(int scorechange)
     {
         scoreCount += scorechange;
         scoreCountText.text = GameManager.instance.scoreCount.ToString("F0");
+    }
+    public void SetScore(int scorechange)
+    {
+        scoreCount = scorechange;
+        if (scoreCount < 0)
+        {
+            scoreCount = 0;
+        }
     }
 
     public void GemPickup()
