@@ -47,7 +47,10 @@ public class PlayerController : MonoBehaviour, IDamage
     Vector3 playerVelocity;
     public int keysInPossession;
     public int healItemCount;
+    [Range(0, 100)] public int hpMax;
     int hp;
+    int mana;
+    [Range(0, 100)] public int manaMax;
     public int gemCount;
     [Range(2,5)][SerializeField] int forceDamingRate; // Lower # means farther push
 
@@ -62,10 +65,23 @@ public class PlayerController : MonoBehaviour, IDamage
             hp = value;
             GameManager.instance.playerHealthBar.fillAmount = (float)hp / (float)hpMax;
         }
-        get { return hp; }
-        
+        get 
+        { 
+            return hp; 
+        }
     }
-    [Range(0,100)] public int hpMax;
+    public int MANA
+    {
+        set
+        {
+            mana = value;
+            GameManager.instance.playerManaBar.fillAmount = (float)mana / (float)manaMax;
+        }
+        get
+        {
+            return mana;
+        }
+    }
 
     [Header("----- Weapon Stats -----")]
     [SerializeField] float wUseTime;
@@ -81,6 +97,7 @@ public class PlayerController : MonoBehaviour, IDamage
     void Start()
     {
         HP = hpMax;
+        MANA = manaMax;
         if (GameManager.instance.playerSpawnPosition != null) // stops game from breaking if no spawn point set. Helps with testing.
         {
             SpawnPlayer();
@@ -151,8 +168,9 @@ public class PlayerController : MonoBehaviour, IDamage
     IEnumerator UseWeapon()
     {
         isUsingWeapon = true;
-        if (weapon != null)
+        if (weapon != null && mana >= 1)
         {
+            MANA -= 1;
             weaponAnim.SetTrigger("Use Weapon");
             GameObject bulletClone = Instantiate(weapon.bullet, shootPointVisual.position, weapon.bullet.transform.rotation);
             IBullet specialBullet = bulletClone.GetComponent<IBullet>();

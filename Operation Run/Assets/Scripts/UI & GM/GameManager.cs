@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public GameObject playerHitFlash;
     [SerializeField] GameObject sensitivitySlider;
     public Image playerHealthBar;
+    public Image playerManaBar;
     public TextMeshProUGUI objectiveText;
     public TextMeshProUGUI GemsRemainingText;
     public GameObject playerKeyPopup;// Key
