@@ -14,8 +14,8 @@ public class BarsOfGold : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameManager.instance.UpdateScore(5);
-            aud.PlayOneShot(audGoldPickup[Random.Range(0, audGoldPickup.Length)], audGoldPickupVol);
-            //GameManager.instance.playerController.pickUpLootSound();
+            //aud.PlayOneShot(audGoldPickup[Random.Range(0, audGoldPickup.Length)], audGoldPickupVol);
+            GameManager.instance.playerController.pickUpLootSound(audGoldPickup, audGoldPickupVol);
             Destroy(gameObject);
         }
     }

@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class HealingItem : MonoBehaviour
 {
+    [SerializeField] AudioClip[] audioClips;
+    [Range(0, 1)][SerializeField] float volumeAudio;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            GameManager.instance.playerController.PickupHealItem();
-            Destroy(gameObject);
             GameManager.instance.UpdateScore(5);
+            GameManager.instance.playerController.PickupHealItem();
+            GameManager.instance.playerController.pickUpLootSound(audioClips, volumeAudio);
+            Destroy(gameObject);
         }
     }
 }

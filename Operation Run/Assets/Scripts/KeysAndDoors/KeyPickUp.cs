@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class KeyPickUp : MonoBehaviour
 {
+    [SerializeField] AudioClip[] audioPickUp;
+    [Range(0, 1)][SerializeField] float volumePickUp;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            GameManager.instance.playerController.KeyPickup();
-            Destroy(gameObject);
             GameManager.instance.UpdateScore(5);
+            GameManager.instance.playerController.KeyPickup();
+            GameManager.instance.playerController.pickUpLootSound(audioPickUp, volumePickUp);
+            Destroy(gameObject);
         }
     }
 }

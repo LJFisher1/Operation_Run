@@ -49,8 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aud: {fileID: -5223921693501476024}
   audGoldPickup:
-  - {fileID: 8300000, guid: c5cb2ac29e89dbf43a9b644caaad45e6, type: 3}
-  audGoldPickupVol: 0.5
+  - {fileID: 8300000, guid: abdbbfd33a46f4549987385f85c536b5, type: 3}
+  audGoldPickupVol: 0.194
 --- !u!135 &1084527200620447735
 SphereCollider:
   m_ObjectHideFlags: 0

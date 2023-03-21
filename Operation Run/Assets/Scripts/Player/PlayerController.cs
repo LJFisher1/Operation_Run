@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour, IDamage
@@ -21,10 +22,14 @@ public class PlayerController : MonoBehaviour, IDamage
     public Transform shootPointCenter;
     public Weapon startingWeapon;
     Vector3 appliedForce;
+    [Header("---- Sounds ----")]
     [SerializeField] AudioSource audioSource;
-    [SerializeField] AudioClip[] soundsPickUpLoot;
-    [Range(0, 1)][SerializeField] float volumePickUpLoot;
-
+    [SerializeField] AudioClip[] soundGoldPickUp;
+    [Range(0, 1)][SerializeField] float volumeGoldPickUp;
+    [SerializeField] AudioClip[] soundUseHeal;
+    [Range(0, 1)][SerializeField] float volumeUseHeal;
+    [SerializeField] AudioClip[] soundKeyUse;
+    [Range(0, 1)][SerializeField] float volumeUseKey;
 
     [Header("----- Player Stats -----")]
     [Range(0, 100)] [SerializeField] float walkSpeed;
@@ -180,6 +185,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
     void UseHealItem()
     {
+        pickUpLootSound(soundUseHeal, volumeUseHeal);
         Heal(healPower);
         --healItemCount;
         GameManager.instance.HealCountText.text = healItemCount.ToString("F0");
@@ -209,6 +215,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
     public void KeyUsed()
     {
+        pickUpLootSound(soundKeyUse, volumeUseKey);
         keysInPossession--;
         GameManager.instance.KeyCountText.text = keysInPossession.ToString("F0");
     }
@@ -241,8 +248,8 @@ public class PlayerController : MonoBehaviour, IDamage
         appliedForce += amount;
     }
 
-    public void pickUpLootSound()
+    public void pickUpLootSound(AudioClip[] audioClips, float volume)
     {
-        audioSource.PlayOneShot(soundsPickUpLoot[UnityEngine.Random.Range(0, soundsPickUpLoot.Length)], volumePickUpLoot);
+        audioSource.PlayOneShot(audioClips[UnityEngine.Random.Range(0, audioClips.Length)], volume);
     }
 }
