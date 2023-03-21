@@ -66,10 +66,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        GamePaused();
-        activeMenu = startMenu;
-        activeMenu.SetActive(true);
-
+        StartCoroutine(StartMenuFlash());
     }
 
     void Update()
@@ -101,6 +98,13 @@ public class GameManager : MonoBehaviour
             GemsRemainingText.text = ("");
             objectiveText.text = ("Find The Escape");
         }
+    }
+    public IEnumerator StartMenuFlash()
+    {
+        startMenu.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        startMenu.SetActive(false);
+
     }
 
     public IEnumerator FlashKeyPopup()// Key
