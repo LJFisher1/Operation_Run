@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GemsOfPower : MonoBehaviour
 {
-    [SerializeField] AudioClip[] audioClips;
+    [SerializeField] AudioClip[] gemPickup;
     [Range(0, 1)] [SerializeField] float audioVol;
     private void Start()
     {
@@ -15,7 +15,7 @@ public class GemsOfPower : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameManager.instance.GemPickup();
-            GameManager.instance.playerController.pickUpLootSound(audioClips, audioVol);
+            GameManager.instance.playerController.pickUpLootSound(gemPickup, audioVol);
             Destroy(gameObject);
             GameManager.instance.UpdateScore(10);
         }
