@@ -4929,11 +4929,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fdc696d3fad2254d8390014730d5e3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceBackDamping: 0.9
+  bounceBackMultiplier: 0.9
   bouncBackDirInfluence: {x: 0, y: 0.1, z: 0}
   dashCollider: {fileID: 7561226030291507990}
   hitEffect: {fileID: 3464273426555324030, guid: fc0c728d1d4c46b4b9489b6264626485, type: 3}
-  dashDir: {x: 0, y: 0, z: 0}
 --- !u!54 &464214322450119839
 Rigidbody:
   m_ObjectHideFlags: 0

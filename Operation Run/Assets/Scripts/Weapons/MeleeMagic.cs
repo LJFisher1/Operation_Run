@@ -8,12 +8,12 @@ public class MeleeMagic : MonoBehaviour, IBullet
     float duration;
     bool dashing;
     float dashSpeed;
-    [SerializeField] float bounceBackDamping;
+    [SerializeField] float bounceBackMultiplier;
     [SerializeField] public Vector3 bouncBackDirInfluence;
     [SerializeField] Collider dashCollider;
     [SerializeField] GameObject hitEffect;
     CharacterController cc;
-    public Vector3 dashDir;
+    Vector3 dashDir;
     public void Initialize(Weapon creator)
     {
         damage = creator.damage;
@@ -45,7 +45,7 @@ public class MeleeMagic : MonoBehaviour, IBullet
                     dam.TakeDamage(damage);
                 }
             }
-            GameManager.instance.playerController.ApplyForce((-dashDir + bouncBackDirInfluence) * dashSpeed * bounceBackDamping);
+            GameManager.instance.playerController.ApplyForce((-dashDir + bouncBackDirInfluence) * dashSpeed * bounceBackMultiplier);
             Instantiate(hitEffect, transform.position, hitEffect.transform.rotation);
             EndDash();
         }
@@ -73,7 +73,6 @@ public class MeleeMagic : MonoBehaviour, IBullet
     void EndDash()
     {
         Camera.main.GetComponent<CameraController>().enabled = true;
-        dashCollider.enabled = false;
         Destroy(gameObject);
     }
 }
