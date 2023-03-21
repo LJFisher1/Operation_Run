@@ -10,6 +10,7 @@ public class DoorOpen : MonoBehaviour
     public Transform movePosition;
     Vector3 moveVector;
     bool moving;
+    [SerializeField] BoxCollider boxTrigger;
 
     [Header("---- Audio ----")]
     [SerializeField] AudioClip[] doorOpen;
@@ -24,6 +25,7 @@ public class DoorOpen : MonoBehaviour
             GameManager.instance.usedKey1();
             GameManager.instance.UpdateScore(5);
             moving = true;
+            boxTrigger.enabled = false;
         }
         else if (other.CompareTag("Player") && GameManager.instance.playerController.keysInPossession <= 0)
         {
