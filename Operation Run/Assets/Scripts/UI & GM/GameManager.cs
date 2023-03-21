@@ -14,12 +14,13 @@ public class GameManager : MonoBehaviour
     public PlayerController playerController;
     public GameObject playerSpawnPosition;
 
-    GameObject activeMenu;
+    public GameObject activeMenu;
     [Header("Game UI")]
     public GameObject pauseMenu;
     public GameObject winMenu;
     public GameObject loseMenu;
     public GameObject checkPointMenu;
+    public GameObject startMenu;
     public GameObject playerHitFlash;
     [SerializeField] GameObject sensitivitySlider;
     public Image playerHealthBar;
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        
         instance = this;
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = PlayerController.FindObjectOfType<PlayerController>();
@@ -57,10 +59,17 @@ public class GameManager : MonoBehaviour
         KeyCountText.text = playerController.keysInPossession.ToString("F0");
         HealCountText.text = playerController.healItemCount.ToString("F0");
         SetScore(0);
-
+        
 
         timeScaleOriginal = Time.timeScale;
         timeFixedOriginal = Time.fixedDeltaTime;
+    }
+    private void Start()
+    {
+        GamePaused();
+        activeMenu = startMenu;
+        activeMenu.SetActive(true);
+
     }
 
     void Update()
@@ -106,7 +115,6 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         HealItemPopup.SetActive(false);
     }
-
     public void GamePaused()
     {
         Time.timeScale = 0;
@@ -217,5 +225,4 @@ public class GameManager : MonoBehaviour
     {
         GameUpdateGoal(-1);
     }
-
 }
