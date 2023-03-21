@@ -9,12 +9,12 @@ public class MeleeMagic : MonoBehaviour, IBullet
     bool dashing;
     float dashSpeed;
     [SerializeField] float bounceBackDamping;
-    [SerializeField] Vector3 bouncBackDirInfluence;
+    [SerializeField] public Vector3 bouncBackDirInfluence;
     [SerializeField] Collider chargeCollder;
     [SerializeField] Collider dashCollider;
     [SerializeField] GameObject hitEffect;
     CharacterController cc;
-    Vector3 dashDir;
+    public Vector3 dashDir;
     public void Initialize(Weapon creator)
     {
         damage = creator.damage;

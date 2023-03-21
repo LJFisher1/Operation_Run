@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour, IDamage
     void Start()
     {
         HP = hpMax;
-        if(GameManager.instance.playerSpawnPosition != null) // stops game from breaking if no spawn point set. Helps with testing.
+        if (GameManager.instance.playerSpawnPosition != null) // stops game from breaking if no spawn point set. Helps with testing.
         {
             SpawnPlayer();
         }
@@ -197,6 +197,10 @@ public class PlayerController : MonoBehaviour, IDamage
         controller.enabled = false;
         transform.position = GameManager.instance.playerSpawnPosition.transform.position;
         controller.enabled = true;
+        move = Vector3.zero;
+        playerVelocity = Vector3.zero;
+        //dashDir = Vector3.zero;
+        //bouncBackDirInfluence = Vector3.zero;
     }
 
 
