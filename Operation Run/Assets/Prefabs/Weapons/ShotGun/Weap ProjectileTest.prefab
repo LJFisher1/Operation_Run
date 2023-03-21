@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3940463677891648834}
   - component: {fileID: 3940463677891648861}
   - component: {fileID: 3940463677891648860}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Weap ProjectileTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3961746883658751888}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -17.000689, y: 1.366545, z: 12.57589}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 11400000, guid: 57ae3b4858913e84e9539976ae6c3a20, type: 2}
-  destroyOnPickup: 1
+  destroyOnPickup: 0
 --- !u!135 &3940463677891648860
 SphereCollider:
   m_ObjectHideFlags: 0

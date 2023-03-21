@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 4043896017804649657}
   - component: {fileID: 258747490205025511}
   - component: {fileID: 4270754968088807301}
-  - component: {fileID: 22623558235534948}
   - component: {fileID: 1652281659602912192}
   - component: {fileID: 5997147569292235242}
   - component: {fileID: -8138690049390385159}
+  - component: {fileID: -7915966062105230493}
   m_Layer: 9
   m_Name: Projectile Test
   m_TagString: Untagged
@@ -87,19 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &22623558235534948
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5982062045012594215}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1652281659602912192
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -240,3 +227,17 @@ MonoBehaviour:
   hitTag: Enemy
   timer: 10
   hitEffect: {fileID: 8629395118239175264, guid: f26d4aefc5ba11f4cbfe093351158b8e, type: 3}
+--- !u!136 &-7915966062105230493
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5982062045012594215}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.49999997
+  m_Height: 3.06
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: -1.02}

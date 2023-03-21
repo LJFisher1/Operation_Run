@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6781843446439800071}
   - component: {fileID: 8961627396827224857}
   - component: {fileID: 8737102153728203619}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Weap MeleeTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 11400000, guid: dca9b589008ed8c49a29c51ab0d4b722, type: 2}
-  destroyOnPickup: 1
+  destroyOnPickup: 0
 --- !u!135 &8737102153728203619
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -152,10 +152,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weap HitscanTest
       objectReference: {fileID: 0}
-    - target: {fileID: 3421771572315217547, guid: eedcf116a9651a041b4cf7d0e65e0dc4, type: 3}
-      propertyPath: destroyOnPickup
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eedcf116a9651a041b4cf7d0e65e0dc4, type: 3}
 --- !u!4 &920514491418048296 stripped
@@ -218,10 +214,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8961627396827224857, guid: 040628e8b31048d4ba7fb4a20908214c, type: 3}
-      propertyPath: destroyOnPickup
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040628e8b31048d4ba7fb4a20908214c, type: 3}
 --- !u!4 &683462428322055972 stripped
@@ -236,10 +228,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9027099768729808373}
     m_Modifications:
-    - target: {fileID: 3940463677891648861, guid: 689209f1825a5df4e9f3cc5069aee51b, type: 3}
-      propertyPath: destroyOnPickup
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3959419437452959826, guid: 689209f1825a5df4e9f3cc5069aee51b, type: 3}
       propertyPath: m_RootOrder
       value: 1
