@@ -9,6 +9,7 @@ public class ShotgunBlast : MonoBehaviour,IBullet
     [SerializeField] int numShots;
     [SerializeField] GameObject bullet;
     [SerializeField] float spreadAngle;
+    [SerializeField] float spreadOffset;
     [SerializeField] float pushBackPower;
     [SerializeField] bool useBulletSpeedforPush = true;
 
@@ -34,6 +35,11 @@ public class ShotgunBlast : MonoBehaviour,IBullet
     {
         float angle = Random.Range(-spreadAngle, spreadAngle);
         Quaternion q = Quaternion.Euler(angle, 0, 0);
-        return q * Camera.main.transform.forward;
+        return q * Camera.main.transform.forward + RandomSpreadOffset();
+    }
+
+    Vector3 RandomSpreadOffset()
+    {
+        return new Vector3(Random.Range(-spreadOffset, spreadOffset), Random.Range(-spreadOffset, spreadOffset), Random.Range(-spreadOffset, spreadOffset));
     }
 }
