@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour, IDamage
      */
     [Header("----- Components -----")]
     [SerializeField] CharacterController controller;
+    [SerializeField] Animator weaponAnim;
     /// <summary>
     /// to shoot from the weapon model 
     /// </summary>
@@ -52,10 +53,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
     bool isPlayingFootsteps;
 
-    public bool IsAlive
-    {
-        get => (hp > 0);
-    }
+    public bool IsAlive {get => (hp > 0);}
 
     public int HP
     {
@@ -243,6 +241,7 @@ public class PlayerController : MonoBehaviour, IDamage
     
     public void ChangeWeapon(Weapon weap)
     {
+        Debug.Log("ChangeWeapon");
         weapon = weap;
         wDamage = weap.damage;
         wRange = weap.range;
@@ -250,6 +249,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
         wModel.sharedMesh = weap.model.GetComponent<MeshFilter>().sharedMesh;
         wMaterial.sharedMaterial = weap.model.GetComponent<MeshRenderer>().sharedMaterial;
+        weaponAnim.SetTrigger("Change Weapon");
         StartCoroutine(FlashWeaponText(weapon.name));
     }
 
