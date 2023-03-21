@@ -1105,6 +1105,7 @@ MonoBehaviour:
   model: {fileID: 1071130962781303602}
   agent: {fileID: 860582637801506043}
   animator: {fileID: 1040279866657850642}
+  deathEffect: {fileID: 6094362862995186152, guid: 0a51aacfca9234549ba96a59dcd10d73, type: 3}
   headPosition: {fileID: 6509741390931813887}
   HP: 5
   roamDistance: 0

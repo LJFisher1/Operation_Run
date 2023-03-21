@@ -9,6 +9,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] Renderer model;
     public NavMeshAgent agent;
     [SerializeField] Animator animator;
+    [SerializeField] GameObject deathEffect;
 
     [Header("--Wizard Stats--")]
     [SerializeField] Transform headPosition;
@@ -154,6 +155,7 @@ public class EnemyAI : MonoBehaviour, IDamage
             HP = 0;
             if (HP == 0)
             {
+                Instantiate(deathEffect, transform.position, transform.rotation);
                 Destroy(gameObject.transform.parent.gameObject);
             }
         }

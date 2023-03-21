@@ -787,6 +787,7 @@ MonoBehaviour:
   model: {fileID: 7983103857039158900}
   agent: {fileID: 7774798588325517757}
   animator: {fileID: 7960979031627602004}
+  deathEffect: {fileID: 6094362862995186152, guid: b5db00e06252d344c83c986114a49639, type: 3}
   headPosition: {fileID: 4198474193957501113}
   HP: 4
   roamDistance: 10
