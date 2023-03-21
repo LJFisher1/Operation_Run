@@ -47,10 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a96b405e6321c64ea7c67a29f85310c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitTag: Enemy
   numShots: 1
   bullet: {fileID: 5982062045012594215, guid: 6a34b2ed3c97b1147b1d01fa98f38b46, type: 3}
   spreadAngle: 1
+  spreadOffset: 0
   pushBackPower: 0
   useBulletSpeedforPush: 0
 --- !u!198 &7217102520987093775
@@ -63,7 +63,7 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 0.05
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}

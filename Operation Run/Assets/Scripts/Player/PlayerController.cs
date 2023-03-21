@@ -153,6 +153,7 @@ public class PlayerController : MonoBehaviour, IDamage
         isUsingWeapon = true;
         if (weapon != null)
         {
+            weaponAnim.SetTrigger("Use Weapon");
             GameObject bulletClone = Instantiate(weapon.bullet, shootPointVisual.position, weapon.bullet.transform.rotation);
             IBullet specialBullet = bulletClone.GetComponent<IBullet>();
             if (specialBullet != null)
