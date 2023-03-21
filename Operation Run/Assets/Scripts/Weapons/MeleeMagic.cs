@@ -26,6 +26,10 @@ public class MeleeMagic : MonoBehaviour, IBullet
     private void Update()
     {
         transform.position = GameManager.instance.playerController.shootPointVisual.position;
+        if (!GameManager.instance.playerController.IsAlive)
+        {
+            Destroy(gameObject);
+        }
     }
     public void OnTriggerStay(Collider other)
     {
@@ -60,9 +64,7 @@ public class MeleeMagic : MonoBehaviour, IBullet
 
     IEnumerator Charge()
     {
-        //Debug.Log("Charge");
         yield return new WaitForSeconds(duration);
-        //Debug.Log("ChargeComplete");
         StartCoroutine(Dash());
 
         
@@ -73,9 +75,6 @@ public class MeleeMagic : MonoBehaviour, IBullet
         dashDir = Camera.main.transform.forward;
         Camera.main.GetComponent<CameraController>().enabled = false;
         GameManager.instance.playerController.ApplyForce(dashDir * dashSpeed);
-        
-        //chargeCollder.enabled = false;
-        //dashCollider.enabled = true;
         yield return new WaitForSeconds(duration/2);
         EndDash();
     }

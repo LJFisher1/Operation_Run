@@ -52,6 +52,11 @@ public class PlayerController : MonoBehaviour, IDamage
 
     bool isPlayingFootsteps;
 
+    public bool IsAlive
+    {
+        get => (hp > 0);
+    }
+
     public int HP
     {
         set
@@ -210,6 +215,7 @@ public class PlayerController : MonoBehaviour, IDamage
         controller.enabled = true;
         move = Vector3.zero;
         playerVelocity = Vector3.zero;
+        appliedForce = Vector3.zero;
         //dashDir = Vector3.zero;
         //bouncBackDirInfluence = Vector3.zero;
     }
