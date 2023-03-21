@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour, IDamage
     [Range(0, 1)][SerializeField] float volumeUseKey;
     [SerializeField] AudioClip[] playerFootstep;
     [Range(0, 1)] [SerializeField] float footstepVolume;
+    [SerializeField] AudioClip[] playerJump;
+    [Range(0, 1)] [SerializeField] float jumpVolume;
 
     [Header("----- Player Stats -----")]
     [Range(0, 100)] [SerializeField] float walkSpeed;
@@ -129,6 +131,7 @@ public class PlayerController : MonoBehaviour, IDamage
         }
         if (Input.GetButtonDown("Jump") && jumpsCur < jumpsMax)
         {
+            pickUpLootSound(playerJump, jumpVolume);
             playerVelocity.y = jumpSpeed;
             ++jumpsCur;
         }
