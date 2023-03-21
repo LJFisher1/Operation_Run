@@ -47,7 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a96b405e6321c64ea7c67a29f85310c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitTag: Enemy
   numShots: 15
   bullet: {fileID: 5982062045012594215, guid: 4ef9abe389c2f6f4e93afc5eefe61eed, type: 3}
   spreadAngle: 10

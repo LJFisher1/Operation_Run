@@ -2803,7 +2803,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7444174410631351864}
   - component: {fileID: -2690282162622708701}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GrnStaffWiz
   m_TagString: Untagged
   m_Icon: {fileID: 0}

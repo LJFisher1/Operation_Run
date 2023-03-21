@@ -50,7 +50,7 @@ GameObject:
   m_Component:
   - component: {fileID: 499888837321863615}
   - component: {fileID: 7402728991132511209}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RedStaffWiz
   m_TagString: Untagged
   m_Icon: {fileID: 0}
