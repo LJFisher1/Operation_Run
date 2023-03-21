@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1652281659602912192}
   - component: {fileID: -8138690049390385159}
   - component: {fileID: 2367908464405549068}
-  - component: {fileID: 6016213439470164688}
+  - component: {fileID: 4112986982033741596}
   m_Layer: 9
   m_Name: Starter Proj
   m_TagString: Untagged
@@ -227,8 +227,8 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!136 &6016213439470164688
-CapsuleCollider:
+--- !u!135 &4112986982033741596
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -237,7 +237,6 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.49999994
-  m_Height: 8.7868595
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: -3.873426}
+  serializedVersion: 2
+  m_Radius: 0.49999997
+  m_Center: {x: 0, y: 0, z: 0}
