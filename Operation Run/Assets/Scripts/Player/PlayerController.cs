@@ -215,8 +215,6 @@ public class PlayerController : MonoBehaviour, IDamage
         move = Vector3.zero;
         playerVelocity = Vector3.zero;
         appliedForce = Vector3.zero;
-        //dashDir = Vector3.zero;
-        //bouncBackDirInfluence = Vector3.zero;
     }
 
 
