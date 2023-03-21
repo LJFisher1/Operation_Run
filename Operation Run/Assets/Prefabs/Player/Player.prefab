@@ -317,6 +317,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: df7087e4d8a8bb546bc08ce68632903f, type: 3}
   - {fileID: 8300000, guid: 023ea3ddeaa8dd146b7633a0800e5a0e, type: 3}
   footstepVolume: 0.15
+  playerJump:
+  - {fileID: 8300000, guid: d261d5fc8420f024fbd7b0e1d950d3ae, type: 3}
+  - {fileID: 8300000, guid: c9ccf6cbea8ec0a479e28ccb1f474e5e, type: 3}
+  - {fileID: 8300000, guid: bc92f9ca5161aab4d970660b7910dea7, type: 3}
+  - {fileID: 8300000, guid: f3b834e881c44dc4382d47d5cb802931, type: 3}
+  - {fileID: 8300000, guid: a084b988fa69fe34994047e472f1a708, type: 3}
+  - {fileID: 8300000, guid: 01c97b38dbbdfb947aff7c91fff1efbe, type: 3}
+  - {fileID: 8300000, guid: a529f901bd51a994ab50b87aa4784457, type: 3}
+  - {fileID: 8300000, guid: 26f0f934fb9804a4dbd72fa47aff5791, type: 3}
+  - {fileID: 8300000, guid: 7d12b8ffc45a795419fd6cbe363addd4, type: 3}
+  jumpVolume: 0.15
   walkSpeed: 10
   gravity: 30
   jumpSpeed: 7
