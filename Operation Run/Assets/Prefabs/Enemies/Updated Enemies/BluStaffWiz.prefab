@@ -1107,7 +1107,7 @@ MonoBehaviour:
   animator: {fileID: 1040279866657850642}
   headPosition: {fileID: 6509741390931813887}
   HP: 5
-  roamDistance: 10
+  roamDistance: 0
   sightAngle: 200
   playerFaceSpeed: 5
   waitTime: 3
@@ -2766,8 +2766,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3612382874468722860}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -5, z: 0}
   m_LocalScale: {x: 0.8, y: 1.2, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
