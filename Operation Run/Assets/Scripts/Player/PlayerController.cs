@@ -209,7 +209,16 @@ public class PlayerController : MonoBehaviour, IDamage
             }
         }
     }
-     public void PickupHealItem()
+    public void AddMana()
+    {
+        StartCoroutine(GameManager.instance.manaFlash());
+        MANA += 5;
+        if (MANA > manaMax)
+        {
+            MANA = manaMax;
+        }
+    }
+    public void PickupHealItem()
     {
         StartCoroutine(GameManager.instance.FlashHealItemPopup());
         ++healItemCount;

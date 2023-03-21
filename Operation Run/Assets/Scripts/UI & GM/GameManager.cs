@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     public GameObject usedKeyPopup;//door
     public GameObject HealItemPopup;
     public GameObject hpPickup;
+    public GameObject manaPickup;
     public TextMeshProUGUI HealCountText;
     public TextMeshProUGUI scoreCountText;
     public GameObject weaponChangePopup;
@@ -155,6 +156,12 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         GameManager.instance.hpPickup.SetActive(false);
     }
+    public IEnumerator manaFlash()
+    {
+        GameManager.instance.manaPickup.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        GameManager.instance.manaPickup.SetActive(false);
+    }
 
     public IEnumerator noKeysFlash()
     {
@@ -210,4 +217,5 @@ public class GameManager : MonoBehaviour
     {
         GameUpdateGoal(-1);
     }
+
 }
