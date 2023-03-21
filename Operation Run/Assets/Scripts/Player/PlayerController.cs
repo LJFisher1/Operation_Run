@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour, IDamage
      * Clean up weapon script/interaction
      * try to move weapon specific logic out of UseWeapon and into their own scripts
      */
-    [Header("----- Componets -----")]
+    [Header("----- Components -----")]
     [SerializeField] CharacterController controller;
     /// <summary>
     /// to shoot from the weapon model 
@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour, IDamage
     [Range(0, 1)][SerializeField] float volumeUseHeal;
     [SerializeField] AudioClip[] soundKeyUse;
     [Range(0, 1)][SerializeField] float volumeUseKey;
+    [SerializeField] AudioClip[] playerFootstep;
+    [Range(0, 1)] [SerializeField] float footstepVolume;
 
     [Header("----- Player Stats -----")]
     [Range(0, 100)] [SerializeField] float walkSpeed;
@@ -45,6 +47,8 @@ public class PlayerController : MonoBehaviour, IDamage
     int hp;
     public int gemCount;
     [Range(2,5)][SerializeField] int forceDamingRate; // Lower # means farther push
+
+    bool isPlayingFootsteps;
 
     public int HP
     {
@@ -114,6 +118,10 @@ public class PlayerController : MonoBehaviour, IDamage
         {
             playerVelocity.y = 0;
             jumpsCur = 0;
+            if (!isPlayingFootsteps && move.normalized.magnitude > 0.5f)
+            {
+                StartCoroutine(playerFootsteps());
+            }
         }
         else
         {
@@ -255,5 +263,13 @@ public class PlayerController : MonoBehaviour, IDamage
     public void pickUpLootSound(AudioClip[] audioClips, float volume)
     {
         audioSource.PlayOneShot(audioClips[UnityEngine.Random.Range(0, audioClips.Length)], volume);
+    }
+
+    IEnumerator playerFootsteps()
+    {
+        isPlayingFootsteps = true;
+        audioSource.PlayOneShot(playerFootstep[UnityEngine.Random.Range(0, playerFootstep.Length)], footstepVolume);
+        yield return new WaitForSeconds(0.5f);
+        isPlayingFootsteps = false;
     }
 }
