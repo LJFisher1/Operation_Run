@@ -81,10 +81,7 @@ public class SwapLaser : MonoBehaviour, IBullet
         GameManager.instance.StopSlowMotion();
         Destroy(gameObject);
     }
-    private void OnDestroy()
-    {
-        cam.fieldOfView = orignalFov;
-    }
+
 
 
 }
