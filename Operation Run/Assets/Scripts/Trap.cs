@@ -23,7 +23,7 @@ public class Trap : MonoBehaviour
     }
     IEnumerator Expl()
     {
-        GameManager.instance.playerController.pickUpLootSound(trapAud, trapAudVol);
+        GameManager.instance.playerController.PlayAud(trapAud, trapAudVol);
         yield return new WaitForSeconds(timer);
         Instantiate(explosion, transform.position, explosion.transform.rotation);
         GameManager.instance.playerController.TakeDamage(damage);

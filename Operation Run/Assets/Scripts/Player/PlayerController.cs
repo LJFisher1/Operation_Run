@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour, IDamage
         }
         if (Input.GetButtonDown("Jump") && jumpsCur < jumpsMax)
         {
-            pickUpLootSound(playerJump, jumpVolume);
+            PlayAud(playerJump, jumpVolume);
             playerVelocity.y = jumpSpeed;
             ++jumpsCur;
         }
@@ -196,7 +196,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
     void UseHealItem()
     {
-        pickUpLootSound(soundUseHeal, volumeUseHeal);
+        PlayAud(soundUseHeal, volumeUseHeal);
         Heal(healPower);
         --healItemCount;
         GameManager.instance.HealCountText.text = healItemCount.ToString("F0");
@@ -230,7 +230,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
     public void KeyUsed()
     {
-        pickUpLootSound(soundKeyUse, volumeUseKey);
+        PlayAud(soundKeyUse, volumeUseKey);
         keysInPossession--;
         GameManager.instance.KeyCountText.text = keysInPossession.ToString("F0");
     }
@@ -263,15 +263,15 @@ public class PlayerController : MonoBehaviour, IDamage
         appliedForce += amount;
     }
 
-    public void pickUpLootSound(AudioClip[] audioClips, float volume)
+    public void PlayAud(AudioClip[] audioClips, float volume)
     {
-        audioSource.PlayOneShot(audioClips[UnityEngine.Random.Range(0, audioClips.Length)], volume);
+        audioSource.PlayOneShot(audioClips[UnityEngine.Random.Range(0, audioClips.Length - 1)], volume);
     }
 
     IEnumerator playerFootsteps()
     {
         isPlayingFootsteps = true;
-        audioSource.PlayOneShot(playerFootstep[UnityEngine.Random.Range(0, playerFootstep.Length)], footstepVolume);
+        audioSource.PlayOneShot(playerFootstep[UnityEngine.Random.Range(0, playerFootstep.Length - 1)], footstepVolume);
         yield return new WaitForSeconds(0.5f);
         isPlayingFootsteps = false;
     }

@@ -12,7 +12,7 @@ public class HealingItem : MonoBehaviour
         {
             GameManager.instance.UpdateScore(5);
             GameManager.instance.playerController.PickupHealItem();
-            GameManager.instance.playerController.pickUpLootSound(audioClips, volumeAudio);
+            GameManager.instance.playerController.PlayAud(audioClips, volumeAudio);
             Destroy(gameObject);
         }
     }

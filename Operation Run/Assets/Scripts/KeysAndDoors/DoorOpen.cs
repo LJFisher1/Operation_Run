@@ -10,7 +10,7 @@ public class DoorOpen : MonoBehaviour
     {
         if (other.CompareTag("Player") && GameManager.instance.playerController.keysInPossession >= 1)
         {
-            GameManager.instance.playerController.pickUpLootSound(doorOpen, volumeAudio);
+            GameManager.instance.playerController.PlayAud(doorOpen, volumeAudio);
             GameManager.instance.playerController.KeyUsed();
             GameManager.instance.usedKey1();
             Destroy(gameObject);

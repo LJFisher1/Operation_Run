@@ -12,7 +12,7 @@ public class KeyPickUp : MonoBehaviour
         {
             GameManager.instance.UpdateScore(5);
             GameManager.instance.playerController.KeyPickup();
-            GameManager.instance.playerController.pickUpLootSound(audioPickUp, volumePickUp);
+            GameManager.instance.playerController.PlayAud(audioPickUp, volumePickUp);
             Destroy(gameObject);
         }
     }
