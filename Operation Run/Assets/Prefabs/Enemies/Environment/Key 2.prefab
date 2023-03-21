@@ -49,6 +49,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 395bc305128d5914fb3ba11f043c35a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioPickUp:
+  - {fileID: 8300000, guid: b0e62ed71b1538648b719821f4f63b4c, type: 3}
+  volumePickUp: 0.5
 --- !u!135 &8420395127542196806
 SphereCollider:
   m_ObjectHideFlags: 0
