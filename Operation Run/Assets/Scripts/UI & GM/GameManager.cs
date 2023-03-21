@@ -14,15 +14,17 @@ public class GameManager : MonoBehaviour
     public PlayerController playerController;
     public GameObject playerSpawnPosition;
 
-    GameObject activeMenu;
+    public GameObject activeMenu;
     [Header("Game UI")]
     public GameObject pauseMenu;
     public GameObject winMenu;
     public GameObject loseMenu;
     public GameObject checkPointMenu;
+    public GameObject startMenu;
     public GameObject playerHitFlash;
     [SerializeField] GameObject sensitivitySlider;
     public Image playerHealthBar;
+    public Image playerManaBar;
     public TextMeshProUGUI objectiveText;
     public TextMeshProUGUI GemsRemainingText;
     public GameObject playerKeyPopup;// Key
@@ -31,6 +33,7 @@ public class GameManager : MonoBehaviour
     public GameObject usedKeyPopup;//door
     public GameObject HealItemPopup;
     public GameObject hpPickup;
+    public GameObject manaPickup;
     public TextMeshProUGUI HealCountText;
     public TextMeshProUGUI scoreCountText;
     public GameObject weaponChangePopup;
@@ -47,6 +50,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        
         instance = this;
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = PlayerController.FindObjectOfType<PlayerController>();
@@ -55,10 +59,17 @@ public class GameManager : MonoBehaviour
         KeyCountText.text = playerController.keysInPossession.ToString("F0");
         HealCountText.text = playerController.healItemCount.ToString("F0");
         SetScore(0);
-
+        
 
         timeScaleOriginal = Time.timeScale;
         timeFixedOriginal = Time.fixedDeltaTime;
+    }
+    private void Start()
+    {
+        GamePaused();
+        activeMenu = startMenu;
+        activeMenu.SetActive(true);
+
     }
 
     void Update()
@@ -104,7 +115,6 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         HealItemPopup.SetActive(false);
     }
-
     public void GamePaused()
     {
         Time.timeScale = 0;
@@ -153,6 +163,12 @@ public class GameManager : MonoBehaviour
         GameManager.instance.hpPickup.SetActive(true);
         yield return new WaitForSeconds(1f);
         GameManager.instance.hpPickup.SetActive(false);
+    }
+    public IEnumerator manaFlash()
+    {
+        GameManager.instance.manaPickup.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        GameManager.instance.manaPickup.SetActive(false);
     }
 
     public IEnumerator noKeysFlash()

@@ -358,9 +358,10 @@ MonoBehaviour:
   healPower: 10
   keysInPossession: 0
   healItemCount: 0
+  hpMax: 50
+  manaMax: 25
   gemCount: 0
   forceDamingRate: 3
-  hpMax: 50
   wUseTime: 0
   wRange: 0
   wDamage: 0

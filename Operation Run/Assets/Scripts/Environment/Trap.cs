@@ -7,7 +7,6 @@ public class Trap : MonoBehaviour
 {
     [SerializeField] int timer;
     [SerializeField] GameObject explosion;
-    [SerializeField] int damage;
 
     [Header("---- Audio ----")]
     [SerializeField] AudioSource aud;

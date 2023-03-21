@@ -11740,9 +11740,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3945682561673259445, guid: aebe5f8c871229947aed4917787598ab, type: 3}
+      propertyPath: m_text
+      value: To Be Continued...?
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348801390487851891, guid: aebe5f8c871229947aed4917787598ab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9030457522724797369, guid: aebe5f8c871229947aed4917787598ab, type: 3}
       propertyPath: m_Name
       value: UI & GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 9030457522724797369, guid: aebe5f8c871229947aed4917787598ab, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9030457522724797373, guid: aebe5f8c871229947aed4917787598ab, type: 3}
       propertyPath: m_Pivot.x
