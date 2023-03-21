@@ -48,6 +48,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d099b644e1f5ea44b39bf9b083425c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorOpen:
+  - {fileID: 8300000, guid: 381258cd90e88984fb8ba31a8dd96fa5, type: 3}
+  volumeAudio: 0.5
 --- !u!33 &497771459803866411
 MeshFilter:
   m_ObjectHideFlags: 0
