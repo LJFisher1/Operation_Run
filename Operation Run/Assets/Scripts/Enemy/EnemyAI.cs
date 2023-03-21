@@ -123,7 +123,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         model.GetComponentInChildren<Renderer>().material.shader = Shader.Find("Standard");
         model.material.color = Color.red;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
         model.material.color = Color.white;
         model.GetComponentInChildren<Renderer>().material.shader = Shader.Find("PolyArtMaskTint");
     }
@@ -132,12 +132,12 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         isAttacking = true;
         animator.SetTrigger("Shoot");
-        createBullet();
+        CreateBullet();
         yield return new WaitForSeconds(attackRate);
         isAttacking = false;
     }
 
-    public void createBullet()
+    public void CreateBullet()
     {
         GameObject attackClone = Instantiate(projectile, projectilePosition.position, projectile.transform.rotation);
         attackClone.GetComponent<Rigidbody>().velocity = playerDirection * projectileSpeed;
