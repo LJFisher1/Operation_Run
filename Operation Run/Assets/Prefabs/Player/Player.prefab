@@ -313,11 +313,15 @@ MonoBehaviour:
   soundKeyUse:
   - {fileID: 8300000, guid: c5cb2ac29e89dbf43a9b644caaad45e6, type: 3}
   volumeUseKey: 0.5
+  playerFootstep:
+  - {fileID: 8300000, guid: df7087e4d8a8bb546bc08ce68632903f, type: 3}
+  - {fileID: 8300000, guid: 023ea3ddeaa8dd146b7633a0800e5a0e, type: 3}
+  footstepVolume: 0.15
   walkSpeed: 10
   gravity: 30
   jumpSpeed: 7
   jumpsMax: 2
-  healPower: 10
+  healPower: 25
   keysInPossession: 0
   healItemCount: 0
   gemCount: 0
