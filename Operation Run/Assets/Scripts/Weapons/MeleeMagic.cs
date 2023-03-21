@@ -29,21 +29,23 @@ public class MeleeMagic : MonoBehaviour, IBullet
     }
     public void OnTriggerStay(Collider other)
     {
-        if (!dashing)
-        {
-            if (other.CompareTag("Enemy"))
-            {
-                other.GetComponent<IDamage>().TakeDamage(damage/2);
-            }
-        }
+        //if (!dashing)
+        //{
+        //    if (other.CompareTag("Enemy"))
+        //    {
+        //        other.GetComponent<IDamage>().TakeDamage(damage/2);
+        //    }
+        //}
 
     }
     public void OnTriggerEnter(Collider other)
     {
         if (dashing)
         {
+            Debug.Log(other.name);
             if (other.CompareTag("Enemy") || other.CompareTag("breakablewall"))
             {
+                
                 IDamage dam = other.GetComponent<IDamage>();
                 if (dam!= null)
                 {
@@ -71,6 +73,7 @@ public class MeleeMagic : MonoBehaviour, IBullet
         dashDir = Camera.main.transform.forward;
         Camera.main.GetComponent<CameraController>().enabled = false;
         GameManager.instance.playerController.ApplyForce(dashDir * dashSpeed);
+        
         //chargeCollder.enabled = false;
         //dashCollider.enabled = true;
         yield return new WaitForSeconds(duration/2);
