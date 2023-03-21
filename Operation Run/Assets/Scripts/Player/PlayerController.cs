@@ -127,7 +127,7 @@ public class PlayerController : MonoBehaviour, IDamage
             jumpsCur = 0;
             if (!isPlayingFootsteps && move.normalized.magnitude > 0.5f)
             {
-                StartCoroutine(playerFootsteps());
+                StartCoroutine(PlayerFootsteps());
             }
         }
         else
@@ -274,7 +274,7 @@ public class PlayerController : MonoBehaviour, IDamage
         audioSource.PlayOneShot(audioClips[UnityEngine.Random.Range(0, audioClips.Length - 1)], volume);
     }
 
-    IEnumerator playerFootsteps()
+    IEnumerator PlayerFootsteps()
     {
         isPlayingFootsteps = true;
         audioSource.PlayOneShot(playerFootstep[UnityEngine.Random.Range(0, playerFootstep.Length - 1)], footstepVolume);

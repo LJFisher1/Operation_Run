@@ -14,7 +14,7 @@ public class Trap : MonoBehaviour
     [SerializeField] AudioClip[] trapAud;
     [Range(0, 1)] [SerializeField] float trapAudVol;
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -26,7 +26,6 @@ public class Trap : MonoBehaviour
         GameManager.instance.playerController.PlayAud(trapAud, trapAudVol);
         yield return new WaitForSeconds(timer);
         Instantiate(explosion, transform.position, explosion.transform.rotation);
-        GameManager.instance.playerController.TakeDamage(damage);
         Destroy(gameObject);
     }
 }

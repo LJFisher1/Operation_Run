@@ -26,6 +26,7 @@ public class Explosion : MonoBehaviour
         model.enabled = false;
         col.enabled = false;
         aud.PlayOneShot(audExplosion[Random.Range(0, audExplosion.Length)], audExplosionVol);
+        Destroy(gameObject, 3);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -40,6 +41,7 @@ public class Explosion : MonoBehaviour
             {
                 GameManager.instance.playerController.ApplyForce((transform.position + GameManager.instance.playerController.transform.position).normalized * explosionStrength);
             }
+            GameManager.instance.playerController.TakeDamage(damage);
         }
     }
 }

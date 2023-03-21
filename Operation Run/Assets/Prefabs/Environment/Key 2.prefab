@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -5614482346987756169}
   - component: {fileID: 3723624201274684274}
   - component: {fileID: 2033777986157688709}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Key 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4917,7 +4917,7 @@ GameObject:
   - component: {fileID: 8420395127541939196}
   - component: {fileID: 8420395127543268442}
   - component: {fileID: 8420395127544230120}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pPlane3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
