@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1084527200620447734}
   - component: {fileID: 1084527200620447735}
   - component: {fileID: -5223921693501476024}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BarsOfGold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 3137410005453739043}
   - component: {fileID: 3166312965731135671}
   - component: {fileID: 3158739052963344173}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: Bars
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6912478404855764215}
   - component: {fileID: 6912478404855764210}
   - component: {fileID: -4972602815863683488}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trap - Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 1
   explosion: {fileID: 8831696711710012817, guid: e458365c1a4d5ce4b80b70c8fa70413b, type: 3}
-  damage: 6
   aud: {fileID: -4972602815863683488}
   trapAud:
   - {fileID: 8300000, guid: 5628b2d5e74ab4cc79e1ab991dd47d70, type: 3}

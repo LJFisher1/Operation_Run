@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4137617592821127441}
   - component: {fileID: 4137617592821127454}
   - component: {fileID: 7789388607914012323}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GemWind
   m_TagString: Untagged
   m_Icon: {fileID: 0}

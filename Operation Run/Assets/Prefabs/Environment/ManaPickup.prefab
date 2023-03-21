@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6294221009243860044}
   - component: {fileID: 8397057890328080328}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 6759864036155370347}
   - component: {fileID: 5661413823889802736}
   - component: {fileID: -7969427802767421465}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ManaPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4949,7 +4949,7 @@ GameObject:
   - component: {fileID: 8857910584215658805}
   - component: {fileID: 8833272121132451309}
   - component: {fileID: 8841092678189446189}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: ManaFill
   m_TagString: Untagged
   m_Icon: {fileID: 0}

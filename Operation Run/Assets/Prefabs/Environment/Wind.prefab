@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4399749250407545891}
   - component: {fileID: 4399749250407545890}
   - component: {fileID: 4399749250407545889}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wind
   m_TagString: Untagged
   m_Icon: {fileID: 0}
