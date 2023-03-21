@@ -54,7 +54,7 @@ MonoBehaviour:
   model: {fileID: 8598493252910068858}
   col: {fileID: 5022115373542349746}
   aud: {fileID: 405632814919329592}
-  damage: 6
+  damage: 3
   explosionStrength: 15
   pull: 0
   audExplosion:
