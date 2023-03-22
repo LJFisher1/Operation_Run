@@ -362,6 +362,7 @@ MonoBehaviour:
   manaMax: 25
   gemCount: 0
   forceDamingRate: 3
+  fizzleEffect: {fileID: 1999575445106175362, guid: aa94c28712fe4c14db34d040f5563381, type: 3}
   wUseTime: 0
   wRange: 0
   wDamage: 0

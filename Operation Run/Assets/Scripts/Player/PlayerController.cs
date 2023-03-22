@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour, IDamage
     [Header("----- Components -----")]
     [SerializeField] CharacterController controller;
     [SerializeField] Animator weaponAnim;
+    
     /// <summary>
     /// to shoot from the weapon model 
     /// </summary>
@@ -84,12 +85,14 @@ public class PlayerController : MonoBehaviour, IDamage
     }
 
     [Header("----- Weapon Stats -----")]
+    [SerializeField] GameObject fizzleEffect;
     [SerializeField] float wUseTime;
     [SerializeField] float wRange;
     [SerializeField] int wDamage;
     [SerializeField] MeshFilter wModel;
     [SerializeField] MeshRenderer wMaterial;
     [SerializeField] public Weapon weapon;
+    
 
     public bool isUsingWeapon;
 
@@ -168,19 +171,26 @@ public class PlayerController : MonoBehaviour, IDamage
     IEnumerator UseWeapon()
     {
         isUsingWeapon = true;
-        if (weapon != null && mana >= 1)
+        if (weapon != null)
         {
-            MANA -= 1;
-            weaponAnim.SetTrigger("Use Weapon");
-            GameObject bulletClone = Instantiate(weapon.bullet, shootPointVisual.position, weapon.bullet.transform.rotation);
-            IBullet specialBullet = bulletClone.GetComponent<IBullet>();
-            if (specialBullet != null)
+            if (MANA >= 1)
             {
-                specialBullet.Initialize(weapon);
+                MANA -= 1;
+                weaponAnim.SetTrigger("Use Weapon");
+                GameObject bulletClone = Instantiate(weapon.bullet, shootPointVisual.position, weapon.bullet.transform.rotation);
+                IBullet specialBullet = bulletClone.GetComponent<IBullet>();
+                if (specialBullet != null)
+                {
+                    specialBullet.Initialize(weapon);
+                }
             }
-
-
+            else
+            {
+                weaponAnim.SetTrigger("No Mana");
+                Instantiate(fizzleEffect, shootPointVisual.position, transform.rotation);
+            }
             yield return new WaitForSeconds(wUseTime);
+            
         }
         isUsingWeapon = false;
     }
