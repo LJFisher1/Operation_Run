@@ -7,6 +7,7 @@ public class MeleeMagic : MonoBehaviour, IBullet
     int damage;
     float duration;
     bool dashing;
+    bool hasHit;
     float dashSpeed;
     [SerializeField] float bounceBackMultiplier;
     [SerializeField] public Vector3 bouncBackDirInfluence;
@@ -33,8 +34,9 @@ public class MeleeMagic : MonoBehaviour, IBullet
     }
     public void OnTriggerEnter(Collider other)
     {
-        if (dashing)
+        if (dashing && !hasHit)
         {
+            hasHit = true;
             Debug.Log(other.name);
             if (other.CompareTag("Enemy") || other.CompareTag("breakablewall"))
             {
