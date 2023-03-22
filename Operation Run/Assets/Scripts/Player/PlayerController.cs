@@ -262,14 +262,14 @@ public class PlayerController : MonoBehaviour, IDamage
     public void KeyPickup()
     {
         StartCoroutine(GameManager.instance.FlashKeyPopup());
-        keysInPossession++;
+        ++keysInPossession;
         GameManager.instance.KeyCountText.text = keysInPossession.ToString("F0");
     }
 
     public void KeyUsed()
     {
         PlayAud(soundKeyUse, volumeUseKey);
-        keysInPossession--;
+        --keysInPossession;
         GameManager.instance.KeyCountText.text = keysInPossession.ToString("F0");
     }
     
