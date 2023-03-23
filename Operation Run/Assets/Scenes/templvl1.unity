@@ -3340,11 +3340,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3423606626247334192, guid: 506df9d4e52cb594699bc244fa8637e8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3423606626247334193, guid: 506df9d4e52cb594699bc244fa8637e8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 669
+      value: -274
       objectReference: {fileID: 0}
     - target: {fileID: 5967754751585084784, guid: 506df9d4e52cb594699bc244fa8637e8, type: 3}
       propertyPath: m_Name
