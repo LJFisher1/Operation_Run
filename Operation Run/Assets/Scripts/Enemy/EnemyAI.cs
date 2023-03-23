@@ -152,6 +152,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         if(agent.enabled) agent.SetDestination(GameManager.instance.player.transform.position);
         if (HP <= 0)
         {
+            StopAllCoroutines();
             HP = 0;
             if (HP == 0)
             {
