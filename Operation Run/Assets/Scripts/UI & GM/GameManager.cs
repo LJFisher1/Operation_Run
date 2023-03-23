@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator StartMenuFlash()
     {
         startMenu.SetActive(true);
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(5f);
         startMenu.SetActive(false);
 
     }
