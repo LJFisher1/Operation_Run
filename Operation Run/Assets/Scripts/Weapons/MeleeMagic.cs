@@ -10,17 +10,16 @@ public class MeleeMagic : MonoBehaviour, IBullet
     bool hasHit;
     float dashSpeed;
     [SerializeField] float bounceBackMultiplier;
+    [SerializeField] float verticalInfluenceMult;
     [SerializeField] public Vector3 bouncBackDirInfluence;
     [SerializeField] Collider dashCollider;
     [SerializeField] GameObject hitEffect;
-    CharacterController cc;
     Vector3 dashDir;
     public void Initialize(Weapon creator)
     {
         damage = creator.damage;
         duration = creator.duration;
         dashSpeed = creator.bulletSpeed;
-        cc = GameManager.instance.player.GetComponent<CharacterController>();
         StartCoroutine(Charge());
     }
     private void Update()
@@ -57,13 +56,12 @@ public class MeleeMagic : MonoBehaviour, IBullet
     {
         yield return new WaitForSeconds(duration);
         StartCoroutine(Dash());
-
-        
     }
     IEnumerator Dash()
     {
         dashing = true;
         dashDir = Camera.main.transform.forward;
+        dashDir = new(dashDir.x, dashDir.y * verticalInfluenceMult, dashDir.z);
         dashCollider.GetComponent<MeshRenderer>().enabled = true;
         Camera.main.GetComponent<CameraController>().enabled = false;
         GameManager.instance.playerController.ApplyForce(dashDir * dashSpeed);
