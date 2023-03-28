@@ -5,7 +5,6 @@ using UnityEngine;
 public class SwapLaser : MonoBehaviour, IBullet
 {
     private int damage;
-    [SerializeField] string hitTag = "Enemy";
     Camera cam;
     private float duration;
     private int range;
@@ -36,10 +35,10 @@ public class SwapLaser : MonoBehaviour, IBullet
         {
             var target = hit.collider.GetComponent<IDamage>();
             //Debug.Log(hit.transform.name);
-            if (target != null && hit.collider.CompareTag(hitTag))
+            if (target != null)
             {
                 target.TakeDamage(damage);
-                if(hit.transform.GetComponent<EnemyAI>().HP <= 0 )
+                if( hit.transform.GetComponent<TeleportBarrel>() != null || hit.transform.GetComponent<EnemyAI>().HP <= 0)
                 {
                     StartCoroutine(TeleportAbility(hit.transform.position));
                 }
