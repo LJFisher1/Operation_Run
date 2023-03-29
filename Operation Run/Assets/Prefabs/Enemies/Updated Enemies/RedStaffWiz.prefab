@@ -792,6 +792,7 @@ MonoBehaviour:
   HP: 4
   roamDistance: 10
   kiteDistance: 10
+  varStopLocation: 10
   sightAngle: 200
   playerFaceSpeed: 5
   waitTime: 3

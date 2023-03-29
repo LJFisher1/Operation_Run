@@ -16,6 +16,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     public int HP; //making this public for now to test teleport ability.
     [SerializeField] int roamDistance;
     [SerializeField] int kiteDistance;
+    [SerializeField] int varStopLocation;
     [SerializeField] int sightAngle;
     [SerializeField] int playerFaceSpeed;
     [SerializeField] int waitTime;
@@ -97,7 +98,7 @@ public class EnemyAI : MonoBehaviour, IDamage
             if (hit.collider.CompareTag("Player") && angleToPlayer <= sightAngle)
             {
                 agent.stoppingDistance = stoppingDistanceOrigin;
-                agent.SetDestination(GameManager.instance.player.transform.position);
+                agent.SetDestination(GameManager.instance.player.transform.position + (Random.insideUnitSphere * varStopLocation));
                 if (agent.remainingDistance < agent.stoppingDistance)
                 {
                     FacePlayer();
