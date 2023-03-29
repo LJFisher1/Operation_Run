@@ -26,5 +26,11 @@ public class ButtonFunctions : MonoBehaviour
         GameManager.instance.GameUnpaused();
         GameManager.instance.playerController.SpawnPlayer();
     }
+
+    public void NextScene()
+    {
+        GameManager.instance.GameUnpaused();
+        SceneManager.LoadScene(sceneBuildIndex: SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }
 
