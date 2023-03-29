@@ -5171,6 +5171,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colider: {fileID: 4630818051453003585}
+  destroyOnUse: 0
+  scaleLerpRate: 50
+  rotLerpRate: 0.1
+  angleMin: 180
+  angleMax: 720
 --- !u!54 &4630818051453003584
 Rigidbody:
   m_ObjectHideFlags: 0
