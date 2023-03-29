@@ -15,6 +15,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] Transform headPosition;
     public int HP; //making this public for now to test teleport ability.
     [SerializeField] int roamDistance;
+    [SerializeField] int kiteDistance;
     [SerializeField] int sightAngle;
     [SerializeField] int playerFaceSpeed;
     [SerializeField] int waitTime;
@@ -54,7 +55,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 
             if (playerInRange)
             {
-                if (!CanSeePlayer())
+                if (!CanSeePlayer() && Vector3.Distance(GameManager.instance.player.transform.position, startingPosition) > kiteDistance)
                 {
                     StartCoroutine(Roam());
                 }
@@ -72,7 +73,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         {
             animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
             destinationChosen = true;
-            agent.stoppingDistance = 0;
+            agent.stoppingDistance = 1;
             yield return new WaitForSeconds(waitTime);
             destinationChosen = false;
 

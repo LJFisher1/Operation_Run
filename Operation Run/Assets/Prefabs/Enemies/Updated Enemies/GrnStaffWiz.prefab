@@ -1802,7 +1802,8 @@ MonoBehaviour:
   deathEffect: {fileID: 6094362862995186152, guid: f460f468970fde545afc290acd6c0553, type: 3}
   headPosition: {fileID: 8652918511668936735}
   HP: 3
-  roamDistance: 0
+  roamDistance: 10
+  kiteDistance: 10
   sightAngle: 120
   playerFaceSpeed: 8
   waitTime: 3

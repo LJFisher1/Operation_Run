@@ -791,6 +791,7 @@ MonoBehaviour:
   headPosition: {fileID: 4198474193957501113}
   HP: 4
   roamDistance: 10
+  kiteDistance: 10
   sightAngle: 200
   playerFaceSpeed: 5
   waitTime: 3
