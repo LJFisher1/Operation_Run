@@ -5,19 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransitionOnTouch : MonoBehaviour
 {
+    /// <summary>
+    /// You must add the scene to the build settings for this to work
+    /// </summary>
     [SerializeField] string scene;
 
-    AssetBundle myLoadedAssetBundle;
-    private void Start()
-    {
-       // myLoadedAssetBundle = AssetBundle.LoadFromFile("Assets/AssetBundles/scenes");
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-
-            SceneManager.LoadScene("Assets/Scenes/templvl1");
+            // can make this prompt the UI first or something later/incorporate it with the win box.
+            SceneManager.LoadScene(sceneName:scene);
         }
     }
 }
