@@ -50,6 +50,8 @@ public class PlayerController : MonoBehaviour, IDamage
     int hp;
     int mana;
     [Range(0, 100)] public int manaMax;
+    [Range(0, 100)] [SerializeField] int lowManaPercent = 25;
+    int LowManaThreshold { get => manaMax / (100 / lowManaPercent); }
     public int gemCount;
     [Range(2,5)][SerializeField] int forceDamingRate; // Lower # means farther push
 
@@ -244,6 +246,7 @@ public class PlayerController : MonoBehaviour, IDamage
     public void SpawnPlayer()
     {
         HP = hpMax;
+        if(MANA < LowManaThreshold) MANA = LowManaThreshold;
         controller.enabled = false;
         transform.position = GameManager.instance.playerSpawnPosition.transform.position;
         controller.enabled = true;
