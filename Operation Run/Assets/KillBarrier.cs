@@ -6,7 +6,15 @@ public class KillBarrier : MonoBehaviour
 {
     [SerializeField] float damageDelay;
     [SerializeField] int damage = int.MaxValue;
+    [SerializeField] bool hideOnPlay;
     bool isKilling;
+    private void Start()
+    {
+        if (hideOnPlay)
+        {
+            GetComponent<MeshRenderer>().enabled = false;
+        }
+    }
     private void OnTriggerStay(Collider other)
     {
        if(!isKilling) StartCoroutine(Kill(other));
