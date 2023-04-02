@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f28632f9035a94c805f2be58ed6aff, type: 3}
   m_Name: Charging Ram
   m_EditorClassIdentifier: 
-  damage: 3
-  useTime: 2
+  damage: 4
+  useTime: 1.2
   range: 1
-  duration: 1
-  bulletSpeed: 75
+  duration: 0.5
+  bulletSpeed: 80
   model: {fileID: 1412941605713842, guid: c413fed5af1bfe847af0ed883ee868db, type: 3}
   bullet: {fileID: 7561226030291507987, guid: 73662efe2a6f0044fbcc60c68e75aa66, type: 3}
   canBreakWalls: 1
+  canTeleport: 0

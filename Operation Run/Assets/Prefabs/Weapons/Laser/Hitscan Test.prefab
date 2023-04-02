@@ -48,7 +48,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 700c188580786b04d937c5c4fd6adc0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitTag: Enemy
   lineRend: {fileID: -713327645408654490}
   lineDecaySpeed: 0.03
   hitEffect: {fileID: 1388399749130840092, guid: c75c534072326b142b43676c7e76e364, type: 3}

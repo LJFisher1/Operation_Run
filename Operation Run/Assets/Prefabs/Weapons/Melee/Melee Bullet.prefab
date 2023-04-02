@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 5449055087798442667}
   - component: {fileID: 7561226030291507988}
   - component: {fileID: 7561226030291507991}
-  - component: {fileID: 7561226030291507990}
   - component: {fileID: 7561226030291507985}
   - component: {fileID: 7561226030291507984}
   - component: {fileID: 464214322450119839}
   - component: {fileID: 7567491464283151293}
+  - component: {fileID: 725943806263336927}
   m_Layer: 9
   m_Name: Melee Bullet
   m_TagString: Untagged
@@ -52,9 +52,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceBackMultiplier: 0.9
-  verticalInfluenceMult: 0.5
+  verticalInfluenceMult: 0.4
   bouncBackDirInfluence: {x: 0, y: 0.1, z: 0}
-  dashCollider: {fileID: 7561226030291507990}
+  dashCollider: {fileID: 725943806263336927}
+  shield: {fileID: 986474873012182339, guid: 32d1355d26f791b4da92b685fd24c4af, type: 3}
   hitEffect: {fileID: 3464273426555324030, guid: fc0c728d1d4c46b4b9489b6264626485, type: 3}
 --- !u!33 &7561226030291507988
 MeshFilter:
@@ -71,7 +72,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7561226030291507987}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -106,19 +107,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7561226030291507990
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7561226030291507987}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.51
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &7561226030291507985
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -5046,3 +5034,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!136 &725943806263336927
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7561226030291507987}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.7
+  m_Direction: 0
+  m_Center: {x: -0.24, y: 0, z: 0}
