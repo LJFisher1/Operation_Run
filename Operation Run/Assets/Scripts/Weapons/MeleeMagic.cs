@@ -73,6 +73,7 @@ public class MeleeMagic : MonoBehaviour, IBullet
         dashDir = new(dashDir.x, dashDir.y * verticalInfluenceMult, dashDir.z);
         shieldClone = Instantiate(shield,transform.position,transform.rotation);
         dashCollider.GetComponent<MeshRenderer>().enabled = true;
+        dashCollider.enabled = true;
         Camera.main.GetComponent<CameraController>().enabled = false;
         player.ApplyForce(dashDir * dashSpeed);
         yield return new WaitForSeconds(duration/2);
