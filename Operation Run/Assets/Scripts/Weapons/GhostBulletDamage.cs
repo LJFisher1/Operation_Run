@@ -5,14 +5,14 @@ using UnityEngine;
 public class GhostBulletDamage : MonoBehaviour
 {
     [SerializeField] GhostBullet gb;
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         IDamage damAble = other.GetComponent<IDamage>();
         if(damAble != null)
         {
             damAble.TakeDamage(gb.damage);
             GhostBullet.playerHasGhost = false;
-            Destroy(gb.gameObject);
+            if(!damAble.IsAlive) Destroy(gb.gameObject);
         }
     }
 }

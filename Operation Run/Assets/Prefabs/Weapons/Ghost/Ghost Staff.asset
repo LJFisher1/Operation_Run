@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f28632f9035a94c805f2be58ed6aff, type: 3}
   m_Name: Ghost Staff
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 1
   useTime: 2
   range: 100
   duration: 20

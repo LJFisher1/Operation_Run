@@ -37,7 +37,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     Vector3 playerDirection;
     Vector3 startingPosition;
     Vector3 faceDirection;
-
+    public bool IsAlive { get => (HP > 0); }
 
     // Start is called before the first frame update
     void Start()
