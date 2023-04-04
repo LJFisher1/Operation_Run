@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f28632f9035a94c805f2be58ed6aff, type: 3}
   m_Name: Ghost Staff
   m_EditorClassIdentifier: 
-  damage: 1
-  useTime: 0.5
-  range: 1000
+  damage: 100
+  useTime: 2
+  range: 100
   duration: 20
-  bulletSpeed: 100
+  bulletSpeed: 75
   model: {fileID: 3102872132118464444, guid: 6e23627d16519534f95260b78a6c4247, type: 3}
   bullet: {fileID: 1740416755624405195, guid: 1c27e7ca911e20b4db5719da5d7e6057, type: 3}
   canBreakWalls: 0
