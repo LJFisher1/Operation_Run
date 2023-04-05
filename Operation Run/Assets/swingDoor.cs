@@ -12,10 +12,10 @@ public class swingDoor : MonoBehaviour
     [SerializeField] bool doorOpen;
     [Header("* Settings")]
     [SerializeField] float speed;
-    [SerializeField] Quaternion rotationOpenL;
-    [SerializeField] Quaternion rotationOpenR;
     [SerializeField] Quaternion rotationClose;
     [Header("* Components")]
+    [SerializeField] Transform rotationOpenL;
+    [SerializeField] Transform rotationOpenR;
     [SerializeField] Transform doorLeft;
     [SerializeField] Transform doorRight;
     [SerializeField] GameObject padlock;
@@ -26,8 +26,9 @@ public class swingDoor : MonoBehaviour
 
     private void Awake()
     {
-        doorOpen = false;
+        rotationClose = doorLeft.rotation;
         interaction = false;
+        doorOpen = false;
         if(doorLocked)
         {
             padlock.SetActive(true);
@@ -48,10 +49,9 @@ public class swingDoor : MonoBehaviour
             }
             else if (doorLocked == false)
             {
-                doorOpen = true;
                 interaction = true;
-            }
-            
+                doorOpen = true;
+            }           
         }
     }
 
@@ -78,8 +78,8 @@ public class swingDoor : MonoBehaviour
     {
         if (doorOpen)
         {
-            doorLeft.rotation = Quaternion.Lerp(doorLeft.rotation, rotationOpenL, Time.deltaTime * speed);
-            doorRight.rotation = Quaternion.Lerp(doorRight.rotation, rotationOpenR, Time.deltaTime * speed);
+            doorLeft.rotation = Quaternion.Lerp(doorLeft.rotation, rotationOpenL.transform.rotation, Time.deltaTime * speed);
+            doorRight.rotation = Quaternion.Lerp(doorRight.rotation, rotationOpenR.transform.rotation, Time.deltaTime * speed);
         }
         else
         {
@@ -90,7 +90,7 @@ public class swingDoor : MonoBehaviour
 
     IEnumerator TurnOffDoor()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         interaction = false;
     }
 }
