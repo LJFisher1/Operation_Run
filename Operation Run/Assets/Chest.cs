@@ -6,10 +6,13 @@ public class Chest : MonoBehaviour
 {
     [SerializeField] bool active;
     [SerializeField] Transform chestLid;
-    [SerializeField] Quaternion chestOpenRotation;
+    [SerializeField] Transform openQuaternion;
+    [SerializeField] BoxCollider trigger;
+    private Quaternion chestOpenRotation;
 
     private void Awake()
     {
+        chestOpenRotation = openQuaternion.rotation;
         active = false;
     }
 
@@ -25,7 +28,22 @@ public class Chest : MonoBehaviour
     {
         if(active)
         {
-            chestLid.rotation = Quaternion.Lerp(chestLid.rotation, chestOpenRotation, Time.deltaTime);
+            chestLid.rotation = Quaternion.Lerp(chestLid.rotation, chestOpenRotation, Time.deltaTime * 5);
+            StartCoroutine(TurnOff());
         }
     }
+
+    IEnumerator TurnOff()
+    {
+        yield return new WaitForSeconds(1);
+        trigger.enabled = false;
+        active = false;
+        giveLoot();
+    }
+
+    void giveLoot()
+    {
+
+    }
+
 }
