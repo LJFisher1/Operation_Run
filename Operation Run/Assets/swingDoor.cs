@@ -22,10 +22,12 @@ public class swingDoor : MonoBehaviour
     [SerializeField] AudioClip[] audioUnlock;
     [SerializeField] AudioClip[] audioOpenDoor;
     [SerializeField] AudioClip[] audioCloseDoor;
+    [SerializeField] AudioSource audioSource;
     [Range(0, 1)][SerializeField] float volume;
 
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         rotationClose = doorLeft.rotation;
         interaction = false;
         doorOpen = false;
@@ -43,6 +45,7 @@ public class swingDoor : MonoBehaviour
     {
         if(other.CompareTag("Player") & doorOpen == false)
         {
+            StartCoroutine(TurnOffDoor());
             if (doorLocked && GameManager.instance.playerController.keysInPossession > 0)
             {
                 StartCoroutine(UnlockDoor());
@@ -59,8 +62,7 @@ public class swingDoor : MonoBehaviour
     {
         if(interaction)
         {
-            MoveDoor();
-            StartCoroutine(TurnOffDoor());
+            MoveDoor();           
         }
     }
 
@@ -90,6 +92,7 @@ public class swingDoor : MonoBehaviour
 
     IEnumerator TurnOffDoor()
     {
+        audioSource.PlayOneShot(audioOpenDoor[0], volume);
         yield return new WaitForSeconds(1f);
         interaction = false;
     }
