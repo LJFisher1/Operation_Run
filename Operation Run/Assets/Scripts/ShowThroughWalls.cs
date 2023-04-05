@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShowThroughWalls : MonoBehaviour
 {
-    [SerializeField] Material wallMaterial;
+    [SerializeField] Material[] wallMaterials;
     [SerializeField] float viewSize;
     [SerializeField] LayerMask mask;
     [SerializeField] float shrinkAlpha;
@@ -28,18 +28,18 @@ public class ShowThroughWalls : MonoBehaviour
 
         if (Physics.Raycast(ray, 3000, mask))
         {
-            wallMaterial.SetFloat(SizeID, viewSize);
+            foreach (Material m in wallMaterials) m.SetFloat(SizeID, viewSize);
         }
         else
         {
-            wallMaterial.SetFloat(SizeID, 0);
+            foreach (Material m in wallMaterials) m.SetFloat(SizeID, 0);
         }
 
-        wallMaterial.SetVector(PosID, view);
+        foreach (Material m in wallMaterials) m.SetVector(PosID, view);
 
     }
     private void OnDestroy()
     {
-        wallMaterial.SetFloat(SizeID, 0);
+        foreach (Material m in wallMaterials) m.SetFloat(SizeID, 0);
     }
 }

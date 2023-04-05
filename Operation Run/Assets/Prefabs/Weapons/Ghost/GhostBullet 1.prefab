@@ -81,7 +81,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e17bb8aac6f44c4bad91575f523369a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallMaterial: {fileID: 2100000, guid: 2c6d246e0bc5a644aa0d7901cdbf6fd8, type: 2}
+  wallMaterials:
+  - {fileID: 2100000, guid: 2c6d246e0bc5a644aa0d7901cdbf6fd8, type: 2}
   viewSize: 0.3
   mask:
     serializedVersion: 2
