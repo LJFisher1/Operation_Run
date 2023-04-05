@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4713909126888760496}
   - component: {fileID: 195100298063734018}
-  - component: {fileID: 7026004081751839064}
   - component: {fileID: 4646785062014448975}
+  - component: {fileID: 7026004081751839064}
   m_Layer: 0
   m_Name: GhostBullet 1
   m_TagString: Untagged
@@ -53,6 +53,26 @@ MonoBehaviour:
   cosmeticOffset: 0.116
   damage: 0
   bulletSpeed: 0
+--- !u!114 &4646785062014448975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740416755624405195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e17bb8aac6f44c4bad91575f523369a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallMaterials:
+  - {fileID: 2100000, guid: 2c6d246e0bc5a644aa0d7901cdbf6fd8, type: 2}
+  - {fileID: 2100000, guid: eb3abb50b1717324ca035f291fdd29db, type: 2}
+  viewSize: 1
+  mask:
+    serializedVersion: 2
+    m_Bits: 1
+  shrinkAlpha: 0.45
 --- !u!54 &7026004081751839064
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -69,25 +89,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4646785062014448975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1740416755624405195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e17bb8aac6f44c4bad91575f523369a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wallMaterials:
-  - {fileID: 2100000, guid: 2c6d246e0bc5a644aa0d7901cdbf6fd8, type: 2}
-  viewSize: 0.3
-  mask:
-    serializedVersion: 2
-    m_Bits: 1
-  shrinkAlpha: 0.45
 --- !u!1 &2103689986740563367
 GameObject:
   m_ObjectHideFlags: 0

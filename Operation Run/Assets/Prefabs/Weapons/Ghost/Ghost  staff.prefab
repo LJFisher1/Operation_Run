@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6509782268317079735}
   - component: {fileID: 7662881124400852628}
   - component: {fileID: 7662881124400852631}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ghost  staff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
