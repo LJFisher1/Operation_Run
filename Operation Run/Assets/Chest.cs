@@ -44,8 +44,8 @@ public class Chest : MonoBehaviour
         trigger.enabled = false;
         AudioSource source = GetComponent<AudioSource>();
         source.PlayOneShot(audioOpen[0], volume);
-        yield return new WaitForSeconds(1);
         giveLoot();
+        yield return new WaitForSeconds(1);
         active = false;
     }
 
