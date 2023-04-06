@@ -26,8 +26,8 @@ public class Chest : MonoBehaviour
     {
         if (other.CompareTag("Player") && trigger.enabled == true)
         {
-            active = true;
             StartCoroutine(TurnOff());
+            active = true;
         }
     }
 
@@ -41,18 +41,17 @@ public class Chest : MonoBehaviour
 
     IEnumerator TurnOff()
     {
-        giveLoot();
-        yield return new WaitForSeconds(1);
         trigger.enabled = false;
+        AudioSource source = GetComponent<AudioSource>();
+        source.PlayOneShot(audioOpen[0], volume);
+        yield return new WaitForSeconds(1);
+        giveLoot();
         active = false;
     }
 
     void giveLoot()
     {
-        AudioSource source = GetComponent<AudioSource>();
-        source.PlayOneShot(audioOpen[0], volume);
-        Instantiate(spawnObject, spawnPosition.position, Random.rotation);
-        Debug.Log("giveloot");
+        Instantiate(spawnObject, spawnPosition.position, gameObject.transform.rotation);
     }
 
 }
