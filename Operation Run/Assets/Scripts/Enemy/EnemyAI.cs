@@ -20,6 +20,9 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] int sightAngle;
     [SerializeField] int playerFaceSpeed;
     [SerializeField] int waitTime;
+    [SerializeField] bool hasRoute;
+    [SerializeField] GameObject[] routePositions;
+    [SerializeField] int posItter;
 
     [Header("--Attack Stats--")]
     [SerializeField] float attackRate;
@@ -61,7 +64,7 @@ public class EnemyAI : MonoBehaviour, IDamage
                     StartCoroutine(Roam());
                 }
             }
-            else if (agent.destination != GameManager.instance.player.transform.position)
+            else
             {
                 StartCoroutine(Roam());
             }
@@ -70,20 +73,44 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     IEnumerator Roam()
     {
-        if (!destinationChosen && agent.remainingDistance < 0.05f)
+        if (hasRoute == false)
+        {
+            if (!destinationChosen && agent.remainingDistance < 0.05f)
+            {
+                animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
+                destinationChosen = true;
+                agent.stoppingDistance = 1;
+                yield return new WaitForSeconds(waitTime);
+                destinationChosen = false;
+
+                Vector3 randDirection = Random.insideUnitSphere * roamDistance;
+                randDirection += startingPosition;
+                NavMeshHit hit;
+                NavMesh.SamplePosition(randDirection, out hit, roamDistance, 1);
+
+                agent.SetDestination(hit.position);
+            }
+        }
+        else
         {
             animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
             destinationChosen = true;
             agent.stoppingDistance = 1;
-            yield return new WaitForSeconds(waitTime);
-            destinationChosen = false;
 
-            Vector3 randDirection = Random.insideUnitSphere * roamDistance;
-            randDirection += startingPosition;
-            NavMeshHit hit;
-            NavMesh.SamplePosition(randDirection, out hit, roamDistance, 1);
-
-            agent.SetDestination(hit.position);
+            agent.SetDestination(routePositions[posItter].transform.position);
+            if (agent.transform.position == agent.destination)
+            {
+                yield return new WaitForSeconds(waitTime);
+                if (posItter < routePositions.Length - 1)
+                {
+                    posItter++;
+                }
+                else
+                {
+                    posItter = 0;
+                }
+                destinationChosen = false;
+            }
         }
     }
 
