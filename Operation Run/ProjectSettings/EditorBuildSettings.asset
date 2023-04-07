@@ -8,10 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/TutorialLevel1.unity
     guid: f60f266b45b9a314680be5c752fa48ff
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/templvl1.unity
     guid: d87c8acf0a00eac42988074913879d07
   - enabled: 0
     path: Assets/Scenes/Gary.unity
     guid: 930af1dcd32a44d4c83bb3abbc1bb43c
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 2d2852d5bea535146ab8cae6d74d3f8b
   m_configObjects: {}

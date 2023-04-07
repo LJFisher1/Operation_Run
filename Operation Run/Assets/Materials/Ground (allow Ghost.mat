@@ -87,7 +87,7 @@ Material:
     m_Colors:
     - _Color: {r: 0.07845318, g: 0.4056604, b: 0.16677907, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Position: {r: 0.5723907, g: 0.35249525, b: 14.835769, a: 0}
+    - _Position: {r: 0.51144236, g: 0.41636902, b: 26.671047, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &7988189068765115720
 MonoBehaviour:

@@ -32,5 +32,10 @@ public class ButtonFunctions : MonoBehaviour
         GameManager.instance.GameUnpaused();
         SceneManager.LoadScene(sceneBuildIndex: SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    public void NewGame()
+   {
+        SceneManager.LoadScene(0);
+   }
 }
 
