@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 7145647023115508851}
   - component: {fileID: 82433003419874793}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: lockbody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 8019933063781507852}
   - component: {fileID: 133295784466113899}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: hole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 3060014318419232931}
   - component: {fileID: 2058368831124867363}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: hole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -476,7 +476,7 @@ GameObject:
   - component: {fileID: 69063905826834672}
   - component: {fileID: 1465958186343321197}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: clasp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
