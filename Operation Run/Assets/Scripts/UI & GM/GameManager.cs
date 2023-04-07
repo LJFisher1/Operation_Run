@@ -47,6 +47,14 @@ public class GameManager : MonoBehaviour
     private float timeScaleOriginal;
     private  float timeFixedOriginal;
 
+    [Header("Timer")]
+    public int timeScoreMax;
+    public int timeScoreDedectionRate;
+    public float currentTime;
+    public TextMeshProUGUI timerText;
+    
+
+
 
     private void Awake()
     {
@@ -86,6 +94,27 @@ public class GameManager : MonoBehaviour
                 GameUnpaused();
             }
         }
+        if (!isPaused)
+        {
+            currentTime += Time.deltaTime;
+            UpdateTimer(currentTime);
+        }
+
+    }
+    public void UpdateTimer(float time)
+    {
+        float minutes = Mathf.FloorToInt(time / 60);
+        float seconds = Mathf.FloorToInt(time % 60);
+        float fraction = (time * 10) % 10;
+        if (fraction > 9) fraction = 0;
+
+        timerText.text = string.Format("{0:00}:{1:00}.{2:0}", minutes, seconds, fraction);
+    }
+    public int CalculateTimeScore()
+    {
+        int bonus = (int)(timeScoreMax - (currentTime * timeScoreDedectionRate));
+        if (bonus < 0) bonus = 0;
+        return bonus;
     }
 
     public void GameUpdateGoal(int amount)
@@ -139,6 +168,7 @@ public class GameManager : MonoBehaviour
     public void PlayerWin()
     {
         GamePaused();
+        UpdateScore(CalculateTimeScore());
         activeMenu = winMenu;
         activeMenu.SetActive(true);
     }

@@ -38,7 +38,7 @@ public class SwapLaser : MonoBehaviour, IBullet
             if (target != null)
             {
                 target.TakeDamage(damage);
-                if( hit.transform.GetComponent<TeleportBarrel>() != null || hit.transform.GetComponent<EnemyAI>().HP <= 0)
+                if( hit.transform.GetComponent<TeleportBarrel>() != null || !target.IsAlive)
                 {
                     StartCoroutine(TeleportAbility(hit.transform.position));
                 }
