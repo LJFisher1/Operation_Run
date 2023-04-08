@@ -52,8 +52,12 @@ public class GameManager : MonoBehaviour
     public int timeScoreDedectionRate;
     public float currentTime;
     public TextMeshProUGUI timerText;
-    
 
+    [Header("Tutorials")]
+    //public bool resetTutorials;
+    public GameObject TutorialPopupGUI;
+    public TextMeshProUGUI TutorialPopText;
+    public TutorialManager tutorialManager;
 
 
     private void Awake()
@@ -135,16 +139,31 @@ public class GameManager : MonoBehaviour
         startMenu.SetActive(false);
 
     }
-
+    public IEnumerator FlashTutorialPopup(string name)
+    {
+        TutorialPopText.text = tutorialManager.GetTutText(name);
+        TutorialPopupGUI.SetActive(true);
+        yield return new WaitForSeconds(tutorialManager.TutorialDisplayTime);
+        TutorialPopupGUI.SetActive(false);
+        TutorialPopText.text = "tutorial text";
+    }
     public IEnumerator FlashKeyPopup()// Key
     {
         playerKeyPopup.SetActive(true);
         yield return new WaitForSeconds(1f);
         playerKeyPopup.SetActive(false);
     }
-    public IEnumerator FlashHealItemPopup()// Key
+    public IEnumerator FlashHealItemPopup()//Heal
     {
         HealItemPopup.SetActive(true);
+        Debug.Log("Heal Tut pop");
+        Debug.Log(tutorialManager.CheckCompleted("Heal Cap"));
+        if (!tutorialManager.CheckCompleted("Heal Cap"))
+        {
+            Debug.Log("Heal tut");
+            StartCoroutine(FlashTutorialPopup("Heal Cap"));
+            tutorialManager.SetTutorialCompletion("Heal Cap", true);
+        }
         yield return new WaitForSeconds(1f);
         HealItemPopup.SetActive(false);
     }
