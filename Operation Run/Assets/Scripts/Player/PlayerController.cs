@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour, IDamage
     [Range(0, 1)] [SerializeField] float footstepVolume;
     [SerializeField] AudioClip[] playerJump;
     [Range(0, 1)] [SerializeField] float jumpVolume;
+    [SerializeField] AudioClip[] playerDeath;
+    [Range(0, 1)] [SerializeField] float deathVolume;
 
     [Header("----- Player Stats -----")]
     [Range(0, 100)] [SerializeField] float walkSpeed;
@@ -204,6 +206,7 @@ public class PlayerController : MonoBehaviour, IDamage
         HP -= dmg;
         if (!IsAlive) // death
         {
+            PlayAud(playerDeath, deathVolume);
             GameManager.instance.UpdateScore(-20);
             StartCoroutine(GameManager.instance.PlayerDead());
         }

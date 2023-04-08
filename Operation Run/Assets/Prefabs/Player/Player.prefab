@@ -323,7 +323,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 6859206437942702859}
   weaponAnim: {fileID: 926657883}
-  deadHeadbody: {fileID: 0}
   shootPointVisual: {fileID: 1707980898481560364}
   shootPointCenter: {fileID: 378190206}
   startingWeapon: {fileID: 11400000, guid: 4733aa2323c944c4c9564350cf061d71, type: 2}
@@ -352,6 +351,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 26f0f934fb9804a4dbd72fa47aff5791, type: 3}
   - {fileID: 8300000, guid: 7d12b8ffc45a795419fd6cbe363addd4, type: 3}
   jumpVolume: 0.15
+  playerDeath:
+  - {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
+  - {fileID: 8300000, guid: 21c4a490b24ba2045bc815f7626a40ef, type: 3}
+  deathVolume: 0.672
   walkSpeed: 10
   gravity: 30
   jumpSpeed: 7

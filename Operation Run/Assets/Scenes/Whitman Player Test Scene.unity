@@ -16808,6 +16808,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6859206437942702868, guid: 583ea11a9a1c66f4990fed8a985e9d4d, type: 3}
+      propertyPath: playerDeath.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859206437942702868, guid: 583ea11a9a1c66f4990fed8a985e9d4d, type: 3}
+      propertyPath: playerDeath.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
+    - target: {fileID: 6859206437942702868, guid: 583ea11a9a1c66f4990fed8a985e9d4d, type: 3}
+      propertyPath: playerDeath.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5c7b6d4002009e842bd2621585546d19, type: 3}
+    - target: {fileID: 6859206437942702868, guid: 583ea11a9a1c66f4990fed8a985e9d4d, type: 3}
+      propertyPath: playerDeath.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: c458b6714dab015479d507b21fd2cead, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 583ea11a9a1c66f4990fed8a985e9d4d, type: 3}
 --- !u!1001 &8462680865741225543
@@ -16823,7 +16839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9027099768729808373, guid: 6d0636ab8c65d7344aa7ff49d3d07393, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9027099768729808373, guid: 6d0636ab8c65d7344aa7ff49d3d07393, type: 3}
       propertyPath: m_LocalPosition.x

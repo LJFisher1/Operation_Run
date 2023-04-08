@@ -161,11 +161,8 @@ public class GameManager : MonoBehaviour
     public IEnumerator FlashHealItemPopup()//Heal
     {
         HealItemPopup.SetActive(true);
-        //Debug.Log("Heal Tut pop");
-        //Debug.Log(tutorialManager.CheckCompleted("Heal Cap"));
         if (!tutorialManager.CheckCompleted("Heal Cap"))
         {
-            //Debug.Log("Heal tut");
             StartCoroutine(FlashTutorialPopup("Heal Cap"));
             tutorialManager.SetTutorialCompletion("Heal Cap", true);
         }
@@ -178,7 +175,6 @@ public class GameManager : MonoBehaviour
         GameManager.instance.weaponChangeText.text = $"Got Weapon: {name}";
         if (!tutorialManager.CheckCompleted(name))
         {
-            //Debug.Log("Heal tut");
             StartCoroutine(FlashTutorialPopup(name));
             tutorialManager.SetTutorialCompletion(name, true);
         }
@@ -223,7 +219,8 @@ public class GameManager : MonoBehaviour
     public IEnumerator PlayerDead()
     {
         deadBodyClone = Instantiate(deadBody, Camera.main.transform.position, Camera.main.transform.rotation);
-        deadBodyClone.GetComponent<Rigidbody>().angularVelocity = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1));
+        deadBodyClone.GetComponent<Rigidbody>().angularVelocity = new Vector3(Random.Range(-2, 2), Random.Range(-2, 2), Random.Range(-2, 2));
+        deadBodyClone.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-2, 2), Random.Range(-2, 2), Random.Range(-2, 2));
         Camera.main.enabled = false;
         yield return new WaitForSeconds(deathEffectDuration);
         GamePaused();
