@@ -11,7 +11,7 @@ public class TrapSpike : MonoBehaviour
     {
         if(other.collider.CompareTag("Player"))
         {
-            Debug.Log("SPIKY");
+            //Debug.Log("SPIKY");
         }
     }
 

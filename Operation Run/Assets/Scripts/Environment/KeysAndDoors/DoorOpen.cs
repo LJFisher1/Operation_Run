@@ -22,14 +22,14 @@ public class DoorOpen : MonoBehaviour
         {
             GameManager.instance.playerController.PlayAud(doorOpen, volumeAudio);
             GameManager.instance.playerController.KeyUsed();
-            GameManager.instance.usedKey1();
+            GameManager.instance.UsedKey();
             GameManager.instance.UpdateScore(5);
             moving = true;
             boxTrigger.enabled = false;
         }
         else if (other.CompareTag("Player") && GameManager.instance.playerController.keysInPossession <= 0)
         {
-            StartCoroutine(GameManager.instance.noKeysFlash());
+            StartCoroutine(GameManager.instance.NoKeysFlash());
         }
     }
 
@@ -49,7 +49,7 @@ public class DoorOpen : MonoBehaviour
     void slideTheDoor()
     {
         float distance = Vector3.Distance(transform.position, moveVector);
-        Debug.Log(distance);
+        //Debug.Log(distance);
         if (distance > 0.5f)
         {
             transform.position = Vector3.Lerp(transform.position, moveVector, Time.deltaTime * doorSpeed);

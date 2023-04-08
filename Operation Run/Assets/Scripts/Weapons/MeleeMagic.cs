@@ -45,7 +45,7 @@ public class MeleeMagic : MonoBehaviour, IBullet
         if (dashing && !hasHit)
         {
             hasHit = true;
-            Debug.Log(other.name);
+            //Debug.Log(other.name);
             if (other.CompareTag("Enemy") || other.CompareTag("breakablewall"))
             {
                 
