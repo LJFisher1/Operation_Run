@@ -123,5 +123,5 @@ Material:
     - _Hair: {r: 0, g: 0, b: 0, a: 0}
     - _InnerCloth: {r: 0, g: 0, b: 0, a: 0}
     - _OuterChlothes: {r: 0, g: 0, b: 0, a: 0}
-    - _Position: {r: 0.540322, g: 0.44188875, b: 14.487201, a: 0}
+    - _Position: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

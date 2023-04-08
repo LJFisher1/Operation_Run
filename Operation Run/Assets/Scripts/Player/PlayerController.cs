@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour, IDamage
     [Header("----- Components -----")]
     [SerializeField] CharacterController controller;
     [SerializeField] Animator weaponAnim;
+    //public Rigidbody deadHeadbody;
+    Vector3 headPosition;
     
     /// <summary>
     /// to shoot from the weapon model 
@@ -101,6 +103,7 @@ public class PlayerController : MonoBehaviour, IDamage
     {
         HP = hpMax;
         MANA = manaMax;
+        //headPosition = deadHeadbody.position;
         if (GameManager.instance.playerSpawnPosition != null) // stops game from breaking if no spawn point set. Helps with testing.
         {
             SpawnPlayer();
@@ -114,7 +117,7 @@ public class PlayerController : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.instance.isPaused)
+        if (!GameManager.instance.isPaused && IsAlive)
         {
             ItemControls();
             Movement();
@@ -197,13 +200,12 @@ public class PlayerController : MonoBehaviour, IDamage
 
     public void TakeDamage(int dmg)
     {
+        if(IsAlive) StartCoroutine(GameManager.instance.PlayerHitFlash());
         HP -= dmg;
-        StartCoroutine(GameManager.instance.PlayerHitFlash());
-
-        if (HP <= 0)
+        if (!IsAlive) // death
         {
             GameManager.instance.UpdateScore(-20);
-            GameManager.instance.PlayerDead();
+            StartCoroutine(GameManager.instance.PlayerDead());
         }
     }
 
@@ -246,7 +248,13 @@ public class PlayerController : MonoBehaviour, IDamage
     public void SpawnPlayer()
     {
         HP = hpMax;
-        if(MANA < LowManaThreshold) MANA = LowManaThreshold;
+        if(GameManager.instance.deadBodyClone != null)
+        {
+            GameManager.instance.deadBodyClone.GetComponent<Camera>().enabled = false;
+            GetComponentInChildren<Camera>().enabled = true;
+            Destroy(GameManager.instance.deadBodyClone);
+        }
+        if (MANA < LowManaThreshold) MANA = LowManaThreshold;
         controller.enabled = false;
         transform.position = GameManager.instance.playerSpawnPosition.transform.position;
         controller.enabled = true;

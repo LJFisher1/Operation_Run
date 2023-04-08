@@ -26,7 +26,7 @@ public class KillBarrier : MonoBehaviour
         yield return new WaitForSeconds(damageDelay);
         if (damAble != null)
         {
-            damAble.TakeDamage(damage);
+            if(damAble.IsAlive) damAble.TakeDamage(damage);
         }
         isKilling = false;
     }

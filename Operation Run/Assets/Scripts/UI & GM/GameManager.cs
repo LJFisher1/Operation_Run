@@ -10,11 +10,15 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     [Header("Player")]
-    public GameObject player;
-    public PlayerController playerController;
-    public GameObject playerSpawnPosition;
+    [HideInInspector]  public GameObject player;
+    [HideInInspector]  public PlayerController playerController;
+    [HideInInspector]  public GameObject playerSpawnPosition;
+    [SerializeField] float deathEffectDuration;
+    [SerializeField] GameObject deadBody;
+    public Camera mainCam;
+    [HideInInspector] public GameObject deadBodyClone;
 
-    public GameObject activeMenu;
+    [HideInInspector] public GameObject activeMenu;
     [Header("Game UI")]
     public GameObject pauseMenu;
     public GameObject winMenu;
@@ -64,6 +68,7 @@ public class GameManager : MonoBehaviour
     {
         
         instance = this;
+        mainCam = Camera.main;
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = PlayerController.FindObjectOfType<PlayerController>();
         playerSpawnPosition = GameObject.FindGameObjectWithTag("Player Spawn Position");
@@ -214,8 +219,13 @@ public class GameManager : MonoBehaviour
         playerHitFlash.SetActive(false);
     }
 
-    public void PlayerDead()
+    
+    public IEnumerator PlayerDead()
     {
+        deadBodyClone = Instantiate(deadBody, Camera.main.transform.position, Camera.main.transform.rotation);
+        deadBodyClone.GetComponent<Rigidbody>().angularVelocity = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1));
+        Camera.main.enabled = false;
+        yield return new WaitForSeconds(deathEffectDuration);
         GamePaused();
         activeMenu = loseMenu;
         activeMenu.SetActive(true);
@@ -224,7 +234,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateSensitivity()
     {
-        Camera.main.GetComponent<CameraController>().UpdateSensitivity(sensitivitySlider.GetComponent<Slider>().value);
+        if(Camera.main) Camera.main.GetComponent<CameraController>().UpdateSensitivity(sensitivitySlider.GetComponent<Slider>().value);
     }
     public IEnumerator HPFlash()
     {
