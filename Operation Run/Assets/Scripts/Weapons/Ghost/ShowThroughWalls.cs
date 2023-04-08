@@ -40,6 +40,10 @@ public class ShowThroughWalls : MonoBehaviour
     }
     private void OnDestroy()
     {
-        foreach (Material m in wallMaterials) m.SetFloat(SizeID, 0);
+        foreach (Material m in wallMaterials)
+        {
+            m.SetFloat(SizeID, 0);
+            m.SetVector(PosID, Vector4.zero);
+        }
     }
 }
