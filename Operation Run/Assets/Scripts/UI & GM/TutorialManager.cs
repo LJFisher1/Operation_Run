@@ -28,8 +28,8 @@ public class TutorialManager : MonoBehaviour
     }
     public bool CheckCompleted(string name)
     {
-        Debug.Log(tutoriualPopups[GetTutPopIndex(name)].completed);
-        Debug.Log(tutoriualPopups[GetTutPopIndex(name)].text);
+        //Debug.Log(tutoriualPopups[GetTutPopIndex(name)].completed);
+        //Debug.Log(tutoriualPopups[GetTutPopIndex(name)].text);
         return tutoriualPopups[GetTutPopIndex(name)].completed;
     }
     public void SetTutorialCompletion(string name, bool completed)

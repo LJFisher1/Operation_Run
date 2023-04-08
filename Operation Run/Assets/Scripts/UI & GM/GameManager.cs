@@ -156,17 +156,32 @@ public class GameManager : MonoBehaviour
     public IEnumerator FlashHealItemPopup()//Heal
     {
         HealItemPopup.SetActive(true);
-        Debug.Log("Heal Tut pop");
-        Debug.Log(tutorialManager.CheckCompleted("Heal Cap"));
+        //Debug.Log("Heal Tut pop");
+        //Debug.Log(tutorialManager.CheckCompleted("Heal Cap"));
         if (!tutorialManager.CheckCompleted("Heal Cap"))
         {
-            Debug.Log("Heal tut");
+            //Debug.Log("Heal tut");
             StartCoroutine(FlashTutorialPopup("Heal Cap"));
             tutorialManager.SetTutorialCompletion("Heal Cap", true);
         }
         yield return new WaitForSeconds(1f);
         HealItemPopup.SetActive(false);
     }
+
+    public IEnumerator FlashWeaponText(string name)
+    {
+        GameManager.instance.weaponChangeText.text = $"Got Weapon: {name}";
+        if (!tutorialManager.CheckCompleted(name))
+        {
+            //Debug.Log("Heal tut");
+            StartCoroutine(FlashTutorialPopup(name));
+            tutorialManager.SetTutorialCompletion(name, true);
+        }
+        GameManager.instance.weaponChangePopup.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        GameManager.instance.weaponChangePopup.SetActive(false);
+    }
+
     public void GamePaused()
     {
         Time.timeScale = 0;
@@ -211,26 +226,26 @@ public class GameManager : MonoBehaviour
     {
         Camera.main.GetComponent<CameraController>().UpdateSensitivity(sensitivitySlider.GetComponent<Slider>().value);
     }
-    public IEnumerator hpFlash()
+    public IEnumerator HPFlash()
     {
         GameManager.instance.hpPickup.SetActive(true);
         yield return new WaitForSeconds(1f);
         GameManager.instance.hpPickup.SetActive(false);
     }
-    public IEnumerator manaFlash()
+    public IEnumerator ManaFlash()
     {
         GameManager.instance.manaPickup.SetActive(true);
         yield return new WaitForSeconds(1f);
         GameManager.instance.manaPickup.SetActive(false);
     }
 
-    public IEnumerator noKeysFlash()
+    public IEnumerator NoKeysFlash()
     {
         GameManager.instance.noKeysPopup.SetActive(true);
         yield return new WaitForSeconds(2f);
         GameManager.instance.noKeysPopup.SetActive(false);
     }
-    public IEnumerator usedKeyFlash()
+    public IEnumerator UsedKeyFlash()
     {
         GameManager.instance.usedKeyPopup.SetActive(true);
         yield return new WaitForSeconds(2f);
@@ -242,9 +257,9 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         needMoreGemsPopup.SetActive(false);
     }
-    public void usedKey1()
+    public void UsedKey()
     {
-        StartCoroutine(usedKeyFlash());
+        StartCoroutine(UsedKeyFlash());
     }
 
     public void StartSlowMotion(float sloMoTimeScale = 0.5f)

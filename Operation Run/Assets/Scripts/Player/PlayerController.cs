@@ -211,7 +211,7 @@ public class PlayerController : MonoBehaviour, IDamage
     {
         if (HP < hpMax)
         {
-            StartCoroutine(GameManager.instance.hpFlash());
+            StartCoroutine(GameManager.instance.HPFlash());
             HP += heal;
             if (HP > hpMax)
             {
@@ -221,7 +221,7 @@ public class PlayerController : MonoBehaviour, IDamage
     }
     public void AddMana()
     {
-        StartCoroutine(GameManager.instance.manaFlash());
+        StartCoroutine(GameManager.instance.ManaFlash());
         MANA += 5;
         if (MANA > manaMax)
         {
@@ -278,7 +278,7 @@ public class PlayerController : MonoBehaviour, IDamage
     
     public void ChangeWeapon(Weapon weap)
     {
-        Debug.Log("ChangeWeapon");
+        //Debug.Log("ChangeWeapon");
         weapon = weap;
         wDamage = weap.damage;
         wRange = weap.range;
@@ -287,19 +287,9 @@ public class PlayerController : MonoBehaviour, IDamage
         wModel.sharedMesh = weap.model.GetComponent<MeshFilter>().sharedMesh;
         wMaterial.sharedMaterial = weap.model.GetComponent<MeshRenderer>().sharedMaterial;
         weaponAnim.SetTrigger("Change Weapon");
-        StartCoroutine(FlashWeaponText(weapon.name));
+        StartCoroutine(GameManager.instance.FlashWeaponText(weapon.name));
     }
 
-    IEnumerator FlashWeaponText(string name)
-    {
-        if (GameManager.instance.weaponChangePopup != null) // another bizzare check needed to prevent errors when stoping the game in editor due to GiveWeaponOnDestory
-        {
-            GameManager.instance.weaponChangeText.text = $"Got Weapon: {weapon.name}";
-            GameManager.instance.weaponChangePopup.SetActive(true);
-            yield return new WaitForSeconds(1.5f);
-            GameManager.instance.weaponChangePopup.SetActive(false);
-        }
-    }
 
     public void ApplyForce(Vector3 amount)
     {
