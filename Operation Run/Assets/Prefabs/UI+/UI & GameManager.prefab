@@ -1288,6 +1288,8 @@ MonoBehaviour:
   playerSpawnPosition: {fileID: 0}
   deathEffectDuration: 1
   deadBody: {fileID: 3059166940646203000, guid: c8d5b76255fbb2744aa059320de9a7ef, type: 3}
+  mainCam: {fileID: 0}
+  deadBodyClone: {fileID: 0}
   activeMenu: {fileID: 0}
   pauseMenu: {fileID: 5162138723858213656}
   winMenu: {fileID: 1430196091976142266}
