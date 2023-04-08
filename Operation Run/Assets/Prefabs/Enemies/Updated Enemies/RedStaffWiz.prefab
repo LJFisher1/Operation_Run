@@ -796,13 +796,17 @@ MonoBehaviour:
   sightAngle: 200
   playerFaceSpeed: 5
   waitTime: 3
-  attackRate: 0.5
+  hasRoute: 0
+  routePositions: []
+  posItter: 0
+  attackRate: 1
   attackDistance: 20
   attackDamage: 1
-  projectile: {fileID: 2906220482725623105, guid: 42c927cb4b608204796fdcf9599608f8, type: 3}
-  projectileSpeed: 35
+  projectile: {fileID: 5982062045012594215, guid: 747b965a4cded9e4db4aac61fea45a29, type: 3}
+  projectileSpeed: 25
   projectilePosition: {fileID: 499888836320328865}
   playerInRange: 0
+  playerDirection: {x: 0, y: 0, z: 0}
 --- !u!95 &7960979031627602004
 Animator:
   serializedVersion: 5

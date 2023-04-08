@@ -25,19 +25,19 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] int posItter;
 
     [Header("--Attack Stats--")]
-    [SerializeField] float attackRate;
-    [SerializeField] int attackDistance;
-    [SerializeField] int attackDamage;
-    [SerializeField] GameObject projectile;
-    [SerializeField] int projectileSpeed;
-    [SerializeField] Transform projectilePosition;
+    public float attackRate;
+    public int attackDistance;
+    public int attackDamage;
+    public GameObject projectile;
+    public int projectileSpeed;
+    public Transform projectilePosition;
 
     bool isAttacking;
     public bool playerInRange;
     bool destinationChosen;
     float angleToPlayer;
     float stoppingDistanceOrigin;
-    Vector3 playerDirection;
+    public Vector3 playerDirection;
     Vector3 startingPosition;
     Vector3 faceDirection;
     public bool IsAlive { get => (HP > 0); }
@@ -170,7 +170,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     public void CreateBullet()
     {
         GameObject attackClone = Instantiate(projectile, projectilePosition.position, projectile.transform.rotation);
-        attackClone.GetComponent<Rigidbody>().velocity = playerDirection * projectileSpeed;
+        attackClone.GetComponent<IEnemyAttack>().Initialize(this);
     }
 
     public void TakeDamage(int dmg)
@@ -179,7 +179,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         StartCoroutine(FlashMat());
         animator.SetTrigger("TakeDamage");
         if(agent.enabled) agent.SetDestination(GameManager.instance.player.transform.position);
-        if (HP <= 0)
+        if (!IsAlive)
         {
             StopAllCoroutines();
             HP = 0;

@@ -259,7 +259,7 @@ public class PlayerController : MonoBehaviour, IDamage
         }
         if (MANA < LowManaThreshold) MANA = LowManaThreshold;
         controller.enabled = false;
-        transform.position = GameManager.instance.playerSpawnPosition.transform.position;
+        if(GameManager.instance.playerSpawnPosition != null) transform.position = GameManager.instance.playerSpawnPosition.transform.position;
         controller.enabled = true;
         move = Vector3.zero;
         playerVelocity = Vector3.zero;

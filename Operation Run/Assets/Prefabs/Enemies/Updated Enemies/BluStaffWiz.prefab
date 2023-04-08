@@ -1114,13 +1114,17 @@ MonoBehaviour:
   sightAngle: 200
   playerFaceSpeed: 5
   waitTime: 3
-  attackRate: 2
+  hasRoute: 0
+  routePositions: []
+  posItter: 0
+  attackRate: 5
   attackDistance: 20
   attackDamage: 6
-  projectile: {fileID: 3493253177550448761, guid: 0f15005e96d9912468f2515885df53fa, type: 3}
+  projectile: {fileID: 5982062045012594215, guid: 15ba6437cc8c19849a1a893fb0297125, type: 3}
   projectileSpeed: 20
   projectilePosition: {fileID: 7420581407540421095}
   playerInRange: 0
+  playerDirection: {x: 0, y: 0, z: 0}
 --- !u!95 &1040279866657850642
 Animator:
   serializedVersion: 5
@@ -2828,7 +2832,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7420581407540421091}
   m_LocalRotation: {x: 0.5000002, y: 0.50000006, z: -0.49999994, w: 0.49999982}
-  m_LocalPosition: {x: -0.378, y: -1.078, z: 0.417}
+  m_LocalPosition: {x: -0.027, y: -1.078, z: -0.027}
   m_LocalScale: {x: 0.49999988, y: 0.49999967, z: 0.49999994}
   m_ConstrainProportionsScale: 0
   m_Children: []
