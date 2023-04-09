@@ -1811,7 +1811,7 @@ MonoBehaviour:
   hasRoute: 0
   routePositions: []
   posItter: 0
-  canBreakWalls: 0
+  canBreakWalls: 1
   attackRate: 2
   attackDistance: 20
   attackDamage: 3
