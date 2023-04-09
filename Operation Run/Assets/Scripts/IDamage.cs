@@ -6,5 +6,6 @@ public interface IDamage
 {
     void TakeDamage(int dmg);
 
+    void TakeDamage(int dmg, GameObject attacker) { return; }
     bool IsAlive { get => true; }
 }

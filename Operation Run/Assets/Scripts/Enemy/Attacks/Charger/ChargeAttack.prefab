@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7561226030291507989}
-  - component: {fileID: 5449055087798442667}
   - component: {fileID: 7561226030291507988}
   - component: {fileID: 7561226030291507991}
   - component: {fileID: 7561226030291507985}
@@ -17,8 +16,9 @@ GameObject:
   - component: {fileID: 464214322450119839}
   - component: {fileID: 7567491464283151293}
   - component: {fileID: 725943806263336927}
-  m_Layer: 9
-  m_Name: Melee Bullet
+  - component: {fileID: 1517514681185882113}
+  m_Layer: 6
+  m_Name: ChargeAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,24 +39,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5449055087798442667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7561226030291507987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fdc696d3fad2254d8390014730d5e3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bounceBackMultiplier: 0.9
-  verticalInfluenceMult: 0.4
-  bouncBackDirInfluence: {x: 0, y: 0.1, z: 0}
-  dashCollider: {fileID: 725943806263336927}
-  shield: {fileID: 986474873012182339, guid: 32d1355d26f791b4da92b685fd24c4af, type: 3}
-  hitEffect: {fileID: 3464273426555324030, guid: fc0c728d1d4c46b4b9489b6264626485, type: 3}
 --- !u!33 &7561226030291507988
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4958,7 +4940,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 252
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.9960604
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -5044,7 +5026,26 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 0
-  m_Radius: 0.5
-  m_Height: 1.7
-  m_Direction: 0
-  m_Center: {x: -0.24, y: 0, z: 0}
+  m_Radius: 0.73690796
+  m_Height: 1.7401263
+  m_Direction: 1
+  m_Center: {x: -0.34448624, y: 0.0992803, z: 0}
+--- !u!114 &1517514681185882113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7561226030291507987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7101d0d225281714e8c2d7fc149dead6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.5
+  bounceBackMultiplier: 0.2
+  verticalInfluenceMult: 0.4
+  bouncBackDirInfluence: {x: 0, y: 0.1, z: 0}
+  dashCollider: {fileID: 725943806263336927}
+  shield: {fileID: 986474873012182339, guid: 77ce1cade114f8a4bb496fbed3d79459, type: 3}
+  hitEffect: {fileID: 3464273426555324030, guid: dd15fa45875f510498b57e98c91b17d5, type: 3}
