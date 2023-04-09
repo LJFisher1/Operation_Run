@@ -148,6 +148,8 @@ public class PlayerController : MonoBehaviour, IDamage
         {
             playerVelocity.y = 0;
             jumpsCur = 0;
+            GameManager.instance.jumpPip1.SetActive(true);
+            GameManager.instance.jumpPip2.SetActive(true);
             if (!isPlayingFootsteps && move.normalized.magnitude > 0.5f)
             {
                 StartCoroutine(PlayerFootsteps());
@@ -162,6 +164,14 @@ public class PlayerController : MonoBehaviour, IDamage
             PlayAud(playerJump, jumpVolume);
             playerVelocity.y = jumpSpeed;
             ++jumpsCur;
+            if (jumpsCur == 1)
+            {
+                GameManager.instance.jumpPip1.SetActive(false);
+            }
+            if (jumpsCur ==2)
+            {
+                GameManager.instance.jumpPip2.SetActive(false);
+            }
         }
 
         //player movement input

@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
     public GameObject weaponChangePopup;
     public TextMeshProUGUI weaponChangeText;
     public GameObject needMoreGemsPopup;
+    public GameObject jumpPip1;
+    public GameObject jumpPip2;
 
     [Header("Game Goals")]
     public int GemsRemaining;
