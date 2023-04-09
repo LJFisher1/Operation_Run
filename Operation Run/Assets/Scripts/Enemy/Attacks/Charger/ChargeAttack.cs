@@ -15,6 +15,7 @@ public class ChargeAttack : MonoBehaviour, IEnemyAttack
     [SerializeField] public Vector3 bouncBackDirInfluence;
     [SerializeField] Collider dashCollider;
     [SerializeField] GameObject shield;
+    [SerializeField] float knockBackForce;
     GameObject shieldClone;
     [SerializeField] GameObject hitEffect;
     Vector3 dashDir;
@@ -60,6 +61,7 @@ public class ChargeAttack : MonoBehaviour, IEnemyAttack
                 {
                     dam.TakeDamage(damage);
                 }
+                GameManager.instance.playerController.ApplyForce(knockBackForce * (enemy.playerDirection + bouncBackDirInfluence));
             }
             else if(other.CompareTag("breakablewall"))
             {
@@ -70,7 +72,7 @@ public class ChargeAttack : MonoBehaviour, IEnemyAttack
                 }
             }
             //enemy.agent.isStopped = false;
-            enemy.agent.Move(bounceBackMultiplier * dashSpeed * (-dashDir + bouncBackDirInfluence));
+            //enemy.agent.Move(bounceBackMultiplier * dashSpeed * (-dashDir + bouncBackDirInfluence));
             //enemy.agent.enabled = true;
             Instantiate(hitEffect, transform.position, hitEffect.transform.rotation);
             EndDash();

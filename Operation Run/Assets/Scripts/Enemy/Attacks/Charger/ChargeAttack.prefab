@@ -5045,7 +5045,8 @@ MonoBehaviour:
   duration: 0.5
   bounceBackMultiplier: 0.2
   verticalInfluenceMult: 0.4
-  bouncBackDirInfluence: {x: 0, y: 0.1, z: 0}
+  bouncBackDirInfluence: {x: 0, y: 1, z: 0}
   dashCollider: {fileID: 725943806263336927}
   shield: {fileID: 986474873012182339, guid: 77ce1cade114f8a4bb496fbed3d79459, type: 3}
+  knockBackForce: 50
   hitEffect: {fileID: 3464273426555324030, guid: dd15fa45875f510498b57e98c91b17d5, type: 3}
