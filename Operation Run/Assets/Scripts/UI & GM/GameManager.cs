@@ -10,9 +10,9 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     [Header("Player")]
-    [HideInInspector]  public GameObject player;
-    [HideInInspector]  public PlayerController playerController;
-    [HideInInspector]  public GameObject playerSpawnPosition;
+    [HideInInspector] public GameObject player;
+    [HideInInspector] public PlayerController playerController;
+    [HideInInspector] public GameObject playerSpawnPosition;
     [SerializeField] float deathEffectDuration;
     [SerializeField] GameObject deadBody;
     public Camera mainCam;
@@ -51,7 +51,11 @@ public class GameManager : MonoBehaviour
     public int scoreCount;
     public bool isPaused;
     private float timeScaleOriginal;
-    private  float timeFixedOriginal;
+    private float timeFixedOriginal;
+    Dictionary<string, int> scoretable = new Dictionary<string, int>()
+    {
+        {"default", 0},{"Gold", 0},{"Gem", 0},{"Door", 0},{"Key", 0},{"Mana", 0},{"HealItem", 0},{"Heal", 0},{"Death", 0},{"Time", 0}
+    };
 
     [Header("Timer")]
     public int timeScoreMax;
@@ -205,7 +209,7 @@ public class GameManager : MonoBehaviour
     public void PlayerWin()
     {
         GamePaused();
-        UpdateScore(CalculateTimeScore());
+        UpdateScore(CalculateTimeScore(), "Time");
         activeMenu = winMenu;
         activeMenu.SetActive(true);
     }
@@ -283,10 +287,14 @@ public class GameManager : MonoBehaviour
         Time.timeScale = timeScaleOriginal;
         Time.fixedDeltaTime = timeFixedOriginal;
     }
-    public void UpdateScore(int scorechange)
+    public void UpdateScore(int scorechange, string type = "default")
     {
         scoreCount += scorechange;
         scoreCountText.text = GameManager.instance.scoreCount.ToString("F0");
+        if(scoretable.ContainsKey(type))
+        {
+            scoretable[type] += scorechange;
+        }
     }
     public void SetScore(int scorechange)
     {

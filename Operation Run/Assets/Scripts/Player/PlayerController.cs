@@ -134,7 +134,7 @@ public class PlayerController : MonoBehaviour, IDamage
         if (Input.GetButtonDown("Heal") && healItemCount >= 1)
         {
             UseHealItem();
-            GameManager.instance.UpdateScore(-10);
+            GameManager.instance.UpdateScore(-10, "Heal");
         }
         if (Input.GetButton("Fire1") & !isUsingWeapon)
         {
@@ -221,7 +221,7 @@ public class PlayerController : MonoBehaviour, IDamage
             playerCollider.enabled = false;
             controller.enabled = false;
             PlayAud(playerDeath, deathVolume);
-            GameManager.instance.UpdateScore(-20);
+            GameManager.instance.UpdateScore(-20, "Death");
             StartCoroutine(GameManager.instance.PlayerDead());
         }
     }

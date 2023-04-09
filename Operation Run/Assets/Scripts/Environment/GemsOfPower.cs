@@ -17,7 +17,7 @@ public class GemsOfPower : MonoBehaviour
             GameManager.instance.GemPickup();
             GameManager.instance.playerController.PlayAud(gemPickup, audioVol);
             Destroy(gameObject);
-            GameManager.instance.UpdateScore(10);
+            GameManager.instance.UpdateScore(10, "Gem");
         }
     }
 }

@@ -23,7 +23,7 @@ public class DoorOpen : MonoBehaviour
             GameManager.instance.playerController.PlayAud(doorOpen, volumeAudio);
             GameManager.instance.playerController.KeyUsed();
             GameManager.instance.UsedKey();
-            GameManager.instance.UpdateScore(5);
+            GameManager.instance.UpdateScore(5, "Door");
             moving = true;
             boxTrigger.enabled = false;
         }

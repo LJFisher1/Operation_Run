@@ -12,7 +12,7 @@ public class ManaFill : MonoBehaviour
         {
             if (GameManager.instance.playerController.MANA < GameManager.instance.playerController.manaMax)
             {
-                GameManager.instance.UpdateScore(5);
+                GameManager.instance.UpdateScore(5, "Mana");
                 GameManager.instance.playerController.AddMana();
                 GameManager.instance.playerController.PlayAud(audioClips, volumeAudio);
                 Destroy(gameObject);

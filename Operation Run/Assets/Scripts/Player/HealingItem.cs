@@ -10,7 +10,7 @@ public class HealingItem : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameManager.instance.UpdateScore(5);
+            GameManager.instance.UpdateScore(5, "HealItem");
             GameManager.instance.playerController.PickupHealItem();
             GameManager.instance.playerController.PlayAud(audioClips, volumeAudio);
             Destroy(gameObject);
