@@ -45,8 +45,29 @@ public class GameManager : MonoBehaviour
     public GameObject needMoreGemsPopup;
     public GameObject jumpPip1;
     public GameObject jumpPip2;
+    public TextMeshProUGUI enemyDefeatAmount;
+    public TextMeshProUGUI enemyDefeatScore;
+    public TextMeshProUGUI goldCollectedAmount;
+    public TextMeshProUGUI goldCollectedScore;
+    public TextMeshProUGUI gemsCollectedAmount;
+    public TextMeshProUGUI gemsCollectedScore;
+    public TextMeshProUGUI pickupsCollectedAmount;
+    public TextMeshProUGUI pickupsCollectedScore;
+    public TextMeshProUGUI keysCollectedAmount;
+    public TextMeshProUGUI keysCollectedScore;
+    public TextMeshProUGUI doorsOpenedAmount;
+    public TextMeshProUGUI doorsOpenedScore;
+    public TextMeshProUGUI wallsBustedAmount;
+    public TextMeshProUGUI wallsBustedScore;
+    public TextMeshProUGUI healsUsedAmount;
+    public TextMeshProUGUI healsUsedScore;
+    public TextMeshProUGUI timesDiedAmount;
+    public TextMeshProUGUI timesDiedScore;
+    public TextMeshProUGUI timeBonusScore;
+    public TextMeshProUGUI totalScore;
+    public TextMeshProUGUI Grade;
 
-    [Header("Game Goals")]
+[Header("Game Goals")]
     public int GemsRemaining;
     public int scoreCount;
     public bool isPaused;
@@ -54,7 +75,7 @@ public class GameManager : MonoBehaviour
     private float timeFixedOriginal;
     Dictionary<string, int> scoretable = new Dictionary<string, int>()
     {
-        {"default", 0},{"Gold", 0},{"Gem", 0},{"Door", 0},{"Key", 0},{"Mana", 0},{"HealItem", 0},{"Heal", 0},{"Death", 0},{"Time", 0}
+        {"default", 0},{"Gold", 0},{"Gem", 0},{"Door", 0},{"Key", 0},{"Pickup", 0},{"Wall", 0},{"Heal", 0},{"Death", 0},{"Time", 0}
     };
 
     [Header("Timer")]
@@ -208,8 +229,29 @@ public class GameManager : MonoBehaviour
 
     public void PlayerWin()
     {
-        GamePaused();
         UpdateScore(CalculateTimeScore(), "Time");
+        enemyDefeatAmount.text = null;
+    enemyDefeatScore.text = null;
+    goldCollectedAmount.text = null;
+    goldCollectedScore.text = null;
+    gemsCollectedAmount.text = null;
+    gemsCollectedScore.text = null;
+    pickupsCollectedAmount.text = null;
+    pickupsCollectedScore.text = null;
+    keysCollectedAmount.text = null;
+    keysCollectedScore.text = null;
+    doorsOpenedAmount.text = null;
+    doorsOpenedScore.text = null;
+    wallsBustedAmount.text = null;
+    wallsBustedScore.text = null;
+    healsUsedAmount.text = null;
+    healsUsedScore.text = null;
+    timesDiedAmount.text = null;
+    timesDiedScore.text = null;
+    timeBonusScore.text = null;
+    totalScore.text = null;
+    Grade.text = null;
+    GamePaused();
         activeMenu = winMenu;
         activeMenu.SetActive(true);
     }
