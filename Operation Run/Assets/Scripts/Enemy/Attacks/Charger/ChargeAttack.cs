@@ -38,8 +38,9 @@ public class ChargeAttack : MonoBehaviour, IEnemyAttack
                 EndDash();
             }
         }
+        if (enemy == null) EndDash();
 
-        if(dashing)
+        if(dashing && enemy != null)
         {
             enemy.agent.Move(dashDir * dashSpeed * Time.deltaTime);
             //shieldClone.transform.position = transform.position;
