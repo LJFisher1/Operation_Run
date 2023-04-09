@@ -799,7 +799,7 @@ MonoBehaviour:
   hasRoute: 0
   routePositions: []
   posItter: 0
-  attackRate: 1
+  attackRate: 4
   attackDistance: 20
   attackDamage: 1
   projectile: {fileID: 5982062045012594215, guid: 747b965a4cded9e4db4aac61fea45a29, type: 3}

@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour, IDamage
      * try to move weapon specific logic out of UseWeapon and into their own scripts
      */
     [Header("----- Components -----")]
+    [SerializeField] Collider playerCollider;
     [SerializeField] CharacterController controller;
     [SerializeField] Animator weaponAnim;
     //public Rigidbody deadHeadbody;
@@ -103,6 +104,7 @@ public class PlayerController : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
+        playerCollider.enabled = true;
         HP = hpMax;
         MANA = manaMax;
         //headPosition = deadHeadbody.position;
@@ -216,6 +218,8 @@ public class PlayerController : MonoBehaviour, IDamage
         HP -= dmg;
         if (!IsAlive) // death
         {
+            playerCollider.enabled = false;
+            controller.enabled = false;
             PlayAud(playerDeath, deathVolume);
             GameManager.instance.UpdateScore(-20);
             StartCoroutine(GameManager.instance.PlayerDead());
@@ -260,6 +264,8 @@ public class PlayerController : MonoBehaviour, IDamage
 
     public void SpawnPlayer()
     {
+        playerCollider.enabled = true;
+        controller.enabled = true;
         HP = hpMax;
         if(GameManager.instance.deadBodyClone != null)
         {
