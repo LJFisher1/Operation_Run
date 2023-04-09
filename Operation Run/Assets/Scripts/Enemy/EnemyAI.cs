@@ -95,12 +95,12 @@ public class EnemyAI : MonoBehaviour, IDamage
         else
         {
             animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
-            destinationChosen = true;
             agent.stoppingDistance = 1;
 
             agent.SetDestination(routePositions[posItter].transform.position);
-            if (agent.transform.position == agent.destination)
+            if (!destinationChosen && agent.remainingDistance < 0.05f)
             {
+                destinationChosen = true;
                 yield return new WaitForSeconds(waitTime);
                 if (posItter < routePositions.Length - 1)
                 {
