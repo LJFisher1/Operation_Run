@@ -15346,30 +15346,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1478120486}
     m_Modifications:
-    - target: {fileID: 4952090136790205447, guid: cbed401f83faae64b9dc81a9c56e34c9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4952090136790205447, guid: cbed401f83faae64b9dc81a9c56e34c9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 4952090136790205447, guid: cbed401f83faae64b9dc81a9c56e34c9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.288
-      objectReference: {fileID: 0}
-    - target: {fileID: 6706510513114657435, guid: cbed401f83faae64b9dc81a9c56e34c9, type: 3}
-      propertyPath: attackRate
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6706510513114657435, guid: cbed401f83faae64b9dc81a9c56e34c9, type: 3}
-      propertyPath: projectile
-      value: 
-      objectReference: {fileID: 7561226030291507987, guid: 96f13bff567795749ab2aa567df0d8c0, type: 3}
-    - target: {fileID: 6706510513114657435, guid: cbed401f83faae64b9dc81a9c56e34c9, type: 3}
-      propertyPath: projectileSpeed
-      value: 125
-      objectReference: {fileID: 0}
     - target: {fileID: 7444174410631351864, guid: cbed401f83faae64b9dc81a9c56e34c9, type: 3}
       propertyPath: m_RootOrder
       value: 1
