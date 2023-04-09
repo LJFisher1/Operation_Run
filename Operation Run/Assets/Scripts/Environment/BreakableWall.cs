@@ -17,6 +17,7 @@ public class BreakableWall : MonoBehaviour, IDamage
         if (enemy != null && enemy.canBreakWalls == true)
         {
             Destroy(gameObject);
+            GameManager.instance.UpdateScore(5, "Wall");
         }
     }
 }
