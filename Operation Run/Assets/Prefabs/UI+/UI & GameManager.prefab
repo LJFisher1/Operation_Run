@@ -1658,7 +1658,7 @@ MonoBehaviour:
   GemsRemaining: 0
   scoreCount: 0
   isPaused: 0
-  timeScoreMax: 1000
+  timeScoreMax: 300
   timeScoreDedectionRate: 2
   currentTime: 0
   timerText: {fileID: 4741404676463938657}
