@@ -51,7 +51,7 @@ MonoBehaviour:
   bullet: {fileID: 5982062045012594215, guid: 4ef9abe389c2f6f4e93afc5eefe61eed, type: 3}
   spreadAngle: 10
   spreadOffset: 0.1
-  pushBackPower: 50
+  pushBackPower: 35
   useBulletSpeedforPush: 1
 --- !u!198 &7217102520987093775
 ParticleSystem:

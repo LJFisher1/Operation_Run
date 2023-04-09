@@ -16,6 +16,8 @@ MonoBehaviour:
   useTime: 1
   range: 10
   duration: 3
-  bulletSpeed: 81.86
+  bulletSpeed: 70
   model: {fileID: 1750509054736364, guid: e55280988a6fa1843a32025141146c2a, type: 3}
   bullet: {fileID: 5982062045012594215, guid: 53084270f58a4cf4a8ac25ebd2dd19d3, type: 3}
+  canBreakWalls: 0
+  canTeleport: 0
