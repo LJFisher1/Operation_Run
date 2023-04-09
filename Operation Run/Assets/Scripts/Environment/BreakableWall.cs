@@ -11,4 +11,12 @@ public class BreakableWall : MonoBehaviour, IDamage
             Destroy(gameObject);
         }
     }
+    public void TakeDamage(int dmg, GameObject attacker)
+    {
+        EnemyAI enemy = attacker.GetComponent<EnemyAI>();
+        if (enemy != null && enemy.canBreakWalls == true)
+        {
+            Destroy(gameObject);
+        }
+    }
 }

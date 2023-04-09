@@ -25,6 +25,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] int posItter;
 
     [Header("--Attack Stats--")]
+    public bool canBreakWalls;
     public float attackRate;
     public int attackDistance;
     public int attackDamage;

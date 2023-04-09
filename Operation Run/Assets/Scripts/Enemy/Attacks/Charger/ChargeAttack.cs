@@ -2,43 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChargeAttack : MonoBehaviour, IBullet
+public class ChargeAttack : MonoBehaviour, IEnemyAttack
 {
     int damage;
-    float duration;
+
     bool dashing;
     bool hasHit;
     float dashSpeed;
+    [SerializeField] float duration;
     [SerializeField] float bounceBackMultiplier;
     [SerializeField] float verticalInfluenceMult;
     [SerializeField] public Vector3 bouncBackDirInfluence;
     [SerializeField] Collider dashCollider;
     [SerializeField] GameObject shield;
+    [SerializeField] float knockBackForce;
     GameObject shieldClone;
     [SerializeField] GameObject hitEffect;
-    PlayerController player;
     Vector3 dashDir;
-    public void Initialize(Weapon creator)
+    EnemyAI enemy;
+    public void Initialize(EnemyAI creator)
     {
-        damage = creator.damage;
-        duration = creator.duration;
-        dashSpeed = creator.bulletSpeed;
-        player = GameManager.instance.playerController;
+        enemy = creator;
+        damage = creator.attackDamage;
+        dashSpeed = creator.projectileSpeed;
         StartCoroutine(Charge());
     }
     private void Update()
     {
-        transform.position = player.shootPointVisual.position;
-        transform.rotation = player.transform.rotation;
-        if (shieldClone)
+        if (enemy != null)
         {
-            shieldClone.transform.position = transform.position;
-            shieldClone.transform.rotation = transform.rotation;
+            transform.position = enemy.projectilePosition.position;
+            transform.rotation = enemy.transform.rotation;
+            if (!enemy.IsAlive)
+            {
+                EndDash();
+            }
         }
-        if (!player.IsAlive)
+
+        if(dashing)
         {
-            EndDash();
+            enemy.agent.Move(dashDir * dashSpeed * Time.deltaTime);
+            //shieldClone.transform.position = transform.position;
+            //shieldClone.transform.rotation = transform.rotation;
         }
+
     }
     public void OnTriggerEnter(Collider other)
     {
@@ -46,7 +53,7 @@ public class ChargeAttack : MonoBehaviour, IBullet
         {
             hasHit = true;
             //Debug.Log(other.name);
-            if (other.CompareTag("Enemy") || other.CompareTag("breakablewall"))
+            if (other.CompareTag("Player"))
             {
                 
                 IDamage dam = other.GetComponent<IDamage>();
@@ -54,8 +61,19 @@ public class ChargeAttack : MonoBehaviour, IBullet
                 {
                     dam.TakeDamage(damage);
                 }
+                GameManager.instance.playerController.ApplyForce(knockBackForce * (enemy.playerDirection + bouncBackDirInfluence));
             }
-            player.ApplyForce(bounceBackMultiplier * dashSpeed * (-dashDir + bouncBackDirInfluence));
+            else if(other.CompareTag("breakablewall"))
+            {
+                IDamage dam = other.GetComponent<IDamage>();
+                if (dam != null)
+                {
+                    dam.TakeDamage(damage,enemy.gameObject);
+                }
+            }
+            //enemy.agent.isStopped = false;
+            //enemy.agent.Move(bounceBackMultiplier * dashSpeed * (-dashDir + bouncBackDirInfluence));
+            //enemy.agent.enabled = true;
             Instantiate(hitEffect, transform.position, hitEffect.transform.rotation);
             EndDash();
         }
@@ -68,14 +86,13 @@ public class ChargeAttack : MonoBehaviour, IBullet
     }
     IEnumerator Dash()
     {
+        //enemy.agent.isStopped = true;
         dashing = true;
-        dashDir = Camera.main.transform.forward;
+        dashDir = enemy.playerDirection;
         dashDir = new(dashDir.x, dashDir.y * verticalInfluenceMult, dashDir.z);
-        shieldClone = Instantiate(shield,transform.position,transform.rotation);
+        //shieldClone = Instantiate(shield,transform.position,transform.rotation);
         dashCollider.GetComponent<MeshRenderer>().enabled = true;
         dashCollider.enabled = true;
-        Camera.main.GetComponent<CameraController>().enabled = false;
-        player.ApplyForce(dashDir * dashSpeed);
         yield return new WaitForSeconds(duration/2);
         dashing = false;
         EndDash();
@@ -83,7 +100,6 @@ public class ChargeAttack : MonoBehaviour, IBullet
 
     void EndDash()
     {
-        Camera.main.GetComponent<CameraController>().enabled = true;
         Destroy(shieldClone, duration/5);
         Destroy(gameObject);
     }

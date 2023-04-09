@@ -321,6 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 993d075603156c4459906b443ac10fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCollider: {fileID: 244641867}
   controller: {fileID: 6859206437942702859}
   weaponAnim: {fileID: 926657883}
   shootPointVisual: {fileID: 1707980898481560364}
