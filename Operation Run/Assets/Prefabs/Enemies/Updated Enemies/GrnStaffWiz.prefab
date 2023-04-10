@@ -1818,6 +1818,7 @@ MonoBehaviour:
   projectile: {fileID: 7561226030291507987, guid: 96f13bff567795749ab2aa567df0d8c0, type: 3}
   projectileSpeed: 125
   projectilePosition: {fileID: 4952090136790205447}
+  hasExternalFiringAnimation: 0
   playerInRange: 0
   playerDirection: {x: 0, y: 0, z: 0}
 --- !u!95 &3183404756431921394
@@ -1863,7 +1864,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3278364374660838140}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 1
   m_Speed: 15
   m_Acceleration: 8
   avoidancePriority: 50
