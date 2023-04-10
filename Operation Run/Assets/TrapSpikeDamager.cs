@@ -12,7 +12,6 @@ public class TrapSpikeDamager : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            Debug.Log("damaged");
             StartCoroutine(Damage(other.GetComponent<IDamage>()));
         }
     }
