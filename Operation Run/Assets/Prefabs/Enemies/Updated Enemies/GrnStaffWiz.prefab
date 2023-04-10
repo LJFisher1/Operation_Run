@@ -1812,11 +1812,11 @@ MonoBehaviour:
   routePositions: []
   posItter: 0
   canBreakWalls: 1
-  attackRate: 2
+  attackRate: 3
   attackDistance: 20
   attackDamage: 3
   projectile: {fileID: 7561226030291507987, guid: 96f13bff567795749ab2aa567df0d8c0, type: 3}
-  projectileSpeed: 125
+  projectileSpeed: 100
   projectilePosition: {fileID: 4952090136790205447}
   hasExternalFiringAnimation: 0
   playerInRange: 0

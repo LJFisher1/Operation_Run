@@ -5026,8 +5026,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 0
-  m_Radius: 0.73690796
-  m_Height: 1.7401263
+  m_Radius: 0.59
+  m_Height: 1.62
   m_Direction: 1
   m_Center: {x: -0.34448624, y: 0.0992803, z: 0}
 --- !u!114 &1517514681185882113
@@ -5048,5 +5048,5 @@ MonoBehaviour:
   bouncBackDirInfluence: {x: 0, y: 1, z: 0}
   dashCollider: {fileID: 725943806263336927}
   shield: {fileID: 986474873012182339, guid: 77ce1cade114f8a4bb496fbed3d79459, type: 3}
-  knockBackForce: 50
+  knockBackForce: 30
   hitEffect: {fileID: 3464273426555324030, guid: dd15fa45875f510498b57e98c91b17d5, type: 3}
