@@ -145,7 +145,9 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   aimSound: {fileID: 8300000, guid: d654174ef194bd7479bf4b8d8f753318, type: 3}
+  aimVol: 0.2
   fireSound: {fileID: 8300000, guid: 7a9de5c4d998126449cf964a6b27a8b0, type: 3}
+  fireVol: 0.714
   aud: {fileID: -3868351328246536169}
 --- !u!120 &-713327645408654490
 LineRenderer:

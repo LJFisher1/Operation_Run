@@ -21,7 +21,9 @@ public class LaserAttack : MonoBehaviour, IEnemyAttack
     [SerializeField] Gradient telegraphFlashColor;
     [SerializeField] Gradient fireColor;
     [SerializeField] AudioClip aimSound;
+    [Range(0,1)][SerializeField] float aimVol;
     [SerializeField] AudioClip fireSound;
+    [Range(0, 1)] [SerializeField] float fireVol;
     [SerializeField] AudioSource aud;
 
     bool takingAim;
@@ -76,7 +78,7 @@ public class LaserAttack : MonoBehaviour, IEnemyAttack
     {
         if (!HasEnemy)
         {
-            aud.PlayOneShot(aimSound);
+            aud.PlayOneShot(aimSound,aimVol);
             takingAim = true;
             lineRend.colorGradient = aimColor;
             yield return new WaitForSeconds(aimTime);
@@ -104,7 +106,7 @@ public class LaserAttack : MonoBehaviour, IEnemyAttack
     {
         if (!HasEnemy)
         {
-            aud.PlayOneShot(fireSound);
+            aud.PlayOneShot(fireSound,aimVol);
             Instantiate(hitEffect, enemy.projectilePosition.position, enemy.transform.rotation);
             enemy.animator.SetTrigger("Shoot");
             lineRend.colorGradient = fireColor;
