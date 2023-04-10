@@ -11,6 +11,7 @@ public class KeyPickUp : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameManager.instance.UpdateScore(5, "Key");
+            ++GameManager.instance.keysCollected;
             GameManager.instance.playerController.KeyPickup();
             GameManager.instance.playerController.PlayAud(audioPickUp, volumePickUp);
             Destroy(gameObject);

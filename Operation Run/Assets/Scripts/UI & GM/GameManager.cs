@@ -66,6 +66,15 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI timeBonusScore;
     public TextMeshProUGUI totalScore;
     public TextMeshProUGUI Grade;
+    public int enemysDefeated;
+    public int goldCollected;
+    public int gemsCollected;
+    public int pickupsCollected;
+    public int keysCollected;
+    public int doorsOpened;
+    public int wallsBusted;
+    public int healsUsed;
+    public int deaths;
 
 [Header("Game Goals")]
     public int GemsRemaining;
@@ -230,28 +239,51 @@ public class GameManager : MonoBehaviour
     public void PlayerWin()
     {
         UpdateScore(CalculateTimeScore(), "Time");
-        enemyDefeatAmount.text = null;
-    enemyDefeatScore.text = null;
-    goldCollectedAmount.text = null;
-    goldCollectedScore.text = null;
-    gemsCollectedAmount.text = null;
-    gemsCollectedScore.text = null;
-    pickupsCollectedAmount.text = null;
-    pickupsCollectedScore.text = null;
-    keysCollectedAmount.text = null;
-    keysCollectedScore.text = null;
-    doorsOpenedAmount.text = null;
-    doorsOpenedScore.text = null;
-    wallsBustedAmount.text = null;
-    wallsBustedScore.text = null;
-    healsUsedAmount.text = null;
-    healsUsedScore.text = null;
-    timesDiedAmount.text = null;
-    timesDiedScore.text = null;
-    timeBonusScore.text = null;
-    totalScore.text = null;
-    Grade.text = null;
-    GamePaused();
+        enemyDefeatAmount.text = enemysDefeated.ToString("F0");
+        enemyDefeatScore.text = "X";
+        goldCollectedAmount.text = goldCollected.ToString("F0");
+        goldCollectedScore.text = scoretable["Gold"].ToString("F0");
+        gemsCollectedAmount.text = gemsCollected.ToString("F0");
+        gemsCollectedScore.text = scoretable["Gem"].ToString("F0");
+        pickupsCollectedAmount.text = pickupsCollected.ToString("F0");
+        pickupsCollectedScore.text = scoretable["Pickup"].ToString("F0");
+        keysCollectedAmount.text = keysCollected.ToString("F0");
+        keysCollectedScore.text = scoretable["Key"].ToString("F0");
+        doorsOpenedAmount.text = doorsOpened.ToString("F0");
+        doorsOpenedScore.text = scoretable["Door"].ToString("F0");
+        wallsBustedAmount.text = wallsBusted.ToString("F0");
+        wallsBustedScore.text = scoretable["Wall"].ToString("F0");
+        healsUsedAmount.text = healsUsed.ToString("F0");
+        healsUsedScore.text = scoretable["Heal"].ToString("F0");
+        timesDiedAmount.text = deaths.ToString("F0");
+        timesDiedScore.text = scoretable["Death"].ToString("F0");
+        timeBonusScore.text = scoretable["Time"].ToString("F0");
+        totalScore.text = scoreCount.ToString("F0");
+        if(scoreCount >= 300)
+        {
+            Grade.text = "S";
+        }
+        else if (scoreCount >= 250)
+        {
+            Grade.text = "A";
+        }
+        else if (scoreCount >= 225)
+        {
+            Grade.text = "B";
+        }
+        else if (scoreCount >= 200)
+        {
+            Grade.text = "C";
+        }
+        else if (scoreCount >= 175)
+        {
+            Grade.text = "D";
+        }
+        else
+        {
+            Grade.text = "F";
+        }
+        GamePaused();
         activeMenu = winMenu;
         activeMenu.SetActive(true);
     }

@@ -222,6 +222,7 @@ public class PlayerController : MonoBehaviour, IDamage
             controller.enabled = false;
             PlayAud(playerDeath, deathVolume);
             GameManager.instance.UpdateScore(-20, "Death");
+            ++GameManager.instance.deaths;
             StartCoroutine(GameManager.instance.PlayerDead());
         }
     }
@@ -260,6 +261,7 @@ public class PlayerController : MonoBehaviour, IDamage
         Heal(healPower);
         --healItemCount;
         GameManager.instance.HealCountText.text = healItemCount.ToString("F0");
+        ++GameManager.instance.healsUsed;
     }
 
     public void SpawnPlayer()

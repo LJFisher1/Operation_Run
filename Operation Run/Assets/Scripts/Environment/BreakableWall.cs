@@ -8,6 +8,8 @@ public class BreakableWall : MonoBehaviour, IDamage
     {
         if (GameManager.instance.playerController.weapon.canBreakWalls == true)
         {
+            GameManager.instance.UpdateScore(5, "Wall");
+            ++GameManager.instance.wallsBusted;
             Destroy(gameObject);
         }
     }
@@ -16,8 +18,9 @@ public class BreakableWall : MonoBehaviour, IDamage
         EnemyAI enemy = attacker.GetComponent<EnemyAI>();
         if (enemy != null && enemy.canBreakWalls == true)
         {
+            GameManager.instance.UpdateScore(10, "Wall");
+            ++GameManager.instance.wallsBusted;
             Destroy(gameObject);
-            GameManager.instance.UpdateScore(5, "Wall");
         }
     }
 }
