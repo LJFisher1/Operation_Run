@@ -42,6 +42,7 @@ public class MeleeMagic : MonoBehaviour, IBullet
     }
     public void OnTriggerEnter(Collider other)
     {
+        if (other.isTrigger) return;
         if (dashing && !hasHit)
         {
             hasHit = true;

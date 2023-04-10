@@ -16,6 +16,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.isTrigger) return;
         ////Debug.Log(other.name);
         if (other.CompareTag(hitTag))
         {
