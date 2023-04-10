@@ -13,7 +13,8 @@ public class BarsOfGold : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameManager.instance.UpdateScore(5, "Gold");
+            GameManager.instance.UpdateScore(10, "Gold");
+            ++GameManager.instance.goldCollected;
             GameManager.instance.playerController.PlayAud(audGoldPickup, audGoldPickupVol);
             Destroy(gameObject);
         }

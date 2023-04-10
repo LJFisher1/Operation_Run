@@ -24,6 +24,7 @@ public class DoorOpen : MonoBehaviour
             GameManager.instance.playerController.KeyUsed();
             GameManager.instance.UsedKey();
             GameManager.instance.UpdateScore(5, "Door");
+            ++GameManager.instance.doorsOpened;
             moving = true;
             boxTrigger.enabled = false;
         }

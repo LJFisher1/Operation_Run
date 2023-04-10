@@ -189,6 +189,7 @@ public class EnemyAI : MonoBehaviour, IDamage
             HP = 0;
             if (HP == 0)
             {
+                ++GameManager.instance.enemysDefeated;
                 Instantiate(deathEffect, transform.position, transform.rotation);
                 Destroy(gameObject.transform.parent.gameObject);
             }

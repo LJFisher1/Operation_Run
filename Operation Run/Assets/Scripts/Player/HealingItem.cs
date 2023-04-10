@@ -11,6 +11,7 @@ public class HealingItem : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameManager.instance.UpdateScore(5, "Pickup");
+            ++GameManager.instance.pickupsCollected;
             GameManager.instance.playerController.PickupHealItem();
             GameManager.instance.playerController.PlayAud(audioClips, volumeAudio);
             Destroy(gameObject);
