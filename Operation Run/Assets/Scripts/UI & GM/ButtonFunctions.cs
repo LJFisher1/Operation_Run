@@ -34,8 +34,8 @@ public class ButtonFunctions : MonoBehaviour
     }
 
     public void NewGame()
-   {
+    {
         SceneManager.LoadScene(1);
-   }
+    }
 }
 
