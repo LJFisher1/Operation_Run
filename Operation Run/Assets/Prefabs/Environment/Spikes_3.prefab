@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageDelay: 0.2
-  damage: 2
+  damage: 5
   hideOnPlay: 0
 --- !u!33 &4354347050957618097
 MeshFilter:
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageDelay: 0.2
-  damage: 2
+  damage: 5
   hideOnPlay: 0
 --- !u!33 &2819780642598168768
 MeshFilter:
@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageDelay: 0.2
-  damage: 2
+  damage: 5
   hideOnPlay: 0
 --- !u!33 &5274676059386356708
 MeshFilter:
@@ -362,9 +362,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8454072559997207192}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 36.614, y: 0.6504, z: -23.149}
-  m_LocalScale: {x: 0.7786174, y: 0.9249002, z: 0.75345397}
+  m_LocalScale: {x: 0.7786174, y: 0.8731983, z: 0.6939722}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6272999138219627029}
