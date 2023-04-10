@@ -8,8 +8,9 @@ public class EnemyAI : MonoBehaviour, IDamage
     [Header("--Components--")]
     [SerializeField] Renderer model;
     public NavMeshAgent agent;
-    [SerializeField] Animator animator;
+    public  Animator animator;
     [SerializeField] GameObject deathEffect;
+    
 
     [Header("--Wizard Stats--")]
     [SerializeField] Transform headPosition;
@@ -32,6 +33,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     public GameObject projectile;
     public int projectileSpeed;
     public Transform projectilePosition;
+    [SerializeField] bool hasExternalFiringAnimation;
 
     bool isAttacking;
     public bool playerInRange;
@@ -117,11 +119,12 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     bool CanSeePlayer()
     {
-        playerDirection = (GameManager.instance.player.transform.position - headPosition.position).normalized;
+        playerDirection = (GameManager.instance.player.transform.position - projectilePosition.position).normalized;
+        Debug.DrawRay(headPosition.position, playerDirection*200);
+        Debug.DrawLine(headPosition.position, GameManager.instance.player.transform.position, Color.blue);
         angleToPlayer = Vector3.Angle(new Vector3(playerDirection.x, 0, playerDirection.z), transform.forward);
-
         RaycastHit hit;
-        if (Physics.Raycast(headPosition.position, playerDirection, out hit))
+        if (Physics.Raycast(projectilePosition.position, playerDirection, out hit))
         {
             if (hit.collider.CompareTag("Player") && angleToPlayer <= sightAngle)
             {
@@ -162,7 +165,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     IEnumerator Attack()
     {
         isAttacking = true;
-        animator.SetTrigger("Shoot");
+        if(!hasExternalFiringAnimation) animator.SetTrigger("Shoot");
         CreateBullet();
         yield return new WaitForSeconds(attackRate);
         isAttacking = false;
