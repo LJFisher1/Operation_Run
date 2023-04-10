@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class LaserAttack : MonoBehaviour, IEnemyAttack
 {
+
+    [SerializeField] float followSpeed;
+    [SerializeField] float aimTime;
+    [SerializeField] float telegraphTime;
+    [SerializeField] float decayAfterFire;
     private int damage;
+
     [SerializeField] float duration;
     [SerializeField] int range;
     [SerializeField] LineRenderer lineRend;
     [SerializeField] float lineDecaySpeed;
     [SerializeField] GameObject hitEffect;
-    [SerializeField] float followSpeed;
-    [SerializeField] float aimTime;
+
     [SerializeField] Gradient aimColor;
+    [SerializeField] Gradient telegraphFlashColor;
+    [SerializeField] Gradient fireColor;
+
     bool takingAim;
+    bool telegraphing;
     bool hasFired;
     EnemyAI enemy;
 
@@ -29,11 +38,13 @@ public class LaserAttack : MonoBehaviour, IEnemyAttack
     }
     private void Update()
     {
-        if (takingAim)
+        if (takingAim || telegraphing)
         {
             lineRend.SetPosition(0, enemy.projectilePosition.position);
-            lineRend.SetPosition(1, Vector3.Lerp(lineRend.GetPosition(1), GameManager.instance.player.transform.position, followSpeed * Time.deltaTime));
-
+            Vector3 endpoint = GameManager.instance.player.transform.position;
+            WallCheck(ref endpoint);
+            lineRend.SetPosition(1, Vector3.Lerp(lineRend.GetPosition(1), endpoint, followSpeed * Time.deltaTime));
+            
             //lineRend.endColor = Color.Lerp(Color.clear, Color.blue, lineDecaySpeed*10 * Time.deltaTime);
             //lineRend.startColor = Color.Lerp(Color.clear, Color.blue, lineDecaySpeed*10 * Time.deltaTime);
             //lineRend.endWidth = Mathf.Lerp(0, 5, lineDecaySpeed * Time.deltaTime);
@@ -52,17 +63,30 @@ public class LaserAttack : MonoBehaviour, IEnemyAttack
     IEnumerator Aim()
     {
         takingAim = true;
-        Gradient linecolor = lineRend.colorGradient;
         lineRend.colorGradient = aimColor;
         yield return new WaitForSeconds(aimTime);
-        lineRend.colorGradient = linecolor;
         takingAim = false;
-        Fire();
+        StartCoroutine( FireTelegraph());
     }
-    void Fire()
+
+    IEnumerator FireTelegraph()
+    {
+        telegraphing = true;
+        lineRend.colorGradient = telegraphFlashColor;
+        yield return new WaitForSeconds(telegraphTime / 3);
+        lineRend.colorGradient = aimColor;
+        yield return new WaitForSeconds(telegraphTime / 3);
+        lineRend.colorGradient = telegraphFlashColor;
+        yield return new WaitForSeconds(telegraphTime / 3);
+        telegraphing = false;
+        StartCoroutine(Fire());
+    }
+    IEnumerator Fire()
     {
         //play sound
         //play particle effect
+        enemy.animator.SetTrigger("Shoot");
+        lineRend.colorGradient = fireColor;
         RaycastHit hit;
         Vector3 direction = (lineRend.GetPosition(1) - enemy.projectilePosition.position ).normalized;
         Ray ray = new(enemy.projectilePosition.position, direction);
@@ -80,8 +104,24 @@ public class LaserAttack : MonoBehaviour, IEnemyAttack
             }
             Instantiate(hitEffect, hit.point, enemy.transform.rotation);
         }
+        yield return new WaitForSeconds(decayAfterFire);
         hasFired = true;
         Destroy(gameObject, duration);
+    }
+
+    bool WallCheck(ref Vector3 wallhit)
+    {
+        RaycastHit hit;
+        Ray ray = new(enemy.projectilePosition.position, enemy.playerDirection);
+        if (Physics.Raycast(ray, out hit, range))
+        {
+            if (!hit.transform.CompareTag("Player"))
+            {
+                wallhit = hit.point;
+                return false;
+            }
+        }
+        return true;
     }
 
     //void TeleportAbility(Vector3 pos)
