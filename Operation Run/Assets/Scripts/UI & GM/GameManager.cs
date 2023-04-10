@@ -28,7 +28,9 @@ public class GameManager : MonoBehaviour
     public GameObject playerHitFlash;
     [SerializeField] GameObject sensitivitySlider;
     public Image playerHealthBar;
+    public Image playerHealthChangeBar;
     public Image playerManaBar;
+    public Image playerManaChangeBar;
     public TextMeshProUGUI objectiveText;
     public TextMeshProUGUI GemsRemainingText;
     public GameObject playerKeyPopup;// Key
@@ -383,5 +385,19 @@ public class GameManager : MonoBehaviour
     public void GemPickup()
     {
         GameUpdateGoal(-1);
+    }
+
+    public IEnumerator hpLossFlash()
+    {
+        playerHealthChangeBar.fillAmount = instance.playerController.playerHealthChange;
+        yield return new WaitForSeconds(0.5f);
+        playerHealthChangeBar.fillAmount = 0;
+    }
+
+    public IEnumerator manaLossFlash()
+    {
+        playerManaChangeBar.fillAmount = instance.playerController.playerManaChange;
+        yield return new WaitForSeconds(0.5f);
+        playerManaChangeBar.fillAmount = 0;
     }
 }
