@@ -32,6 +32,7 @@ public class LaserAttack : MonoBehaviour, IEnemyAttack
     EnemyAI enemy;
     bool HasEnemy { get => (enemy == null || !enemy.IsAlive); }
 
+    
     public void Initialize(EnemyAI creator)
     {
         damage = creator.attackDamage;

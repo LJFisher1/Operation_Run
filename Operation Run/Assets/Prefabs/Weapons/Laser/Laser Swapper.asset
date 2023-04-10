@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f28632f9035a94c805f2be58ed6aff, type: 3}
   m_Name: Laser Swapper
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 8
   useTime: 1
   range: 1000
   duration: 0.5

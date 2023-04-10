@@ -275,6 +275,7 @@ public class PlayerController : MonoBehaviour, IDamage
             GetComponentInChildren<Camera>().enabled = true;
             Destroy(GameManager.instance.deadBodyClone);
         }
+        Camera.main.GetComponent<CameraController>().enabled = true;
         if (MANA < LowManaThreshold) MANA = LowManaThreshold;
         controller.enabled = false;
         if(GameManager.instance.playerSpawnPosition != null) transform.position = GameManager.instance.playerSpawnPosition.transform.position;
