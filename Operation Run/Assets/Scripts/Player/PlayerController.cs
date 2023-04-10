@@ -88,6 +88,8 @@ public class PlayerController : MonoBehaviour, IDamage
             return mana;
         }
     }
+    public int playerHealthChange;
+    public int playerManaChange;
 
     [Header("----- Weapon Stats -----")]
     [SerializeField] GameObject fizzleEffect;
@@ -192,6 +194,8 @@ public class PlayerController : MonoBehaviour, IDamage
         {
             if (MANA >= 1)
             {
+                playerManaChange = MANA;
+                StartCoroutine(GameManager.instance.manaLossFlash());
                 MANA -= 1;
                 weaponAnim.SetTrigger("Use Weapon");
                 GameObject bulletClone = Instantiate(weapon.bullet, shootPointVisual.position, weapon.bullet.transform.rotation);
@@ -215,7 +219,9 @@ public class PlayerController : MonoBehaviour, IDamage
     public void TakeDamage(int dmg)
     {
         if(IsAlive) StartCoroutine(GameManager.instance.PlayerHitFlash());
+        playerHealthChange = HP;
         HP -= dmg;
+        StartCoroutine(GameManager.instance.hpLossFlash());
         if (!IsAlive) // death
         {
             playerCollider.enabled = false;
