@@ -1118,9 +1118,9 @@ MonoBehaviour:
   routePositions: []
   posItter: 0
   canBreakWalls: 0
-  attackRate: 5
+  attackRate: 8
   attackDistance: 100
-  attackDamage: 6
+  attackDamage: 8
   projectile: {fileID: 5982062045012594215, guid: 15ba6437cc8c19849a1a893fb0297125, type: 3}
   projectileSpeed: 20
   projectilePosition: {fileID: 7420581407540421095}

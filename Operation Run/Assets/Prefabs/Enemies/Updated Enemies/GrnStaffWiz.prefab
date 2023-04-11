@@ -1814,7 +1814,7 @@ MonoBehaviour:
   canBreakWalls: 1
   attackRate: 3
   attackDistance: 20
-  attackDamage: 3
+  attackDamage: 5
   projectile: {fileID: 7561226030291507987, guid: 96f13bff567795749ab2aa567df0d8c0, type: 3}
   projectileSpeed: 100
   projectilePosition: {fileID: 4952090136790205447}

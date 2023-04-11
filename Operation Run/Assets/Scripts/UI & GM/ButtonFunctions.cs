@@ -46,6 +46,7 @@ public class ButtonFunctions : MonoBehaviour
 
     public void OpenGuide()
     {
+        GameManager.instance.activeMenu.SetActive(false);
         GameManager.instance.activeMenu = GameManager.instance.guideMenu;
         GameManager.instance.activeMenu.SetActive(true);
     }
