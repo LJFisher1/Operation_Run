@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField] Collider playerCollider;
     [SerializeField] CharacterController controller;
     [SerializeField] Animator weaponAnim;
+    [SerializeField] Renderer model;
+
     //public Rigidbody deadHeadbody;
     Vector3 headPosition;
     
@@ -226,6 +228,8 @@ public class PlayerController : MonoBehaviour, IDamage
         {
             playerCollider.enabled = false;
             controller.enabled = false;
+            model.enabled = false;
+            wMaterial.enabled = false;
             PlayAud(playerDeath, deathVolume);
             GameManager.instance.UpdateScore(-20, "Death");
             ++GameManager.instance.deaths;
@@ -274,6 +278,8 @@ public class PlayerController : MonoBehaviour, IDamage
     {
         playerCollider.enabled = true;
         controller.enabled = true;
+        model.enabled = true;
+        wMaterial.enabled = true;
         HP = hpMax;
         if(GameManager.instance.deadBodyClone != null)
         {
