@@ -324,6 +324,7 @@ MonoBehaviour:
   playerCollider: {fileID: 244641867}
   controller: {fileID: 6859206437942702859}
   weaponAnim: {fileID: 926657883}
+  model: {fileID: 6859206437942702870}
   shootPointVisual: {fileID: 1707980898481560364}
   shootPointCenter: {fileID: 378190206}
   startingWeapon: {fileID: 11400000, guid: 4733aa2323c944c4c9564350cf061d71, type: 2}
@@ -368,6 +369,8 @@ MonoBehaviour:
   lowManaPercent: 25
   gemCount: 0
   forceDamingRate: 3
+  playerHealthChange: 0
+  playerManaChange: 0
   fizzleEffect: {fileID: 1999575445106175362, guid: aa94c28712fe4c14db34d040f5563381, type: 3}
   wUseTime: 0
   wRange: 0
