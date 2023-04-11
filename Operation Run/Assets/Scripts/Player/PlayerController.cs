@@ -90,8 +90,8 @@ public class PlayerController : MonoBehaviour, IDamage
             return mana;
         }
     }
-    public int playerHealthChange;
-    public int playerManaChange;
+    public float playerHealthChange;
+    public float playerManaChange;
 
     [Header("----- Weapon Stats -----")]
     [SerializeField] GameObject fizzleEffect;
