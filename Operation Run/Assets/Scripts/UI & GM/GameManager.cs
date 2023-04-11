@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject winMenu;
     public GameObject loseMenu;
+    public GameObject settingsMenu;
+    public GameObject guideMenu;
     public GameObject checkPointMenu;
     public GameObject startMenu;
     public GameObject playerHitFlash;
@@ -77,8 +79,20 @@ public class GameManager : MonoBehaviour
     public int wallsBusted;
     public int healsUsed;
     public int deaths;
+    public TextMeshProUGUI gemsTip;
+    public TextMeshProUGUI goldTip;
+    public TextMeshProUGUI keysTip;
+    public TextMeshProUGUI doorsTip;
+    public TextMeshProUGUI healthTip;
+    public TextMeshProUGUI manaTip;
+    public TextMeshProUGUI wallsTip;
+    public TextMeshProUGUI enemiesTip;
+    public TextMeshProUGUI staffsTip;
+    public TextMeshProUGUI hourglassesTip;
+    public TextMeshProUGUI windTip;
+    public TextMeshProUGUI guideTips;
 
-[Header("Game Goals")]
+    [Header("Game Goals")]
     public int GemsRemaining;
     public int scoreCount;
     public bool isPaused;
