@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 14189b1e9c48a3b4987f09c534d45bcb, type: 2}
+  - {fileID: 2100000, guid: 92e5c39c2bafe454c9e7c2103ae9cad4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -192,7 +192,7 @@ MonoBehaviour:
   rb: {fileID: 8867634518866193864}
   staff: {fileID: 11400000, guid: 2c6e0e938e98c264f8d581a3e75d600e, type: 2}
   headPosition: {fileID: 8867634518866193906}
-  HP: 10
+  HP: 15
   roamDistance: 5
   kiteDistance: 0
   varStopLocation: 0
