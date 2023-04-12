@@ -15,18 +15,19 @@ public class DataPersistence : MonoBehaviour
 
     private void Awake()
     {
-        if(instance!=null)
+        if(instance != null)
         {
             Debug.LogError("Found more than one Data Persistence Manager in the Scene.");
         }
 
-        instance=this;
+        instance =  this;
     }
 
     private void Start()
     {
-        this.dataHandler=new FileDataHandler(Application.persistentDataPath,fileName);
-        this.dataPersistenceObjects= FindAllDataPersistenceObjects();
+        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
+        Debug.Log(Application.persistentDataPath);
+        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         LoadGame();
     }
 
@@ -38,10 +39,10 @@ public class DataPersistence : MonoBehaviour
     public void LoadGame()
     {
         //Load any saved data from a file using the data handler
-        this.gameData=dataHandler.Load();
+        this.gameData = dataHandler.Load();
 
         //if no data can be loaded, initialize to a new game
-        if(this.gameData==null)
+        if(this.gameData == null)
         {
             Debug.Log("No data was found. Initializing data to defaults.");
             NewGame();
@@ -53,14 +54,16 @@ public class DataPersistence : MonoBehaviour
         }
     }
 
+    /// <summary>
+    ///locate all objects implementing iDataPersistence and save their data.
+    /// </summary>
     public void SaveGame()
     {
-         foreach (iDataPersistence dataPersistenceObj in dataPersistenceObjects)
+
+        foreach (iDataPersistence dataPersistenceObj in dataPersistenceObjects)
         {
             dataPersistenceObj.SaveData(ref gameData);
         }
-
-        Debug.Log("Saved Score Count = " +gameData.PlayerScore);
         
         //save that data to a file using the data handler
         dataHandler.Save(gameData);
@@ -73,22 +76,16 @@ public class DataPersistence : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-       
+        //Need to move this to level complete.
+        SaveGame();
     }
 
     private List<iDataPersistence> FindAllDataPersistenceObjects()
     {
-        IEnumerable<iDataPersistence>dataPersistenceObjects=
+        IEnumerable<iDataPersistence> dataPersistenceObjects =
         FindObjectsOfType <MonoBehaviour>().OfType<iDataPersistence>();
 
         return new List<iDataPersistence>(dataPersistenceObjects);
     }
-
-    public void CheckIfLevelTrue()
-    {
-
-    }
-
 }   
-
 

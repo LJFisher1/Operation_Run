@@ -35575,17 +35575,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1430196091976142266, guid: 506df9d4e52cb594699bc244fa8637e8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 1292663307, guid: 506df9d4e52cb594699bc244fa8637e8, type: 3}
+      propertyPath: fileName
+      value: OperationRunData.json
       objectReference: {fileID: 0}
     - target: {fileID: 5967754751585084784, guid: 506df9d4e52cb594699bc244fa8637e8, type: 3}
       propertyPath: m_Name
       value: UI & GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 5967754751585084784, guid: 506df9d4e52cb594699bc244fa8637e8, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5967754751585084788, guid: 506df9d4e52cb594699bc244fa8637e8, type: 3}
       propertyPath: m_Pivot.x

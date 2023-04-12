@@ -116,7 +116,7 @@ public class LaserAttack : MonoBehaviour, IEnemyAttack
             Ray ray = new(enemy.projectilePosition.position, direction);
             if (Physics.Raycast(ray, out hit, range))
             {
-                Debug.Log(hit.transform.name);
+                //Debug.Log(hit.transform.name);
                 var target = hit.collider.GetComponent<IDamage>();
                 if (target != null && hit.transform.CompareTag("Player"))
                 {

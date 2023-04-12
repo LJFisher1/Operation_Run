@@ -102,10 +102,15 @@ public class GameManager : MonoBehaviour , iDataPersistence
     [Header("Game Goals")]
     public int GemsRemaining;
     public int scoreCount;
+    public int HighestScore;
     public int PlayerHighScore;
+    public bool levelCompleted;
     public bool isPaused;
     private float timeScaleOriginal;
     private float timeFixedOriginal;
+
+    int sceneIndex;
+
     Dictionary<string, int> scoretable = new Dictionary<string, int>()
     {
         {"default", 0},{"Gold", 0},{"Gem", 0},{"Door", 0},{"Key", 0},{"Pickup", 0},{"Wall", 0},{"Heal", 0},{"Death", 0},{"Time", 0}
@@ -128,6 +133,7 @@ public class GameManager : MonoBehaviour , iDataPersistence
     {
         
         instance = this;
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
         mainCam = Camera.main;
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = PlayerController.FindObjectOfType<PlayerController>();
@@ -215,13 +221,13 @@ public class GameManager : MonoBehaviour , iDataPersistence
         TutorialPopupGUI.SetActive(false);
         TutorialPopText.text = "tutorial text";
     }
-    public IEnumerator FlashKeyPopup()// Key
+    public IEnumerator FlashKeyPopup() //Key
     {
         playerKeyPopup.SetActive(true);
         yield return new WaitForSeconds(1f);
         playerKeyPopup.SetActive(false);
     }
-    public IEnumerator FlashHealItemPopup()//Heal
+    public IEnumerator FlashHealItemPopup() //Heal
     {
         HealItemPopup.SetActive(true);
         if (!tutorialManager.CheckCompleted("Heal Cap"))
@@ -289,7 +295,6 @@ public class GameManager : MonoBehaviour , iDataPersistence
         GamePaused();
         activeMenu = winMenu;
         PlayerHighScore=scoreCount;
-        DataPersistence.instance.SaveGame();
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             nextLevelButton.SetActive(true);
@@ -349,6 +354,7 @@ public class GameManager : MonoBehaviour , iDataPersistence
         {
             Grade.text = "F";
         }
+        DataPersistence.instance.SaveGame();
     }
 
     public IEnumerator PlayerHitFlash()
@@ -466,12 +472,19 @@ public class GameManager : MonoBehaviour , iDataPersistence
 
     public void LoadData( GameData data)
     {
-        this.scoreCount = data.PlayerScore;
-        
+        this.HighestScore = data.levels[sceneIndex].score;
+        this.levelCompleted = data.levels[sceneIndex].completed;
+        Debug.Log(data.levels[sceneIndex].score);
     }
 
     public void SaveData(ref GameData data)
     {
-        data.PlayerScore = this.scoreCount;
+        Debug.Log("Trying to save " + scoreCount);
+        data.CompleteLevel(sceneIndex, scoreCount);
+        // if level has not been completed before or the you got a new high score
+        //if (!data.levels[sceneIndex].completed || scoreCount > HighestScore)
+        //{
+        //    data.CompleteLevel(sceneIndex, scoreCount);
+        //}
     }
 }
