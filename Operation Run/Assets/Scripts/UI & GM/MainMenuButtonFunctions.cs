@@ -26,6 +26,8 @@ public class MainMenuButtonFunctions : MonoBehaviour
     public GameObject activeMenu;
     public GameObject menuBlocker;
 
+    public static bool tutorial = false;
+    public static bool level1 = false;
     public static bool level2 = false;
     public static bool level3 = false;
     public static bool level4 = false;
@@ -111,8 +113,7 @@ public class MainMenuButtonFunctions : MonoBehaviour
         DataPersistence.instance.LoadGame();
         if(level2==true)
         {
-        SceneManager.LoadScene(1);
-
+            SceneManager.LoadScene(1);
         }
     }
 

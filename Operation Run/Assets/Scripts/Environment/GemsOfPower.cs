@@ -14,11 +14,11 @@ public class GemsOfPower : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (!GameManager.instance.tutorialManager.CheckCompleted("Gem"))
-            {
-                StartCoroutine(GameManager.instance.FlashTutorialPopup("Gem"));
-                GameManager.instance.tutorialManager.SetTutorialCompletion("Gem", true);
-            }
+            //if (!GameManager.instance.tutorialManager.CheckCompleted("Gem"))
+            //{
+            //    StartCoroutine(GameManager.instance.FlashTutorialPopup("Gem"));
+            //    GameManager.instance.tutorialManager.SetTutorialCompletion("Gem", true);
+            //}
             GameManager.instance.UpdateScore(10, "Gem");
             GameManager.instance.GemPickup();
             ++GameManager.instance.gemsCollected;

@@ -462,12 +462,12 @@ public class GameManager : MonoBehaviour , iDataPersistence
 
     public void LoadData( GameData data)
     {
-        this.scoreCount=data.PlayerScore;
+        this.scoreCount = data.PlayerScore;
         
     }
 
     public void SaveData(ref GameData data)
     {
-        data.PlayerScore=this.scoreCount;
+        data.PlayerScore = this.scoreCount;
     }
 }
