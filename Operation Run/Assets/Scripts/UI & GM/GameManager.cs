@@ -80,6 +80,11 @@ public class GameManager : MonoBehaviour , iDataPersistence
     public int wallsBusted;
     public int healsUsed;
     public int deaths;
+    public int S = 300;
+    public int A = 250;
+    public int B = 200;
+    public int C = 175;
+    public int D = 150;
     public TextMeshProUGUI gemsTip;
     public TextMeshProUGUI goldTip;
     public TextMeshProUGUI keysTip;
@@ -93,6 +98,7 @@ public class GameManager : MonoBehaviour , iDataPersistence
     public TextMeshProUGUI windTip;
     public TextMeshProUGUI guideTips;
     public GameObject levelLocked;
+    public GameObject nextLevelButton;
     [Header("Game Goals")]
     public int GemsRemaining;
     public int scoreCount;
@@ -277,23 +283,56 @@ public class GameManager : MonoBehaviour , iDataPersistence
         timesDiedScore.text = scoretable["Death"].ToString("F0");
         timeBonusScore.text = scoretable["Time"].ToString("F0");
         totalScore.text = scoreCount.ToString("F0");
-        if(scoreCount >= 300)
+        GamePaused();
+        activeMenu = winMenu;
+        PlayerHighScore=scoreCount;
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            nextLevelButton.SetActive(true);
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            MainMenuButtonFunctions.level2 = true;
+            nextLevelButton.SetActive(true);
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            MainMenuButtonFunctions.level3 = true;
+            nextLevelButton.SetActive(true);
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            MainMenuButtonFunctions.level4 = true;
+            nextLevelButton.SetActive(true);
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 5)
+        {
+            MainMenuButtonFunctions.level5 = true;
+            nextLevelButton.SetActive(true);
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 6)
+        {
+            nextLevelButton.SetActive(false);
+        }
+        activeMenu.SetActive(true);
+        DataPersistence.instance.SaveGame();
+        if (scoreCount >= S)
         {
             Grade.text = "S";
         }
-        else if (scoreCount >= 250)
+        else if (scoreCount >= A)
         {
             Grade.text = "A";
         }
-        else if (scoreCount >= 225)
+        else if (scoreCount >= B)
         {
             Grade.text = "B";
         }
-        else if (scoreCount >= 200)
+        else if (scoreCount >= C)
         {
             Grade.text = "C";
         }
-        else if (scoreCount >= 175)
+        else if (scoreCount >= D)
         {
             Grade.text = "D";
         }
@@ -301,27 +340,6 @@ public class GameManager : MonoBehaviour , iDataPersistence
         {
             Grade.text = "F";
         }
-        GamePaused();
-        activeMenu = winMenu;
-        PlayerHighScore=scoreCount;
-        if (SceneManager.GetActiveScene().buildIndex == 2)
-        {
-            MainMenuButtonFunctions.level2 = true;
-        }
-        if (SceneManager.GetActiveScene().buildIndex == 3)
-        {
-            MainMenuButtonFunctions.level3 = true;
-        }
-        if (SceneManager.GetActiveScene().buildIndex == 4)
-        {
-            MainMenuButtonFunctions.level4 = true;
-        }
-        if (SceneManager.GetActiveScene().buildIndex == 5)
-        {
-            MainMenuButtonFunctions.level5 = true;
-        }
-        activeMenu.SetActive(true);
-        DataPersistence.instance.SaveGame();
     }
 
     public IEnumerator PlayerHitFlash()

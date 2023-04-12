@@ -6553,6 +6553,7 @@ MonoBehaviour:
   windTip: {fileID: 1163727915655369113}
   guideTips: {fileID: 5633284933401901958}
   levelLocked: {fileID: 0}
+  nextLevelButton: {fileID: 6385231489027077274}
   GemsRemaining: 0
   scoreCount: 0
   PlayerHighScore: 0
