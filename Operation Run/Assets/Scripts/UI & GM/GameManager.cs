@@ -289,6 +289,11 @@ public class GameManager : MonoBehaviour , iDataPersistence
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             nextLevelButton.SetActive(true);
+            S = 200;
+            A = 140;
+            B = 120;
+            C = 110;
+            D = 100;
         }
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
