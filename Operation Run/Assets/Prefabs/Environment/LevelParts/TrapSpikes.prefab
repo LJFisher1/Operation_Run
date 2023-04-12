@@ -179,8 +179,8 @@ GameObject:
   - component: {fileID: 3127416606494253981}
   - component: {fileID: 3053664416979831515}
   - component: {fileID: 3117537554256583629}
-  - component: {fileID: 3117537554256583618}
   - component: {fileID: 3881287726959301559}
+  - component: {fileID: 5976586190065086796}
   m_Layer: 8
   m_Name: TrapSpikes
   m_TagString: Untagged
@@ -293,7 +293,7 @@ MonoBehaviour:
   speedUp: 40
   speedDown: 1
   resetTime: 2
-  trigger: {fileID: 3117537554256583618}
+  trigger: {fileID: 5976586190065086796}
   spikes: {fileID: 3653743589202372230}
   up: {fileID: 3653743589846632098}
   down: {fileID: 3653743589409481506}
@@ -301,19 +301,6 @@ MonoBehaviour:
   audioVolume: 0.5
   audioClips:
   - {fileID: 8300000, guid: 5628b2d5e74ab4cc79e1ab991dd47d70, type: 3}
---- !u!65 &3117537554256583618
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3112298883715168601}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.80494, y: 0.5, z: 1.80494}
-  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!82 &3881287726959301559
 AudioSource:
   m_ObjectHideFlags: 0
@@ -327,7 +314,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: -2.92
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -410,6 +397,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!135 &5976586190065086796
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3112298883715168601}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.98
+  m_Center: {x: 0.000000059604645, y: -0.37, z: 0.00000011920929}
 --- !u!1 &3112334115020856867
 GameObject:
   m_ObjectHideFlags: 0

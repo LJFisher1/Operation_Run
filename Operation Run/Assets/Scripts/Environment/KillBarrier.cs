@@ -17,7 +17,7 @@ public class KillBarrier : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-       if(!isKilling) StartCoroutine(Kill(other));
+       if(!isKilling && other.transform.CompareTag("Player")) StartCoroutine(Kill(other));
     }
     IEnumerator Kill(Collider other)
     {

@@ -12,7 +12,7 @@ public class TrapSpike : MonoBehaviour
     [SerializeField] float speedDown;
     [SerializeField] float resetTime;
     [Header("* Components")]
-    [SerializeField] BoxCollider trigger;
+    [SerializeField] Collider trigger;
     [SerializeField] Transform spikes;
     [SerializeField] Transform up;
     [SerializeField] Transform down;
