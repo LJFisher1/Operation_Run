@@ -91,10 +91,6 @@ public class GameManager : MonoBehaviour , iDataPersistence
     public TextMeshProUGUI hourglassesTip;
     public TextMeshProUGUI windTip;
     public TextMeshProUGUI guideTips;
-    public bool level2 = false;
-    public bool level3 = false;
-    public bool level4 = false;
-    public bool level5 = false;
     public GameObject levelLocked;
     [Header("Game Goals")]
     public int GemsRemaining;
@@ -360,12 +356,6 @@ public class GameManager : MonoBehaviour , iDataPersistence
         GameManager.instance.usedKeyPopup.SetActive(false);
     }
 
-    public IEnumerator LevelLockedFlash()
-    {
-        instance.levelLocked.SetActive(true);
-        yield return new WaitForSeconds(4f);
-        instance.usedKeyPopup.SetActive(false);
-    }
     public IEnumerator NeedMoreGems()
     {
         needMoreGemsPopup.SetActive(true);
