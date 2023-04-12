@@ -135,7 +135,6 @@ public class GameManager : MonoBehaviour , iDataPersistence
         objectiveText.text = ("Remaining Gems:");
         KeyCountText.text = playerController.keysInPossession.ToString("F0");
         HealCountText.text = playerController.healItemCount.ToString("F0");
-        SetScore(0);
         
 
         timeScaleOriginal = Time.timeScale;
@@ -143,7 +142,11 @@ public class GameManager : MonoBehaviour , iDataPersistence
     }
     private void Start()
     {
-        StartCoroutine(StartMenuFlash());
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            StartCoroutine(StartMenuFlash());
+        }
+        SetScore(0);
     }
 
     void Update()
