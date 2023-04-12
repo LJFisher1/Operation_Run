@@ -6551,6 +6551,11 @@ MonoBehaviour:
   hourglassesTip: {fileID: 4672181995997929632}
   windTip: {fileID: 1163727915655369113}
   guideTips: {fileID: 5633284933401901958}
+  level2: 0
+  level3: 0
+  level4: 0
+  level5: 0
+  levelLocked: {fileID: 0}
   GemsRemaining: 0
   scoreCount: 0
   isPaused: 0
@@ -6589,7 +6594,7 @@ MonoBehaviour:
   tutoriualPopups:
   - name: Unkown tut Code
     text: Should be marked completed
-    completed: 1
+    completed: 0
   - name: Blasting Staff
     text: Pushes you back. Shotgun Jump!
     completed: 0
@@ -6607,6 +6612,9 @@ MonoBehaviour:
     completed: 0
   - name: Gem Wind
     text: You need more gems to brave the wind
+    completed: 0
+  - name: Kill Barrier
+    text: Dont forget to jump
     completed: 0
 --- !u!1 &1905366912757398650
 GameObject:

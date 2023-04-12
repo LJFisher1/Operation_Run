@@ -21,6 +21,11 @@ public class KillBarrier : MonoBehaviour
     }
     IEnumerator Kill(Collider other)
     {
+        if(!GameManager.instance.tutorialManager.CheckCompleted("Kill Barrier"))
+        {
+            StartCoroutine(GameManager.instance.FlashTutorialPopup("Kill Barrier"));
+            GameManager.instance.tutorialManager.SetTutorialCompletion("Kill Barrier", true);
+        }
         isKilling = true;
         IDamage damAble = other.GetComponent<IDamage>();
         yield return new WaitForSeconds(damageDelay);
