@@ -60,6 +60,10 @@ public class MainMenuButtonFunctions : MonoBehaviour
         //if levels !are unlocked
         //activeMenu = noLevelsMenu;
         //else
+        //checks if the player has a save file
+        DataPersistence.instance.LoadGame();
+        
+        #pragma warning restore format
         activeMenu = levelSelectSubmenu;
         activeMenu.SetActive(true);
         menuBlocker.SetActive(true);
@@ -118,7 +122,7 @@ public class MainMenuButtonFunctions : MonoBehaviour
 
     public void SelectLevel1()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
     public void SelectLevel2()
     {

@@ -66,6 +66,11 @@ public class DataPersistence : MonoBehaviour
         dataHandler.Save(gameData);
     }
 
+    public void OverwriteSave()
+    {
+        
+    }
+
     private void OnApplicationQuit()
     {
        

@@ -286,6 +286,7 @@ public class GameManager : MonoBehaviour , iDataPersistence
         GamePaused();
         activeMenu = winMenu;
         PlayerHighScore=scoreCount;
+        DataPersistence.instance.SaveGame();
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             nextLevelButton.SetActive(true);
@@ -320,7 +321,7 @@ public class GameManager : MonoBehaviour , iDataPersistence
             nextLevelButton.SetActive(false);
         }
         activeMenu.SetActive(true);
-        DataPersistence.instance.SaveGame();
+        
         if (scoreCount >= S)
         {
             Grade.text = "S";
