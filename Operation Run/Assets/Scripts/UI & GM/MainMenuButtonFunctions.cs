@@ -109,7 +109,7 @@ public class MainMenuButtonFunctions : MonoBehaviour
     public void Continue()
     {
         DataPersistence.instance.LoadGame();
-        if(GameManager.instance.level2==true)
+        if(level2==true)
         {
         SceneManager.LoadScene(1);
 

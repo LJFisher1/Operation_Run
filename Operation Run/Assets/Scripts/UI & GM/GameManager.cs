@@ -303,8 +303,8 @@ public class GameManager : MonoBehaviour , iDataPersistence
         GamePaused();
         activeMenu = winMenu;
         PlayerHighScore=scoreCount;
-        level2=true;
-        
+        //set level to complete
+        //set next level unlocked
         activeMenu.SetActive(true);
         DataPersistence.instance.SaveGame();
     }
