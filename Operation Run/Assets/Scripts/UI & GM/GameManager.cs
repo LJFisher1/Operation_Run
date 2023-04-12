@@ -4,6 +4,7 @@ using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour , iDataPersistence
 {
@@ -303,8 +304,28 @@ public class GameManager : MonoBehaviour , iDataPersistence
         GamePaused();
         activeMenu = winMenu;
         PlayerHighScore=scoreCount;
+<<<<<<< Updated upstream
         //set level to complete
         //set next level unlocked
+=======
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            MainMenuButtonFunctions.level2 = true;
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            MainMenuButtonFunctions.level3 = true;
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            MainMenuButtonFunctions.level4 = true;
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 5)
+        {
+            MainMenuButtonFunctions.level5 = true;
+        }
+
+>>>>>>> Stashed changes
         activeMenu.SetActive(true);
         DataPersistence.instance.SaveGame();
     }

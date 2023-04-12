@@ -26,10 +26,10 @@ public class MainMenuButtonFunctions : MonoBehaviour
     public GameObject activeMenu;
     public GameObject menuBlocker;
 
-    public bool level2 = false;
-    public bool level3 = false;
-    public bool level4 = false;
-    public bool level5 = false;
+    public static bool level2 = false;
+    public static bool level3 = false;
+    public static bool level4 = false;
+    public static bool level5 = false;
 
     public void OpenNewGameSubMenu()
     {
@@ -118,13 +118,13 @@ public class MainMenuButtonFunctions : MonoBehaviour
 
     public void SelectLevel1()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
     public void SelectLevel2()
     {
         if (level2 == true)
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
         }
         else
         {
@@ -135,7 +135,7 @@ public class MainMenuButtonFunctions : MonoBehaviour
     {
         if (level3 == true)
         {
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(4);
         }
         else
         {
@@ -146,7 +146,7 @@ public class MainMenuButtonFunctions : MonoBehaviour
     {
         if (level4 == true)
         {
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(5);
         }
         else
         {
@@ -157,7 +157,7 @@ public class MainMenuButtonFunctions : MonoBehaviour
     {
         if (level5 == true)
         {
-            SceneManager.LoadScene(5);
+            SceneManager.LoadScene(6);
         }
         else
         {

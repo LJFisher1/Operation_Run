@@ -2845,9 +2845,10 @@ MonoBehaviour:
 
 
     Ghosts
-    are as dangerous as their name suggests. With the ability to hunt you from anywhere
-    in the map, if they see you as a threat, they will chase you to the death. They
-    deal catistrophic damage and dissapear without a trace.'
+    come in two varities. The first is small and fast, dealing a little damage before
+    dissapearing into the aether. The second variant is something to avoid at all
+    costs. This hulking monster, although slower, deals catastrophic damage if you
+    come into contact with it.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6551,13 +6552,10 @@ MonoBehaviour:
   hourglassesTip: {fileID: 4672181995997929632}
   windTip: {fileID: 1163727915655369113}
   guideTips: {fileID: 5633284933401901958}
-  level2: 0
-  level3: 0
-  level4: 0
-  level5: 0
   levelLocked: {fileID: 0}
   GemsRemaining: 0
   scoreCount: 0
+  PlayerHighScore: 0
   isPaused: 0
   timeScoreMax: 300
   timeScoreDedectionRate: 2
@@ -9993,12 +9991,26 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "The Ram Staff Works as a blunt force weapon, allowing you to charge into
-    battles head first. \n\nThe Transmition Staff gives you a range advantage on
-    your enemies, but also has the uncontrolable side effect of transporting you
-    to an enemies last location once they are defeated.\n\nThe Blasting Staff fires
-    a barage of projectiles, dealing great damage to your enemies. It also will send
-    you flying in the oposite direction of where you fire it."
+  m_text: 'The Ram Staff Works as a blunt force weapon, allowing you to charge into
+    battles head first.  You can get this staff from the Melee Mages.
+
+
+    The Blasting
+    Staff fires a barage of projectiles, dealing great damage to your enemies. It
+    also will send you flying in the oposite direction of where you fire it. You
+    acquire this staff from the Blaster Casters.
+
+
+    The Transmition Staff gives
+    you a range advantage on your enemies, but also has the uncontrolable side effect
+    of transporting you to an enemies last location once they are defeated. This
+    staff is taken from the Transmition Tricksters.
+
+
+    The Ghost Staff is believed
+    by many to be a useless trinket, but if utilized by an Arcanist of great skill,
+    can be an effective tool, with the ability to see through walls. This staff is
+    gained by defeating the larger, deadlier Ghost variant.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
