@@ -6594,7 +6594,7 @@ MonoBehaviour:
   tutoriualPopups:
   - name: Unkown tut Code
     text: Should be marked completed
-    completed: 0
+    completed: 1
   - name: Blasting Staff
     text: Pushes you back. Shotgun Jump!
     completed: 0
@@ -6615,6 +6615,9 @@ MonoBehaviour:
     completed: 0
   - name: Kill Barrier
     text: Dont forget to jump
+    completed: 0
+  - name: Gem
+    text: You must collect all the gems in order to use the exit
     completed: 0
 --- !u!1 &1905366912757398650
 GameObject:

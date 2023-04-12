@@ -13,6 +13,10 @@ public class WinPoint : MonoBehaviour
             {
                 GameManager.instance.PlayerWin();
             }
+            else
+            {
+                StartCoroutine(GameManager.instance.FlashTutorialPopup("Gem"));
+            }
         }
     }
 }
