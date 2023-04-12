@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour , iDataPersistence
 {
     public static GameManager instance;
 
@@ -131,7 +131,7 @@ public class GameManager : MonoBehaviour
         objectiveText.text = ("Remaining Gems:");
         KeyCountText.text = playerController.keysInPossession.ToString("F0");
         HealCountText.text = playerController.healItemCount.ToString("F0");
-        SetScore(0);
+        //SetScore(scoreCount);
         
 
         timeScaleOriginal = Time.timeScale;
@@ -256,7 +256,7 @@ public class GameManager : MonoBehaviour
         activeMenu = null;
     }
 
-    public void PlayerWin()
+    public void PlayerWin() //here is where the score is calculated (Joe)
     {
         UpdateScore(CalculateTimeScore(), "Time");
         enemyDefeatAmount.text = enemysDefeated.ToString("F0");
@@ -405,7 +405,7 @@ public class GameManager : MonoBehaviour
         {
             scoreCount = 0;
         }
-        scoreCountText.text = GameManager.instance.scoreCount.ToString("F0");
+        scoreCountText.text = GameManager.instance.scoreCount.ToString();
     }
 
     public void GemPickup()
@@ -425,5 +425,17 @@ public class GameManager : MonoBehaviour
         playerManaChangeBar.fillAmount = instance.playerController.playerManaChange;
         yield return new WaitForSeconds(0.5f);
         playerManaChangeBar.fillAmount = 0;
+    }
+
+    public void LoadData( GameData data)
+    {
+        this.scoreCount=data.PlayerScore;
+        SetScore(666);
+        
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.PlayerScore=this.scoreCount;
     }
 }

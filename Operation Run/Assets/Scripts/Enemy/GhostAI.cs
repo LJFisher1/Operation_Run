@@ -56,7 +56,6 @@ public class GhostAI : MonoBehaviour, IDamage
     {
         if (agent.isActiveAndEnabled)
         {
-            //animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
 
             if (playerInRange)
             {
@@ -72,7 +71,6 @@ public class GhostAI : MonoBehaviour, IDamage
         }
         if (isAttacking)
         {
-            Debug.Log("Attack charge");
             playerDirection = GetPlayerDirection();
             FacePlayer();
             rb.velocity = Vector3.Lerp(rb.velocity, playerDirection * seekingSpeed, seekingStrength * Time.deltaTime);
@@ -91,7 +89,6 @@ public class GhostAI : MonoBehaviour, IDamage
         {
             if (!destinationChosen && agent.remainingDistance < 0.05f)
             {
-                //animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
                 destinationChosen = true;
                 agent.stoppingDistance = 1;
                 yield return new WaitForSeconds(waitTime);
@@ -107,7 +104,6 @@ public class GhostAI : MonoBehaviour, IDamage
         }
         else
         {
-            //animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
             agent.stoppingDistance = 1;
 
             agent.SetDestination(routePositions[posItter].transform.position);
@@ -147,7 +143,6 @@ public class GhostAI : MonoBehaviour, IDamage
     }
     bool CanSeePlayer()
     {
-        Debug.Log("checking sight");
         playerDirection = GetPlayerDirection();
         //Debug.DrawRay(headPosition.position, playerDirection*200);
         //Debug.DrawLine(headPosition.position, GameManager.instance.player.transform.position, Color.blue);
@@ -180,7 +175,6 @@ public class GhostAI : MonoBehaviour, IDamage
         faceDirection = (new Vector3(playerDirection.x, 0, playerDirection.z));
         Quaternion rot = Quaternion.LookRotation(faceDirection);
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * playerFaceSpeed);
-        //if(isAttacking) rb.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * playerFaceSpeed);
     }
 
     IEnumerator FlashMat()
@@ -195,12 +189,9 @@ public class GhostAI : MonoBehaviour, IDamage
     {
         yield return new WaitForSeconds(attackDelay);
         yield return new WaitForEndOfFrame();
-        Debug.Log("Attacking");
         isAttacking = true;
         agent.enabled = false;
         rb.isKinematic = false;
-        //StopAllCoroutines();
-
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -233,7 +224,6 @@ public class GhostAI : MonoBehaviour, IDamage
     {
         HP -= dmg;
         StartCoroutine(FlashMat());
-        //animator.SetTrigger("TakeDamage");
         StartCoroutine(Attack());
         if (!IsAlive)
         {
