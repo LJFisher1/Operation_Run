@@ -11,7 +11,7 @@ public class GhostAI : MonoBehaviour, IDamage
     [SerializeField] Animator animator;
     [SerializeField] GameObject deathEffect;
     [SerializeField] Rigidbody rb;
-    [SerializeField] Weapon staff;
+    [SerializeField] Weapon weaponDrop;
 
     [Header("--Ghost Stats--")]
     [SerializeField] Transform headPosition;
@@ -27,11 +27,12 @@ public class GhostAI : MonoBehaviour, IDamage
     [SerializeField] int posItter;
 
     [Header("--Attack Stats--")]
-    public float attackDelay;
+    [SerializeField] bool kamikaze;
+    [SerializeField] float attackDelay;
     [SerializeField] float seekingSpeed;
     [SerializeField] float speedGrowthRate;
     [SerializeField] float seekingStrength;
-    public int attackDamage;
+    [SerializeField] int attackDamage;
 
     bool isAttacking;
     public bool playerInRange;
@@ -72,10 +73,11 @@ public class GhostAI : MonoBehaviour, IDamage
         if (isAttacking)
         {
             Debug.Log("Attack charge");
-            rb.velocity = Vector3.Lerp(rb.velocity, GetPlayerDirection() * seekingSpeed, seekingStrength * Time.deltaTime);
+            playerDirection = GetPlayerDirection();
+            FacePlayer();
+            rb.velocity = Vector3.Lerp(rb.velocity, playerDirection * seekingSpeed, seekingStrength * Time.deltaTime);
             seekingSpeed += speedGrowthRate * Time.deltaTime;
             seekingStrength = Mathf.Lerp(seekingStrength, seekingStrength + 1, 5 * Time.deltaTime);
-            FacePlayer();
         }
     }
 
@@ -178,6 +180,7 @@ public class GhostAI : MonoBehaviour, IDamage
         faceDirection = (new Vector3(playerDirection.x, 0, playerDirection.z));
         Quaternion rot = Quaternion.LookRotation(faceDirection);
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * playerFaceSpeed);
+        //if(isAttacking) rb.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * playerFaceSpeed);
     }
 
     IEnumerator FlashMat()
@@ -201,6 +204,7 @@ public class GhostAI : MonoBehaviour, IDamage
     }
     private void OnCollisionEnter(Collision collision)
     {
+        if (!kamikaze) return;
         if (collision.transform.CompareTag("Player"))
         {
             IDamage damAble = GameManager.instance.player.GetComponent<IDamage>();
@@ -208,6 +212,19 @@ public class GhostAI : MonoBehaviour, IDamage
             {
                 damAble.TakeDamage(attackDamage);
                 Death();
+            }
+        }
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        if (kamikaze) return;
+        if (collision.transform.CompareTag("Player"))
+        {
+            IDamage damAble = GameManager.instance.player.GetComponent<IDamage>();
+            if (damAble != null)
+            {
+                //play damage effect?
+                damAble.TakeDamage(attackDamage);
             }
         }
     }
@@ -225,7 +242,7 @@ public class GhostAI : MonoBehaviour, IDamage
             if (HP == 0)
             {
                 ++GameManager.instance.enemysDefeated;
-                if (GameManager.instance.player != null) GameManager.instance.playerController.ChangeWeapon(staff);
+                if (weaponDrop != null && GameManager.instance.player != null) GameManager.instance.playerController.ChangeWeapon(weaponDrop);
                 Death();
             }
         }
