@@ -68,7 +68,7 @@ public class DataPersistence : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        SaveGame();
+       
     }
 
     private List<iDataPersistence> FindAllDataPersistenceObjects()
@@ -77,6 +77,11 @@ public class DataPersistence : MonoBehaviour
         FindObjectsOfType <MonoBehaviour>().OfType<iDataPersistence>();
 
         return new List<iDataPersistence>(dataPersistenceObjects);
+    }
+
+    public void CheckIfLevelTrue()
+    {
+
     }
 
 }   

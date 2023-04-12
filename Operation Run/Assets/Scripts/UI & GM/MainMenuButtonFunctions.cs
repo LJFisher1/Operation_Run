@@ -106,6 +106,16 @@ public class MainMenuButtonFunctions : MonoBehaviour
         }
     }
 
+    public void Continue()
+    {
+        DataPersistence.instance.LoadGame();
+        if(GameManager.instance.level2==true)
+        {
+        SceneManager.LoadScene(1);
+
+        }
+    }
+
     public void SelectLevel1()
     {
         SceneManager.LoadScene(1);
