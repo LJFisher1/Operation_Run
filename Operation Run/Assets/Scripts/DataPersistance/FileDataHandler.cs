@@ -69,6 +69,7 @@ public void Save(GameData data)
             using(StreamWriter writer= new StreamWriter(stream))
             {
                 writer.Write(dataToStore);
+                writer.Write("true");
             }
         }
 

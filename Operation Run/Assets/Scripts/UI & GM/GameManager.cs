@@ -95,6 +95,7 @@ public class GameManager : MonoBehaviour , iDataPersistence
     [Header("Game Goals")]
     public int GemsRemaining;
     public int scoreCount;
+    public int PlayerHighScore;
     public bool isPaused;
     private float timeScaleOriginal;
     private float timeFixedOriginal;
@@ -127,7 +128,7 @@ public class GameManager : MonoBehaviour , iDataPersistence
         objectiveText.text = ("Remaining Gems:");
         KeyCountText.text = playerController.keysInPossession.ToString("F0");
         HealCountText.text = playerController.healItemCount.ToString("F0");
-        //SetScore(scoreCount);
+        SetScore(0);
         
 
         timeScaleOriginal = Time.timeScale;
@@ -301,7 +302,11 @@ public class GameManager : MonoBehaviour , iDataPersistence
         }
         GamePaused();
         activeMenu = winMenu;
+        PlayerHighScore=scoreCount;
+        level2=true;
+        
         activeMenu.SetActive(true);
+        DataPersistence.instance.SaveGame();
     }
 
     public IEnumerator PlayerHitFlash()
@@ -420,7 +425,6 @@ public class GameManager : MonoBehaviour , iDataPersistence
     public void LoadData( GameData data)
     {
         this.scoreCount=data.PlayerScore;
-        SetScore(666);
         
     }
 
