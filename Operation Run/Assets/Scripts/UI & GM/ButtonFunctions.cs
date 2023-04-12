@@ -106,5 +106,44 @@ public class ButtonFunctions : MonoBehaviour
     {
         GameManager.instance.guideTips.text = GameManager.instance.windTip.text;
     }
+    public void ForwardsButton()
+    { 
+    
+    }
+    
+    public void BackwardsButton()
+    {
+
+    }
+
+    public void LeftButton()
+    {
+
+    }
+
+    public void RightButton()
+    {
+
+    }
+
+    public void JumpButton()
+    {
+
+    }
+
+    public void AttackButton()
+    {
+
+    }
+
+    public void HealButton()
+    {
+
+    }
+
+    public void ApplyButton()
+    {
+
+    }
 }
 

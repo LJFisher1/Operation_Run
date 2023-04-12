@@ -32,16 +32,25 @@ public class MainMenuButtonFunctions : MonoBehaviour
     }
     public void OpenContinueGameSubMenu()
     {
+        //if save !exists
+        //activeMenu = noSaveMenu;
+        //else
         activeMenu = continueGameMenu;
         activeMenu.SetActive(true);
     }
     public void OpenLoadGameSubMenu()
     {
+        //if save !exists
+        //activeMenu = noSaveMenu;
+        //else
         activeMenu = loadGameMenu;
         activeMenu.SetActive(true);
     }
     public void OpenLevelSelectSubMenu()
     {
+        //if levels !are unlocked
+        //activeMenu = noLevelsMenu;
+        //else
         activeMenu = levelSelectMenu;
         activeMenu.SetActive(true);
     }
@@ -70,5 +79,54 @@ public class MainMenuButtonFunctions : MonoBehaviour
     public void NewGame()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void SelectLevel1()
+    {
+        SceneManager.LoadScene(1);
+    }
+    public void SelectLevel2()
+    {
+        if (GameManager.instance.level2 == true)
+        {
+            SceneManager.LoadScene(2);
+        }
+        else
+        {
+            StartCoroutine(GameManager.instance.LevelLockedFlash());
+        }
+    }
+    public void SelectLevel3()
+    {
+        if (GameManager.instance.level3 == true)
+        {
+            SceneManager.LoadScene(3);
+        }
+        else
+        {
+            StartCoroutine(GameManager.instance.LevelLockedFlash());
+        }
+    }
+    public void SelectLevel4()
+    {
+        if (GameManager.instance.level4 == true)
+        {
+            SceneManager.LoadScene(4);
+        }
+        else
+        {
+            StartCoroutine(GameManager.instance.LevelLockedFlash());
+        }
+    }
+    public void SelectLevel5()
+    {
+        if (GameManager.instance.level5 == true)
+        {
+            SceneManager.LoadScene(5);
+        }
+        else
+        {
+            StartCoroutine(GameManager.instance.LevelLockedFlash());
+        }
     }
 }
