@@ -27,7 +27,7 @@ public class MainMenuButtonFunctions : MonoBehaviour
 
     public void OpenNewGameSubMenu()
     {
-        activeMenu = newGameMenu;
+        activeMenu = newGameSubmenu;
         activeMenu.SetActive(true);
     }
     public void OpenContinueGameSubMenu()
@@ -35,7 +35,7 @@ public class MainMenuButtonFunctions : MonoBehaviour
         //if save !exists
         //activeMenu = noSaveMenu;
         //else
-        activeMenu = continueGameMenu;
+        activeMenu = continueGameSubmenu;
         activeMenu.SetActive(true);
     }
     public void OpenLoadGameSubMenu()
@@ -43,7 +43,7 @@ public class MainMenuButtonFunctions : MonoBehaviour
         //if save !exists
         //activeMenu = noSaveMenu;
         //else
-        activeMenu = loadGameMenu;
+        activeMenu = loadGameSubmenu;
         activeMenu.SetActive(true);
     }
     public void OpenLevelSelectSubMenu()
@@ -51,17 +51,17 @@ public class MainMenuButtonFunctions : MonoBehaviour
         //if levels !are unlocked
         //activeMenu = noLevelsMenu;
         //else
-        activeMenu = levelSelectMenu;
+        activeMenu = levelSelectSubmenu;
         activeMenu.SetActive(true);
     }
     public void OpenSettingsSubMenu()
     {
-        activeMenu = settingsMenu;
+        activeMenu = settingsSubmenu;
         activeMenu.SetActive(true);
     }
     public void OpenQuitSubMenu()
     {
-        activeMenu = quitMenu;
+        activeMenu = quitSubmenu;
         activeMenu.SetActive(true);
     }
 
