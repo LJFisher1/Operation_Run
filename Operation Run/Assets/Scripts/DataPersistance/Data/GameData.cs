@@ -49,7 +49,7 @@ public class GameData
         levels[buildIndex].score = score;
         levels[buildIndex].completed = true;
         levels[buildIndex].unlocked = true;
-        if (buildIndex + 1 <= levels.Length)
+        if (buildIndex + 1 < levels.Length)
         {
             levels[buildIndex + 1].unlocked = true;
         }
