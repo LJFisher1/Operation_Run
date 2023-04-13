@@ -80,11 +80,7 @@ public class GameManager : MonoBehaviour , iDataPersistence
     public int wallsBusted;
     public int healsUsed;
     public int deaths;
-    public int S = 300;
-    public int A = 250;
-    public int B = 200;
-    public int C = 175;
-    public int D = 150;
+
     public TextMeshProUGUI gemsTip;
     public TextMeshProUGUI goldTip;
     public TextMeshProUGUI keysTip;
@@ -99,23 +95,32 @@ public class GameManager : MonoBehaviour , iDataPersistence
     public TextMeshProUGUI guideTips;
     public GameObject levelLocked;
     public GameObject nextLevelButton;
+
     [Header("Game Goals")]
     public int GemsRemaining;
-    public int scoreCount;
-    public int HighestScore;
-    public int PlayerHighScore;
     public bool levelCompleted;
-    public bool isPaused;
+
     private float timeScaleOriginal;
     private float timeFixedOriginal;
 
+    [Header("Score")]
+    public int scoreCount;
+    public int HighestScore;
+    public int PlayerHighScore;
+    public int S = 300;
+    public int A = 250;
+    public int B = 200;
+    public int C = 175;
+    public int D = 150;
+
     int sceneIndex;
+    public bool isPaused;
 
     Dictionary<string, int> scoretable = new Dictionary<string, int>()
     {
         {"default", 0},{"Gold", 0},{"Gem", 0},{"Door", 0},{"Key", 0},{"Pickup", 0},{"Wall", 0},{"Heal", 0},{"Death", 0},{"Time", 0}
     };
-
+    Dictionary<string, int> rankTable;
     [Header("Timer")]
     public int timeScoreMax;
     public int timeScoreDedectionRate;
@@ -131,7 +136,8 @@ public class GameManager : MonoBehaviour , iDataPersistence
 
     private void Awake()
     {
-        
+        rankTable = new() { {"S",S }, {"A",A}, {"B",B }, {"C",C }, {"D",D }, {"F", 0 } };
+
         instance = this;
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
         mainCam = Camera.main;
@@ -292,69 +298,24 @@ public class GameManager : MonoBehaviour , iDataPersistence
         timesDiedScore.text = scoretable["Death"].ToString("F0");
         timeBonusScore.text = scoretable["Time"].ToString("F0");
         totalScore.text = scoreCount.ToString("F0");
-        GamePaused();
+        Grade.text = GetRank(scoreCount);
+        if (sceneIndex + 1 < SceneManager.sceneCountInBuildSettings)
+        {
+            nextLevelButton.SetActive(true);
+        }
         activeMenu = winMenu;
-        PlayerHighScore=scoreCount;
-        if (SceneManager.GetActiveScene().buildIndex == 1)
-        {
-            nextLevelButton.SetActive(true);
-            S = 200;
-            A = 140;
-            B = 120;
-            C = 110;
-            D = 100;
-        }
-        if (SceneManager.GetActiveScene().buildIndex == 2)
-        {
-            MainMenuButtonFunctions.level2 = true;
-            nextLevelButton.SetActive(true);
-        }
-        if (SceneManager.GetActiveScene().buildIndex == 3)
-        {
-            MainMenuButtonFunctions.level3 = true;
-            nextLevelButton.SetActive(true);
-        }
-        if (SceneManager.GetActiveScene().buildIndex == 4)
-        {
-            MainMenuButtonFunctions.level4 = true;
-            nextLevelButton.SetActive(true);
-        }
-        if (SceneManager.GetActiveScene().buildIndex == 5)
-        {
-            MainMenuButtonFunctions.level5 = true;
-            nextLevelButton.SetActive(true);
-        }
-        if (SceneManager.GetActiveScene().buildIndex == 6)
-        {
-            nextLevelButton.SetActive(false);
-        }
         activeMenu.SetActive(true);
-        
-        if (scoreCount >= S)
-        {
-            Grade.text = "S";
-        }
-        else if (scoreCount >= A)
-        {
-            Grade.text = "A";
-        }
-        else if (scoreCount >= B)
-        {
-            Grade.text = "B";
-        }
-        else if (scoreCount >= C)
-        {
-            Grade.text = "C";
-        }
-        else if (scoreCount >= D)
-        {
-            Grade.text = "D";
-        }
-        else
-        {
-            Grade.text = "F";
-        }
+        GamePaused();
         DataPersistence.instance.SaveGame();
+    }
+
+    string GetRank(int score)
+    {
+        foreach(KeyValuePair<string,int> kvp in rankTable)
+        {
+            if (scoreCount >= kvp.Value) return kvp.Key;
+        }
+        return "F";
     }
 
     public IEnumerator PlayerHitFlash()
@@ -480,11 +441,10 @@ public class GameManager : MonoBehaviour , iDataPersistence
     public void SaveData(ref GameData data)
     {
         Debug.Log("Trying to save " + scoreCount);
-        data.CompleteLevel(sceneIndex, scoreCount);
-        // if level has not been completed before or the you got a new high score
-        //if (!data.levels[sceneIndex].completed || scoreCount > HighestScore)
-        //{
-        //    data.CompleteLevel(sceneIndex, scoreCount);
-        //}
+        //if level has not been completed before or the you got a new high score
+        if (!data.levels[sceneIndex].completed || scoreCount > HighestScore)
+        {
+            data.CompleteLevel(sceneIndex, scoreCount);
+        }
     }
 }

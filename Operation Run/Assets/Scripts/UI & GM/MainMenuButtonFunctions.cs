@@ -5,10 +5,9 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using static GameData;
 
-
-
-public class MainMenuButtonFunctions : MonoBehaviour
+public class MainMenuButtonFunctions : MonoBehaviour, iDataPersistence
 {
     public GameObject newGameMenu;
     public GameObject continueGameMenu;
@@ -26,12 +25,8 @@ public class MainMenuButtonFunctions : MonoBehaviour
     public GameObject activeMenu;
     public GameObject menuBlocker;
 
-    public static bool tutorial = false;
-    public static bool level1 = false;
-    public static bool level2 = false;
-    public static bool level3 = false;
-    public static bool level4 = false;
-    public static bool level5 = false;
+    int lastCompletedLevel;
+    GameData loadedData;
 
     public void OpenNewGameSubMenu()
     {
@@ -59,13 +54,6 @@ public class MainMenuButtonFunctions : MonoBehaviour
     }
     public void OpenLevelSelectSubMenu()
     {
-        //if levels !are unlocked
-        //activeMenu = noLevelsMenu;
-        //else
-        //checks if the player has a save file
-        DataPersistence.instance.LoadGame();
-        
-        #pragma warning restore format
         activeMenu = levelSelectSubmenu;
         activeMenu.SetActive(true);
         menuBlocker.SetActive(true);
@@ -97,72 +85,18 @@ public class MainMenuButtonFunctions : MonoBehaviour
 
     public void NewGame()
     {
-        SceneManager.LoadScene(0);
-    }
-
-    public void SelectLevelTutorial()
-    {
-        if (level5 == true)
-        {
-            SceneManager.LoadScene(0);
-        }
-        else
-        {
-            StartCoroutine(LevelLockedFlash());
-        }
+        SceneManager.LoadScene(1);
     }
 
     public void Continue()
     {
-        DataPersistence.instance.LoadGame();
-        if(level2==true)
-        {
-            SceneManager.LoadScene(1);
-        }
+        SceneManager.LoadScene(lastCompletedLevel);
     }
-
-    public void SelectLevel1()
+    public void SelectLevel(int buildIndex)
     {
-        SceneManager.LoadScene(1);
-    }
-    public void SelectLevel2()
-    {
-        if (level2 == true)
+        if (loadedData.levels[buildIndex].unlocked)
         {
-            SceneManager.LoadScene(3);
-        }
-        else
-        {
-            StartCoroutine(LevelLockedFlash());
-        }
-    }
-    public void SelectLevel3()
-    {
-        if (level3 == true)
-        {
-            SceneManager.LoadScene(4);
-        }
-        else
-        {
-            StartCoroutine(LevelLockedFlash());
-        }
-    }
-    public void SelectLevel4()
-    {
-        if (level4 == true)
-        {
-            SceneManager.LoadScene(5);
-        }
-        else
-        {
-            StartCoroutine(LevelLockedFlash());
-        }
-    }
-    public void SelectLevel5()
-    {
-        if (level5 == true)
-        {
-            SceneManager.LoadScene(6);
+            SceneManager.LoadScene(buildIndex);
         }
         else
         {
@@ -175,5 +109,16 @@ public class MainMenuButtonFunctions : MonoBehaviour
         levelLocked.SetActive(true);
         yield return new WaitForSeconds(2.5f);
         levelLocked.SetActive(false);
+    }
+
+    public void LoadData(GameData data)
+    {
+        lastCompletedLevel = data.GetLastCompletedBuildIndex();
+        loadedData = data;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        throw new System.NotImplementedException();
     }
 }

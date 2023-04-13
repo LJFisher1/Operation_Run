@@ -39,16 +39,29 @@ public class GameData
             new LevelData("Level5"),
             new LevelData("Level6"),
         };
+        levels[0].completed = true;
+        levels[0].unlocked = true;
+        levels[1].unlocked = true;
     }
 
     public void CompleteLevel(int buildIndex, int score)
     {
         levels[buildIndex].score = score;
         levels[buildIndex].completed = true;
+        levels[buildIndex].unlocked = true;
         if (buildIndex + 1 <= levels.Length)
         {
             levels[buildIndex + 1].unlocked = true;
         }
+    }
+
+    public int GetLastCompletedBuildIndex()
+    {
+        for(int i = 0; i < levels.Length; i++)
+        {
+            if (!levels[i].completed) return i;
+        }
+        return 1;
     }
    
 }

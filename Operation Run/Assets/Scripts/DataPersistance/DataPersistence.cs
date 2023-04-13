@@ -77,7 +77,7 @@ public class DataPersistence : MonoBehaviour
     private void OnApplicationQuit()
     {
         //Need to move this to level complete.
-        SaveGame();
+        //SaveGame();
     }
 
     private List<iDataPersistence> FindAllDataPersistenceObjects()
