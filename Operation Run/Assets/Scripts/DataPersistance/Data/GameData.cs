@@ -61,7 +61,7 @@ public class GameData
         {
             if (!levels[i].completed) return i;
         }
-        return 1;
+        return levels.Length-1;
     }
    
 }
