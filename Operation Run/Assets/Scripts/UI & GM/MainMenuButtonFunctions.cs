@@ -87,7 +87,7 @@ public class MainMenuButtonFunctions : MonoBehaviour, iDataPersistence
 
     public void NewGame()
     {
-        SceneManager.LoadScene(1);
+        StartCoroutine(NewGameDelay(.5f));
     }
 
     public void Continue()
@@ -123,4 +123,10 @@ public class MainMenuButtonFunctions : MonoBehaviour, iDataPersistence
     {
         throw new System.NotImplementedException();
     }
+
+   public IEnumerator NewGameDelay(float f)
+     {
+         yield return new WaitForSeconds(f);
+         SceneManager.LoadScene(1);
+     }
 }
