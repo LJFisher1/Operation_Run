@@ -30,6 +30,7 @@ public class MainMenuButtonFunctions : MonoBehaviour, iDataPersistence
 
     public void OpenNewGameSubMenu()
     {
+        
         activeMenu = newGameSubmenu;
         activeMenu.SetActive(true);
         menuBlocker.SetActive(true);
@@ -39,6 +40,7 @@ public class MainMenuButtonFunctions : MonoBehaviour, iDataPersistence
         //if save !exists
         //activeMenu = noSaveMenu;
         //else
+        
         activeMenu = continueGameSubmenu;
         activeMenu.SetActive(true);
         menuBlocker.SetActive(true);

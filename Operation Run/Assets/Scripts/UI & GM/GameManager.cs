@@ -137,7 +137,6 @@ public class GameManager : MonoBehaviour , iDataPersistence
     private void Awake()
     {
         rankTable = new() { {"S",S }, {"A",A}, {"B",B }, {"C",C }, {"D",D }, {"F", 0 } };
-
         instance = this;
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
         mainCam = Camera.main;
