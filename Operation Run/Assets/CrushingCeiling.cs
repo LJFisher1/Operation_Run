@@ -2,22 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
+using UnityEngine.ProBuilder;
 
 public class CrushingCeiling : MonoBehaviour
 {
-    [SerializeField] bool position;// true = up, false = down
-    [SerializeField] float speedDown;
-    [SerializeField] float speedUp;
-    [SerializeField] float resetTime;
-    [SerializeField] int damage;
+    [Header("* Controls")]
+    [SerializeField] bool active;// true = up, false = down
+    [Header("* Settings")]
+    [Range(0.1f,5)][SerializeField] float speedDown;
+    [Range(0.1f, 5)][SerializeField] float speedUp;
+    [Range(0.1f, 3)][SerializeField] float resetTime;
+    [Range(0.1f, 100)][SerializeField] int damage;
     [Header("* Components")]
-    [SerializeField] BoxCollider trigger;
-    [SerializeField] GameObject floor;
+    [SerializeField] BoxCollider ceiling;
+    [SerializeField] BoxCollider floor;
     [SerializeField] Transform down;
     private Vector3 up;
 
     private void Awake()
     {
+        active = false;
+        ceiling.enabled = false;
+        floor.enabled = true;
         up = transform.position;
     }
 
@@ -25,34 +31,69 @@ public class CrushingCeiling : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            StartCoroutine(DamagePlayer(other.GetComponent<IDamage>()));
+            if(active)
+            {
+                if(ceiling.enabled)
+                StartCoroutine(DamagePlayer(other.GetComponent<IDamage>()));
+            }
+            else
+            {
+                DropCeiling();
+            }
         }
+    }
+
+    void DropCeiling()
+    {
+        active = true;
+        ceiling.enabled = true;
+        floor.enabled = false;
+    }
+
+    IEnumerator RaiseCeiling()
+    {
+        yield return new WaitForSeconds(resetTime);
+        ceiling.enabled = false;
+        floor.enabled = true;
     }
 
     IEnumerator DamagePlayer(IDamage other)
     {
-        trigger.enabled = false;
+        ceiling.enabled = false;
         other.TakeDamage(damage);
         yield return new WaitForSeconds(0f);
-        trigger.enabled = true;
-    }
-
-    public IEnumerator DropCeiling()
-    {
-        yield return new WaitForSeconds(resetTime);
-        floor.GetComponent<isBoxTouchingPlayer>().touchingPlayer = false;
+        ceiling.enabled = true;
     }
 
     private void Update()
     {
-        position = floor.GetComponent<isBoxTouchingPlayer>().touchingPlayer;
-        if(position)
+        if (active)
         {
-            transform.position = Vector3.Lerp(transform.position, down.position, Time.deltaTime * speedDown);
+            if(floor.enabled)
+            {
+                transform.position = Vector3.Lerp(transform.position, up, Time.deltaTime * speedUp);
+                checkProgress(transform.position, up);
+            }
+            else
+            {
+                transform.position = Vector3.Lerp(transform.position, down.position, Time.deltaTime * speedDown);
+                checkProgress(transform.position, down.position);
+            }
         }
-        else
+    }
+
+    void checkProgress(Vector3 current, Vector3 destination)
+    {
+        if ((current - destination).magnitude < .1)
         {
-            transform.position = Vector3.Lerp(transform.position, up, Time.deltaTime * speedUp);
+            if(floor.enabled)
+            {
+                active = false;
+            }
+            else
+            {
+                StartCoroutine(RaiseCeiling());
+            }
         }
     }
 }
