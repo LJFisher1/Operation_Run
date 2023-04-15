@@ -8532,13 +8532,13 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 889264516}
   - {fileID: 1543893102}
   - {fileID: 1296849515}
   - {fileID: 1952072795}
   - {fileID: 197448368}
   - {fileID: 168321689}
   - {fileID: 462532942}
+  - {fileID: 889264516}
   - {fileID: 1014148844}
   - {fileID: 886168636}
   - {fileID: 637137313}
@@ -10287,6 +10287,10 @@ PrefabInstance:
     - target: {fileID: 734024074399567605, guid: 38fe2c35efebcb145aa732cee255ae08, type: 3}
       propertyPath: m_Name
       value: ProBuilder Doorway w_ Swing Door (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 896539303588262823, guid: 38fe2c35efebcb145aa732cee255ae08, type: 3}
+      propertyPath: doorLocked
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3514954361134752023, guid: 38fe2c35efebcb145aa732cee255ae08, type: 3}
       propertyPath: m_Mesh
@@ -16608,6 +16612,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProBuilder Doorway w_ Swing Door
       objectReference: {fileID: 0}
+    - target: {fileID: 896539303588262823, guid: 38fe2c35efebcb145aa732cee255ae08, type: 3}
+      propertyPath: doorLocked
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3514954361134752023, guid: 38fe2c35efebcb145aa732cee255ae08, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -19263,6 +19271,10 @@ PrefabInstance:
     - target: {fileID: 734024074399567605, guid: 38fe2c35efebcb145aa732cee255ae08, type: 3}
       propertyPath: m_Name
       value: ProBuilder Doorway w_ Swing Door (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 896539303588262823, guid: 38fe2c35efebcb145aa732cee255ae08, type: 3}
+      propertyPath: doorLocked
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3514954361134752023, guid: 38fe2c35efebcb145aa732cee255ae08, type: 3}
       propertyPath: m_Mesh
@@ -23958,7 +23970,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-528498
+  m_Name: pb_Mesh-6150
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -25516,6 +25528,10 @@ PrefabInstance:
     - target: {fileID: 734024074399567605, guid: 38fe2c35efebcb145aa732cee255ae08, type: 3}
       propertyPath: m_Name
       value: ProBuilder Doorway w_ Swing Door (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 896539303588262823, guid: 38fe2c35efebcb145aa732cee255ae08, type: 3}
+      propertyPath: doorLocked
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3514954361134752023, guid: 38fe2c35efebcb145aa732cee255ae08, type: 3}
       propertyPath: m_Mesh
@@ -37939,6 +37955,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProBuilder Doorway w_ Swing Door (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 896539303588262823, guid: 38fe2c35efebcb145aa732cee255ae08, type: 3}
+      propertyPath: doorLocked
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3514954361134752023, guid: 38fe2c35efebcb145aa732cee255ae08, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -42291,7 +42311,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-531098
+  m_Name: pb_Mesh-8750
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
