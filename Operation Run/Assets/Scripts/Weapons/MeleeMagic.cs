@@ -84,7 +84,7 @@ public class MeleeMagic : MonoBehaviour, IBullet
 
     void EndDash()
     {
-        Camera.main.GetComponent<CameraController>().enabled = true;
+        if(player.IsAlive) Camera.main.GetComponent<CameraController>().enabled = true;
         Destroy(shieldClone, duration/5);
         Destroy(gameObject);
     }
