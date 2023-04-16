@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class FallingPlatform : MonoBehaviour
 {
-    [Header("params")]
+    [Header("FX")]
+    [SerializeField] AudioClip[] crumbleSFX;
+    [SerializeField] AudioSource aud;
+    [SerializeField] ParticleSystem particleFX;
+    [Header("Params")]
     [SerializeField] float fallDelay;
     [SerializeField] float fallSpeed;
     [Header("Options")]
     [SerializeField] bool useParent;
     [SerializeField] Transform movePoint;
     [SerializeField] float duration;
+    
 
     Transform fallingBody;
     bool isFalling;
@@ -41,18 +46,19 @@ public class FallingPlatform : MonoBehaviour
     IEnumerator Crumble()
     {
         isCrumbling = true;
+        aud.PlayOneShot(crumbleSFX[Random.Range(0, crumbleSFX.Length)]);
         yield return new WaitForSeconds(fallDelay);
         isCrumbling = false;
         isFalling = true;
-        Destroy(fallingBody.gameObject, duration);
+        particleFX.Play();
+        if(duration > 0) Destroy(fallingBody.gameObject, duration);
     }
     private void Update()
     {
         if (isCrumbling)
         {
             //shake
-            //play audio
-            //play particle
+            fallingBody.position = Vector3.Lerp(fallingBody.position, new(fallingBody.position.x + Random.Range(-2, 2), fallingBody.position.y, fallingBody.position.z + Random.Range(-2, 2)), fallSpeed * 2 * Time.deltaTime);
         }
         if (isFalling)
         {
