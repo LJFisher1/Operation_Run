@@ -13,8 +13,8 @@ public class ButtonFunctions : MonoBehaviour
     }
     public void Restart()
     {
-        GameManager.instance.GameUnpaused();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameManager.instance.GameUnpaused();
     }
 
     public void Quit()

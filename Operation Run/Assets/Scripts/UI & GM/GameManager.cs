@@ -259,6 +259,7 @@ public class GameManager : MonoBehaviour , iDataPersistence
 
     public void GamePaused()
     {
+        isPaused = true;
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
@@ -266,6 +267,7 @@ public class GameManager : MonoBehaviour , iDataPersistence
 
     public void GameUnpaused()
     {
+        isPaused = false;
         Time.timeScale = 1;
         UpdateSensitivity();
         Cursor.visible = false;
@@ -305,7 +307,14 @@ public class GameManager : MonoBehaviour , iDataPersistence
         activeMenu = winMenu;
         activeMenu.SetActive(true);
         GamePaused();
-        DataPersistence.instance.SaveGame();
+        if (DataPersistence.instance != null)
+        {
+            DataPersistence.instance.SaveGame();
+        }
+        else
+        {
+            Debug.Log("No DataPersistance Instance found. Unable to save game.");
+        }
     }
 
     string GetRank(int score)

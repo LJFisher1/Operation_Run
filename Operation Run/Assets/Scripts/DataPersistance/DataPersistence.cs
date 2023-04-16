@@ -69,17 +69,6 @@ public class DataPersistence : MonoBehaviour
         dataHandler.Save(gameData);
     }
 
-    public void OverwriteSave()
-    {
-        
-    }
-
-    private void OnApplicationQuit()
-    {
-        //Need to move this to level complete.
-        //SaveGame();
-    }
-
     private List<iDataPersistence> FindAllDataPersistenceObjects()
     {
         IEnumerable<iDataPersistence> dataPersistenceObjects =
