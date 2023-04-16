@@ -36,6 +36,7 @@ public class SmallDissappearingFloor : MonoBehaviour
         meshCollider.enabled = false;
         meshRenderer.enabled = false;
         particleSystem.Stop();
+        yield return new WaitForSeconds(5f);
         Destroy(gameObject);
     }
 }
