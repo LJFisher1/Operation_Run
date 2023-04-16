@@ -112,4 +112,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 11400000, guid: 2c6e0e938e98c264f8d581a3e75d600e, type: 2}
-  destroyOnPickup: 0
+  destroyOnPickup: 1
