@@ -6270,7 +6270,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh288274
+  m_Name: pb_Mesh33324
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8884,6 +8884,10 @@ PrefabInstance:
       propertyPath: destroyOnUse
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4630818051453003590, guid: 8acedd0788a49724fa244f75eddc0a46, type: 3}
+      propertyPath: respawnLocation
+      value: 
+      objectReference: {fileID: 1191851195}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8acedd0788a49724fa244f75eddc0a46, type: 3}
 --- !u!4 &1661931434 stripped
