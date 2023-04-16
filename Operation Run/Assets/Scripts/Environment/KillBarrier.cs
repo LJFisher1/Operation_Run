@@ -7,6 +7,8 @@ public class KillBarrier : MonoBehaviour
     [SerializeField] float damageDelay;
     [SerializeField] int damage = int.MaxValue;
     [SerializeField] bool hideOnPlay;
+    [SerializeField] bool isOutOfBounds;
+    //[SerializeField] bool hurtEnemies;
     bool isKilling;
     private void Start()
     {
@@ -35,5 +37,12 @@ public class KillBarrier : MonoBehaviour
         }
         isKilling = false;
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (isOutOfBounds)
+        {
+            TeleportBarrel tpb = other.GetComponent<TeleportBarrel>();
+            if(tpb != null) tpb.ReturnFromOutOfBounds();
+        }
+    }
 }

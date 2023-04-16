@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.46169513, g: 0.5124164, b: 0.58993304, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6228,6 +6228,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6759864036155370345, guid: e20ee570d86ecdb40b49bc1f5fdfa30a, type: 3}
   m_PrefabInstance: {fileID: 1176686961}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1191851194
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1191851195}
+  m_Layer: 0
+  m_Name: TeleBarrelRespawnLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1191851195
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191851194}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -31.41, y: -33.86, z: 170.09}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1202845699 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8517236192513677257, guid: d2bc155e8b37dad4885ab803e5891643, type: 3}
@@ -6239,7 +6270,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-608362
+  m_Name: pb_Mesh288274
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8848,6 +8879,10 @@ PrefabInstance:
     - target: {fileID: 4620614291446542930, guid: 8acedd0788a49724fa244f75eddc0a46, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.045
+      objectReference: {fileID: 0}
+    - target: {fileID: 4630818051453003590, guid: 8acedd0788a49724fa244f75eddc0a46, type: 3}
+      propertyPath: destroyOnUse
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8acedd0788a49724fa244f75eddc0a46, type: 3}

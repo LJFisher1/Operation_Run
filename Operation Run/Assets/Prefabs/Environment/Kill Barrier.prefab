@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8553840086819330013}
   - component: {fileID: 8553840086819330014}
   - component: {fileID: 8553840086819330002}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: Kill Barrier
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: 65f0e363b74cf5845ab8c3fbc14f39ac, type: 3}
@@ -113,3 +113,4 @@ MonoBehaviour:
   damageDelay: 0.07
   damage: 2147483647
   hideOnPlay: 1
+  isOutOfBounds: 1
