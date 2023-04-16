@@ -4950,7 +4950,7 @@ GameObject:
   - component: {fileID: 8833272121132451309}
   - component: {fileID: 8841092678189446189}
   m_Layer: 8
-  m_Name: ManaFill
+  m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
