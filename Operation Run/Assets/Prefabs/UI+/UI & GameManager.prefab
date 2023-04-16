@@ -6622,9 +6622,9 @@ MonoBehaviour:
   loseMenu: {fileID: 3803140275258131772}
   settingsMenu: {fileID: 652521901341634664}
   guideMenu: {fileID: 6628576654861521862}
-  startMenu: {fileID: 3423606626247334192}
   sensitivitySlider: {fileID: 7303548017535523371}
   activeMenu: {fileID: 0}
+  startPopup: {fileID: 3423606626247334192}
   checkpointPopup: {fileID: 4659938593186649938}
   playerHitFlash: {fileID: 7992759373522343278}
   playerHealthBar: {fileID: 7992759374993939500}
@@ -11205,7 +11205,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3423606626247334193
 RectTransform:
   m_ObjectHideFlags: 0

@@ -28,11 +28,12 @@ public class GameManager : MonoBehaviour , iDataPersistence
     public GameObject loseMenu;
     public GameObject settingsMenu;
     public GameObject guideMenu;
-    public GameObject startMenu;
+    
     [SerializeField] GameObject sensitivitySlider;
     [HideInInspector] public GameObject activeMenu;
 
     [Header("--- HUD ---")]
+    public GameObject startPopup;
     public GameObject checkpointPopup;
     public GameObject playerHitFlash;
     public Image playerHealthBar;
@@ -161,7 +162,7 @@ public class GameManager : MonoBehaviour , iDataPersistence
     {
         if (SceneManager.GetActiveScene().buildIndex == 2) // level 1 after tutorial
         {
-            StartCoroutine(StartMenuFlash());
+            StartCoroutine(FlashStartPopup());
         }
         SetScore(0);
     }
@@ -217,11 +218,11 @@ public class GameManager : MonoBehaviour , iDataPersistence
             objectiveText.text = ("Find The Escape");
         }
     }
-    public IEnumerator StartMenuFlash()
+    public IEnumerator FlashStartPopup()
     {
-        startMenu.SetActive(true);
+        startPopup.SetActive(true);
         yield return new WaitForSeconds(5f);
-        startMenu.SetActive(false);
+        startPopup.SetActive(false);
 
     }
     public IEnumerator FlashTutorialPopup(string name)
