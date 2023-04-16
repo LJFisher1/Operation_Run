@@ -171,18 +171,20 @@ public class GameManager : MonoBehaviour , iDataPersistence
     {
         if (Input.GetButtonDown("Cancel") && activeMenu == null)
         {
-            isPaused = !isPaused;
-            activeMenu = pauseMenu;
-            activeMenu.SetActive(isPaused);
 
-            if (isPaused)
+            if (!isPaused)
             {
                 GamePaused();
+                
             }
             else
             {
                 GameUnpaused();
             }
+
+            activeMenu = pauseMenu;
+            activeMenu.SetActive(isPaused);
+
         }
         if (!isPaused)
         {

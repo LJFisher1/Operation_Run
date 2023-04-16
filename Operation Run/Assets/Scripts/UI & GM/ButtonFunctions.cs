@@ -9,7 +9,6 @@ public class ButtonFunctions : MonoBehaviour
     public void Resume()
     {
         GameManager.instance.GameUnpaused();
-        GameManager.instance.isPaused = !GameManager.instance.isPaused;
     }
     public void Restart()
     {
