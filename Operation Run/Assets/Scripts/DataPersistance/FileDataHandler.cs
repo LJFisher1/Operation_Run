@@ -42,7 +42,6 @@ public class FileDataHandler
                 Debug.LogError("Error occured when trying to load data to file: " + fullPath + "\n" + e);
             }
         }
-        Debug.Log(fullPath);
         return loadedData;
     }
 
@@ -53,22 +52,18 @@ public class FileDataHandler
         {
             //crete the directory the file will be written to if it dosnt already exist
             Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
-            Debug.Log(data);
             //serialize the c# game data object into Json
             string dataToStore = JsonUtility.ToJson(data, true);
-            Debug.Log(dataToStore);
             //write the serialized data to the file
             using (FileStream stream = new FileStream(fullPath, FileMode.Create))
             {
                 using(StreamWriter writer = new StreamWriter(stream))
                 {
-                    Debug.Log(dataToStore);
                     writer.Write(dataToStore);
                     //writer.Write("true");
                 }
                 stream.Close();
             }
-
         }
 
         catch(Exception e)

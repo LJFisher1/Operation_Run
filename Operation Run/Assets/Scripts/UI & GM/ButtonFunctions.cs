@@ -22,6 +22,11 @@ public class ButtonFunctions : MonoBehaviour
         Application.Quit();
     }
 
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void RespawnPlayer()
     {
         GameManager.instance.GameUnpaused();
@@ -31,7 +36,15 @@ public class ButtonFunctions : MonoBehaviour
     public void NextScene()
     {
         GameManager.instance.GameUnpaused();
-        SceneManager.LoadScene(sceneBuildIndex: SceneManager.GetActiveScene().buildIndex + 1);
+        int nextSceneIdx = SceneManager.GetActiveScene().buildIndex + 1;
+        if (nextSceneIdx < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextSceneIdx);
+        }
+        else
+        {
+            Debug.Log("There is no next level");
+        }
     }
 
     public void NewGame()

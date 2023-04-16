@@ -87,7 +87,7 @@ public class MainMenuButtonFunctions : MonoBehaviour, iDataPersistence
 
     public void NewGame()
     {
-        StartCoroutine(NewGameDelay(.5f));
+        StartCoroutine(NewGameDelay(0)); // making this 0 fixed a bug where if you returned to the main menu after being in a scene, you couldnt hit new game again. not sure why. might need some kind of debounce?
     }
 
     public void Continue()

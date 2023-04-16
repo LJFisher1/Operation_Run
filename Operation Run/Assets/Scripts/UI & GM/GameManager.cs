@@ -10,26 +10,31 @@ public class GameManager : MonoBehaviour , iDataPersistence
 {
     public static GameManager instance;
 
-    [Header("Player")]
-    [HideInInspector] public GameObject player;
-    [HideInInspector] public PlayerController playerController;
-    [HideInInspector] public GameObject playerSpawnPosition;
+    int sceneIndex;
+    public bool isPaused;
+
+    [Header("--- Player ---")]
     [SerializeField] float deathEffectDuration;
     [SerializeField] GameObject deadBody;
     public Camera mainCam;
+    [HideInInspector] public GameObject player;
+    [HideInInspector] public PlayerController playerController;
+    [HideInInspector] public GameObject playerSpawnPosition;
     [HideInInspector] public GameObject deadBodyClone;
 
-    [HideInInspector] public GameObject activeMenu;
-    [Header("Game UI")]
+    [Header("--- Menus ---")]
     public GameObject pauseMenu;
     public GameObject winMenu;
     public GameObject loseMenu;
     public GameObject settingsMenu;
     public GameObject guideMenu;
-    public GameObject checkPointMenu;
     public GameObject startMenu;
-    public GameObject playerHitFlash;
     [SerializeField] GameObject sensitivitySlider;
+    [HideInInspector] public GameObject activeMenu;
+
+    [Header("--- HUD ---")]
+    public GameObject checkpointPopup;
+    public GameObject playerHitFlash;
     public Image playerHealthBar;
     public Image playerHealthChangeBar;
     public Image playerManaBar;
@@ -50,6 +55,8 @@ public class GameManager : MonoBehaviour , iDataPersistence
     public GameObject needMoreGemsPopup;
     public GameObject jumpPip1;
     public GameObject jumpPip2;
+
+    [Header("--- Win Screen ---")]
     public TextMeshProUGUI enemyDefeatAmount;
     public TextMeshProUGUI enemyDefeatScore;
     public TextMeshProUGUI goldCollectedAmount;
@@ -81,6 +88,7 @@ public class GameManager : MonoBehaviour , iDataPersistence
     public int healsUsed;
     public int deaths;
 
+    [Header("--- Guide Menu ---")]
     public TextMeshProUGUI gemsTip;
     public TextMeshProUGUI goldTip;
     public TextMeshProUGUI keysTip;
@@ -95,17 +103,17 @@ public class GameManager : MonoBehaviour , iDataPersistence
     public TextMeshProUGUI guideTips;
     public GameObject levelLocked;
     public GameObject nextLevelButton;
+    public GameObject mainMenuButton;
 
-    [Header("Game Goals")]
+    [Header("--- Game Goals--- ")]
     public int GemsRemaining;
     public bool levelCompleted;
 
     private float timeScaleOriginal;
     private float timeFixedOriginal;
 
-    [Header("Score")]
+    [Header("--- Score ---")]
     public int scoreCount;
-    public int HighestScore;
     public int PlayerHighScore;
     public int S = 300;
     public int A = 250;
@@ -113,21 +121,19 @@ public class GameManager : MonoBehaviour , iDataPersistence
     public int C = 175;
     public int D = 150;
 
-    int sceneIndex;
-    public bool isPaused;
-
     Dictionary<string, int> scoretable = new Dictionary<string, int>()
     {
         {"default", 0},{"Gold", 0},{"Gem", 0},{"Door", 0},{"Key", 0},{"Pickup", 0},{"Wall", 0},{"Heal", 0},{"Death", 0},{"Time", 0}
     };
     Dictionary<string, int> rankTable;
-    [Header("Timer")]
+
+    [Header("--- Timer ---")]
     public int timeScoreMax;
     public int timeScoreDedectionRate;
     public float currentTime;
     public TextMeshProUGUI timerText;
 
-    [Header("Tutorials")]
+    [Header("--- Tutorials ---")]
     //public bool resetTutorials;
     public GameObject TutorialPopupGUI;
     public TextMeshProUGUI TutorialPopText;
@@ -146,14 +152,14 @@ public class GameManager : MonoBehaviour , iDataPersistence
         objectiveText.text = ("Remaining Gems:");
         KeyCountText.text = playerController.keysInPossession.ToString("F0");
         HealCountText.text = playerController.healItemCount.ToString("F0");
-        
+        GameManager.instance.GameUnpaused();
 
         timeScaleOriginal = Time.timeScale;
         timeFixedOriginal = Time.fixedDeltaTime;
     }
     private void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 2)
+        if (SceneManager.GetActiveScene().buildIndex == 2) // level 1 after tutorial
         {
             StartCoroutine(StartMenuFlash());
         }
@@ -272,7 +278,7 @@ public class GameManager : MonoBehaviour , iDataPersistence
         UpdateSensitivity();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        activeMenu.SetActive(false);
+        if(activeMenu != null) activeMenu.SetActive(false);
         activeMenu = null;
     }
 
@@ -300,9 +306,19 @@ public class GameManager : MonoBehaviour , iDataPersistence
         timeBonusScore.text = scoretable["Time"].ToString("F0");
         totalScore.text = scoreCount.ToString("F0");
         Grade.text = GetRank(scoreCount);
+        Debug.Log(sceneIndex + 1);
+        Debug.Log(SceneManager.sceneCountInBuildSettings);
         if (sceneIndex + 1 < SceneManager.sceneCountInBuildSettings)
         {
+            Debug.Log("next level");
+            mainMenuButton.SetActive(false);
             nextLevelButton.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("return to main");
+            nextLevelButton.SetActive(false);
+            mainMenuButton.SetActive(true);
         }
         activeMenu = winMenu;
         activeMenu.SetActive(true);
@@ -441,7 +457,7 @@ public class GameManager : MonoBehaviour , iDataPersistence
 
     public void LoadData( GameData data)
     {
-        this.HighestScore = data.levels[sceneIndex].score;
+        this.PlayerHighScore = data.levels[sceneIndex].score;
         this.levelCompleted = data.levels[sceneIndex].completed;
         Debug.Log(data.levels[sceneIndex].score);
     }
@@ -450,7 +466,7 @@ public class GameManager : MonoBehaviour , iDataPersistence
     {
         Debug.Log("Trying to save " + scoreCount);
         //if level has not been completed before or the you got a new high score
-        if (!data.levels[sceneIndex].completed || scoreCount > HighestScore)
+        if (!data.levels[sceneIndex].completed || scoreCount > PlayerHighScore)
         {
             data.CompleteLevel(sceneIndex, scoreCount);
         }
