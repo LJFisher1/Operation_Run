@@ -12,6 +12,7 @@ public class GhostAI : MonoBehaviour, IDamage
     [SerializeField] GameObject deathEffect;
     [SerializeField] Rigidbody rb;
     [SerializeField] Weapon weaponDrop;
+    Color oColor;
 
     [Header("--Ghost Stats--")]
     [SerializeField] Transform headPosition;
@@ -49,12 +50,13 @@ public class GhostAI : MonoBehaviour, IDamage
     {
         stoppingDistanceOrigin = agent.stoppingDistance;
         startingPosition = transform.position;
+        oColor = model.material.color;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (agent.isActiveAndEnabled)
+        if (agent.isActiveAndEnabled && agent.isOnNavMesh )
         {
 
             if (playerInRange)
@@ -179,7 +181,6 @@ public class GhostAI : MonoBehaviour, IDamage
 
     IEnumerator FlashMat()
     {
-        Color oColor = model.material.color;
         model.material.color = Color.red;
         yield return new WaitForSeconds(0.3f);
         model.material.color = oColor;
