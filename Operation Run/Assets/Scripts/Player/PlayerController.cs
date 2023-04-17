@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour, IDamage
     int LowManaThreshold { get => manaMax / (100 / lowManaPercent); }
     public int gemCount;
     [Range(2,5)][SerializeField] int forceDamingRate; // Lower # means farther push
+    [Range(0, 5)][SerializeField] float forceCullingThreshold;
 
     bool isPlayingFootsteps;
 
@@ -148,7 +149,11 @@ public class PlayerController : MonoBehaviour, IDamage
 
     void Movement()
     {
-        appliedForce = Vector3.Lerp(appliedForce, Vector3.zero, Time.deltaTime * forceDamingRate);
+        if(appliedForce != Vector3.zero)
+        {
+            appliedForce = Vector3.Lerp(appliedForce, Vector3.zero, Time.deltaTime * forceDamingRate);
+            if (appliedForce.magnitude <= forceCullingThreshold) appliedForce = Vector3.zero;
+        }
         //gravity and jumping
         if(controller.isGrounded && playerVelocity.y < 0)
         {

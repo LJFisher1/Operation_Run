@@ -15696,6 +15696,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 3194926393236150921, guid: 35eac82f16090f442b683ddafc19c7ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3194926393236150961, guid: 35eac82f16090f442b683ddafc19c7ea, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -15710,7 +15714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3194926393236150961, guid: 35eac82f16090f442b683ddafc19c7ea, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 60.58
+      value: 78
       objectReference: {fileID: 0}
     - target: {fileID: 3194926393236150961, guid: 35eac82f16090f442b683ddafc19c7ea, type: 3}
       propertyPath: m_LocalRotation.w

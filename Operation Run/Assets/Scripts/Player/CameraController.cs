@@ -12,8 +12,6 @@ public class CameraController : MonoBehaviour
 
     public void Start()
     {
-        sensX = 200;
-        sensY = 200;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         player = GameManager.instance.playerController;
@@ -23,8 +21,8 @@ public class CameraController : MonoBehaviour
     {
         if (player.IsAlive)
         {
-            float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * sensX;
-            float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * sensY;
+            float mouseX = Input.GetAxis("Mouse X")  * sensX;
+            float mouseY = Input.GetAxis("Mouse Y")  * sensY;
 
             if (!invertY) mouseY *= -1;
 
@@ -38,7 +36,7 @@ public class CameraController : MonoBehaviour
 
     public void UpdateSensitivity(float value)
     {
-        sensX = value * 1000 + 200;
-        sensY = value * 1000 + 200;
+        sensX = value;
+        sensY = value;
     }
 }

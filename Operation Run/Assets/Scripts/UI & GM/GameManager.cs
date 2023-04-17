@@ -368,7 +368,7 @@ public class GameManager : MonoBehaviour , iDataPersistence
 
     public void UpdateSensitivity()
     {
-        if(Camera.main) Camera.main.GetComponent<CameraController>().UpdateSensitivity(sensitivitySlider.GetComponent<Slider>().value);
+        if(Camera.main) Camera.main.GetComponent<CameraController>().UpdateSensitivity(sensitivitySlider.GetComponent<Slider>().value * 2);
     }
 
     public IEnumerator HPFlash()
