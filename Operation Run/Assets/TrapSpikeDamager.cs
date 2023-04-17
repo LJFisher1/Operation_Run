@@ -8,6 +8,10 @@ public class TrapSpikeDamager : MonoBehaviour
     [SerializeField] float resetTime;
     [SerializeField] BoxCollider trigger;
 
+    [SerializeField] AudioClip[] audioHit;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] float volume;
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
@@ -18,6 +22,7 @@ public class TrapSpikeDamager : MonoBehaviour
 
     IEnumerator Damage(IDamage idamage)
     {
+        audioSource.PlayOneShot(audioHit[0], volume);
         trigger.enabled = false;
         idamage.TakeDamage(damage);       
         yield return new WaitForSeconds(resetTime);
