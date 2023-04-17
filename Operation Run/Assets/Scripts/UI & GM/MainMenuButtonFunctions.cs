@@ -26,17 +26,11 @@ public class MainMenuButtonFunctions : MonoBehaviour, iDataPersistence
     public GameObject menuBlocker;
     public GameObject creditsSubmenu;
     public TextMeshProUGUI tutorialScore;
-    public TextMeshProUGUI tutorialGrade;
     public TextMeshProUGUI leve1Score;
-    public TextMeshProUGUI level1Grade;
     public TextMeshProUGUI level2Score;
-    public TextMeshProUGUI level2Grade;
     public TextMeshProUGUI level3Score;
-    public TextMeshProUGUI level3Grade;
     public TextMeshProUGUI level4Score;
-    public TextMeshProUGUI level4Grade;
     public TextMeshProUGUI level5Score;
-    public TextMeshProUGUI level5Grade;
 
     int lastCompletedLevel;
     GameData loadedData;
@@ -72,10 +66,30 @@ public class MainMenuButtonFunctions : MonoBehaviour, iDataPersistence
         activeMenu = levelSelectSubmenu;
         activeMenu.SetActive(true);
         menuBlocker.SetActive(true);
-        //if(leveldata != null)
-        //{
-                //score = score
-        //}
+        if(loadedData.levels[1].score != 0)
+        {
+            tutorialScore.text = loadedData.levels[1].score.ToString();
+        }
+        if (loadedData.levels[2].score != 0)
+        {
+            leve1Score.text = loadedData.levels[2].score.ToString();
+        }
+        if (loadedData.levels[3].score != 0)
+        {
+            level2Score.text = loadedData.levels[3].score.ToString();
+        }
+        if (loadedData.levels[4].score != 0)
+        {
+            level3Score.text = loadedData.levels[4].score.ToString();
+        }
+        if (loadedData.levels[5].score != 0)
+        {
+            level4Score.text = loadedData.levels[5].score.ToString();
+        }
+        if (loadedData.levels[6].score != 0)
+        {
+            level5Score.text = loadedData.levels[6].score.ToString();
+        }
     }
     public void OpenSettingsSubMenu()
     {

@@ -16009,18 +16009,12 @@ MonoBehaviour:
   activeMenu: {fileID: 0}
   menuBlocker: {fileID: 2088168829}
   creditsSubmenu: {fileID: 2082186436}
-  tutorialScore: {fileID: 0}
-  tutorialGrade: {fileID: 0}
-  leve1Score: {fileID: 0}
-  level1Grade: {fileID: 0}
-  level2Score: {fileID: 0}
-  level2Grade: {fileID: 0}
-  level3Score: {fileID: 0}
-  level3Grade: {fileID: 0}
-  level4Score: {fileID: 0}
-  level4Grade: {fileID: 0}
-  level5Score: {fileID: 0}
-  level5Grade: {fileID: 0}
+  tutorialScore: {fileID: 587865615}
+  leve1Score: {fileID: 1061968127}
+  level2Score: {fileID: 1604265261}
+  level3Score: {fileID: 286447475}
+  level4Score: {fileID: 812918900}
+  level5Score: {fileID: 1868561950}
 --- !u!1001 &1638815959
 PrefabInstance:
   m_ObjectHideFlags: 0
