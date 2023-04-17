@@ -30,7 +30,7 @@ public class SwapLaser : MonoBehaviour, IBullet
         RaycastHit hit;
         Ray ray = new(GameManager.instance.playerController.shootPointCenter.position, cam.transform.forward);
         lineRend.SetPosition(0, GameManager.instance.playerController.shootPointVisual.position);
-        lineRend.SetPosition(1, cam.transform.forward * range);
+        lineRend.SetPosition(1, lineRend.GetPosition(0) + cam.transform.forward * range  );
         if (Physics.Raycast(ray, out hit, range))
         {
             var target = hit.collider.GetComponent<IDamage>();

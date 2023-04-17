@@ -19,7 +19,7 @@ public class CameraController : MonoBehaviour
 
     public void Update()
     {
-        if (player.IsAlive)
+        if (player.IsAlive && !GameManager.instance.isPaused)
         {
             float mouseX = Input.GetAxis("Mouse X")  * sensX;
             float mouseY = Input.GetAxis("Mouse Y")  * sensY;
