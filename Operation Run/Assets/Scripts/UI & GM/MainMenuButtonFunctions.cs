@@ -24,6 +24,19 @@ public class MainMenuButtonFunctions : MonoBehaviour, iDataPersistence
     public GameObject levelLocked;
     public GameObject activeMenu;
     public GameObject menuBlocker;
+    public GameObject creditsSubmenu;
+    public TextMeshProUGUI tutorialScore;
+    public TextMeshProUGUI tutorialGrade;
+    public TextMeshProUGUI leve1Score;
+    public TextMeshProUGUI level1Grade;
+    public TextMeshProUGUI level2Score;
+    public TextMeshProUGUI level2Grade;
+    public TextMeshProUGUI level3Score;
+    public TextMeshProUGUI level3Grade;
+    public TextMeshProUGUI level4Score;
+    public TextMeshProUGUI level4Grade;
+    public TextMeshProUGUI level5Score;
+    public TextMeshProUGUI level5Grade;
 
     int lastCompletedLevel;
     GameData loadedData;
@@ -59,6 +72,10 @@ public class MainMenuButtonFunctions : MonoBehaviour, iDataPersistence
         activeMenu = levelSelectSubmenu;
         activeMenu.SetActive(true);
         menuBlocker.SetActive(true);
+        //if(leveldata != null)
+        //{
+                //score = score
+        //}
     }
     public void OpenSettingsSubMenu()
     {
@@ -69,6 +86,13 @@ public class MainMenuButtonFunctions : MonoBehaviour, iDataPersistence
     public void OpenQuitSubMenu()
     {
         activeMenu = quitSubmenu;
+        activeMenu.SetActive(true);
+        menuBlocker.SetActive(true);
+    }
+
+    public void OpenCreditsSubMenu()
+    {
+        activeMenu = creditsSubmenu;
         activeMenu.SetActive(true);
         menuBlocker.SetActive(true);
     }
