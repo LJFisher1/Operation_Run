@@ -446,6 +446,9 @@ MonoBehaviour:
   gemCount: 0
   forceDamingRate: 3
   forceCullingThreshold: 2
+  ResitingForceAnge: 30
+  resistMultiplier: 3
+  resistGroundDrag: 3
   playerHealthChange: 0
   playerManaChange: 0
   fizzleEffect: {fileID: 1999575445106175362, guid: aa94c28712fe4c14db34d040f5563381, type: 3}

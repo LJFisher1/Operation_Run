@@ -60,8 +60,14 @@ public class PlayerController : MonoBehaviour, IDamage
     [Range(0, 100)] [SerializeField] int lowManaPercent = 25;
     int LowManaThreshold { get => manaMax / (100 / lowManaPercent); }
     public int gemCount;
+    [Header("----- Forces -----")]
     [Range(2,5)][SerializeField] int forceDamingRate; // Lower # means farther push
     [Range(0, 5)][SerializeField] float forceCullingThreshold;
+    [Range(0, 360)] [SerializeField] float ResitingForceAnge;
+    [SerializeField] float resistMultiplier;
+    [SerializeField] float resistGroundDrag;
+    [SerializeField] Vector3 debugForce;
+    [SerializeField] float debugMagnitude;
 
     bool isPlayingFootsteps;
 
@@ -149,11 +155,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
     void Movement()
     {
-        if(appliedForce != Vector3.zero)
-        {
-            appliedForce = Vector3.Lerp(appliedForce, Vector3.zero, Time.deltaTime * forceDamingRate);
-            if (appliedForce.magnitude <= forceCullingThreshold) appliedForce = Vector3.zero;
-        }
+
         //gravity and jumping
         if(controller.isGrounded && playerVelocity.y < 0)
         {
@@ -188,9 +190,29 @@ public class PlayerController : MonoBehaviour, IDamage
         //player movement input
         move = transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical");
         move = move.normalized;
+        move *= Time.deltaTime * walkSpeed;
+
+        //applied force
+        if (appliedForce != Vector3.zero)
+        {
+            appliedForce = Vector3.Lerp(appliedForce, Vector3.zero, Time.deltaTime * forceDamingRate);
+            float angle = Vector3.Angle(appliedForce, -move);
+            if(angle < ResitingForceAnge && move != Vector3.zero)
+            {
+                Debug.Log("resisting");
+                appliedForce = Vector3.Lerp(appliedForce, Vector3.zero, move.magnitude * resistMultiplier);
+                if (controller.isGrounded) appliedForce = Vector3.Lerp(appliedForce, Vector3.zero, move.magnitude * resistGroundDrag);
+            }
+            debugForce = appliedForce;
+            debugMagnitude = appliedForce.magnitude;
+            if (appliedForce.magnitude <= forceCullingThreshold)
+            {
+                appliedForce = Vector3.zero;
+            }
+        }
 
         //move controller
-        controller.Move(move * Time.deltaTime * walkSpeed);
+        controller.Move(move);
         controller.Move((playerVelocity + appliedForce) * Time.deltaTime); // this needs to come after movement or it causes issues.
     }
 
