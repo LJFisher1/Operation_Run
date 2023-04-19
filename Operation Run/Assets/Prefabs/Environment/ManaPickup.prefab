@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 6759864036155370347}
   - component: {fileID: 5661413823889802736}
   - component: {fileID: -7969427802767421465}
+  - component: {fileID: -6706233955627814603}
   m_Layer: 8
   m_Name: ManaPickup
   m_TagString: Untagged
@@ -4938,6 +4939,21 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &-6706233955627814603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6759864036155370346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 329ee7477c4b2f04596a330fcccb4411, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yOff: 0.15
+  useParent: 0
+  bobSpeed: 0.3
 --- !u!1 &8855549199994743445
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 610111149}
   - component: {fileID: 610111148}
   - component: {fileID: 4753870111166129761}
+  - component: {fileID: 867105042053581736}
   m_Layer: 8
   m_Name: HealCapsule
   m_TagString: Untagged
@@ -4966,3 +4967,18 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &867105042053581736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819626268878810952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 329ee7477c4b2f04596a330fcccb4411, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yOff: 0.15
+  useParent: 0
+  bobSpeed: 0.3
