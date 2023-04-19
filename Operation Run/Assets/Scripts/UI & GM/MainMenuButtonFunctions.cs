@@ -65,29 +65,29 @@ public class MainMenuButtonFunctions : MonoBehaviour, iDataPersistence
         activeMenu = levelSelectSubmenu;
         activeMenu.SetActive(true);
         menuBlocker.SetActive(true);
-        if(loadedData.levels[1].score != 0)
+        if(loadedData.levels[1].highScore != 0)
         {
-            tutorialScore.text = loadedData.levels[1].score.ToString();
+            tutorialScore.text = loadedData.levels[1].highScore.ToString();
         }
-        if (loadedData.levels[2].score != 0)
+        if (loadedData.levels[2].highScore != 0)
         {
-            leve1Score.text = loadedData.levels[2].score.ToString();
+            leve1Score.text = loadedData.levels[2].highScore.ToString();
         }
-        if (loadedData.levels[3].score != 0)
+        if (loadedData.levels[3].highScore != 0)
         {
-            level2Score.text = loadedData.levels[3].score.ToString();
+            level2Score.text = loadedData.levels[3].highScore.ToString();
         }
-        if (loadedData.levels[4].score != 0)
+        if (loadedData.levels[4].highScore != 0)
         {
-            level3Score.text = loadedData.levels[4].score.ToString();
+            level3Score.text = loadedData.levels[4].highScore.ToString();
         }
-        if (loadedData.levels[5].score != 0)
+        if (loadedData.levels[5].highScore != 0)
         {
-            level4Score.text = loadedData.levels[5].score.ToString();
+            level4Score.text = loadedData.levels[5].highScore.ToString();
         }
-        if (loadedData.levels[6].score != 0)
+        if (loadedData.levels[6].highScore != 0)
         {
-            level5Score.text = loadedData.levels[6].score.ToString();
+            level5Score.text = loadedData.levels[6].highScore.ToString();
         }
     }
     public void OpenSettingsSubMenu()
