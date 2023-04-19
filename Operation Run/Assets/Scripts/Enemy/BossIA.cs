@@ -118,7 +118,7 @@ public class BossIA : MonoBehaviour, IDamage
     public void CreateBullet()
     {
         GameObject attackClone = Instantiate(projectile, projectilePosition.position, projectile.transform.rotation);
-        attackClone.GetComponent<IEnemyAttack>().Initialize(this);
+        //attackClone.GetComponent<IEnemyAttack>().Initialize(this);
     }
 
     public void TakeDamage(int dmg)
