@@ -161,7 +161,12 @@ public class MainMenuButtonFunctions : MonoBehaviour, iDataPersistence
         throw new System.NotImplementedException();
     }
 
-   public IEnumerator NewGameDelay(float f)
+    public void SaveSettings(ref GameData data)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public IEnumerator NewGameDelay(float f)
      {
          yield return new WaitForSeconds(f);
          SceneManager.LoadScene(1);

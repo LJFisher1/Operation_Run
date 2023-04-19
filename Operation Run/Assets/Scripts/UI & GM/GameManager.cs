@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour , iDataPersistence
     public GameObject settingsMenu;
     public GameObject guideMenu;
     
-    [SerializeField] GameObject sensitivitySlider;
+    public GameObject sensitivitySlider;
     [HideInInspector] public GameObject activeMenu;
 
     [Header("--- HUD ---")]
@@ -154,13 +154,14 @@ public class GameManager : MonoBehaviour , iDataPersistence
         objectiveText.text = ("Remaining Gems:");
         KeyCountText.text = playerController.keysInPossession.ToString("F0");
         HealCountText.text = playerController.healItemCount.ToString("F0");
-        GameManager.instance.GameUnpaused();
 
         timeScaleOriginal = Time.timeScale;
         timeFixedOriginal = Time.fixedDeltaTime;
     }
     private void Start()
     {
+        GameUnpaused();
+
         if (SceneManager.GetActiveScene().buildIndex == 2) // level 1 after tutorial
         {
             StartCoroutine(FlashStartPopup());
@@ -370,6 +371,7 @@ public class GameManager : MonoBehaviour , iDataPersistence
     public void UpdateSensitivity()
     {
         if(Camera.main) Camera.main.GetComponent<CameraController>().UpdateSensitivity(sensitivitySlider.GetComponent<Slider>().value * 2);
+
     }
 
     public IEnumerator HPFlash()
@@ -463,6 +465,7 @@ public class GameManager : MonoBehaviour , iDataPersistence
     {
         this.PlayerHighScore = data.levels[sceneIndex].score;
         this.levelCompleted = data.levels[sceneIndex].completed;
+        this.sensitivitySlider.GetComponent<Slider>().value = data.sensitivity / 2;
         Debug.Log(data.levels[sceneIndex].score);
     }
 
@@ -474,5 +477,9 @@ public class GameManager : MonoBehaviour , iDataPersistence
         {
             data.CompleteLevel(sceneIndex, scoreCount);
         }
+    }
+    public void SaveSettings(ref GameData data) 
+    {
+        
     }
 }

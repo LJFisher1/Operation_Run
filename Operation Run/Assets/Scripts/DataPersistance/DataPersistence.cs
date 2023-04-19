@@ -11,7 +11,15 @@ public class DataPersistence : MonoBehaviour
     private GameData gameData;
     private List <iDataPersistence> dataPersistenceObjects;
     private FileDataHandler dataHandler;
-    public static DataPersistence instance {get; private set;}
+    public static DataPersistence _inst;
+    public static DataPersistence instance {
+        get
+        {
+            if (_inst == null) _inst = FindObjectOfType<DataPersistence>();
+            return _inst;
+        }
+        private set => _inst = value;
+    }
 
     private void Awake()
     {
@@ -65,6 +73,18 @@ public class DataPersistence : MonoBehaviour
             dataPersistenceObj.SaveData(ref gameData);
         }
         
+        //save that data to a file using the data handler
+        dataHandler.Save(gameData);
+    }
+
+    public void SaveSettings()
+    {
+
+        foreach (iDataPersistence dataPersistenceObj in dataPersistenceObjects)
+        {
+            dataPersistenceObj.SaveSettings(ref gameData);
+        }
+
         //save that data to a file using the data handler
         dataHandler.Save(gameData);
     }

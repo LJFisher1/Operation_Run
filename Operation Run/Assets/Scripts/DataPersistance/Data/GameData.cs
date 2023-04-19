@@ -24,6 +24,8 @@ public class GameData
     }
     public LevelData[] levels;
 
+    public float sensitivity = 1;
+
     //the values defined in this constructor will be default values
     //the game starts with when theres no save data to load
     public GameData()

@@ -8,4 +8,5 @@ public interface iDataPersistence
 
     void SaveData(ref GameData data);
    
+    void SaveSettings(ref GameData data);
 }

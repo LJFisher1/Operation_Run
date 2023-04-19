@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class CameraController : MonoBehaviour, iDataPersistence
 {
     [SerializeField] float sensX, sensY;
     [SerializeField] float lockMin, lockMax;
     PlayerController player;
     float xRotation;
     [SerializeField] bool invertY;
+
 
     public void Start()
     {
@@ -38,5 +39,22 @@ public class CameraController : MonoBehaviour
     {
         sensX = value;
         sensY = value;
+        if(DataPersistence.instance!= null)DataPersistence.instance.SaveSettings();
+    }
+
+
+    public void LoadData(GameData data)
+    {
+        sensX = data.sensitivity;
+        sensY = data.sensitivity;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.sensitivity = sensX;
+    }
+    public void SaveSettings(ref GameData data)
+    {
+        data.sensitivity = sensX;
     }
 }
