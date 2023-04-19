@@ -10,14 +10,14 @@ public class GameData
     public struct LevelData 
     {
         public string _name;
-        public int score;
+        public int highScore;
         public bool completed;
         public bool unlocked;
 
         public LevelData(string name)
         {
             _name = name;
-            score = 0;
+            highScore = 0;
             completed = false;
             unlocked = false;
         }
@@ -50,7 +50,7 @@ public class GameData
 
     public void CompleteLevel(int buildIndex, int score)
     {
-        levels[buildIndex].score = score;
+        levels[buildIndex].highScore = score;
         levels[buildIndex].completed = true;
         levels[buildIndex].unlocked = true;
         if (buildIndex + 1 < levels.Length)

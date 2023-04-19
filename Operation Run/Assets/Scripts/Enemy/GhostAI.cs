@@ -79,6 +79,12 @@ public class GhostAI : MonoBehaviour, IDamage
             seekingSpeed += speedGrowthRate * Time.deltaTime;
             seekingStrength = Mathf.Lerp(seekingStrength, seekingStrength + 1, 5 * Time.deltaTime);
         }
+        if (!GameManager.instance.playerController.IsAlive)
+        {
+            playerInRange = false;
+            isAttacking = false;
+            agent.enabled = true;
+        }
     }
 
     Vector3 GetPlayerDirection()

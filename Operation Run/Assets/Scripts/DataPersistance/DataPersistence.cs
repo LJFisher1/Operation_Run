@@ -11,15 +11,7 @@ public class DataPersistence : MonoBehaviour
     private GameData gameData;
     private List <iDataPersistence> dataPersistenceObjects;
     private FileDataHandler dataHandler;
-    public static DataPersistence _inst;
-    public static DataPersistence instance {
-        get
-        {
-            if (_inst == null) _inst = FindObjectOfType<DataPersistence>();
-            return _inst;
-        }
-        private set => _inst = value;
-    }
+    public static DataPersistence instance;
 
     private void Awake()
     {
