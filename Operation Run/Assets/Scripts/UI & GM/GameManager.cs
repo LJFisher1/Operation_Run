@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour , iDataPersistence
     public GameObject needMoreGemsPopup;
     public GameObject jumpPip1;
     public GameObject jumpPip2;
+    public TextMeshProUGUI FPSText;
 
     [Header("--- Win Screen ---")]
     public TextMeshProUGUI enemyDefeatAmount;

@@ -116,6 +116,8 @@ public class PlayerController : MonoBehaviour, IDamage
     void Start()
     {
         playerCollider.enabled = true;
+        GameManager.instance.FPSText.enabled=false;
+
         HP = hpMax;
         MANA = manaMax;
         //headPosition = deadHeadbody.position;
@@ -132,6 +134,18 @@ public class PlayerController : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
+        if((Input.GetKeyDown(KeyCode.F1)))
+        {
+           if(GameManager.instance.FPSText.enabled==true)
+           {
+            GameManager.instance.FPSText.enabled=false;
+
+           }
+            
+            else
+            GameManager.instance.FPSText.enabled=true;
+        }
+
         if (!GameManager.instance.isPaused && IsAlive)
         {
             ItemControls();
