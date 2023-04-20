@@ -1802,10 +1802,10 @@ MonoBehaviour:
   deathEffect: {fileID: 6094362862995186152, guid: f460f468970fde545afc290acd6c0553, type: 3}
   headPosition: {fileID: 8652918511668936735}
   HP: 3
-  roamDistance: 10
-  kiteDistance: 10
+  roamDistance: 100
+  kiteDistance: 100
   varStopLocation: 10
-  sightAngle: 120
+  sightAngle: 300
   playerFaceSpeed: 8
   waitTime: 3
   hasRoute: 0
@@ -2770,7 +2770,7 @@ Transform:
   m_GameObject: {fileID: 7444174410177080067}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7444174410631351864}
@@ -2813,7 +2813,7 @@ GameObject:
   - component: {fileID: 7444174410631351864}
   - component: {fileID: -2690282162622708701}
   m_Layer: 8
-  m_Name: GrnStaffWiz
+  m_Name: BossGreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2827,7 +2827,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7444174410631351865}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.9371605, y: 0, z: 2.1923275}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

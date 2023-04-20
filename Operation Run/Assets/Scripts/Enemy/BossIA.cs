@@ -50,6 +50,7 @@ public class BossIA : MonoBehaviour, IDamage
     Vector3 startingPosition;
     Vector3 faceDirection;
     public bool IsAlive { get => (HP > 0); }
+    bool fighting = true;
     bool hasSpawnedLaser = false;
     bool hasSpawnedBlast = false;
     bool hasSpawnedRam = false;
@@ -89,6 +90,10 @@ public class BossIA : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
+        if(HP <= 20)
+        {
+            fighting = false;
+        }
         if (agent.isActiveAndEnabled)
         {
             animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
@@ -100,24 +105,27 @@ public class BossIA : MonoBehaviour, IDamage
                     SpawnRam();
                     hasSpawnedRam = true;
                 }
-                if (!hasSpawnedLaser && HP <=66)
+                if (!hasSpawnedLaser && HP <=100)
                 {
                     SpawnLaser();
                     hasSpawnedLaser = true;
                 }
-                if(!hasSpawnedBlast && HP <= 33)
+                if(!hasSpawnedBlast && HP <= 60)
                 {
                     SpawnBlast();
                     hasSpawnedBlast = true;
                 }
-                if(!HasSpawnedGhost && HP <= 1)
+                if(!HasSpawnedGhost && HP <= 20)
                 {
                     SpawnGhost();
                     HasSpawnedGhost = true;
                 }
-                if (!CanSeePlayer() && Vector3.Distance(GameManager.instance.player.transform.position, startingPosition) > kiteDistance)
+                if (fighting == true)
                 {
-                    return;
+                    if (!CanSeePlayer() && Vector3.Distance(GameManager.instance.player.transform.position, startingPosition) > kiteDistance)
+                    {
+                        return;
+                    }
                 }
             }
             else
@@ -179,11 +187,11 @@ public class BossIA : MonoBehaviour, IDamage
     public void TakeDamage(int dmg)
     {
         animator.SetTrigger("TakeDamage");
-        if(HP > 80 && GameManager.instance.playerController.weapon.name == "Charging Ram")
+        if(HP > 100 && GameManager.instance.playerController.weapon.name == "Charging Ram")
         {
             HP -= dmg;
             StartCoroutine(FlashMat());
-            if (HP <= 80 && HP > 50)
+            if (HP <= 100 && HP > 60)
             {
                 if (projectile != shotgun)
                 {
@@ -192,12 +200,12 @@ public class BossIA : MonoBehaviour, IDamage
             }
 
         }
-        else if(HP <= 80 && HP > 50 && GameManager.instance.playerController.weapon.name == "Laser Swapper")
+        else if(HP <= 100 && HP > 60 && GameManager.instance.playerController.weapon.name == "Laser Swapper")
         {
            
             HP -= dmg;
             StartCoroutine(FlashMat());
-            if (HP <= 50 && HP > 20)
+            if (HP <= 60 && HP > 0)
             {
                 if (projectile != ram)
                 {
@@ -205,14 +213,13 @@ public class BossIA : MonoBehaviour, IDamage
                 }
             }
         }
-        else if(HP <= 50 && HP > 20 && GameManager.instance.playerController.weapon.name == "Blasting Staff")
+        else if(HP <= 60 && HP > 20 && GameManager.instance.playerController.weapon.name == "Blasting Staff")
         {
             HP -= dmg;
             StartCoroutine(FlashMat());
         }
         else if(HP <= 20 && GameManager.instance.playerController.weapon.name != "Ghost Staff")
         {
-            //HP = 1;
             StartCoroutine(FlashSheild());
             if (agent.enabled)
             {
@@ -287,18 +294,21 @@ public class BossIA : MonoBehaviour, IDamage
     {
         Instantiate(ramEnemy1, position: spawner1.transform.position, spawner1.transform.rotation);
         Instantiate(ramEnemy2, position: spawner2.transform.position, spawner2.transform.rotation);
+
     }
 
     void SpawnLaser()
     {
         Instantiate(laserEnemy1, position: spawner1.transform.position, spawner1.transform.rotation);
         Instantiate(laserEnemy2, position: spawner2.transform.position, spawner2.transform.rotation);
+
     }
 
     void SpawnBlast()
     {
         Instantiate(blastEnemy1, position: spawner1.transform.position, spawner1.transform.rotation);
         Instantiate(blastEnemy2, position: spawner2.transform.position, spawner2.transform.rotation);
+
     }
 
     void SpawnGhost()
@@ -308,6 +318,7 @@ public class BossIA : MonoBehaviour, IDamage
         Instantiate(ghostEnemy3, position: spawner2.transform.position, spawner2.transform.rotation);
         Instantiate(ghostEnemy4, position: spawner2.transform.position, spawner2.transform.rotation);
         Instantiate(ghostEnemy5, position: spawner3.transform.position, spawner3.transform.rotation);
+
     }
 
     IEnumerator FlashSheild()
