@@ -5026,7 +5026,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 0
-  m_Radius: 2
+  m_Radius: 1.3
   m_Height: 3
   m_Direction: 1
   m_Center: {x: -0.34448624, y: 0.0992803, z: 0}
@@ -5049,4 +5049,5 @@ MonoBehaviour:
   dashCollider: {fileID: 725943806263336927}
   shield: {fileID: 986474873012182339, guid: 543bb18783f321e4f8316d1b2be594cb, type: 3}
   knockBackForce: 100
+  repeats: 2
   hitEffect: {fileID: 3464273426555324030, guid: 50679680bb046c24297d80973e5807f7, type: 3}

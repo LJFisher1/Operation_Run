@@ -16,10 +16,13 @@ public class BossChargeAttack : MonoBehaviour, IBossAttack1
     [SerializeField] Collider dashCollider;
     [SerializeField] GameObject shield;
     [SerializeField] float knockBackForce;
+    [SerializeField] int repeats;
+    int curRepeat;
     GameObject shieldClone;
     [SerializeField] GameObject hitEffect;
     Vector3 dashDir;
     BossIA boss;
+
 
     public void Initialize(BossIA creator)
     {
@@ -102,7 +105,16 @@ public class BossChargeAttack : MonoBehaviour, IBossAttack1
 
     void EndDash()
     {
-        Destroy(shieldClone, duration / 5);
-        Destroy(gameObject);
+        if(curRepeat < repeats)
+        {
+            StartCoroutine(Charge());
+            ++curRepeat;
+        }
+        else
+        {
+            Destroy(shieldClone, duration / 5);
+            Destroy(gameObject);
+        }
+        
     }
 }

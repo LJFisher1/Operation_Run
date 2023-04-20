@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3880744925381590904}
   - component: {fileID: -3868351328246536169}
   m_Layer: 6
-  m_Name: SniperAttack Boss
+  m_Name: SniperAttack Boss Secondary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,11 +48,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84543f6c0397ef8478be67e08a564083, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followSpeed: 9
-  aimTime: 3
-  telegraphTime: 0.5
+  followSpeed: 7.5
+  aimTime: 3.5
+  telegraphTime: 0.3
   decayAfterFire: 0.2
-  secondaryLaser: {fileID: 5982062045012594215, guid: be34297e50d0a54408d1e93e9f1328bb, type: 3}
+  secondaryLaser: {fileID: 5982062045012594215, guid: 05a220d874fcf854f99329a5db54ab70, type: 3}
   duration: 10
   range: 0
   lineRend: {fileID: -713327645408654490}
@@ -61,7 +61,7 @@ MonoBehaviour:
   aimColor:
     serializedVersion: 2
     key0: {r: 0.42352942, g: 0.13360877, b: 0.06666666, a: 0.75686276}
-    key1: {r: 0.42352942, g: 0.13360877, b: 0.06666666, a: 0.827451}
+    key1: {r: 0.24528301, g: 0.07498855, b: 0.035866853, a: 0.827451}
     key2: {r: 0.06666667, g: 0.23529413, b: 0.454902, a: 1}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -89,8 +89,8 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   telegraphFlashColor:
     serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 0.8627451}
-    key1: {r: 1, g: 1, b: 1, a: 0.8627451}
+    key0: {r: 0.990566, g: 0.7242346, b: 0.7242346, a: 0.8627451}
+    key1: {r: 0.9921569, g: 0.7254902, b: 0.7254902, a: 0.8627451}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -118,17 +118,17 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   fireColor:
     serializedVersion: 2
-    key0: {r: 0.054901965, g: 0.2627451, b: 1, a: 1}
-    key1: {r: 0.054901965, g: 0.2627451, b: 1, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 0.5019608, g: 0.6, b: 0.9058824, a: 1}
+    key1: {r: 0.003921569, g: 0.0627451, b: 0.27058825, a: 1}
+    key2: {r: 0.003921569, g: 0.0627451, b: 0.27058825, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
+    ctime0: 964
     ctime1: 65535
-    ctime2: 0
+    ctime2: 65535
     ctime3: 0
     ctime4: 0
     ctime5: 0
@@ -223,17 +223,17 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.49982202, g: 0.5966126, b: 0.9056604, a: 1}
-      key1: {r: 0.5019608, g: 0.6, b: 0.9058824, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 0.5019608, g: 0.6, b: 0.9058824, a: 1}
+      key1: {r: 0.003921569, g: 0.0627451, b: 0.27058825, a: 1}
+      key2: {r: 0.003921569, g: 0.0627451, b: 0.27058825, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
+      ctime0: 964
       ctime1: 65535
-      ctime2: 0
+      ctime2: 65535
       ctime3: 0
       ctime4: 0
       ctime5: 0

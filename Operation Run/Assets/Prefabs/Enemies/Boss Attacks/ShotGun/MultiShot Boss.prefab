@@ -4923,7 +4923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 10
-  numShots: 5
+  numShots: 25
   bullet: {fileID: 5982062045012594215, guid: 5115426b39e2ad3439e7eeb7a68d6315, type: 3}
   spreadAngle: 0.1
-  spreadOffset: 0.1
+  spreadOffset: 0.3

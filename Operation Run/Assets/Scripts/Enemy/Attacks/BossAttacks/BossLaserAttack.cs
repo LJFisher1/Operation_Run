@@ -9,6 +9,7 @@ public class BossLaserAttack : MonoBehaviour, IBossAttack1
     [SerializeField] float aimTime;
     [SerializeField] float telegraphTime;
     [SerializeField] float decayAfterFire;
+    [SerializeField] GameObject secondaryLaser;
     private int damage;
 
     [SerializeField] float duration;
@@ -25,6 +26,7 @@ public class BossLaserAttack : MonoBehaviour, IBossAttack1
     [SerializeField] AudioClip fireSound;
     [Range(0, 1)] [SerializeField] float fireVol;
     [SerializeField] AudioSource aud;
+    
 
     bool takingAim;
     bool telegraphing;
@@ -42,6 +44,11 @@ public class BossLaserAttack : MonoBehaviour, IBossAttack1
         lineRend.SetPosition(0, boss.projectilePosition.position);
         lineRend.SetPosition(1, GameManager.instance.player.transform.position);
         StartCoroutine(Aim());
+        if (secondaryLaser != null)
+        {
+            GameObject sl = Instantiate(secondaryLaser, boss.projectilePosition.position, boss.projectilePosition.rotation);
+            sl.GetComponent<IBossAttack1>().Initialize(boss);
+        }
     }
     private void Update()
     {
