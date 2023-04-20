@@ -9,30 +9,27 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 2d2852d5bea535146ab8cae6d74d3f8b
   - enabled: 1
-    path: Assets/Scenes/TutorialLevel1.unity
+    path: Assets/Scenes/Level 0 Tutorial WW.unity
     guid: f60f266b45b9a314680be5c752fa48ff
   - enabled: 1
-    path: Assets/Scenes/Level 1 - Rebuilt.unity
+    path: Assets/Scenes/Level 1 Maze JF.unity
     guid: 998d0a5dcb2620e4dbd51db845b6059e
   - enabled: 1
-    path: Assets/Scenes/Level 2.unity
+    path: Assets/Scenes/Level 2 Tower JF.unity
     guid: 7c00b459725b0ad4b9300209d134830d
   - enabled: 1
-    path: Assets/Scenes/level 3.unity
-    guid: c538eb2f91ac86e419be6ce3c18aeaca
-  - enabled: 1
-    path: Assets/Scenes/level 4.unity
-    guid: ecde48191d0d1bd40b29e46549d9852d
-  - enabled: 1
-    path: Assets/Scenes/level 5.unity
+    path: Assets/Scenes/level 3 JF.unity
     guid: ecabcf7e20be24a4b926764fa1a9acff
   - enabled: 1
-    path: Assets/Scenes/Level 6.unity
-    guid: ec1fa0cc844363842acb134a96e1a8c3
-  - enabled: 1
-    path: Assets/Scenes/Level 7.unity
+    path: Assets/Scenes/Level 4 Dungeon GG.unity
     guid: c385ceb3573e4834bae5beb801126f9e
   - enabled: 1
-    path: Assets/Scenes/templvl1.unity
-    guid: d87c8acf0a00eac42988074913879d07
+    path: Assets/Scenes/Level 5 Lava WW.unity
+    guid: ec1fa0cc844363842acb134a96e1a8c3
+  - enabled: 1
+    path: Assets/Scenes/Level 6 Cave LN.unity
+    guid: c538eb2f91ac86e419be6ce3c18aeaca
+  - enabled: 1
+    path: Assets/Scenes/level 7 Boss LNWW.unity
+    guid: ecde48191d0d1bd40b29e46549d9852d
   m_configObjects: {}

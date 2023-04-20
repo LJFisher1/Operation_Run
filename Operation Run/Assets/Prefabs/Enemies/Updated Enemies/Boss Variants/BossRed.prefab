@@ -793,7 +793,7 @@ MonoBehaviour:
   roamDistance: 100
   kiteDistance: 100
   varStopLocation: 10
-  sightAngle: 300
+  sightAngle: 359
   playerFaceSpeed: 5
   waitTime: 3
   hasRoute: 0
