@@ -224,7 +224,7 @@ public class BossIA : MonoBehaviour, IDamage
             StartCoroutine(FlashSheild());
             if (agent.enabled)
             {
-                TakeAKnee();
+                StartCoroutine(TakeAKnee());
             }
         }
         else if(HP <= 20 && GameManager.instance.playerController.weapon.name == "Ghost Staff")
@@ -282,13 +282,13 @@ public class BossIA : MonoBehaviour, IDamage
         projectileSpeed = 100;
     }
 
-    void TakeAKnee()
+    IEnumerator TakeAKnee()
     {
         if (agent.enabled) agent.SetDestination(middle.transform.position);
-        if (agent.remainingDistance <= 1)
-        {
-            agent.enabled = false;
-        }
+        yield return new WaitForSeconds(4);
+        animator.SetFloat("Speed", 0);
+        animator.SetTrigger("Beat");
+        agent.enabled = false;
         sheildEffectFinal.SetActive(true);
     }
 
