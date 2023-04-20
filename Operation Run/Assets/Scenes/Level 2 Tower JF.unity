@@ -13728,21 +13728,9 @@ MonoBehaviour:
   m_Mesh: {fileID: 1251843516}
   m_VersionIndex: 12759
   m_IsSelectable: 1
-  m_SelectedFaces: 00000000
-  m_SelectedEdges:
-  - a: 2
-    b: 3
-  - a: 3
-    b: 4
-  - a: 4
-    b: 5
-  - a: 5
-    b: 0
-  - a: 0
-    b: 1
-  - a: 1
-    b: 2
-  m_SelectedVertices: 040000000200000003000000000000000500000001000000
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!4 &631136035
 Transform:
   m_ObjectHideFlags: 0
@@ -20243,15 +20231,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5523742541325406586, guid: 120047d4d40488c48a04d75eae9a5883, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.4375
+      value: -14.49
       objectReference: {fileID: 0}
     - target: {fileID: 5523742541325406586, guid: 120047d4d40488c48a04d75eae9a5883, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 30.375
+      value: 0.19
       objectReference: {fileID: 0}
     - target: {fileID: 5523742541325406586, guid: 120047d4d40488c48a04d75eae9a5883, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.1875
+      value: -0.16
       objectReference: {fileID: 0}
     - target: {fileID: 5523742541325406586, guid: 120047d4d40488c48a04d75eae9a5883, type: 3}
       propertyPath: m_LocalRotation.w

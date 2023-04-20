@@ -253,11 +253,11 @@ public class BossIA : MonoBehaviour, IDamage
 
     IEnumerator FlashMat()
     {
-        model.GetComponentInChildren<Renderer>().material.shader = Shader.Find("Standard");
+        //model.GetComponentInChildren<Renderer>().material.shader = Shader.Find("Standard");
         model.material.color = Color.red;
         yield return new WaitForSeconds(0.3f);
         model.material.color = Color.white;
-        model.GetComponentInChildren<Renderer>().material.shader = Shader.Find("PolyArtMaskTint");
+        //model.GetComponentInChildren<Renderer>().material.shader = Shader.Find("Standard");
     }
 
     void ChangeToShotgun()

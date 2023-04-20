@@ -42,6 +42,8 @@ public class GameData
             new LevelData("Level6"),
             new LevelData("Level7"),
             new LevelData("Level8"),
+            new LevelData("Level9"),
+            new LevelData("Level10"),
         };
         levels[0].completed = true;
         levels[0].unlocked = true;

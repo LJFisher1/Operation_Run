@@ -463,6 +463,7 @@ public class GameManager : MonoBehaviour , iDataPersistence
 
     public void LoadData( GameData data)
     {
+        Debug.Log(sceneIndex);
         this.PlayerHighScore = data.levels[sceneIndex].highScore;
         this.levelCompleted = data.levels[sceneIndex].completed;
         this.sensitivitySlider.GetComponent<Slider>().value = data.sensitivity / 2;
