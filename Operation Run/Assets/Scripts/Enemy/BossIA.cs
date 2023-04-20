@@ -72,6 +72,7 @@ public class BossIA : MonoBehaviour, IDamage
     public GameObject ghostEnemy5;
     public GameObject key1;
     public GameObject sheildEffect;
+    public GameObject sheildEffectFinal;
 
     // Start is called before the first frame update
     void Start()
@@ -265,7 +266,7 @@ public class BossIA : MonoBehaviour, IDamage
         sniperw.SetActive(false);
         shottyw.SetActive(true);
         projectilePosition = spShotgun;
-        attackDamage = 1;
+        attackDamage = 3;
         attackRate = 3;
         projectileSpeed = 25;
     }
@@ -277,7 +278,7 @@ public class BossIA : MonoBehaviour, IDamage
         ramw.SetActive(true);
         projectilePosition = spRam;
         attackDamage = 6;
-        attackRate = 3;
+        attackRate = 5;
         projectileSpeed = 100;
     }
 
@@ -288,31 +289,35 @@ public class BossIA : MonoBehaviour, IDamage
         {
             agent.enabled = false;
         }
+        sheildEffectFinal.SetActive(true);
     }
 
+    GameObject curEnemy1;
+    GameObject curEnemy2;
     void SpawnRam()
     {
-        Instantiate(ramEnemy1, position: spawner1.transform.position, spawner1.transform.rotation);
-        Instantiate(ramEnemy2, position: spawner2.transform.position, spawner2.transform.rotation);
+        curEnemy1 = Instantiate(ramEnemy1, position: spawner1.transform.position, spawner1.transform.rotation);
+        curEnemy2 = Instantiate(ramEnemy2, position: spawner2.transform.position, spawner2.transform.rotation);
 
     }
 
     void SpawnLaser()
     {
-        Instantiate(laserEnemy1, position: spawner1.transform.position, spawner1.transform.rotation);
-        Instantiate(laserEnemy2, position: spawner2.transform.position, spawner2.transform.rotation);
-
+        ClearWave();
+        curEnemy1 = Instantiate(laserEnemy1, position: spawner1.transform.position, spawner1.transform.rotation);
+        curEnemy2 = Instantiate(laserEnemy2, position: spawner2.transform.position, spawner2.transform.rotation);
     }
 
     void SpawnBlast()
     {
-        Instantiate(blastEnemy1, position: spawner1.transform.position, spawner1.transform.rotation);
-        Instantiate(blastEnemy2, position: spawner2.transform.position, spawner2.transform.rotation);
-
+        ClearWave();
+        curEnemy1 = Instantiate(blastEnemy1, position: spawner1.transform.position, spawner1.transform.rotation);
+        curEnemy2 = Instantiate(blastEnemy2, position: spawner2.transform.position, spawner2.transform.rotation);
     }
 
     void SpawnGhost()
     {
+        ClearWave();
         Instantiate(ghostEnemy1, position: spawner1.transform.position, spawner1.transform.rotation);
         Instantiate(ghostEnemy2, position: spawner1.transform.position, spawner1.transform.rotation);
         Instantiate(ghostEnemy3, position: spawner2.transform.position, spawner2.transform.rotation);
@@ -326,5 +331,11 @@ public class BossIA : MonoBehaviour, IDamage
         sheildEffect.SetActive(true);
         yield return new WaitForSeconds(.3f);
         sheildEffect.SetActive(false);
+    }
+
+    void ClearWave()
+    {
+        if (curEnemy1 != null) Destroy(curEnemy1);
+        if (curEnemy2 != null) Destroy(curEnemy2);
     }
 }

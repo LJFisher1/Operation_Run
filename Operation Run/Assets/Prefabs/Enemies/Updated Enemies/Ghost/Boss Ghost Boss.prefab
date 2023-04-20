@@ -204,7 +204,7 @@ MonoBehaviour:
   posItter: 0
   kamikaze: 0
   attackDelay: 0.2
-  seekingSpeed: 5
+  seekingSpeed: 10
   speedGrowthRate: 0
   seekingStrength: 5
   attackDamage: 2
@@ -292,5 +292,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 30
+  m_Radius: 200
   m_Center: {x: 0, y: 0, z: 0}
