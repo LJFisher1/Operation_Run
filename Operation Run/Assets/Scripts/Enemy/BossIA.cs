@@ -70,6 +70,7 @@ public class BossIA : MonoBehaviour, IDamage
     public GameObject ghostEnemy4;
     public GameObject ghostEnemy5;
     public GameObject key1;
+    public GameObject sheildEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -178,47 +179,57 @@ public class BossIA : MonoBehaviour, IDamage
     public void TakeDamage(int dmg)
     {
         animator.SetTrigger("TakeDamage");
-        if(HP > 66 && GameManager.instance.playerController.weapon.name == "Charging Ram")
+        if(HP > 80 && GameManager.instance.playerController.weapon.name == "Charging Ram")
         {
             HP -= dmg;
             StartCoroutine(FlashMat());
-        }
-        if(HP <= 66 && HP > 33 && GameManager.instance.playerController.weapon.name == "Laser Swapper")
-        {
-            if (projectile != shotgun) 
+            if (HP <= 80 && HP > 50)
             {
-                ChangeToShotgun();
+                if (projectile != shotgun)
+                {
+                    ChangeToShotgun();
+                }
             }
+
+        }
+        else if(HP <= 80 && HP > 50 && GameManager.instance.playerController.weapon.name == "Laser Swapper")
+        {
+           
             HP -= dmg;
             StartCoroutine(FlashMat());
-        }
-        if(HP <= 33 && HP > 1 && GameManager.instance.playerController.weapon.name == "Blasting Staff")
-        {
-            if (projectile != ram)
+            if (HP <= 50 && HP > 20)
             {
-                ChangeToRam(); 
+                if (projectile != ram)
+                {
+                    ChangeToRam();
+                }
             }
+        }
+        else if(HP <= 50 && HP > 20 && GameManager.instance.playerController.weapon.name == "Blasting Staff")
+        {
             HP -= dmg;
             StartCoroutine(FlashMat());
         }
-        if(HP <= 1 && GameManager.instance.playerController.weapon.name != "Ghost Staff")
+        else if(HP <= 20 && GameManager.instance.playerController.weapon.name != "Ghost Staff")
         {
-            HP = 1;
+            //HP = 1;
+            StartCoroutine(FlashSheild());
             if (agent.enabled)
             {
                 TakeAKnee();
             }
         }
-        else if(HP <= 1 && GameManager.instance.playerController.weapon.name == "Ghost Staff")
+        else if(HP <= 20 && GameManager.instance.playerController.weapon.name == "Ghost Staff")
         {
             HP -= dmg;
             StartCoroutine(FlashMat());
             if (agent.enabled) agent.SetDestination(GameManager.instance.player.transform.position);
             if (!IsAlive)
             {
-                StopAllCoroutines();
-                if (HP == -20)
+               
+                if (HP <= 0)
                 {
+                    StopAllCoroutines();
                     ++GameManager.instance.enemysDefeated;
                     Instantiate(deathEffect, transform.position, transform.rotation);
                     Instantiate(key1, position: middle.transform.position, middle.transform.rotation);
@@ -226,7 +237,10 @@ public class BossIA : MonoBehaviour, IDamage
                 }
             }
         }
-
+        else
+        {
+            StartCoroutine(FlashSheild());
+        }
     }
 
     IEnumerator FlashMat()
@@ -252,7 +266,7 @@ public class BossIA : MonoBehaviour, IDamage
     void ChangeToRam()
     {
         projectile = ram;
-        sniperw.SetActive(false);
+        shottyw.SetActive(false);
         ramw.SetActive(true);
         projectilePosition = spRam;
         attackDamage = 6;
@@ -294,5 +308,12 @@ public class BossIA : MonoBehaviour, IDamage
         Instantiate(ghostEnemy3, position: spawner2.transform.position, spawner2.transform.rotation);
         Instantiate(ghostEnemy4, position: spawner2.transform.position, spawner2.transform.rotation);
         Instantiate(ghostEnemy5, position: spawner3.transform.position, spawner3.transform.rotation);
+    }
+
+    IEnumerator FlashSheild()
+    {
+        sheildEffect.SetActive(true);
+        yield return new WaitForSeconds(.3f);
+        sheildEffect.SetActive(false);
     }
 }
