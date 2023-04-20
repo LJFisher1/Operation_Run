@@ -31,6 +31,9 @@ public class MainMenuButtonFunctions : MonoBehaviour, iDataPersistence
     public TextMeshProUGUI level3Score;
     public TextMeshProUGUI level4Score;
     public TextMeshProUGUI level5Score;
+    public TextMeshProUGUI level6Score;
+    public TextMeshProUGUI level7Score;
+    public TextMeshProUGUI level8Score;
 
     int lastCompletedLevel;
     GameData loadedData;
@@ -89,6 +92,14 @@ public class MainMenuButtonFunctions : MonoBehaviour, iDataPersistence
         {
             level5Score.text = loadedData.levels[6].highScore.ToString();
         }
+        if (loadedData.levels[7].highScore != 0)
+        {
+            level5Score.text = loadedData.levels[7].highScore.ToString();
+        }
+        //if (loadedData.levels[8].highScore != 0)
+        //{
+        //    level5Score.text = loadedData.levels[8].highScore.ToString();
+        //}
     }
     public void OpenSettingsSubMenu()
     {
