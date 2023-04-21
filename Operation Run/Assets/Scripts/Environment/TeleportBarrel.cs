@@ -37,7 +37,7 @@ public class TeleportBarrel : MonoBehaviour, IDamage
         targetAngle = Random.Range(angleMin, angleMax);
 
         isTeleporting = true;
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSecondsRealtime(delay);
         if (destroyOnUse)  Destroy(gameObject); 
         isTeleporting = false;
         transform.rotation = rotOG;

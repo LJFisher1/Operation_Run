@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour , iDataPersistence
     public TextMeshProUGUI timesDiedScore;
     public TextMeshProUGUI timeBonusScore;
     public TextMeshProUGUI totalScore;
+    public TextMeshProUGUI highScore;
     public TextMeshProUGUI Grade;
     public int enemysDefeated;
     public int goldCollected;
@@ -116,7 +117,7 @@ public class GameManager : MonoBehaviour , iDataPersistence
 
     [Header("--- Score ---")]
     public int scoreCount;
-    public int PlayerHighScore;
+    public int playerHighScore;
     public int S = 300;
     public int A = 250;
     public int B = 200;
@@ -310,6 +311,7 @@ public class GameManager : MonoBehaviour , iDataPersistence
         timesDiedScore.text = scoretable["Death"].ToString("F0");
         timeBonusScore.text = scoretable["Time"].ToString("F0");
         totalScore.text = scoreCount.ToString("F0");
+        highScore.text = playerHighScore.ToString("F0");
         Grade.text = GetRank(scoreCount);
         Debug.Log(sceneIndex + 1);
         Debug.Log(SceneManager.sceneCountInBuildSettings);
@@ -464,7 +466,7 @@ public class GameManager : MonoBehaviour , iDataPersistence
     public void LoadData( GameData data)
     {
         Debug.Log(sceneIndex);
-        this.PlayerHighScore = data.levels[sceneIndex].highScore;
+        this.playerHighScore = data.levels[sceneIndex].highScore;
         this.levelCompleted = data.levels[sceneIndex].completed;
         this.sensitivitySlider.GetComponent<Slider>().value = data.sensitivity / 2;
         Debug.Log(data.levels[sceneIndex].highScore);
@@ -474,7 +476,7 @@ public class GameManager : MonoBehaviour , iDataPersistence
     {
         Debug.Log("Trying to save " + scoreCount);
         //if level has not been completed before or the you got a new high score
-        if (!data.levels[sceneIndex].completed || scoreCount > PlayerHighScore)
+        if (!data.levels[sceneIndex].completed || scoreCount > playerHighScore)
         {
             data.CompleteLevel(sceneIndex, scoreCount);
         }
