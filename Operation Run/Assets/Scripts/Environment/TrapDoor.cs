@@ -9,26 +9,33 @@ public class TrapDoor : MonoBehaviour
     [SerializeField] bool activated;
     [Header("* Settings")]
     [SerializeField] int speed;
+    [Range(0, 1)][SerializeField] float volume;
     [Header("* Components")]
     [SerializeField] Transform doorLeft;
     [SerializeField] Transform doorRight;
     [SerializeField] Transform openRotationL;
     [SerializeField] Transform openRotationR;
-    [SerializeField] BoxCollider trigger;
+    [SerializeField] AudioClip[] audioClips;
+    BoxCollider trigger;
+    AudioSource audioSource;
 
     private void Awake()
     {
         activated = false;
         trigger = GetComponent<BoxCollider>();
+        audioSource = GetComponent<AudioSource>();
         trigger.enabled = true;
+        audioSource.pitch = (Random.Range(0.5f, 0.7f));
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player") && trigger.enabled)
+        if (other.CompareTag("Player"))
         {
-            activated = true;
             trigger.enabled = false;
+            activated = true;
+            audioSource.PlayOneShot(audioClips[0]);
+            StartCoroutine(TurnOff());
         }
     }
 
@@ -43,7 +50,7 @@ public class TrapDoor : MonoBehaviour
 
     IEnumerator TurnOff()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1f);
         activated = false;
     }
 }
