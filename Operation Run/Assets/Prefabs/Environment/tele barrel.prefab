@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 153797498837552817}
   - component: {fileID: 153797498837552816}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 153797499823001373}
   - component: {fileID: 153797499823001375}
   - component: {fileID: 153797499823001372}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Gem1Blue (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 3662002845998541429}
   - component: {fileID: 3654028719885427855}
   - component: {fileID: 3645613928538226317}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Gem1Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 4630818051453003590}
   - component: {fileID: 4630818051453003584}
   - component: {fileID: 4630818051453003585}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: tele barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5172,6 +5172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colider: {fileID: 4630818051453003585}
   destroyOnUse: 0
+  respawnLocation: {fileID: 0}
   scaleLerpRate: 50
   rotLerpRate: 0.1
   angleMin: 180

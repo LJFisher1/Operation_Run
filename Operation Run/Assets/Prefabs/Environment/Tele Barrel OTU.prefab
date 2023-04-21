@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 50766494117857045}
   - component: {fileID: 50766494117857051}
   - component: {fileID: 50766494117857044}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Cylinder (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 50766494272272512}
   - component: {fileID: 50766494272272518}
   - component: {fileID: 50766494272272519}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Cylinder (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 50766494421840457}
   - component: {fileID: 50766494421840463}
   - component: {fileID: 50766494421840456}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Cylinder (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 50766494506110971}
   - component: {fileID: 50766494506110969}
   - component: {fileID: 50766494506110970}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 50766494690262715}
   - component: {fileID: 50766494690262713}
   - component: {fileID: 50766494690262714}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Cylinder (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 50766494700266912}
   - component: {fileID: 50766494700266918}
   - component: {fileID: 50766494700266919}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Cylinder (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -509,7 +509,7 @@ GameObject:
   - component: {fileID: 50766494823144444}
   - component: {fileID: 50766494823144418}
   - component: {fileID: 50766494823144419}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Cylinder (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -592,7 +592,7 @@ GameObject:
   - component: {fileID: 50766494900389612}
   - component: {fileID: 50766494900389522}
   - component: {fileID: 50766494900389523}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Cylinder (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -675,7 +675,7 @@ GameObject:
   - component: {fileID: 50766495460292301}
   - component: {fileID: 50766495460292339}
   - component: {fileID: 50766495460292300}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Cylinder (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -758,7 +758,7 @@ GameObject:
   - component: {fileID: 50766495488537080}
   - component: {fileID: 50766495488537086}
   - component: {fileID: 50766495488537087}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Cylinder (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -841,7 +841,7 @@ GameObject:
   - component: {fileID: 50766495587398788}
   - component: {fileID: 50766495587398794}
   - component: {fileID: 50766495587398795}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Cylinder (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -924,7 +924,7 @@ GameObject:
   - component: {fileID: 50766495593899395}
   - component: {fileID: 50766495593899393}
   - component: {fileID: 50766495593899394}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1007,7 +1007,7 @@ GameObject:
   - component: {fileID: 50766495654996111}
   - component: {fileID: 50766495654996109}
   - component: {fileID: 50766495654996110}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Cylinder (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1090,7 +1090,7 @@ GameObject:
   - component: {fileID: 50766496213014646}
   - component: {fileID: 50766496213014644}
   - component: {fileID: 50766496213014645}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Cylinder (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1173,7 +1173,7 @@ GameObject:
   - component: {fileID: 886469671553881405}
   - component: {fileID: 876764407165524935}
   - component: {fileID: 867085705760375237}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Gem1Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1255,7 +1255,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4376713052642898425}
   - component: {fileID: 4376713052642898424}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1350,7 +1350,7 @@ GameObject:
   - component: {fileID: 4376713053796642901}
   - component: {fileID: 4376713053796642903}
   - component: {fileID: 4376713053796642900}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Gem1Blue (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1438,7 +1438,7 @@ GameObject:
   - component: {fileID: 9141369549512546318}
   - component: {fileID: 9141369549512546312}
   - component: {fileID: 9141369549512546313}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Tele Barrel OTU
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6348,6 +6348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colider: {fileID: 9141369549512546313}
   destroyOnUse: 1
+  respawnLocation: {fileID: 0}
   scaleLerpRate: 200
   rotLerpRate: 0.053
   angleMin: 1000
