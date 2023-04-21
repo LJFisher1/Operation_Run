@@ -11,6 +11,8 @@ public class BobUpAndDown : MonoBehaviour
     [SerializeField] float bobSpeed;
     [SerializeField] float randomOffset;
     [SerializeField] float randomSpeed;
+    [SerializeField] float bobTime = 1;
+    float bobtimeCur;
     float rOff;
     float rBob;
     bool movingUp;
@@ -31,24 +33,26 @@ public class BobUpAndDown : MonoBehaviour
         if (movingUp)
         {
             body.position = Vector3.Lerp(body.position, Vector3.up * yOff + posOg, (bobSpeed + rBob) * (bobSpeed + rBob) / (body.position - (Vector3.up * (yOff + rOff) + posOg)).magnitude * Time.deltaTime);
-            if((body.position - (Vector3.up * (yOff + rOff) + posOg)).magnitude < .1)
+            if((body.position - (Vector3.up * (yOff + rOff) + posOg)).magnitude < .1 || bobtimeCur > bobTime)
             {
                 movingUp = false;
                 rOff = Random.Range(-randomOffset, randomOffset);
                 rBob = Random.Range(-randomOffset, randomOffset);
+                bobtimeCur = 0;
             }
         }
         else
         {
             body.position = Vector3.Lerp(body.position, Vector3.down * yOff + posOg, (bobSpeed + rBob) * (bobSpeed + rBob) / (body.position - (Vector3.down * (yOff + rOff) + posOg)).magnitude * Time.deltaTime);
-            if ((body.position - (Vector3.down * (yOff + rOff) + posOg)).magnitude < .1)
+            if ((body.position - (Vector3.down * (yOff + rOff) + posOg)).magnitude < .1 || bobtimeCur > bobTime)
             {
                 movingUp = true;
                 rOff = Random.Range(-randomOffset, randomOffset);
                 rBob = Random.Range(-randomOffset, randomOffset);
+                bobtimeCur = 0;
             }
         }
 
-        
+        bobtimeCur += Time.deltaTime;
     }
 }
