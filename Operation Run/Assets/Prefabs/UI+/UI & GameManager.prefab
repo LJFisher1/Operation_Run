@@ -6885,7 +6885,7 @@ MonoBehaviour:
     text: Teleport to defeated foes and giant hourglasses
     completed: 0
   - name: Ghost Staff
-    text: Charge a seeking Ghost and see through walls
+    text: Charge a seeking Ghost
     completed: 0
   - name: Heal Cap
     text: Press X to heal.
