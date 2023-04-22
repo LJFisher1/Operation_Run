@@ -465,16 +465,16 @@ public class GameManager : MonoBehaviour , iDataPersistence
 
     public void LoadData( GameData data)
     {
-        Debug.Log(sceneIndex);
+        //Debug.Log(sceneIndex);
         this.playerHighScore = data.levels[sceneIndex].highScore;
         this.levelCompleted = data.levels[sceneIndex].completed;
         this.sensitivitySlider.GetComponent<Slider>().value = data.sensitivity / 2;
-        Debug.Log(data.levels[sceneIndex].highScore);
+        //Debug.Log(data.levels[sceneIndex].highScore);
     }
 
     public void SaveData(ref GameData data)
     {
-        Debug.Log("Trying to save " + scoreCount);
+        //Debug.Log("Trying to save " + scoreCount);
         //if level has not been completed before or the you got a new high score
         if (!data.levels[sceneIndex].completed || scoreCount > playerHighScore)
         {
