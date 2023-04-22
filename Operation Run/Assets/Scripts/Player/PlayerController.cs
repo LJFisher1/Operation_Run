@@ -68,6 +68,7 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField] float resistGroundDrag;
     [SerializeField] Vector3 debugForce;
     [SerializeField] float debugMagnitude;
+    [SerializeField] float resistThreshold;
 
     bool isPlayingFootsteps;
 
@@ -211,7 +212,7 @@ public class PlayerController : MonoBehaviour, IDamage
         {
             appliedForce = Vector3.Lerp(appliedForce, Vector3.zero, Time.deltaTime * forceDamingRate);
             float angle = Vector3.Angle(appliedForce, -move);
-            if(angle < ResitingForceAnge && move != Vector3.zero)
+            if(angle < ResitingForceAnge && move != Vector3.zero && appliedForce.magnitude < resistThreshold)
             {
                 Debug.Log("resisting");
                 appliedForce = Vector3.Lerp(appliedForce, Vector3.zero, move.magnitude * resistMultiplier);

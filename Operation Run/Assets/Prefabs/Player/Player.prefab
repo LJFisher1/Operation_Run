@@ -451,6 +451,7 @@ MonoBehaviour:
   resistGroundDrag: 3
   debugForce: {x: 0, y: 0, z: 0}
   debugMagnitude: 0
+  resistThreshold: 15
   playerHealthChange: 0
   playerManaChange: 0
   fizzleEffect: {fileID: 1999575445106175362, guid: aa94c28712fe4c14db34d040f5563381, type: 3}
