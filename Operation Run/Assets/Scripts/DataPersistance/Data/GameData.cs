@@ -19,7 +19,7 @@ public class GameData
             _name = name;
             highScore = 0;
             completed = false;
-            unlocked = false;
+            unlocked = true;
         }
     }
     public LevelData[] levels;

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
+using UnityEngine.SceneManagement;
+using static GameData;
 
 public class FileDataHandler
 {
@@ -41,6 +43,30 @@ public class FileDataHandler
             {
                 Debug.LogError("Error occured when trying to load data to file: " + fullPath + "\n" + e);
             }
+        }
+        int allScenes = SceneManager.sceneCountInBuildSettings;
+        int sceneImbalance = allScenes - loadedData.levels.Length;
+        if (sceneImbalance > 0)
+        {
+            Debug.Log("new levels have been added since last load, adjusting data.");
+            Debug.Log(loadedData.levels);
+            Debug.Log($"scenes in build {allScenes}");
+            Debug.Log($"scenes loaded {loadedData.levels.Length}");
+            Debug.Log($"scene imbalance {sceneImbalance}");
+            List<LevelData> adjustedlevels = new List<LevelData>();
+        
+            foreach(LevelData ld in loadedData.levels)
+            {
+                adjustedlevels.Add(ld);
+            }
+            for(int i = loadedData.levels.Length; i < allScenes;i++) 
+            {
+                adjustedlevels.Add(new LevelData($"Level{i}"));
+                Debug.Log($"added Level{i}");
+            }
+            loadedData.levels = adjustedlevels.ToArray();
+            Debug.Log(loadedData.levels);
+            Save(loadedData);
         }
         return loadedData;
     }
