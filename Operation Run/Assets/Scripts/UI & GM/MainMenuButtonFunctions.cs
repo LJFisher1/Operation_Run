@@ -37,12 +37,22 @@ public class MainMenuButtonFunctions : MonoBehaviour, iDataPersistence
 
     int lastCompletedLevel;
     GameData loadedData;
+    public Button PrimaryButton;
+    public Button StartButton;
+    public Button ContinueButton;
+    public Button TutorialButton;
+    public Button ApplyButton;
+    public Button QuitButton;
+    public Button CreditsBackButton;
+
+
 
     public void OpenNewGameSubMenu()
     {
         activeMenu = newGameSubmenu;
         activeMenu.SetActive(true);
         menuBlocker.SetActive(true);
+        StartButton.Select();
     }
     public void OpenContinueGameSubMenu()
     {
@@ -182,4 +192,6 @@ public class MainMenuButtonFunctions : MonoBehaviour, iDataPersistence
          yield return new WaitForSeconds(f);
          SceneManager.LoadScene(1);
      }
+
+    
 }
