@@ -433,6 +433,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
   - {fileID: 8300000, guid: 21c4a490b24ba2045bc815f7626a40ef, type: 3}
   deathVolume: 0.672
+  BackgroundMusic: {fileID: 8300000, guid: 1434a817899e8d440a023642b248836f, type: 3}
+  WinMenuMusic: {fileID: 0}
   walkSpeed: 10
   gravity: 30
   jumpSpeed: 7

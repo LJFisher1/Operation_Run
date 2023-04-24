@@ -41,8 +41,8 @@ public class PlayerController : MonoBehaviour, IDamage
     [Range(0, 1)] [SerializeField] float jumpVolume;
     [SerializeField] AudioClip[] playerDeath;
     [Range(0, 1)] [SerializeField] float deathVolume;
-    public AudioSource BackgroundMusic;
-    public AudioSource WinMenuMusic;
+    //public AudioClip BackgroundMusic;
+    //public AudioClip WinMenuMusic;
 
     [Header("----- Player Stats -----")]
     [Range(0, 100)] [SerializeField] float walkSpeed;
@@ -114,16 +114,18 @@ public class PlayerController : MonoBehaviour, IDamage
     
 
     public bool isUsingWeapon;
+    AudioSource source;
 
     // Start is called before the first frame update
     void Start()
     {
         playerCollider.enabled = true;
         GameManager.instance.FPSText.enabled=false;
-
+        
         HP = hpMax;
         MANA = manaMax;
         //headPosition = deadHeadbody.position;
+        //source.Play(BackgroundMusic);
         if (GameManager.instance.playerSpawnPosition != null) // stops game from breaking if no spawn point set. Helps with testing.
         {
             SpawnPlayer();
