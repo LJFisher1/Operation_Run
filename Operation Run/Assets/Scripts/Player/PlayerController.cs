@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour, IDamage
     [Range(0, 1)] [SerializeField] float jumpVolume;
     [SerializeField] AudioClip[] playerDeath;
     [Range(0, 1)] [SerializeField] float deathVolume;
+    public AudioSource BackgroundMusic;
+    public AudioSource WinMenuMusic;
 
     [Header("----- Player Stats -----")]
     [Range(0, 100)] [SerializeField] float walkSpeed;
