@@ -12,13 +12,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 0 Tutorial WW.unity
     guid: f60f266b45b9a314680be5c752fa48ff
   - enabled: 1
-    path: Assets/Scenes/Level 1 Maze JF.unity
+    path: Assets/Scenes/Level 1 Maze JFWWLN.unity
     guid: 998d0a5dcb2620e4dbd51db845b6059e
   - enabled: 1
     path: Assets/Scenes/Level 2 Tower JFWW.unity
     guid: 7c00b459725b0ad4b9300209d134830d
   - enabled: 1
-    path: Assets/Scenes/level 3 JF.unity
+    path: Assets/Scenes/level 3 Rooms JF.unity
     guid: ecabcf7e20be24a4b926764fa1a9acff
   - enabled: 1
     path: Assets/Scenes/Level 4 Dungeon GG.unity
