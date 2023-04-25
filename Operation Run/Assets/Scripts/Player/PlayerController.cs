@@ -375,7 +375,7 @@ public class PlayerController : MonoBehaviour, IDamage
         wModel.sharedMesh = weap.model.GetComponent<MeshFilter>().sharedMesh;
         wMaterial.sharedMaterial = weap.model.GetComponent<MeshRenderer>().sharedMaterial;
         weaponAnim.SetTrigger("Change Weapon");
-        if(GameManager.instance != null) StartCoroutine(GameManager.instance.FlashWeaponText(weapon.name));
+        if(GameManager.instance != null && gameObject.activeSelf) StartCoroutine(GameManager.instance.FlashWeaponText(weapon.name));
     }
 
 

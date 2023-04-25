@@ -183,6 +183,7 @@ public class GameManager : MonoBehaviour , iDataPersistence
             else
             {
                 GameUnpaused();
+                UpdateSensitivity();
             }
 
             activeMenu = pauseMenu;
@@ -281,7 +282,6 @@ public class GameManager : MonoBehaviour , iDataPersistence
     {
         isPaused = false;
         Time.timeScale = 1;
-        UpdateSensitivity();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         if(activeMenu != null) activeMenu.SetActive(false);
@@ -483,6 +483,6 @@ public class GameManager : MonoBehaviour , iDataPersistence
     }
     public void SaveSettings(ref GameData data) 
     {
-        
+        return;
     }
 }

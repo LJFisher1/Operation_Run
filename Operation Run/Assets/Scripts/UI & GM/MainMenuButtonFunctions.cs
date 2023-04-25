@@ -179,12 +179,12 @@ public class MainMenuButtonFunctions : MonoBehaviour, iDataPersistence
 
     public void SaveData(ref GameData data)
     {
-        throw new System.NotImplementedException();
+        return;
     }
 
     public void SaveSettings(ref GameData data)
     {
-        throw new System.NotImplementedException();
+        return;
     }
 
     public IEnumerator NewGameDelay(float f)
