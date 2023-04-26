@@ -29196,7 +29196,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh91488
+  m_Name: pb_Mesh32010
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -34549,7 +34549,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 896539303588262823, guid: 38fe2c35efebcb145aa732cee255ae08, type: 3}
       propertyPath: doorLocked
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 896539304414120127, guid: 38fe2c35efebcb145aa732cee255ae08, type: 3}
       propertyPath: m_NavMeshLayer
@@ -41263,7 +41263,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh90278
+  m_Name: pb_Mesh30802
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -45630,7 +45630,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 984641223}
   m_LocalRotation: {x: 1.1102231e-17, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -46.670002, y: 0, z: 21.96}
+  m_LocalPosition: {x: -46.670002, y: 0, z: 22.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48758,7 +48758,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8582451509887590953, guid: f8c0297a8d99e2747baeb5697c8ecb66, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -33.780003
+      value: -33.91875
       objectReference: {fileID: 0}
     - target: {fileID: 8582451509887590953, guid: f8c0297a8d99e2747baeb5697c8ecb66, type: 3}
       propertyPath: m_LocalRotation.w
@@ -51163,8 +51163,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123853473}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -11.720001, y: 0, z: 12.48}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -11.3955, y: 0, z: 12.48}
+  m_LocalScale: {x: 1, y: 1, z: 1.0763}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1357982840}
@@ -59482,7 +59482,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh91328
+  m_Name: pb_Mesh31850
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -59967,6 +59967,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1054097914}
     m_Modifications:
+    - target: {fileID: 302285679710219693, guid: 7f128d9274bff204a9c4ff6f01ec5097, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.203541
+      objectReference: {fileID: 0}
     - target: {fileID: 7882679816067141213, guid: 7f128d9274bff204a9c4ff6f01ec5097, type: 3}
       propertyPath: m_Name
       value: Ghost Mini
@@ -62168,7 +62172,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh88924
+  m_Name: pb_Mesh29460
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -76610,7 +76614,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7882679816067141221, guid: 7f128d9274bff204a9c4ff6f01ec5097, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.19
+      value: -7.269142
       objectReference: {fileID: 0}
     - target: {fileID: 7882679816067141221, guid: 7f128d9274bff204a9c4ff6f01ec5097, type: 3}
       propertyPath: m_LocalPosition.y
@@ -77518,7 +77522,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh90408
+  m_Name: pb_Mesh30930
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -89111,7 +89115,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh89486
+  m_Name: pb_Mesh30022
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -93797,7 +93801,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh90184
+  m_Name: pb_Mesh30708
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
