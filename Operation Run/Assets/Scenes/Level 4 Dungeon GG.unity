@@ -91108,7 +91108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 0
-  spawnObject: {fileID: 1084527200620447728, guid: 52c0b751071f324479b6a804a670c91d, type: 3}
+  spawnObject: {fileID: 1084527200620447728, guid: 14f7ea33655e73e40a37b74762317108, type: 3}
   chestLid: {fileID: 7611217285510654307}
   openQuaternion: {fileID: 9121663083726542265}
   spawnPosition: {fileID: 8283610771638390490}
