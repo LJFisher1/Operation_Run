@@ -45,7 +45,7 @@ public class LaserAttack : MonoBehaviour, IEnemyAttack
     }
     private void Update()
     {
-        if (!HasEnemy)
+        if (!HasEnemy && GameManager.instance.playerController.IsAlive)
         {
             if (takingAim || telegraphing)
             {
