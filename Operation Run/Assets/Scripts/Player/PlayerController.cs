@@ -367,6 +367,8 @@ public class PlayerController : MonoBehaviour, IDamage
     public void ChangeWeapon(Weapon weap)
     {
         //Debug.Log("ChangeWeapon");
+        if(weapon!=weap)
+        {
         weapon = weap;
         wDamage = weap.damage;
         wRange = weap.range;
@@ -376,6 +378,7 @@ public class PlayerController : MonoBehaviour, IDamage
         wMaterial.sharedMaterial = weap.model.GetComponent<MeshRenderer>().sharedMaterial;
         weaponAnim.SetTrigger("Change Weapon");
         if(GameManager.instance != null && gameObject.activeSelf) StartCoroutine(GameManager.instance.FlashWeaponText(weapon.name));
+        }
     }
 
 
