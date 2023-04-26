@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour , iDataPersistence
     public GameObject HealItemPopup;
     public GameObject hpPickup;
     public GameObject manaPickup;
+    public GameObject manaFull;
     public TextMeshProUGUI HealCountText;
     public TextMeshProUGUI scoreCountText;
     public GameObject weaponChangePopup;
@@ -400,6 +401,12 @@ public class GameManager : MonoBehaviour , iDataPersistence
         GameManager.instance.usedKeyPopup.SetActive(true);
         yield return new WaitForSeconds(2f);
         GameManager.instance.usedKeyPopup.SetActive(false);
+    }
+    public IEnumerator FullManaFlash()
+    {
+        GameManager.instance.manaFull.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        GameManager.instance.manaFull.SetActive(false);
     }
 
     public IEnumerator NeedMoreGems()

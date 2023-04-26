@@ -18,6 +18,10 @@ public class ManaFill : MonoBehaviour
                 GameManager.instance.playerController.PlayAud(audioClips, volumeAudio);
                 Destroy(gameObject);
             }
+            else
+            {
+                StartCoroutine(GameManager.instance.FullManaFlash());
+            }
         }
     }
 }
