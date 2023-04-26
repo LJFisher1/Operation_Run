@@ -40,7 +40,8 @@ public class EnemyAI : MonoBehaviour, IDamage
     bool destinationChosen;
     float angleToPlayer;
     float stoppingDistanceOrigin;
-    public Vector3 playerDirection;
+    public Vector3 shootDirection;
+    public Vector3 lookDirection;
     Vector3 startingPosition;
     Vector3 faceDirection;
     public bool IsAlive { get => (HP > 0); }
@@ -119,12 +120,13 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     bool CanSeePlayer()
     {
-        playerDirection = (GameManager.instance.player.transform.position - projectilePosition.position).normalized;
+        shootDirection = (GameManager.instance.player.transform.position - projectilePosition.position).normalized;
+        lookDirection = (GameManager.instance.player.transform.position - headPosition.position).normalized;
         //Debug.DrawRay(headPosition.position, playerDirection*200);
         //Debug.DrawLine(headPosition.position, GameManager.instance.player.transform.position, Color.blue);
-        angleToPlayer = Vector3.Angle(new Vector3(playerDirection.x, 0, playerDirection.z), transform.forward);
+        angleToPlayer = Vector3.Angle(new Vector3(lookDirection.x, 0, lookDirection.z), transform.forward);
         RaycastHit hit;
-        if (Physics.Raycast(projectilePosition.position, playerDirection, out hit))
+        if (Physics.Raycast(headPosition.position, lookDirection, out hit))
         {
             if (hit.collider.CompareTag("Player") && angleToPlayer <= sightAngle)
             {
@@ -148,7 +150,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     void FacePlayer()
     {
-        faceDirection = (new Vector3(playerDirection.x, 0, playerDirection.z));
+        faceDirection = (new Vector3(lookDirection.x, 0, lookDirection.z));
         Quaternion rot = Quaternion.LookRotation(faceDirection);
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * playerFaceSpeed);
     }

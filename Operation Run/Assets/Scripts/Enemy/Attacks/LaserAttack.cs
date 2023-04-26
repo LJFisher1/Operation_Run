@@ -45,7 +45,7 @@ public class LaserAttack : MonoBehaviour, IEnemyAttack
     }
     private void Update()
     {
-        if (!HasEnemy)
+        if (!HasEnemy && GameManager.instance.playerController.IsAlive)
         {
             if (takingAim || telegraphing)
             {
@@ -137,7 +137,7 @@ public class LaserAttack : MonoBehaviour, IEnemyAttack
     bool WallCheck(ref Vector3 wallhit)
     {
         RaycastHit hit;
-        Ray ray = new(enemy.projectilePosition.position, enemy.playerDirection);
+        Ray ray = new(enemy.projectilePosition.position, enemy.shootDirection);
         if (Physics.Raycast(ray, out hit, range))
         {
             if (!hit.transform.CompareTag("Player"))

@@ -62,7 +62,7 @@ public class ChargeAttack : MonoBehaviour, IEnemyAttack
                 {
                     dam.TakeDamage(damage);
                 }
-                GameManager.instance.playerController.ApplyForce(knockBackForce * (enemy.playerDirection + bouncBackDirInfluence));
+                GameManager.instance.playerController.ApplyForce(knockBackForce * (enemy.shootDirection + bouncBackDirInfluence));
             }
             else if(other.CompareTag("breakablewall"))
             {
@@ -89,7 +89,7 @@ public class ChargeAttack : MonoBehaviour, IEnemyAttack
     {
         //enemy.agent.isStopped = true;
         dashing = true;
-        dashDir = enemy.playerDirection;
+        dashDir = enemy.shootDirection;
         dashDir = new(dashDir.x, dashDir.y * verticalInfluenceMult, dashDir.z);
         //shieldClone = Instantiate(shield,transform.position,transform.rotation);
         dashCollider.GetComponent<MeshRenderer>().enabled = true;

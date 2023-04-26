@@ -29,7 +29,7 @@ public class ShotgunAttack : MonoBehaviour,IEnemyAttack
     {
         float angle = Random.Range(-spreadAngle, spreadAngle);
         Quaternion q = Quaternion.Euler(angle, 0, 0);
-        return q * enemy.playerDirection + RandomSpreadOffset();
+        return q * enemy.shootDirection + RandomSpreadOffset();
     }
 
     Vector3 RandomSpreadOffset()
