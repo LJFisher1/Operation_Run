@@ -422,14 +422,14 @@ public class GameManager : MonoBehaviour , iDataPersistence
 
     public void StartSlowMotion(float sloMoTimeScale = 0.5f)
     {
-        sloMoTimeScale = Mathf.Clamp(sloMoTimeScale, 0, 1);
+        //sloMoTimeScale = Mathf.Clamp(sloMoTimeScale, 0, 1);
         Time.timeScale = sloMoTimeScale;
         Time.fixedDeltaTime = timeFixedOriginal * sloMoTimeScale;
     }
 
     public void StopSlowMotion()
     {
-        Time.timeScale = timeScaleOriginal;
+        Time.timeScale = 1;
         Time.fixedDeltaTime = timeFixedOriginal;
     }
     public void UpdateScore(int scorechange, string type = "default")
