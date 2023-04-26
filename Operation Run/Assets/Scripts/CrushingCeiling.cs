@@ -13,14 +13,19 @@ public class CrushingCeiling : MonoBehaviour
     [Range(0.1f, 5)][SerializeField] float speedUp;
     [Range(0.1f, 3)][SerializeField] float resetTime;
     [Range(0.1f, 100)][SerializeField] int damage;
+    [Range(0, 1)][SerializeField] float damageRate;
+    [Range(0, 1)][SerializeField] float volume;
     [Header("* Components")]
     [SerializeField] BoxCollider ceiling;
     [SerializeField] BoxCollider floor;
     [SerializeField] Transform down;
+    [SerializeField] AudioClip[] audioClips;
+    private AudioSource audioSource;
     private Vector3 up;
 
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         active = false;
         ceiling.enabled = false;
         floor.enabled = true;
@@ -45,6 +50,8 @@ public class CrushingCeiling : MonoBehaviour
 
     void DropCeiling()
     {
+        audioSource.pitch = Random.Range(1f, 0.5f);
+        audioSource.PlayOneShot(audioClips[0]);
         active = true;
         ceiling.enabled = true;
         floor.enabled = false;
@@ -59,9 +66,11 @@ public class CrushingCeiling : MonoBehaviour
 
     IEnumerator DamagePlayer(IDamage other)
     {
+        audioSource.pitch = Random.Range(1f, 0.5f);
+        audioSource.PlayOneShot(audioClips[1]);
         ceiling.enabled = false;
         other.TakeDamage(damage);
-        yield return new WaitForSeconds(0f);
+        yield return new WaitForSeconds(damageRate);
         ceiling.enabled = true;
     }
 
