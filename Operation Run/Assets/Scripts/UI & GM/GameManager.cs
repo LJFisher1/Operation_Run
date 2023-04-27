@@ -440,6 +440,10 @@ public class GameManager : MonoBehaviour , iDataPersistence
         {
             scoretable[type] += scorechange;
         }
+        if(scoreCount < 0)
+        {
+            scoreCount = 0;
+        }
     }
     public void SetScore(int scorechange)
     {
