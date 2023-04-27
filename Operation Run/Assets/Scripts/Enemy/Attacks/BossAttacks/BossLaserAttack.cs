@@ -52,7 +52,7 @@ public class BossLaserAttack : MonoBehaviour, IBossAttack1
     }
     private void Update()
     {
-        if (!HasEnemy)
+        if (!HasEnemy && GameManager.instance.playerController.IsAlive)
         {
             if (takingAim || telegraphing)
             {

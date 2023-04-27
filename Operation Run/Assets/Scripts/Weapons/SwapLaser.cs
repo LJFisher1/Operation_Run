@@ -75,9 +75,11 @@ public class SwapLaser : MonoBehaviour, IBullet
     }
     IEnumerator SlowMo()
     {
+        Debug.Log("slow mo began");
         GameManager.instance.StartSlowMotion(.1f);
         yield return new WaitForSecondsRealtime(sloMoDuration);
         GameManager.instance.StopSlowMotion();
+        Debug.Log("slow mo ended");
         Destroy(gameObject);
     }
 

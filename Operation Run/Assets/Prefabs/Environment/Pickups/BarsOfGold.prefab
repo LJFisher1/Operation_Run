@@ -54,6 +54,7 @@ MonoBehaviour:
   audGoldPickup:
   - {fileID: 8300000, guid: abdbbfd33a46f4549987385f85c536b5, type: 3}
   audGoldPickupVol: 0.194
+  scoreValue: 10
 --- !u!135 &1084527200620447735
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4968,6 +4969,7 @@ MonoBehaviour:
   bobSpeed: 0.2
   randomOffset: 0.02
   randomSpeed: 0.01
+  bobTime: 1
 --- !u!1 &3136593145256760313
 GameObject:
   m_ObjectHideFlags: 0
@@ -4979,7 +4981,7 @@ GameObject:
   - component: {fileID: 3137410005453739043}
   - component: {fileID: 3166312965731135671}
   - component: {fileID: 3158739052963344173}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Bars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
