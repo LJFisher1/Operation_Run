@@ -17250,8 +17250,8 @@ MonoBehaviour:
   level4Score: {fileID: 812918900}
   level5Score: {fileID: 1868561950}
   level6Score: {fileID: 1579963859}
-  level7Score: {fileID: 205669297}
-  level8Score: {fileID: 2140639066}
+  level7Score: {fileID: 1089327550}
+  level8Score: {fileID: 1340928085}
   SensitivitySlider: {fileID: 0}
   PrimaryButton: {fileID: 0}
   StartButton: {fileID: 879560814}

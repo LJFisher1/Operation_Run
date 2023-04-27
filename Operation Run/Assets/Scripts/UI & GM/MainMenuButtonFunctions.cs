@@ -101,16 +101,16 @@ public class MainMenuButtonFunctions : MonoBehaviour, iDataPersistence
         }
         if (loadedData.levels[6].highScore != 0)
         {
-            level5Score.text = loadedData.levels[6].highScore.ToString();
+            level6Score.text = loadedData.levels[6].highScore.ToString();
         }
         if (loadedData.levels[7].highScore != 0)
         {
-            level5Score.text = loadedData.levels[7].highScore.ToString();
+            level7Score.text = loadedData.levels[7].highScore.ToString();
         }
-        //if (loadedData.levels[8].highScore != 0)
-        //{
-        //    level5Score.text = loadedData.levels[8].highScore.ToString();
-        //}
+        if (loadedData.levels[8].highScore != 0)
+        {
+            level5Score.text = loadedData.levels[8].highScore.ToString();
+        }
     }
     public void OpenSettingsSubMenu()
     {
