@@ -38286,7 +38286,7 @@ MonoBehaviour:
   damageDelay: 0.2
   damage: 3
   hideOnPlay: 0
-  isOutOfBounds: 0
+  isOutOfBounds: 1
 --- !u!33 &915639927
 MeshFilter:
   m_ObjectHideFlags: 10
