@@ -34,6 +34,7 @@ public class MainMenuButtonFunctions : MonoBehaviour, iDataPersistence
     public TextMeshProUGUI level6Score;
     public TextMeshProUGUI level7Score;
     public TextMeshProUGUI level8Score;
+    public Slider SensitivitySlider;
 
     int lastCompletedLevel;
     GameData loadedData;
@@ -136,6 +137,13 @@ public class MainMenuButtonFunctions : MonoBehaviour, iDataPersistence
         activeMenu.SetActive(false);
         activeMenu = null;
         menuBlocker.SetActive(false);
+        UpdatePlayerSensitivity();
+
+    }
+
+    public void Apply()
+    {
+        UpdatePlayerSensitivity();
     }
 
     public void Quit()
@@ -191,6 +199,11 @@ public class MainMenuButtonFunctions : MonoBehaviour, iDataPersistence
      {
          yield return new WaitForSeconds(f);
          SceneManager.LoadScene(1);
+     }
+
+     public void UpdatePlayerSensitivity()
+     {
+        //GameManager.instance.UpdateSensitivity(SensitivitySlider.value);
      }
 
     
