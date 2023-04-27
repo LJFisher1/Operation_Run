@@ -50,6 +50,7 @@ MonoBehaviour:
   damageDelay: 0.2
   damage: 5
   hideOnPlay: 0
+  isOutOfBounds: 0
 --- !u!33 &4354347050957618097
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -111,8 +112,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000002, y: 1.25, z: 1.0000004}
-  m_Center: {x: 0.000000029802322, y: 0.26666665, z: 0.000000059604645}
+  m_Size: {x: 1.0000002, y: 1.4223907, z: 1.0000004}
+  m_Center: {x: 0.000000038275953, y: 0.35286197, z: 0.00000004294455}
 --- !u!1 &3168111425732199703
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,6 +164,7 @@ MonoBehaviour:
   damageDelay: 0.2
   damage: 5
   hideOnPlay: 0
+  isOutOfBounds: 0
 --- !u!33 &2819780642598168768
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -224,8 +226,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000002, y: 1.25, z: 1.0000004}
-  m_Center: {x: 0.000000029802322, y: 0.26666665, z: 0.000000059604645}
+  m_Size: {x: 1.0000002, y: 1.4223907, z: 1.0000004}
+  m_Center: {x: 0.000000038275953, y: 0.35286197, z: 0.00000004294455}
 --- !u!1 &4305274163248724967
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,6 +278,7 @@ MonoBehaviour:
   damageDelay: 0.2
   damage: 5
   hideOnPlay: 0
+  isOutOfBounds: 0
 --- !u!33 &5274676059386356708
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -337,8 +340,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000002, y: 1.25, z: 1.0000004}
-  m_Center: {x: 0.000000029802322, y: 0.26666665, z: 0.000000059604645}
+  m_Size: {x: 1.0000002, y: 1.4223907, z: 1.0000004}
+  m_Center: {x: 0.000000038275953, y: 0.35286197, z: 0.00000004294455}
 --- !u!1 &8454072559997207192
 GameObject:
   m_ObjectHideFlags: 0
