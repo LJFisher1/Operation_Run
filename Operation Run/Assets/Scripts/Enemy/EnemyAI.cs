@@ -59,8 +59,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         if (agent.isActiveAndEnabled)
         {
-            animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
-
+            
             if (playerInRange)
             {
                 if (!CanSeePlayer() && Vector3.Distance(GameManager.instance.player.transform.position, startingPosition) > kiteDistance)
@@ -77,11 +76,11 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     IEnumerator Roam()
     {
+        animator.SetFloat("Speed", agent.velocity.magnitude * 3/agent.speed);
         if (hasRoute == false)
         {
             if (!destinationChosen && agent.remainingDistance < 0.05f)
             {
-                animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
                 destinationChosen = true;
                 agent.stoppingDistance = 1;
                 yield return new WaitForSeconds(waitTime);
@@ -97,7 +96,6 @@ public class EnemyAI : MonoBehaviour, IDamage
         }
         else
         {
-            animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
             agent.stoppingDistance = 1;
 
             agent.SetDestination(routePositions[posItter].transform.position);
@@ -132,6 +130,7 @@ public class EnemyAI : MonoBehaviour, IDamage
             {
                 agent.stoppingDistance = stoppingDistanceOrigin;
                 agent.SetDestination(GameManager.instance.player.transform.position + (Random.insideUnitSphere * varStopLocation));
+
                 if (agent.remainingDistance < agent.stoppingDistance)
                 {
                     FacePlayer();
@@ -150,6 +149,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     void FacePlayer()
     {
+        animator.SetFloat("Speed", agent.velocity.magnitude * 3 / agent.speed);
         faceDirection = (new Vector3(lookDirection.x, 0, lookDirection.z));
         Quaternion rot = Quaternion.LookRotation(faceDirection);
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * playerFaceSpeed);
