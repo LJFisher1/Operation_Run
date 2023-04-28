@@ -53,7 +53,7 @@ public class MainMenuButtonFunctions : MonoBehaviour, iDataPersistence
         activeMenu = newGameSubmenu;
         activeMenu.SetActive(true);
         menuBlocker.SetActive(true);
-        StartButton.Select();
+        //StartButton.Select();
     }
     public void OpenContinueGameSubMenu()
     {
